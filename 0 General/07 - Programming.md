@@ -1,6 +1,37 @@
 
 
-## 
+# Programming
+
+
+- [Programming](#programming)
+  - [Programming-Related Careers](#programming-related-careers)
+  - [The Software Development Life-Cycle (SDLC)](#the-software-development-life-cycle-sdlc)
+    - [Agile & Scrum](#agile--scrum)
+    - [1) Requirements Gathering](#1-requirements-gathering)
+    - [2) Design](#2-design)
+    - [3) Implementation](#3-implementation)
+    - [4) Testing](#4-testing)
+    - [5) Deployment](#5-deployment)
+    - [6) Maintenance](#6-maintenance)
+  - [Wireframing Tools](#wireframing-tools)
+  - [Diagramming Tools](#diagramming-tools)
+
+## Programming-Related Careers
+
+- Software Development
+  - Desktop Development
+  - Mobile Development
+  - Web Development
+  - Embedded Systems
+- Project Management
+- Technical Writing
+- Design
+- Data Science
+- Database Administration
+- Quality Assurance
+- Information Technology
+- Network Administration
+
 
 ## The Software Development Life-Cycle (SDLC)
 
@@ -30,27 +61,6 @@ This phase is arguably the most important, because it defines the problem to be 
 The design phase involves defining the structure and mechanics of the solution. This involves researching and deciding which libraries and frameworks will be used. It may also involve prototyping and writing out psuedocode. Wireframes are drawings of web pages or other UI to understand the functionality and layout. Mockups show what the end-product will look like. Database diagrams show the the tables, columns and relationships. Use case diagrams show the interaction of the user with the system. Infrastructure diagrams show the interaction between the different components of the application (server, database, APIs, etc).
 
 
-#### Wireframing Tools
-
-- https://wireframe.cc/
-- https://www.lucidchart.com/
-- https://mockflow.com/
-- http://pencil.evolus.vn/
-- https://www.gliffy.com/
-- https://balsamiq.com/ (paid)
-
-#### Diagramming Tools
-
-- [Google Drawings](https://docs.google.com/drawings/)
-- [Pencil Project](https://pencil.evolus.vn/)
-- [yEd Graph Editor](https://www.yworks.com/products/yed)
-- [draw.io](https://www.draw.io/)
-- [OpenOffice Draw](https://www.openoffice.org/product/draw.html)
-- [LibreOffice Draw](https://www.libreoffice.org/)
-- [Lucid Chart](https://www.lucidchart.com/) (free w/ limitations)
-- [Creately](https://creately.com) (free w/ limitations)
-- [Microsoft Visio](https://products.office.com/en-us/visio/flowchart-software?tab=tabs-1) (paid)
-- [Dia](http://dia-installer.de/)
 
 ### 3) Implementation
 
@@ -75,3 +85,24 @@ Deployment involves putting the application into production, an environment wher
 
 Software does not degrade like physical objects, but it still requires maintenance to keep up with advancing requirements, browsers, libraries, etc.
 
+## Wireframing Tools
+
+- https://wireframe.cc/
+- https://www.lucidchart.com/
+- https://mockflow.com/
+- http://pencil.evolus.vn/
+- https://www.gliffy.com/
+- https://balsamiq.com/ (paid)
+
+## Diagramming Tools
+
+- [Google Drawings](https://docs.google.com/drawings/)
+- [Pencil Project](https://pencil.evolus.vn/)
+- [yEd Graph Editor](https://www.yworks.com/products/yed)
+- [draw.io](https://www.draw.io/)
+- [OpenOffice Draw](https://www.openoffice.org/product/draw.html)
+- [LibreOffice Draw](https://www.libreoffice.org/)
+- [Lucid Chart](https://www.lucidchart.com/) (free w/ limitations)
+- [Creately](https://creately.com) (free w/ limitations)
+- [Microsoft Visio](https://products.office.com/en-us/visio/flowchart-software?tab=tabs-1) (paid)
+- [Dia](http://dia-installer.de/)
