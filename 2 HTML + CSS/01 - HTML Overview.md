@@ -1,6 +1,15 @@
 
 # HTML Overview
 
+- [HTML Overview](#html-overview)
+  - [HTML Syntax](#html-syntax)
+  - [Void Elements](#void-elements)
+  - [Page Template](#page-template)
+  - [Meta Tags](#meta-tags)
+  - [Comments](#comments)
+  - [Block and Inline Elements](#block-and-inline-elements)
+  - [Preprocessors](#preprocessors)
+
 [HTML](https://en.wikipedia.org/wiki/HTML) stands for 'hypertext markup language', hypertext meaning that it also contains multimedia such as images, sound, and video, markup language meaning it's for formatting. HTML is the skeleton of a page, forming its fundamental structure. HTML is displayed, not 'run' like Python. You can read more about HTML on the [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML) or [w3schools](https://www.w3schools.com/html/default.asp).
 
 HTML5 is the latest standard of HTML, and includes support for canvas and video elements, semantic elements, and much more. All modern browsers support HTML5, but some older browsers may not. Certain businesses are limited to older browsers, so you may need to write code that's compatible with them. You can view browser compatibility [here](https://html5test.com/results/desktop.html).

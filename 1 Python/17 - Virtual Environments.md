@@ -1,5 +1,17 @@
 # VirtualEnv
 
+- [VirtualEnv](#virtualenv)
+  - [Overview](#overview)
+  - [Install](#install)
+  - [Create](#create)
+  - [Activate](#activate)
+  - [Running Python](#running-python)
+  - [Freeze](#freeze)
+  - [Deactivate](#deactivate)
+
+
+## Overview
+
 If your Python interpreter and packages are installed globally, how can you run multiple different Python programs, each with its own interpreter and package dependencies? A **virtualenv** is a way to isolate dependencies and swap them out quickly as we move between them. A virtualenv is an isolated installation of Python and packages, it is just a directory that contains a version of the Python interpreter, the standard library, a set of installed packages, and some scripts to enable and disable itself. You can read more about virtualenv [here](https://virtualenv.pypa.io/en/stable/).
 
 When you **activate** a virtualenv, any commands that deal with Python or packages will only affect further commands inside the virtualenv. You should create a virtualenv for each separate project you're working on that needs packages. Realize that virtualenv commands are totally unrelated to Git commands. Changing your Git branch will not modify your virtualenv; changing your virtualenv will not change your Git commands.

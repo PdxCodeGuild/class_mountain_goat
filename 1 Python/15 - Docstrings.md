@@ -1,6 +1,12 @@
 
 # Docstrings
 
+- [Docstrings](#docstrings)
+  - [Example](#example)
+  - [`help()`, `__doc__` and `pydoc`](#help-doc-and-pydoc)
+  - [Doctests](#doctests)
+  - [Generating Documentation](#generating-documentation)
+
 Docstrings are used to provide documentation of source code. Docstrings help those reading the code to better understand what each part means.
 
 Docstrings are defined by triple-quoted strings, you can use single- or double-quoted strings. Check out [PEP 257](https://www.python.org/dev/peps/pep-0257/) for docstring conventions. Docstrings always immediately follow the part of code to which they pretain.

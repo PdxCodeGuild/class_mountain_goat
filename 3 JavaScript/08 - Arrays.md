@@ -1,6 +1,8 @@
 
 # Arrays
 
+- [Arrays](#arrays)
+
 
 Arrays are ordered, linear collections of elements. They can hold elements of any type, and elements of different types simultaneously. You can find more info [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and [here](https://www.w3schools.com/jsref/jsref_obj_array.asp).
 

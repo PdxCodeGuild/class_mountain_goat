@@ -1,6 +1,8 @@
 
 # Form Validation
 
+- [Form Validation](#form-validation)
+
 There are two ways of doing form validation. You can either use [HTML5's pattern attribute](../../2%20HTML%20+%20CSS/docs/12%20-%20HTML%20Forms.md#the-pattern-attribute), or you can use JavaScript. While the `pattern` attribute is quick and easy, JavaScript gives you more control. You can read more about regex in JavaScript on the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions).
 
 It's important to note that regular expressions are _not_ a standardized language. Each implementing language does them slightly differently. Regular expressions in JS are slightly different than those in Python. To write them out in JS, use a regexp literal, which is the pattern surrounded by forward slashes `/`.

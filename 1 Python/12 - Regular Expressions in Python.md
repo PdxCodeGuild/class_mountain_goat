@@ -1,5 +1,11 @@
 # Regular Expressions in Python
 
+- [Regular Expressions in Python](#regular-expressions-in-python)
+  - [Raw Strings](#raw-strings)
+  - [Matching and Searching](#matching-and-searching)
+  - [Splitting](#splitting)
+  - [Compiling Regular Expressions](#compiling-regular-expressions)
+
 You can find out more about regular expressions [here](https://docs.python.org/3.6/howto/regex.html#regex-howto) and [here](https://docs.python.org/3.6/library/re.html#re-syntax).
 
 ## Raw Strings

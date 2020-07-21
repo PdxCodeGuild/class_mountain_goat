@@ -1,5 +1,19 @@
 # Exception Handling
 
+- [Exception Handling](#exception-handling)
+  - [Common Types of Exceptions](#common-types-of-exceptions)
+    - [SyntaxError](#syntaxerror)
+    - [IndentationError](#indentationerror)
+    - [NameError](#nameerror)
+    - [TypeError](#typeerror)
+    - [IndexError](#indexerror)
+    - [KeyError](#keyerror)
+    - [ValueError](#valueerror)
+  - [Raising Exceptions](#raising-exceptions)
+  - [Catching Exceptions](#catching-exceptions)
+  - [Else and Finally](#else-and-finally)
+  - [Writing Custom Exceptions](#writing-custom-exceptions)
+
 Exceptions are raised by Python when it can't interpret what your program is trying to do. You can read more about exceptions in the [official docs](https://docs.python.org/3.6/tutorial/errors.html).
 
 For example, the following occurs when we attempt to concatenate a string an an int (e.g. `print('your age is: ' + 23)`)

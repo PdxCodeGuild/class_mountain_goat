@@ -1,6 +1,16 @@
 
 # Lists and Tuples
 
+- [Lists and Tuples](#lists-and-tuples)
+  - [Lists](#lists)
+    - [List Operations](#list-operations)
+    - [Python List Functions](#python-list-functions)
+  - [List Comprehensions](#list-comprehensions)
+    - [Transforming Elements](#transforming-elements)
+    - [Filtering Elements](#filtering-elements)
+    - [Nested Comprehensions](#nested-comprehensions)
+  - [Tuples](#tuples)
+
 ## Lists
 
 

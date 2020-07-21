@@ -1,6 +1,11 @@
 
 # Objects
 
+- [Objects](#objects)
+  - [Overview](#overview)
+  - [Objects as Dictionaries](#objects-as-dictionaries)
+  - [Navigating Data](#navigating-data)
+
 
 ## Overview
 

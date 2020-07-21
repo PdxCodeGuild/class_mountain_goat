@@ -1,6 +1,20 @@
 
 # Booleans, Comparisons, and Conditionals
 
+- [Booleans, Comparisons, and Conditionals](#booleans-comparisons-and-conditionals)
+  - [Booleans](#booleans)
+    - [And: `and`](#and-and)
+    - [Or: `or`](#or-or)
+    - [Not: `not`](#not-not)
+  - [Comparisons](#comparisons)
+    - [Shorthand: a < b < c](#shorthand-a--b--c)
+    - [Shorthand: a == b == c](#shorthand-a--b--c-1)
+    - [in, is, not](#in-is-not)
+  - [Conditionals: `if` `elif` `else`](#conditionals-if-elif-else)
+    - [Short-Circuited Evaluation](#short-circuited-evaluation)
+    - [Shorthand: x if c else y](#shorthand-x-if-c-else-y)
+    - [Truthy and Falsey](#truthy-and-falsey)
+
 ## Booleans
 
 Booleans are one of the built-in types, and represent either `True` or `False`.

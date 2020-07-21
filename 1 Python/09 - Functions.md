@@ -1,5 +1,20 @@
 # Functions
 
+- [Functions](#functions)
+  - [Built-In Functions](#built-in-functions)
+  - [Defining Functions](#defining-functions)
+  - [Parameters](#parameters)
+    - [Passing by Position](#passing-by-position)
+    - [Optional Arguments](#optional-arguments)
+    - [Passing by Keyword](#passing-by-keyword)
+    - [\*args & \*\*kwargs](#args--kwargs)
+  - [Returning](#returning)
+    - [Implicit Return - None](#implicit-return---none)
+    - [Returning Multiple Values](#returning-multiple-values)
+  - [Decorators](#decorators)
+  - [Recursion](#recursion)
+  - [Lambda Functions](#lambda-functions)
+
 Functions are isolated pieces of code that take input, perform some operation, and return a result. Functions we've used so far include `input()`, `print()`, `len()`, etc. Python provides many built-in functions for you to use. For all the built-in functions, check the [official docs](https://docs.python.org/3/library/functions.html)
 
 ## Built-In Functions

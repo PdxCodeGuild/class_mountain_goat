@@ -1,5 +1,15 @@
 # File IO
 
+- [File IO](#file-io)
+  - [Relative and Absolute Paths](#relative-and-absolute-paths)
+  - [Opening Files](#opening-files)
+  - [Modes](#modes)
+  - [Encoding](#encoding)
+  - [Reading](#reading)
+  - [Writing](#writing)
+  - [Examples](#examples)
+  - [Traversing Directories](#traversing-directories)
+
 Often programs will want to read or write data on the hard-drive. The core python library provides several different tools for manipulating files. The built-in functions `open` and `close` use the [io module](https://docs.python.org/3.6/library/io.html). This course doesn't cover working with functions that process binary or raw data, you can read about those [here](https://docs.python.org/3/library/io.html#buffered-streams) and [here](https://docs.python.org/3/library/io.html#io.RawIOBase) if you're curious.
 
 

@@ -1,5 +1,18 @@
 # CSS Selectors
 
+- [CSS Selectors](#css-selectors)
+  - [Overview](#overview)
+    - [Simple Selectors](#simple-selectors)
+    - [Combining Selectors](#combining-selectors)
+  - [Tag Selector](#tag-selector)
+  - [Class Selector](#class-selector)
+  - [ID Selector](#id-selector)
+  - [Attribute Selector](#attribute-selector)
+  - [Universal Selector](#universal-selector)
+  - [Using Multiple Selectors](#using-multiple-selectors)
+  - [Descendant Selector](#descendant-selector)
+  - [Child Selector](#child-selector)
+
 You can find more info [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Simple_selectors), [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors), and [here](https://www.w3schools.com/cssref/css_selectors.asp). To get some practice with selectors, try [this](https://flukeout.github.io/).
 
 ## Overview

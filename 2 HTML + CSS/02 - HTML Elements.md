@@ -1,6 +1,31 @@
 
 # HTML Elements
 
+- [HTML Elements](#html-elements)
+  - [Overview](#overview)
+    - [Common Elements](#common-elements)
+    - [Interactive Elements](#interactive-elements)
+    - [Text Formatting Elements](#text-formatting-elements)
+    - [Semantic Elements](#semantic-elements)
+    - [Common Attributes](#common-attributes)
+  - [Common Elements](#common-elements-1)
+    - [Header Tags](#header-tags)
+    - [Paragraph Tags](#paragraph-tags)
+    - [Quotes and Block-Quotes](#quotes-and-block-quotes)
+    - [Pre-formatted Text](#pre-formatted-text)
+    - [Lines and Breaks](#lines-and-breaks)
+    - [Anchor Tags](#anchor-tags)
+    - [Image Tags](#image-tags)
+    - [Division Tags](#division-tags)
+    - [Span Tags](#span-tags)
+    - [Tables](#tables)
+    - [Ordered and Unordered Lists](#ordered-and-unordered-lists)
+  - [Interactive Elements](#interactive-elements-1)
+    - [Buttons](#buttons)
+    - [Input](#input)
+    - [Dropdown Lists](#dropdown-lists)
+  - [Text Formatting Elements](#text-formatting-elements-1)
+
 Many of these come with default styling from the browser. However all can be altered using CSS, thus their meaning is largely what you give to them. For a complete list of tags, look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and [here](https://www.w3schools.com/tags/).
 
 

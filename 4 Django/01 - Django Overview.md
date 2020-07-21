@@ -5,6 +5,10 @@
   - [What is Django?](#what-is-django)
   - [Management Commands](#management-commands)
   - [Custom Management Commands](#custom-management-commands)
+  - [Resources](#resources)
+    - [Learn](#learn)
+    - [Libraries](#libraries)
+    - [Tools](#tools)
 
 
 
@@ -61,3 +65,22 @@ class Command(BaseCommand):
 ```
 
 Now you can execute this function using `python manage.py <command name>`. Any parameters you write after the `<command name>` will be passed to the `handle` function.
+
+
+
+## Resources
+
+### Learn
+
+- [official tutorial](https://docs.djangoproject.com/en/3.0/intro/tutorial01/)
+- [django girls tutorial](https://tutorial.djangogirls.org/en/)
+- [8-hour video (uses Django 1.11)](https://www.youtube.com/watch?v=yDv5FIAeyoY)
+- [fullstack python](https://www.fullstackpython.com/django.html)
+
+### Libraries
+
+- [django packages](https://djangopackages.org/): a library of django libraries
+
+### Tools
+
+- [SQLite Browser](http://sqlitebrowser.org/)

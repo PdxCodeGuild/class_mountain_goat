@@ -1,6 +1,23 @@
 
 # Classes
 
+- [Classes](#classes)
+  - [Types](#types)
+  - [Initializers](#initializers)
+  - [Methods](#methods)
+  - [Static Variables](#static-variables)
+  - [Static Methods](#static-methods)
+  - [Private Variables](#private-variables)
+  - [Private Methods](#private-methods)
+  - [Inheritance](#inheritance)
+    - [Multiple Inheritance](#multiple-inheritance)
+  - [Dunder Methods](#dunder-methods)
+    - [Dunder Methods Overview](#dunder-methods-overview)
+    - [\_\_str__](#str)
+    - [\_\_repr__](#repr)
+    - [\_\_eq__ and \_\_neq__](#eq-and-neq)
+    - [\_\_getitem__ and \_\_len__](#getitem-and-len)
+
 Classes, like functions and modules, are another of the major building-blocks of a python program. They represent the grouping of data and functions which together serve a common purpose.
 
 ## Types

@@ -1,5 +1,15 @@
 # Dictionaries
 
+- [Dictionaries](#dictionaries)
+  - [Accessing Values](#accessing-values)
+  - [Adding and Updating Values](#adding-and-updating-values)
+  - [Checking if a Key Exists](#checking-if-a-key-exists)
+  - [Combining Dictionaries](#combining-dictionaries)
+  - [Retrieving Keys and Values](#retrieving-keys-and-values)
+  - [Order](#order)
+  - [Conversions](#conversions)
+- [Dict Comprehensions](#dict-comprehensions)
+
 **Dictionaries** or 'dicts'  provide an unordered, mutable, sequence of key-value pairs or a mapping between keys and values. For more information check the [official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict).
 
 Dict literals are written using curly braces, and key-value pairs defined with colons and separated by commas.
