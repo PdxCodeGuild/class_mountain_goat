@@ -1,14 +1,13 @@
 
 # Python and JavaScript
 
-- [Python and JavaScript](#python-and-javascript)
-  - [Quick Comparison](#quick-comparison)
-  - [If Statements](#if-statements)
-  - [While Loops](#while-loops)
-  - [For Loops](#for-loops)
-  - [Modulus](#modulus)
-    - [Modulus in Python](#modulus-in-python)
-    - [Modulus in JavaScript](#modulus-in-javascript)
+1. [Quick Comparison](#quick-comparison)
+2. [If Statements](#if-statements)
+3. [While Loops](#while-loops)
+4. [For Loops](#for-loops)
+5. [Modulus](#modulus)
+   1. [Modulus in Python](#modulus-in-python)
+   2. [Modulus in JavaScript](#modulus-in-javascript)
 
 ## Quick Comparison
 

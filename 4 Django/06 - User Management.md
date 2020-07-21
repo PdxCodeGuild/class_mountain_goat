@@ -1,19 +1,18 @@
 
 # User Management
 
-- [User Management](#user-management)
-  - [Users, Groups, and Permissions](#users-groups-and-permissions)
-  - [Creating & Editing Users](#creating--editing-users)
-  - [Changing Passwords](#changing-passwords)
-  - [Authentication, Login, & Logout](#authentication-login--logout)
-  - [Authorization](#authorization)
-    - [is_authenticated](#is_authenticated)
-    - [has_perm](#has_perm)
-    - [@login_required](#login_required)
-    - [@permission_required](#permission_required)
-    - [@user_passes_test(f)](#user_passes_testf)
-  - [Extending the User Model](#extending-the-user-model)
-  - [Managing Groups and Permissions](#managing-groups-and-permissions)
+1. [Users, Groups, and Permissions](#users-groups-and-permissions)
+2. [Creating & Editing Users](#creating--editing-users)
+3. [Changing Passwords](#changing-passwords)
+4. [Authentication, Login, & Logout](#authentication-login--logout)
+5. [Authorization](#authorization)
+   1. [is_authenticated](#is_authenticated)
+   2. [has_perm](#has_perm)
+   3. [@login_required](#login_required)
+   4. [@permission_required](#permission_required)
+   5. [@user_passes_test(f)](#user_passes_testf)
+6. [Extending the User Model](#extending-the-user-model)
+7. [Managing Groups and Permissions](#managing-groups-and-permissions)
 
 Many web applications have the ability for a user to 1) create an account, 2) log into and out of that account, and 3) view pages that are only accessible to logged-in users. For more info, read [here](https://docs.djangoproject.com/en/3.0/topics/auth/) and [here](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication).
 

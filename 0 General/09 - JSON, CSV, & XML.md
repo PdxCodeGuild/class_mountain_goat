@@ -3,10 +3,9 @@
 
 JSON, CSV, and XML are three popular ways of storing and sending data.
 
-- [JSON, CSV, & XML](#json-csv--xml)
-  - [JSON](#json)
-  - [CSV](#csv)
-  - [XML](#xml)
+1. [JSON](#json)
+2. [CSV](#csv)
+3. [XML](#xml)
 
 ## JSON
 

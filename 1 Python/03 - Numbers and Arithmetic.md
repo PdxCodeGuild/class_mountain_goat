@@ -2,21 +2,20 @@
 # Numbers and Arithmetic
 
 
-- [Numbers and Arithmetic](#numbers-and-arithmetic)
-  - [Ints](#ints)
-  - [Floats](#floats)
-  - [Arithmetic Operators](#arithmetic-operators)
-    - [Addition: `a + b`](#addition-a--b)
-    - [Subtraction: `a - b`](#subtraction-a---b)
-    - [Multiplication: `a * b`](#multiplication-a--b)
-    - [Division: `a / b`](#division-a--b)
-    - [Floor Division: `a // b`](#floor-division-a--b)
-    - [Modulus: `a % b`](#modulus-a--b)
-  - [Functions](#functions)
-    - [Type Conversions](#type-conversions)
-    - [Absolute Value](#absolute-value)
-    - [Round](#round)
-    - [](#)
+1. [Ints](#ints)
+2. [Floats](#floats)
+3. [Arithmetic Operators](#arithmetic-operators)
+   1. [Addition: `a + b`](#addition-a--b)
+   2. [Subtraction: `a - b`](#subtraction-a---b)
+   3. [Multiplication: `a * b`](#multiplication-a--b)
+   4. [Division: `a / b`](#division-a--b)
+   5. [Floor Division: `a // b`](#floor-division-a--b)
+   6. [Modulus: `a % b`](#modulus-a--b)
+4. [Functions](#functions)
+   1. [Type Conversions](#type-conversions)
+   2. [Absolute Value](#absolute-value)
+   3. [Round](#round)
+   4. [](#)
 
 ## Ints
 

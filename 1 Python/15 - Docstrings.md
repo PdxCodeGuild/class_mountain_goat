@@ -1,11 +1,10 @@
 
 # Docstrings
 
-- [Docstrings](#docstrings)
-  - [Example](#example)
-  - [`help()`, `__doc__` and `pydoc`](#help-doc-and-pydoc)
-  - [Doctests](#doctests)
-  - [Generating Documentation](#generating-documentation)
+1. [Example](#example)
+2. [`help()`, `__doc__` and `pydoc`](#help-doc-and-pydoc)
+3. [Doctests](#doctests)
+4. [Generating Documentation](#generating-documentation)
 
 Docstrings are used to provide documentation of source code. Docstrings help those reading the code to better understand what each part means.
 

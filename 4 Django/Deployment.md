@@ -2,18 +2,17 @@
 
 # Deployment
 
-- [Deployment](#deployment)
-  - [Hosting Services](#hosting-services)
-    - [Examples](#examples)
-    - [SaaS vs PaaS vs IaaS](#saas-vs-paas-vs-iaas)
-    - [Domain Names](#domain-names)
-    - [DNS](#dns)
-    - [HTTPS](#https)
-  - [Deploying Django](#deploying-django)
-    - [Deploying with PythonAnywhere](#deploying-with-pythonanywhere)
-    - [Deploying with Heroku](#deploying-with-heroku)
-    - [Deploying with AWS](#deploying-with-aws)
-    - [Deploying with DigitalOcean](#deploying-with-digitalocean)
+1. [Hosting Services](#hosting-services)
+   1. [Examples](#examples)
+   2. [SaaS vs PaaS vs IaaS](#saas-vs-paas-vs-iaas)
+   3. [Domain Names](#domain-names)
+   4. [DNS](#dns)
+   5. [HTTPS](#https)
+2. [Deploying Django](#deploying-django)
+   1. [Deploying with PythonAnywhere](#deploying-with-pythonanywhere)
+   2. [Deploying with Heroku](#deploying-with-heroku)
+   3. [Deploying with AWS](#deploying-with-aws)
+   4. [Deploying with DigitalOcean](#deploying-with-digitalocean)
 
 ## Hosting Services
 

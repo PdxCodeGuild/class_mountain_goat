@@ -1,14 +1,12 @@
 # Dictionaries
 
-- [Dictionaries](#dictionaries)
-  - [Accessing Values](#accessing-values)
-  - [Adding and Updating Values](#adding-and-updating-values)
-  - [Checking if a Key Exists](#checking-if-a-key-exists)
-  - [Combining Dictionaries](#combining-dictionaries)
-  - [Retrieving Keys and Values](#retrieving-keys-and-values)
-  - [Order](#order)
-  - [Conversions](#conversions)
-- [Dict Comprehensions](#dict-comprehensions)
+1. [Accessing Values](#accessing-values)
+2. [Adding and Updating Values](#adding-and-updating-values)
+3. [Checking if a Key Exists](#checking-if-a-key-exists)
+4. [Combining Dictionaries](#combining-dictionaries)
+5. [Retrieving Keys and Values](#retrieving-keys-and-values)
+6. [Order](#order)
+7. [Conversions](#conversions)
 
 **Dictionaries** or 'dicts'  provide an unordered, mutable, sequence of key-value pairs or a mapping between keys and values. For more information check the [official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict).
 

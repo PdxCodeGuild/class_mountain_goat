@@ -2,13 +2,12 @@
 # Fundamentals
 
 
-- [Fundamentals](#fundamentals)
-  - [Declaring Variables](#declaring-variables)
-  - [Data Types](#data-types)
-  - [Type Conversion](#type-conversion)
-  - [Comments](#comments)
-  - [Input](#input)
-  - [Output](#output)
+1. [Declaring Variables](#declaring-variables)
+2. [Data Types](#data-types)
+3. [Type Conversion](#type-conversion)
+4. [Comments](#comments)
+5. [Input](#input)
+6. [Output](#output)
 
 
 ## Declaring Variables

@@ -1,9 +1,8 @@
 # Sets
 
-- [Sets](#sets)
-  - [Overview](#overview)
-  - [Operators](#operators)
-  - [Set Comprehensions](#set-comprehensions)
+1. [Overview](#overview)
+2. [Operators](#operators)
+3. [Set Comprehensions](#set-comprehensions)
 
 
 ## Overview

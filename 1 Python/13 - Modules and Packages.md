@@ -1,11 +1,10 @@
 
 # Modules and Packages
 
-- [Modules and Packages](#modules-and-packages)
-  - [Modules](#modules)
-    - [Importing](#importing)
-    - [\_\_name__](#name)
-  - [Packages](#packages)
+1. [Modules](#modules)
+   1. [Importing](#importing)
+   2. [\_\_name__](#name)
+2. [Packages](#packages)
 
 
 ## Modules

@@ -1,9 +1,8 @@
 
 # CSS Flexbox + Grid
 
-- [CSS Flexbox + Grid](#css-flexbox--grid)
-  - [Flexbox](#flexbox)
-  - [CSS Grid](#css-grid)
+1. [Flexbox](#flexbox)
+2. [CSS Grid](#css-grid)
 
 ## Flexbox
 

@@ -1,13 +1,12 @@
 
 # Booleans, Comparisons, and Conditionals
 
-- [Booleans, Comparisons, and Conditionals](#booleans-comparisons-and-conditionals)
-  - [Booleans](#booleans)
-  - [Comparisons](#comparisons)
-  - [Type Coercion](#type-coercion)
-  - [Conditionals](#conditionals)
-  - [Truthy and Falsey](#truthy-and-falsey)
-  - [Ternary Operator](#ternary-operator)
+1. [Booleans](#booleans)
+2. [Comparisons](#comparisons)
+3. [Type Coercion](#type-coercion)
+4. [Conditionals](#conditionals)
+5. [Truthy and Falsey](#truthy-and-falsey)
+6. [Ternary Operator](#ternary-operator)
 
 ## Booleans
 

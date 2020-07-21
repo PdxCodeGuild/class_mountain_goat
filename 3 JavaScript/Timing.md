@@ -1,11 +1,10 @@
 
 # Timing Events
 
-- [Timing Events](#timing-events)
-  - [Overview](#overview)
-  - [Using setTimeout and clearTimeout](#using-settimeout-and-cleartimeout)
-  - [Using setInterval](#using-setinterval)
-  - [window.requestAnimationFrame](#windowrequestanimationframe)
+1. [Overview](#overview)
+2. [Using setTimeout and clearTimeout](#using-settimeout-and-cleartimeout)
+3. [Using setInterval](#using-setinterval)
+4. [window.requestAnimationFrame](#windowrequestanimationframe)
 
 ## Overview
 

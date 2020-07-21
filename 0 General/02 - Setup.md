@@ -5,21 +5,20 @@
 
 This document contains an overview for the software setup for the course. Please try to get as much done as possible before the course starts, but we'll also go over the setup on the first day of class to ensure everyone's up to speed.
 
-- [Setup](#setup)
-  - [1 Pick a CLI](#1-pick-a-cli)
-      - [Opening the CLI](#opening-the-cli)
-      - [Common CLI Commands](#common-cli-commands)
-  - [2 Install the latest version of Python (3.8.2)](#2-install-the-latest-version-of-python-382)
-  - [2 Install Git and make a [GitHub](https://github.com/) account](#2-install-git-and-make-a-github-account)
-  - [3 Install an Editor](#3-install-an-editor)
-    - [Visual Studio Code](#visual-studio-code)
-      - [Shortcuts](#shortcuts)
-      - [Recommended Extensions](#recommended-extensions)
-    - [Atom](#atom)
-  - [4 Install Slack](#4-install-slack)
-  - [5 Pick a Browser](#5-pick-a-browser)
-  - [6 Zoom](#6-zoom)
-  - [7 A Full Test](#7-a-full-test)
+1. [1 Pick a CLI](#1-pick-a-cli)
+      1. [Opening the CLI](#opening-the-cli)
+      2. [Common CLI Commands](#common-cli-commands)
+2. [2 Install the latest version of Python (3.8.2)](#2-install-the-latest-version-of-python-382)
+3. [2 Install Git and make a [GitHub](https://github.com/) account](#2-install-git-and-make-a-github-account)
+4. [3 Install an Editor](#3-install-an-editor)
+   1. [Visual Studio Code](#visual-studio-code)
+      1. [Shortcuts](#shortcuts)
+      2. [Recommended Extensions](#recommended-extensions)
+   2. [Atom](#atom)
+5. [4 Install Slack](#4-install-slack)
+6. [5 Pick a Browser](#5-pick-a-browser)
+7. [6 Zoom](#6-zoom)
+8. [7 A Full Test](#7-a-full-test)
 
 
 

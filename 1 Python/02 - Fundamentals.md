@@ -2,20 +2,19 @@
 # Fundamentals
 
 
-- [Fundamentals](#fundamentals)
-  - [Common Built-in Types](#common-built-in-types)
-  - [Variables, Objects](#variables-objects)
-  - [Types](#types)
-  - [Type Conversion](#type-conversion)
-  - [Literals](#literals)
-  - [Mutability](#mutability)
-  - [Functions](#functions)
-  - [Classes](#classes)
-  - [Methods](#methods)
-  - [I/O](#io)
-    - [Print](#print)
-    - [Input](#input)
-  - [Common Built-in Functions](#common-built-in-functions)
+1. [Common Built-in Types](#common-built-in-types)
+2. [Variables, Objects](#variables-objects)
+3. [Types](#types)
+4. [Type Conversion](#type-conversion)
+5. [Literals](#literals)
+6. [Mutability](#mutability)
+7. [Functions](#functions)
+8. [Classes](#classes)
+9. [Methods](#methods)
+10. [I/O](#io)
+   1. [Print](#print)
+   2. [Input](#input)
+11. [Common Built-in Functions](#common-built-in-functions)
 
 
 ## Common Built-in Types

@@ -1,16 +1,15 @@
 
 # Loops
 
-- [Loops](#loops)
-  - [While Loops](#while-loops)
-  - [For Loops](#for-loops)
-    - [Range](#range)
-    - [String](#string)
-    - [List](#list)
-  - [Break and Continue](#break-and-continue)
-    - [Break](#break)
-    - [Continue](#continue)
-    - [Set a Flag](#set-a-flag)
+1. [While Loops](#while-loops)
+2. [For Loops](#for-loops)
+   1. [Range](#range)
+   2. [String](#string)
+   3. [List](#list)
+3. [Break and Continue](#break-and-continue)
+   1. [Break](#break)
+   2. [Continue](#continue)
+   3. [Set a Flag](#set-a-flag)
 
 
 ## While Loops

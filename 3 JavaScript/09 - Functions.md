@@ -2,11 +2,10 @@
 
 # Functions
 
-- [Functions](#functions)
-  - [Overview](#overview)
-  - [Defining Functions](#defining-functions)
-  - [Default Arguments](#default-arguments)
-  - [Passing Functions as Parameters](#passing-functions-as-parameters)
+1. [Overview](#overview)
+2. [Defining Functions](#defining-functions)
+3. [Default Arguments](#default-arguments)
+4. [Passing Functions as Parameters](#passing-functions-as-parameters)
 
 ## Overview
 

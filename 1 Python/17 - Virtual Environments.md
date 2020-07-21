@@ -1,13 +1,12 @@
 # VirtualEnv
 
-- [VirtualEnv](#virtualenv)
-  - [Overview](#overview)
-  - [Install](#install)
-  - [Create](#create)
-  - [Activate](#activate)
-  - [Running Python](#running-python)
-  - [Freeze](#freeze)
-  - [Deactivate](#deactivate)
+1. [Overview](#overview)
+2. [Install](#install)
+3. [Create](#create)
+4. [Activate](#activate)
+5. [Running Python](#running-python)
+6. [Freeze](#freeze)
+7. [Deactivate](#deactivate)
 
 
 ## Overview

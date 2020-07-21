@@ -2,14 +2,13 @@
 
 # Canvas Drawing
 
-- [Canvas Drawing](#canvas-drawing)
-  - [Overview](#overview)
-  - [Rectangles](#rectangles)
-  - [Circles](#circles)
-  - [Lines](#lines)
-  - [Text](#text)
-  - [Accessing Pixels Directly](#accessing-pixels-directly)
-  - [Determining the Mouse's Position](#determining-the-mouses-position)
+1. [Overview](#overview)
+2. [Rectangles](#rectangles)
+3. [Circles](#circles)
+4. [Lines](#lines)
+5. [Text](#text)
+6. [Accessing Pixels Directly](#accessing-pixels-directly)
+7. [Determining the Mouse's Position](#determining-the-mouses-position)
 
 
 ## Overview

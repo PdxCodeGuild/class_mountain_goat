@@ -1,19 +1,18 @@
 
 # CSS Overview
 
-- [CSS Overview](#css-overview)
-  - [CSS Syntax](#css-syntax)
-  - [Priority](#priority)
-  - [Including CSS](#including-css)
-    - [Inline CSS](#inline-css)
-    - [Style Tag](#style-tag)
-    - [External CSS](#external-css)
-  - [CSS Lengths](#css-lengths)
-  - [CSS Colors](#css-colors)
-  - [Removing the Browser's Built-In CSS](#removing-the-browsers-built-in-css)
-  - [CSS Preprocessors](#css-preprocessors)
-  - [Learning](#learning)
-  - [Libraries](#libraries)
+1. [CSS Syntax](#css-syntax)
+2. [Priority](#priority)
+3. [Including CSS](#including-css)
+   1. [Inline CSS](#inline-css)
+   2. [Style Tag](#style-tag)
+   3. [External CSS](#external-css)
+4. [CSS Lengths](#css-lengths)
+5. [CSS Colors](#css-colors)
+6. [Removing the Browser's Built-In CSS](#removing-the-browsers-built-in-css)
+7. [CSS Preprocessors](#css-preprocessors)
+8. [Learning](#learning)
+9. [Libraries](#libraries)
 
 CSS stands for [Cascading Style Sheets](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), "cascading" meaning that style rules are evaluated by priority. That is, if a style rule is applied to a particular element, it'll override the rules applied to its parent. Whereas HTML is the raw skeleton of a page, CSS adds fonts, colors, margins, positioning, animations, and more. You can view a list of CSS libraries and frameworks [here](../../Libraries%20and%20Frameworks.md#css-frameworks).
 

@@ -3,16 +3,15 @@
 # Class-Based Views
 
 
-- [Class-Based Views](#class-based-views)
-  - [Overview](#overview)
-  - [Using Class-Based Views with Routing](#using-class-based-views-with-routing)
-  - [Base Views](#base-views)
-    - [View](#view)
-    - [TemplateView](#templateview)
-  - [Display Views](#display-views)
-    - [ListView](#listview)
-    - [DetailView](#detailview)
-  - [Editing Views](#editing-views)
+1. [Overview](#overview)
+2. [Using Class-Based Views with Routing](#using-class-based-views-with-routing)
+3. [Base Views](#base-views)
+   1. [View](#view)
+   2. [TemplateView](#templateview)
+4. [Display Views](#display-views)
+   1. [ListView](#listview)
+   2. [DetailView](#detailview)
+5. [Editing Views](#editing-views)
 
 
 ## Overview

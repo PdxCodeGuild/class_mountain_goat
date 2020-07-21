@@ -1,9 +1,8 @@
 
 # Loops
 
-- [Loops](#loops)
-  - [While Loops](#while-loops)
-  - [For Loops](#for-loops)
+1. [While Loops](#while-loops)
+2. [For Loops](#for-loops)
 
 ## While Loops
 

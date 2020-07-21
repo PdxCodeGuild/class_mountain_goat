@@ -1,16 +1,15 @@
 
 # Events
 
-- [Events](#events)
-  - [Defining Events](#defining-events)
-  - [Event Propagation](#event-propagation)
-  - [List of Events](#list-of-events)
-    - [`load` and `unload`](#load-and-unload)
-    - [`input` and `change`](#input-and-change)
-    - [Keyboard Events](#keyboard-events)
-    - [Mouse Events](#mouse-events)
-    - [Determining the Mouse's Position](#determining-the-mouses-position)
-    - [Handling Dragging](#handling-dragging)
+1. [Defining Events](#defining-events)
+2. [Event Propagation](#event-propagation)
+3. [List of Events](#list-of-events)
+   1. [`load` and `unload`](#load-and-unload)
+   2. [`input` and `change`](#input-and-change)
+   3. [Keyboard Events](#keyboard-events)
+   4. [Mouse Events](#mouse-events)
+   5. [Determining the Mouse's Position](#determining-the-mouses-position)
+   6. [Handling Dragging](#handling-dragging)
 
 Event handlers let you execute JavaScript when certain events occur. You can read more about events on the [MDN](https://developer.mozilla.org/en-US/docs/Web/Events).
 

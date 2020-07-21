@@ -2,15 +2,14 @@
 
 # Software
 
-- [Software](#software)
-  - [Hardware and Machine Code](#hardware-and-machine-code)
-  - [Low- and High-Level Languages](#low--and-high-level-languages)
-  - [Types of Languages](#types-of-languages)
-    - [Programming Languages](#programming-languages)
-    - [Non-Programming Languages](#non-programming-languages)
-    - [Imperative vs Declarative](#imperative-vs-declarative)
-    - [Procedural vs Object-Oriented](#procedural-vs-object-oriented)
-  - [Typing Systems](#typing-systems)
+1. [Hardware and Machine Code](#hardware-and-machine-code)
+2. [Low- and High-Level Languages](#low--and-high-level-languages)
+3. [Types of Languages](#types-of-languages)
+   1. [Programming Languages](#programming-languages)
+   2. [Non-Programming Languages](#non-programming-languages)
+   3. [Imperative vs Declarative](#imperative-vs-declarative)
+   4. [Procedural vs Object-Oriented](#procedural-vs-object-oriented)
+4. [Typing Systems](#typing-systems)
 
 ## Hardware and Machine Code
 

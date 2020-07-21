@@ -1,10 +1,9 @@
 
 # CSS Animations
 
-- [CSS Animations](#css-animations)
-  - [Animation Properties](#animation-properties)
-  - [Timing Functions](#timing-functions)
-  - [Fill Mode](#fill-mode)
+1. [Animation Properties](#animation-properties)
+2. [Timing Functions](#timing-functions)
+3. [Fill Mode](#fill-mode)
 
 Animations allow us to move elements, change their color, change their shape, etc. You can read more about animations on the [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation) and [w3schools](https://www.w3schools.com/css/css3_animations.asp).
 

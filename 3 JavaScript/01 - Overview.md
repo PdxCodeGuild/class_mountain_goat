@@ -1,17 +1,16 @@
 
 # Overview
 
-- [Overview](#overview)
-  - [Intro](#intro)
-  - [The Script Tag](#the-script-tag)
-  - [JavaScript Preprocessors](#javascript-preprocessors)
-  - [Learning Resources](#learning-resources)
-  - [Frameworks](#frameworks)
-    - [General UI](#general-ui)
-    - [Data Visualization](#data-visualization)
-    - [Music / Sound](#music--sound)
-    - [3D Graphics](#3d-graphics)
-    - [Games](#games)
+1. [Intro](#intro)
+2. [The Script Tag](#the-script-tag)
+3. [JavaScript Preprocessors](#javascript-preprocessors)
+4. [Learning Resources](#learning-resources)
+5. [Frameworks](#frameworks)
+   1. [General UI](#general-ui)
+   2. [Data Visualization](#data-visualization)
+   3. [Music / Sound](#music--sound)
+   4. [3D Graphics](#3d-graphics)
+   5. [Games](#games)
 
 ## Intro
 

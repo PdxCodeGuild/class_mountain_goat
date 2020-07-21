@@ -4,12 +4,11 @@
 
 
 
-- [Numbers and Arithmetic](#numbers-and-arithmetic)
-  - [Numbers](#numbers)
-  - [Arithmetic Operators](#arithmetic-operators)
-  - [Pre-Increment vs Post-Increment](#pre-increment-vs-post-increment)
-  - [Math](#math)
-  - [Random Numbers](#random-numbers)
+1. [Numbers](#numbers)
+2. [Arithmetic Operators](#arithmetic-operators)
+3. [Pre-Increment vs Post-Increment](#pre-increment-vs-post-increment)
+4. [Math](#math)
+5. [Random Numbers](#random-numbers)
 
 ## Numbers
 

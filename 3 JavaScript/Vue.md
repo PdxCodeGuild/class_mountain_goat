@@ -4,17 +4,16 @@
 # Vue.js
 
 
-- [Vue.js](#vuejs)
-  - [Overview](#overview)
-  - [Including Vue](#including-vue)
-  - [Anatomy of a Vue App](#anatomy-of-a-vue-app)
-  - [1 Rendering Values](#1-rendering-values)
-  - [2 Setting Attributes](#2-setting-attributes)
-  - [3 Conditionals](#3-conditionals)
-  - [4 Loops](#4-loops)
-  - [5 Input Fields](#5-input-fields)
-  - [6 Event Listeners](#6-event-listeners)
-  - [7 Lifecycle Hooks](#7-lifecycle-hooks)
+1. [Overview](#overview)
+2. [Including Vue](#including-vue)
+3. [Anatomy of a Vue App](#anatomy-of-a-vue-app)
+4. [1 Rendering Values](#1-rendering-values)
+5. [2 Setting Attributes](#2-setting-attributes)
+6. [3 Conditionals](#3-conditionals)
+7. [4 Loops](#4-loops)
+8. [5 Input Fields](#5-input-fields)
+9. [6 Event Listeners](#6-event-listeners)
+10. [7 Lifecycle Hooks](#7-lifecycle-hooks)
 
 ## Overview
 

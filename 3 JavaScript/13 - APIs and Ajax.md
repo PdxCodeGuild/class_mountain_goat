@@ -2,17 +2,16 @@
 # APIs and AJAX
 
 
-- [APIs and AJAX](#apis-and-ajax)
-  - [API](#api)
-  - [AJAX](#ajax)
-    - [AJAX in Axios](#ajax-in-axios)
-      - [Setting Query Parameters](#setting-query-parameters)
-      - [Setting Custom Request Headers](#setting-custom-request-headers)
-      - [Sending Data](#sending-data)
-    - [AJAX in Vanilla JavaScript](#ajax-in-vanilla-javascript)
-    - [AJAX in jQuery](#ajax-in-jquery)
-  - [CORS](#cors)
-  - [JSONP](#jsonp)
+1. [API](#api)
+2. [AJAX](#ajax)
+   1. [AJAX in Axios](#ajax-in-axios)
+      1. [Setting Query Parameters](#setting-query-parameters)
+      2. [Setting Custom Request Headers](#setting-custom-request-headers)
+      3. [Sending Data](#sending-data)
+   2. [AJAX in Vanilla JavaScript](#ajax-in-vanilla-javascript)
+   3. [AJAX in jQuery](#ajax-in-jquery)
+3. [CORS](#cors)
+4. [JSONP](#jsonp)
 
 See also: [Networking](../../0%20General/08%20-%20Networking.md)
 

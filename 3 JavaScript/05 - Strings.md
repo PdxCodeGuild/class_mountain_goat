@@ -1,12 +1,11 @@
 
 # Strings
 
-- [Strings](#strings)
-  - [Overview](#overview)
-  - [String Methods](#string-methods)
-  - [Escape Sequences](#escape-sequences)
-  - [Template Literals](#template-literals)
-  - [Line Continuation](#line-continuation)
+1. [Overview](#overview)
+2. [String Methods](#string-methods)
+3. [Escape Sequences](#escape-sequences)
+4. [Template Literals](#template-literals)
+5. [Line Continuation](#line-continuation)
 
 
 ## Overview

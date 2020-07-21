@@ -1,19 +1,18 @@
 
 # jQuery
 
-- [jQuery](#jquery)
-  - [Overview](#overview)
-  - [Wrappers](#wrappers)
-  - [Executing On Page Load](#executing-on-page-load)
-  - [Selecting Elements](#selecting-elements)
-  - [Getting and Setting Values](#getting-and-setting-values)
-    - [HTML](#html)
-    - [Attributes](#attributes)
-    - [CSS](#css)
-  - [Creating and Appending Elements](#creating-and-appending-elements)
-  - [Events](#events)
-  - [Animation](#animation)
-  - [AJAX](#ajax)
+1. [Overview](#overview)
+2. [Wrappers](#wrappers)
+3. [Executing On Page Load](#executing-on-page-load)
+4. [Selecting Elements](#selecting-elements)
+5. [Getting and Setting Values](#getting-and-setting-values)
+   1. [HTML](#html)
+   2. [Attributes](#attributes)
+   3. [CSS](#css)
+6. [Creating and Appending Elements](#creating-and-appending-elements)
+7. [Events](#events)
+8. [Animation](#animation)
+9. [AJAX](#ajax)
 
 ## Overview
 

@@ -1,18 +1,17 @@
 # Exception Handling
 
-- [Exception Handling](#exception-handling)
-  - [Common Types of Exceptions](#common-types-of-exceptions)
-    - [SyntaxError](#syntaxerror)
-    - [IndentationError](#indentationerror)
-    - [NameError](#nameerror)
-    - [TypeError](#typeerror)
-    - [IndexError](#indexerror)
-    - [KeyError](#keyerror)
-    - [ValueError](#valueerror)
-  - [Raising Exceptions](#raising-exceptions)
-  - [Catching Exceptions](#catching-exceptions)
-  - [Else and Finally](#else-and-finally)
-  - [Writing Custom Exceptions](#writing-custom-exceptions)
+1. [Common Types of Exceptions](#common-types-of-exceptions)
+   1. [SyntaxError](#syntaxerror)
+   2. [IndentationError](#indentationerror)
+   3. [NameError](#nameerror)
+   4. [TypeError](#typeerror)
+   5. [IndexError](#indexerror)
+   6. [KeyError](#keyerror)
+   7. [ValueError](#valueerror)
+2. [Raising Exceptions](#raising-exceptions)
+3. [Catching Exceptions](#catching-exceptions)
+4. [Else and Finally](#else-and-finally)
+5. [Writing Custom Exceptions](#writing-custom-exceptions)
 
 Exceptions are raised by Python when it can't interpret what your program is trying to do. You can read more about exceptions in the [official docs](https://docs.python.org/3.6/tutorial/errors.html).
 

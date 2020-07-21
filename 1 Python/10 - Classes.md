@@ -1,22 +1,21 @@
 
 # Classes
 
-- [Classes](#classes)
-  - [Types](#types)
-  - [Initializers](#initializers)
-  - [Methods](#methods)
-  - [Static Variables](#static-variables)
-  - [Static Methods](#static-methods)
-  - [Private Variables](#private-variables)
-  - [Private Methods](#private-methods)
-  - [Inheritance](#inheritance)
-    - [Multiple Inheritance](#multiple-inheritance)
-  - [Dunder Methods](#dunder-methods)
-    - [Dunder Methods Overview](#dunder-methods-overview)
-    - [\_\_str__](#str)
-    - [\_\_repr__](#repr)
-    - [\_\_eq__ and \_\_neq__](#eq-and-neq)
-    - [\_\_getitem__ and \_\_len__](#getitem-and-len)
+1. [Types](#types)
+2. [Initializers](#initializers)
+3. [Methods](#methods)
+4. [Static Variables](#static-variables)
+5. [Static Methods](#static-methods)
+6. [Private Variables](#private-variables)
+7. [Private Methods](#private-methods)
+8. [Inheritance](#inheritance)
+   1. [Multiple Inheritance](#multiple-inheritance)
+9. [Dunder Methods](#dunder-methods)
+   1. [Dunder Methods Overview](#dunder-methods-overview)
+   2. [\_\_str__](#str)
+   3. [\_\_repr__](#repr)
+   4. [\_\_eq__ and \_\_neq__](#eq-and-neq)
+   5. [\_\_getitem__ and \_\_len__](#getitem-and-len)
 
 Classes, like functions and modules, are another of the major building-blocks of a python program. They represent the grouping of data and functions which together serve a common purpose.
 

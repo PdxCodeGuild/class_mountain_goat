@@ -1,19 +1,18 @@
 
 # Booleans, Comparisons, and Conditionals
 
-- [Booleans, Comparisons, and Conditionals](#booleans-comparisons-and-conditionals)
-  - [Booleans](#booleans)
-    - [And: `and`](#and-and)
-    - [Or: `or`](#or-or)
-    - [Not: `not`](#not-not)
-  - [Comparisons](#comparisons)
-    - [Shorthand: a < b < c](#shorthand-a--b--c)
-    - [Shorthand: a == b == c](#shorthand-a--b--c-1)
-    - [in, is, not](#in-is-not)
-  - [Conditionals: `if` `elif` `else`](#conditionals-if-elif-else)
-    - [Short-Circuited Evaluation](#short-circuited-evaluation)
-    - [Shorthand: x if c else y](#shorthand-x-if-c-else-y)
-    - [Truthy and Falsey](#truthy-and-falsey)
+1. [Booleans](#booleans)
+   1. [And: `and`](#and-and)
+   2. [Or: `or`](#or-or)
+   3. [Not: `not`](#not-not)
+2. [Comparisons](#comparisons)
+   1. [Shorthand: a < b < c](#shorthand-a--b--c)
+   2. [Shorthand: a == b == c](#shorthand-a--b--c-1)
+   3. [in, is, not](#in-is-not)
+3. [Conditionals: `if` `elif` `else`](#conditionals-if-elif-else)
+   1. [Short-Circuited Evaluation](#short-circuited-evaluation)
+   2. [Shorthand: x if c else y](#shorthand-x-if-c-else-y)
+   3. [Truthy and Falsey](#truthy-and-falsey)
 
 ## Booleans
 

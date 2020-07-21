@@ -2,11 +2,10 @@
 
 # Forms
 
-- [Forms](#forms)
-  - [Using Forms Without the Form Class](#using-forms-without-the-form-class)
-  - [The Form Class](#the-form-class)
-  - [The ModelForm Class](#the-modelform-class)
-  - [Using Forms with CSS Frameworks](#using-forms-with-css-frameworks)
+1. [Using Forms Without the Form Class](#using-forms-without-the-form-class)
+2. [The Form Class](#the-form-class)
+3. [The ModelForm Class](#the-modelform-class)
+4. [Using Forms with CSS Frameworks](#using-forms-with-css-frameworks)
 
 
 ## Using Forms Without the Form Class

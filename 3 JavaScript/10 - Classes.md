@@ -1,10 +1,9 @@
 
 # Classes
 
-- [Classes](#classes)
-  - [Introductory Example](#introductory-example)
-  - [Inheritance](#inheritance)
-  - [ES5 Example](#es5-example)
+1. [Introductory Example](#introductory-example)
+2. [Inheritance](#inheritance)
+3. [ES5 Example](#es5-example)
 
 ## Introductory Example
 

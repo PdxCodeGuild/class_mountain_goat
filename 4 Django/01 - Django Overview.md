@@ -1,14 +1,13 @@
 
 # Django Overview
 
-- [Django Overview](#django-overview)
-  - [What is Django?](#what-is-django)
-  - [Management Commands](#management-commands)
-  - [Custom Management Commands](#custom-management-commands)
-  - [Resources](#resources)
-    - [Learn](#learn)
-    - [Libraries](#libraries)
-    - [Tools](#tools)
+1. [What is Django?](#what-is-django)
+2. [Management Commands](#management-commands)
+3. [Custom Management Commands](#custom-management-commands)
+4. [Resources](#resources)
+   1. [Learn](#learn)
+   2. [Libraries](#libraries)
+   3. [Tools](#tools)
 
 
 

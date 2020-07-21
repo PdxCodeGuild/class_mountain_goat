@@ -3,18 +3,16 @@
 # Programming
 
 
-- [Programming](#programming)
-  - [Programming-Related Careers](#programming-related-careers)
-  - [The Software Development Life-Cycle (SDLC)](#the-software-development-life-cycle-sdlc)
-    - [Agile & Scrum](#agile--scrum)
-    - [1) Requirements Gathering](#1-requirements-gathering)
-    - [2) Design](#2-design)
-    - [3) Implementation](#3-implementation)
-    - [4) Testing](#4-testing)
-    - [5) Deployment](#5-deployment)
-    - [6) Maintenance](#6-maintenance)
-  - [Wireframing Tools](#wireframing-tools)
-  - [Diagramming Tools](#diagramming-tools)
+1. [Programming-Related Careers](#programming-related-careers)
+2. [The Software Development Life-Cycle (SDLC)](#the-software-development-life-cycle-sdlc)
+   1. [1) Requirements Gathering](#1-requirements-gathering)
+   2. [2) Design](#2-design)
+   3. [3) Implementation](#3-implementation)
+   4. [4) Testing](#4-testing)
+   5. [5) Deployment](#5-deployment)
+   6. [6) Maintenance](#6-maintenance)
+3. [Wireframing Tools](#wireframing-tools)
+4. [Diagramming Tools](#diagramming-tools)
 
 ## Programming-Related Careers
 
@@ -37,6 +35,9 @@
 
 There are many different methodologies for developing software, and some good general guidelines have developed over the years. You can think of the SDLC generally following the following stages. Going through the stages across an entire project is called the [Waterfall Model](https://en.wikipedia.org/wiki/Waterfall_model). [Agile](https://en.wikipedia.org/wiki/Agile_software_development) and [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) go through this cycle repeatedly on shorter timelines. If your requirements are static and well-defined, waterfall is advantageous because there's a direct path of development and we can minimize overhead. However if your requirements might change or your client is capricious, agile approaches are more effective because they're adaptive.
 
+Agile software development involves taking a project in chunks and completing those over shorter 2-week sprints. This provides the customer with something tangible, involves them in the process, and can be adaptive to changing requirements. It also emphasizes face-to-face interaction, pair programming, and the quality of code. Scrum is a particular methodology and comes with specific practices, such as daily stand-up meetings, a task board.
+
+
 | step | description |
 | ---  | ---         |
 | requirements gathering] | defining the problem context |
@@ -45,10 +46,6 @@ There are many different methodologies for developing software, and some good ge
 | testing | ensuring the application meets the original requirements |
 | deployment | creating a production environment for end-users to access |
 | maintenance | debugging, adding extensions |
-
-### Agile & Scrum
-
-Agile software development involves taking a project in chunks and completing those over shorter 2-week sprints. This provides the customer with something tangible, involves them in the process, and can be adaptive to changing requirements. It also emphasizes face-to-face interaction, pair programming, and the quality of code. Scrum is a particular methodology and comes with specific practices, such as daily stand-up meetings, a task board.
 
 
 
