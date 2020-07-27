@@ -28,6 +28,7 @@ fruits = ['apples', 'bananas', 'pears']
 if 'apples' in fruits:
     print('true!')
 ```
+> true!
 
 We can use `==` and `!=` with lists.
 

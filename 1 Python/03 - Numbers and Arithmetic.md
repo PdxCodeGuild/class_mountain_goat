@@ -5,17 +5,27 @@
 1. [Ints](#ints)
 2. [Floats](#floats)
 3. [Arithmetic Operators](#arithmetic-operators)
-   1. [Addition: `a + b`](#addition-a--b)
-   2. [Subtraction: `a - b`](#subtraction-a---b)
-   3. [Multiplication: `a * b`](#multiplication-a--b)
-   4. [Division: `a / b`](#division-a--b)
-   5. [Floor Division: `a // b`](#floor-division-a--b)
-   6. [Modulus: `a % b`](#modulus-a--b)
-4. [Functions](#functions)
+   1. [Addition: `a + b`, `a += b`](#addition-a--b-a--b)
+   2. [Subtraction: `a - b`, `a -= b`](#subtraction-a---b-a---b)
+   3. [Multiplication: `a * b`, `a *= b`](#multiplication-a--b-a--b)
+   4. [Division: `a / b`, `a /= b`](#division-a--b-a--b)
+   5. [Floor Division: `a // b`, `a //= b`](#floor-division-a--b-a--b)
+   6. [Modulus: `a % b`, `a %= b`](#modulus-a--b-a--b)
+   7. [Exponentiation: `a ** b`, `a **= b`](#exponentiation-a--b-a--b)
+4. [Built-in Functions](#built-in-functions)
    1. [Type Conversions](#type-conversions)
-   2. [Absolute Value](#absolute-value)
-   3. [Round](#round)
-   4. [](#)
+   2. [Absolute Value `abs(x)`](#absolute-value-absx)
+   3. [Round `round(x)`](#round-roundx)
+   4. [Minimum `min(x)`](#minimum-minx)
+   5. [Maximum `max(x)`](#maximum-maxx)
+   6. [Sum `sum(x)`](#sum-sumx)
+5. [The Math Module](#the-math-module)
+   1. [Floor `math.floor(x)`](#floor-mathfloorx)
+   2. [Ceiling `math.ceil(x)`](#ceiling-mathceilx)
+   3. [Square-root `math.sqrt(x)`](#square-root-mathsqrtx)
+   4. [Pi `math.pi`](#pi-mathpi)
+   5. [Cosine `math.cos(x)`](#cosine-mathcosx)
+   6. [Sine `math.sin(x)`](#sine-mathsinx)
 
 ## Ints
 
@@ -23,12 +33,9 @@
 
 ```python
 x = 5
-print(x)
-print(type(x))
+print(x) # 5
+print(type(x)) # <class 'int'>
 ```
-> 5
-> <class 'int'>
-
 
 ## Floats
 
@@ -36,100 +43,179 @@ print(type(x))
 
 ```python
 x = 5.23
-print(x)
-print(type(x))
+print(x) # 5.23
+print(type(x)) # <class 'float'>
 ```
-> 5.23
-> <class 'float'>
 
-There are also three special values floats may take: positive infinity, negative infinity, and NaN. NaN is short for 'not a number', it's the result of some mathematical operations, particularly in `numpy`. You can check for these values with the `math` module.
+There are also three special values floats may take: positive infinity, negative infinity, and NaN. NaN is short for 'not a number', it's the result of some mathematical operations, particularly in `numpy`. You can check for these values with the [math module](#the-math-module).
 
 ```python
 import math
 
 x = float('nan')
-print(math.isnan(x))
+print(math.isnan(x)) # True
 
 y = float('inf')
-print(math.isinf(y))
+print(math.isinf(y)) # True
 
 z = float('-inf')
-print(math.isinf(z))
-print(math.isfinite(z))
+print(math.isinf(z)) # True
+print(math.isfinite(z)) # False
 ```
-
-The `math` module has many other specialized math functions you can utilize, a full list of them can be found [here](https://docs.python.org/3/library/math.html). For each of the arithmetic operators, there are short-hand versions, which compute a result and store it as the original variable: `x += 2` is equivalent to `x = x + 2`.
 
 
 ## Arithmetic Operators
 
-- `+`, `+=` addition
-- `-` subtraction
-- `*` multiplication
-- `/` division
-- `//` floor division, results in an `int`
-- `%` modulus, a%b is the remainder of a/b
-- `**` exponentiation
 
+### Addition: `a + b`, `a += b`
 
-### Addition: `a + b`
+```python
+print(5 + 2) # 7
+```
 
-### Subtraction: `a - b`
+### Subtraction: `a - b`, `a -= b`
 
-### Multiplication: `a * b`
+```python
+print(5 - 2) # 3
+```
 
-### Division: `a / b`
+### Multiplication: `a * b`, `a *= b`
 
-### Floor Division: `a // b`
+```python
+print(5 * 2) # 10
+```
 
-### Modulus: `a % b`
+### Division: `a / b`, `a /= b`
 
-Modulus is the 'remainder function' for example, 5%2 is 1, 6%2 is 0, 23%5 is 3, etc. It's also useful for containing the range of a variable.
+```python
+print(5 / 2) # 2.5
+```
+
+### Floor Division: `a // b`, `a //= b`
+
+Floor division is like regular division, but the result is rounded down to the nearest integer.
+
+```python
+print(5 // 2) # 2
+```
+
+### Modulus: `a % b`, `a %= b`
+
+Modulus is the 'remainder function' for example, `a%b` is the remainder of `a/b`.
+
+```python
+print(5 % 2) # 1
+print(99 % 3) # 0
+```
+
+Modulus also useful for containing the range of a variable.
 
 ```python
 i = 0
 while i < 100:
-    print(i%3)
+    print(i%3, end=' ')
     i = i + 1
 ```
-> 0
-> 1
-> 2
-> 0
-> 1
-> 2
-> 0
-> ...
+> 0 1 2 0 1 2 0 1 2 ...
 
-## Functions
+
+### Exponentiation: `a ** b`, `a **= b`
+
+```python
+print(5 ** 2) # 25
+```
+
+## Built-in Functions
 
 ### Type Conversions
 
 ```python
-int('5')
+# convert a string to an int
+print(int('5')) # 5
+# convert a float to an int
+print(int(5.23)) # 5
+# convert a 
+print(float('5.0')) # 5.0
 ```
-> 5
+
+### Absolute Value `abs(x)`
+
 ```python
-int(5.23)
+print(abs(5)) # 5
+print(abs(-2)) # 2
 ```
-> 5
+
+
+### Round `round(x)`
+
 ```python
-float('5.0')
+print(round(5.2)) # 5
+print(round(2.6)) # 3
 ```
-> 5
+
+### Minimum `min(x)`
+
+```python
+print(min(5, 2)) # 2
+```
+
+### Maximum `max(x)`
+
+```python
+print(max(5, 2)) # 5
+```
+
+### Sum `sum(x)`
+
+```python
+print(sum(5, 2, 3)) # 10
+```
+
+## The Math Module
+
+The `math` module has many specialized math functions you can utilize, a full list of them can be found [here](https://docs.python.org/3/library/math.html).
+
+### Floor `math.floor(x)`
+
+```python
+import math
+print(math.floor(5.5)) # 5
+```
+
+### Ceiling `math.ceil(x)`
+
+```python
+import math
+print(math.ceil(5.5)) # 6
+```
+
+### Square-root `math.sqrt(x)`
+
+```python
+import math
+print(math.floor(9)) # 3
+```
+
+### Pi `math.pi`
+
+```python
+import math
+print(math.pi) # 3.1415963...
+```
 
 
-### Absolute Value
+### Cosine `math.cos(x)`
 
-### Round
+```python
+import math
+print(math.cos(math.pi/2)) # 0
+```
 
+### Sine `math.sin(x)`
 
-### 
-    - abs() returns the absolute value of a number
-    - round() rounds a number, an optional second argument can specify how many decimal places the output should have
-    - min() returns the minimum of the values passed to it
-    - max() returns the maximum of the values passed to it
-    - sum() returns the sum of the values passed to it
-
+```python
+import math
+print(math.sin(math.pi/2)) # 1
+```
 
 

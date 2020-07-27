@@ -11,6 +11,8 @@
 7. [Using Multiple Selectors](#using-multiple-selectors)
 8. [Descendant Selector](#descendant-selector)
 9. [Child Selector](#child-selector)
+10. [Psuedo-Class](#psuedo-class)
+11. [Psuedo-Element](#psuedo-element)
 
 You can find more info [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Simple_selectors), [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors), and [here](https://www.w3schools.com/cssref/css_selectors.asp). To get some practice with selectors, try [this](https://flukeout.github.io/).
 
@@ -41,10 +43,16 @@ You can find more info [here](https://developer.mozilla.org/en-US/docs/Learn/CSS
 
 If you just write the tag name as the selector, it'll select all tags of that type.
 
-```css
-h1 {
-    font-size:20px;
-}
+```html
+<style>
+    h1 {
+        font-size:20px;
+    }
+</style>
+<h1>hello world!</h1>
+```
+
+```html
 
 p {
     font-size:12px;
@@ -157,3 +165,8 @@ To only select immediate children (not grand-children, great grand-children, etc
     </div>
 </div>
 ```
+
+## Psuedo-Class
+
+
+## Psuedo-Element

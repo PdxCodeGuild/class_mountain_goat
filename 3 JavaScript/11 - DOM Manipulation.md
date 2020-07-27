@@ -125,15 +125,18 @@ HTML elements have a [dataset](https://developer.mozilla.org/en-US/docs/Web/API/
 
 ## Editing Attributes
 
-"Standard" attributes can be edited directly as properties
+There are [multiple ways](https://stackoverflow.com/questions/3919291/when-to-use-setattribute-vs-attribute-in-javascript) to set attributes on HTML elements.
 
-```javascript
-// <button id="btn">click</button>
-let btn = document.querySelector('#btn')
-btn.disabled = 'disabled'
+```html
+<button id="btn">click</button>
+<script>
+  let btn = document.querySelector('#btn')
+  btn.disabled = 'disabled'
+  // <btn id="btn" disabled="disabled">click</button>
+</script>
 ```
 
-Non-standard attributes can be changed through various methods. You can read more about the difference [here](https://stackoverflow.com/questions/3919291/when-to-use-setattribute-vs-attribute-in-javascript).
+There are also methods for modifying attributes:
 
 - `element.setAttribute(attribute_name, value)`
 - `element.getAttribute(attribute_name)`
@@ -150,8 +153,8 @@ Input elements allow the user to input their information [more info](https://dev
 ```html
 <input id="user_input" type="text"/>
 <script>
-    let text_field = document.querySelector('#user_input');
-    let user_input = text_field.value;
+    let text_field = document.querySelector('#user_input')
+    let user_input = text_field.value
 </script>
 ```
 
@@ -187,17 +190,16 @@ A `select` tag defines a dropdown list. Each `option` defines an option of that 
 
 ```html
 <select id="ddl">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
+    <option value="volvo" selected>Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
 </select>
-```
-
-```javascript
-let ddl = document.querySelector('#ddl')
-console.log(ddl.value)
-console.log(ddl.options[ddl.selectedIndex].value) // alternatively
+<script>
+    let ddl = document.querySelector('#ddl')
+    console.log(ddl.value) // volvo
+    console.log(ddl.options[ddl.selectedIndex].value) // alternatively
+</script>
 ```
 
 ## Creating and Adding Elements
@@ -207,29 +209,52 @@ We can also create elements and add them to other elements.
 | function | description |
 | ----     | ----        |
 | `document.createElement(tag_name)` | create an element with tag `tag_name` |
-| `document.createTextNode(text)` | create a text node containing the given text |
+| `document.createTextNode(text)` | create a text node containing the given text (just set innerText instead) |
 | `element.appendChild(child)` | append a child element to a parent element |
 | `element.removeChild(child)` | remove a child element from a parent element |
 | `element.hasChild(child)` | indicates whether the parent has a particular child |
 | `element.replaceChild(child)` | replaces a child |
 
 
+**Example - Building a Button**
 ```html
 <div id="container_div"></div>
 <script>
-    let container_div = document.querySelector('#container_div');
+    let container_div = document.querySelector('#container_div')
 
-    let btn = document.createElement("button");
-    btn.style.backgroundColor = "lightblue";
-    btn.style.border = "1px solid white";
-    btn.innerText = 'click';
+    let btn = document.createElement("button")
+    btn.style.backgroundColor = "lightblue"
+    btn.style.border = "1px solid white"
+    btn.innerText = 'click'
 
-    container_div.appendChild(btn);
+    container_div.appendChild(btn)
 </script>
 ```
-
 ```html
 <div id="container_div">
   <button style="background-color:lightblue;border:1px solid white">click</button>
 </div>
+```
+
+
+**Example - Building a Select**
+```html
+<select id="select_fruits"></select>
+<script>
+    let select_fruits = document.querySelector('#select_fruits')
+    let fruits = ['apples', 'bananas', 'pears']
+    for (let i=0; i<fruits.length; ++i) {
+        let option = document.createElement('option')
+        option.innerText = fruits[i]
+        option.value = fruits[i]
+        select_fruits.appendChild(option)
+    }
+</script>
+```
+```html
+<select id="select_fruits">
+    <option value="apples">apples</option>
+    <option value="bananas">bananas</option>
+    <option value="pears">pears</option>
+</select>
 ```

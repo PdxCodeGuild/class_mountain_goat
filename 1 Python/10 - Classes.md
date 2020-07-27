@@ -1,6 +1,9 @@
 
 # Classes
 
+Classes, like functions and modules, are another of the major building-blocks of a python program. They represent the grouping of data and functions which together serve a common purpose.
+
+
 1. [Types](#types)
 2. [Initializers](#initializers)
 3. [Methods](#methods)
@@ -17,7 +20,6 @@
    4. [\_\_eq__ and \_\_neq__](#eq-and-neq)
    5. [\_\_getitem__ and \_\_len__](#getitem-and-len)
 
-Classes, like functions and modules, are another of the major building-blocks of a python program. They represent the grouping of data and functions which together serve a common purpose.
 
 ## Types
 

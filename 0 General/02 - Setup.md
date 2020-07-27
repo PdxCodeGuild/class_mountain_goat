@@ -14,6 +14,8 @@ This document contains an overview for the software setup for the course. Please
       1. [Shortcuts](#shortcuts)
       2. [Recommended Extensions](#recommended-extensions)
    2. [Atom](#atom)
+      1. [Shortcuts](#shortcuts-1)
+      2. [Recommended Extensions](#recommended-extensions-1)
 5. [4 Install Slack](#4-install-slack)
 6. [5 Pick a Browser](#5-pick-a-browser)
 7. [6 Zoom](#6-zoom)
@@ -63,9 +65,9 @@ GitHub is a hosting service for Git repositories. You can create an account [her
 
 ## 3 Install an Editor
 
-[Visual Studio Code](https://code.visualstudio.com/) is the recommended editor, but there's also [Atom](https://atom.io/) and [PyCharm](https://www.jetbrains.com/pycharm/).
+### Visual Studio Code
 
-### [Visual Studio Code](https://code.visualstudio.com/)
+[Visual Studio Code](https://code.visualstudio.com/) is the recommended editor, in addition to syntax highlighting it's also got a debugger and git integration.
 
 - [editing guide](https://code.visualstudio.com/docs/editor/codebasics)
 - [shortcut cheat sheet](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf), and [this list](https://medium.com/better-programming/20-vs-code-shortcuts-for-fast-coding-cheatsheet-10b0e72fd5d)
@@ -85,9 +87,14 @@ GitHub is a hosting service for Git repositories. You can create an account [her
 
 #### Recommended Extensions
 
+- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - [Markdown All-in-One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 
-### [Atom](https://atom.io/)
+### Atom
+
+[Atom](https://atom.io/) is another lightweight code editor.
+
+#### Shortcuts
 
 You can find a list of shortcuts [here](https://github.com/nwinkler/atom-keyboard-shortcuts)
 
@@ -97,6 +104,9 @@ You can find a list of shortcuts [here](https://github.com/nwinkler/atom-keyboar
 - `ctrl + up/down` move a line of text up and down
 - `ctrl + shift/cmd + d` duplicate a line of text
 - `tab` for autocomplete, e.g. type "html" and hit `tab` to get a stock html page
+
+
+#### Recommended Extensions
 
 You install and remove packages by going to `File -> Settings -> Packages/Install`.
 

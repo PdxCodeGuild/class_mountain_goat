@@ -6,12 +6,12 @@
    2. [Or: `or`](#or-or)
    3. [Not: `not`](#not-not)
 2. [Comparisons](#comparisons)
-   1. [Shorthand: a < b < c](#shorthand-a--b--c)
-   2. [Shorthand: a == b == c](#shorthand-a--b--c-1)
+   1. [Shorthand: `a < b < c`](#shorthand-a--b--c)
+   2. [Shorthand: `a == b == c`](#shorthand-a--b--c-1)
    3. [in, is, not](#in-is-not)
 3. [Conditionals: `if` `elif` `else`](#conditionals-if-elif-else)
    1. [Short-Circuited Evaluation](#short-circuited-evaluation)
-   2. [Shorthand: x if c else y](#shorthand-x-if-c-else-y)
+   2. [Shorthand: `x if c else y`](#shorthand-x-if-c-else-y)
    3. [Truthy and Falsey](#truthy-and-falsey)
 
 ## Booleans
@@ -25,16 +25,11 @@ There are three boolean operators: `not`, `and` and `or`.
 `a and b` is true if `a` is true and `b` is true
 
 ```python
-False and False
-True and False
-False and True
-True and True
+print(False and False) # False
+print(True and False) # False
+print(False and True) # False
+print(True and True) # True
 ```
-> False
-> False
-> False
-> True
-
 
 ### Or: `or`
 
@@ -63,8 +58,6 @@ not False
 > False
 > True
 
-
-
 ## Comparisons
 
 Comparisons will resolve to a `True` or `False` value.
@@ -77,24 +70,19 @@ Comparisons will resolve to a `True` or `False` value.
 - `>=` greater-than-or-equal-to
 
 
-### Shorthand: a < b < c
+### Shorthand: `a < b < c`
 
 If you're comparing whether a value is between two other values, you can also write it without an `and`: `x > 5 and x < 10` can also be written as `5 < x < 10`. It can not be written as `x < 5 and > 0`, Python won't know what to do with that statement and will give you a `Syntax Error`.
 
 
-### Shorthand: a == b == c
+### Shorthand: `a == b == c`
 
 Python also allows comparing multiple values at once. Realize though that `5==5==5` is not the same thing as `(5==5)==5`. This is because in the first case it makes the comparison between the first `5==5` and the second `5==5` which both return `True` making the overall statement true. In the second case it makes the `(5==5)` comparison, which returns `True` and then compares that `True` to `5`, which returns `False` since `5` does not equal `True`.
 
 ```python
-print(5==5==5)
->>> True
-
-print((5==5)==5)
->>> False
+print(5==5==5) # True
+print((5==5)==5) # False
 ```
-
-
 
 ### in, is, not
 
@@ -109,15 +97,9 @@ The `in` operator can be used to see if a element is in a list or not:
 my_list = [1,2,3,4,5]
 x = 3
 y = 6
-
-print(x in my_list)
->>> True
-
-print(y in my_list)
->>> False
-
-print(y not in my_list)
->>> True
+print(x in my_list) # True
+print(y in my_list) # False
+print(y not in my_list) # True
 ```
 
 The `is` operator is used to see if two variables point to the same `Object` or not. Note, however, that if you assign two variables the same value then python will sometimes try to make them point to the same object to save memory. As a general rule it's better practice to use `==` when comparing number values or objects.
@@ -188,13 +170,14 @@ print(has_elements([])) # False
 ```
 
 
-### Shorthand: x if c else y
+### Shorthand: `x if c else y`
 
 It's possible to write a conditional on one line, as `x if condition else y`. For example, a `min` function might be written as
 
 ```python
 def min(a, b):
     return a if a < b else b
+print(min(5, 2)) # 2
 ```
 
 Because you can return boolean values from functions, you can also use a function in an `if` or `elif`.

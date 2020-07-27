@@ -26,7 +26,6 @@ TypeError: cannot concatenate 'str' and 'int' objects
 ## Common Types of Exceptions
 
 
-
 ### SyntaxError
 
 A SyntaxError occurs if your code is poorly formatted.

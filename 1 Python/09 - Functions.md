@@ -1,69 +1,44 @@
 # Functions
 
-1. [Built-In Functions](#built-in-functions)
-2. [Defining Functions](#defining-functions)
-3. [Parameters](#parameters)
+Functions are isolated pieces of code that take input, perform some operation, and return a result. Functions we've used so far include `input()`, `print()`, `len()`, etc. Python provides many built-in functions for you to use. For all the built-in functions, check the [official docs](https://docs.python.org/3/library/functions.html)
+
+
+1. [Defining Functions](#defining-functions)
+2. [Parameters](#parameters)
    1. [Passing by Position](#passing-by-position)
    2. [Optional Arguments](#optional-arguments)
    3. [Passing by Keyword](#passing-by-keyword)
    4. [\*args & \*\*kwargs](#args--kwargs)
-4. [Returning](#returning)
+3. [Returning](#returning)
    1. [Implicit Return - None](#implicit-return---none)
    2. [Returning Multiple Values](#returning-multiple-values)
-5. [Decorators](#decorators)
-6. [Recursion](#recursion)
-7. [Lambda Functions](#lambda-functions)
+4. [Decorators](#decorators)
+5. [Recursion](#recursion)
+6. [Lambda Functions](#lambda-functions)
 
-Functions are isolated pieces of code that take input, perform some operation, and return a result. Functions we've used so far include `input()`, `print()`, `len()`, etc. Python provides many built-in functions for you to use. For all the built-in functions, check the [official docs](https://docs.python.org/3/library/functions.html)
-
-## Built-In Functions
-
-- I/O
-    - input() prompts the user for input on the terminal
-    - print() displays text to the user on the terminal
-- Arithmetic Functions
-    - abs() returns the absolute value of a number
-    - round() rounds a number, an optional second argument can specify how many decimal places the output should have
-    - min() returns the minimum of the values passed to it
-    - max() returns the maximum of the values passed to it
-    - sum() returns the sum of the values passed to it
-- Type Conversion
-    - int() converts a value to an int
-    - float() converts a value to a float
-    - str() converts a value to a string
-    - chr() converts an int to a string containing the character with that unicode value, for example `chr(97)` returns the string 'a'
-    - bool() converts a value to a boolean
-    - list() converts a value to a list
-    - tuple() converts a value to a tuple
-    - set() converts a value to a set
-    - dict() converts a value to a dict
-- List Operations
-    - len() returns the length of a list
-    - sorted() sorts a list
-    - reversed() reverses a list
 
 
 ## Defining Functions
 
 We can define our own functions using the `def` keyword. This allows us to execute sections of code repeatedly.
 
+
 ```python
 def say_hello():
     print('hello!')
-
 say_hello()
 say_hello()
 say_hello()
-
->>> hello!
->>> hello!
->>> hello!
 ```
+> hello!
+> hello!
+> hello!
 
-The function above takes no parameters and returns no values. You can specify parameters by listing variables in the parantheses of the function definition.
 
 
 ## Parameters
+
+You can specify parameters by listing variables in the parantheses of the function definition.
 
 ```python
 def say_hello(first_name, last_name):
@@ -140,7 +115,6 @@ Within the function above, `*args` is defined as a tuple of the positional argum
 
 ## Returning
 
-
 We can also return values from a function, which is often the result of some computation or operation. The code below returns the lesser of two values. Notice we don't need an `else`, once a the interpreter reaches a `return`, it immediately exits a function.
 
 ```python
@@ -187,7 +161,7 @@ print(height)
 ## Decorators
 
 
-
+TODO
 
 
 

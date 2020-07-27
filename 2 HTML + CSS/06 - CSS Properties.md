@@ -2,7 +2,18 @@
 # CSS Properties
 
 
-1. [Position](#position)
+1. [Color and Images](#color-and-images)
+   1. [color](#color)
+   2. [background-color](#background-color)
+   3. [opacity](#opacity)
+   4. [background-image](#background-image)
+2. [Text](#text)
+3. [Display](#display)
+   1. [Inline](#inline)
+   2. [Block](#block)
+   3. [Inline-Block](#inline-block)
+   4. [None](#none)
+4. [Position](#position)
    1. [Position Values](#position-values)
    2. [Z-Index](#z-index)
 
@@ -20,6 +31,33 @@ For more info, look [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Refe
 | margin, padding | the element's margin (external) and padding (internal) |
 | font-family, font-size | the font family and font sized used within the element |
 
+## Color and Images
+
+### color
+### background-color
+
+### opacity
+
+[w3schools](https://www.w3schools.com/css/css_image_transparency.asp)
+
+### background-image
+
+
+## Text
+
+font-family
+font-size
+
+
+## Display
+
+### Inline
+
+### Block
+
+### Inline-Block
+
+### None
 
 
 ## Position

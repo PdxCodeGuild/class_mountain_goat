@@ -1,13 +1,15 @@
 # Regular Expressions in Python
 
-1. [Raw Strings](#raw-strings)
-2. [Matching and Searching](#matching-and-searching)
-3. [Splitting](#splitting)
-4. [Compiling Regular Expressions](#compiling-regular-expressions)
+1. [Raw Strings: `r''`](#raw-strings-r)
+2. [Match: `re.match(pattern, text)`](#match-rematchpattern-text)
+3. [Search: `re.search(pattern, text)`](#search-researchpattern-text)
+4. [Splitting: `re.split(pattern, text)`](#splitting-resplitpattern-text)
+5. [Find All: `re.findall(pattern, text)`](#find-all-refindallpattern-text)
+6. [Compiling Regular Expressions](#compiling-regular-expressions)
 
 You can find out more about regular expressions [here](https://docs.python.org/3.6/howto/regex.html#regex-howto) and [here](https://docs.python.org/3.6/library/re.html#re-syntax).
 
-## Raw Strings
+## Raw Strings: `r''`
 
 When writing regular expressions in Python as string literals, you should put an `r` before your string literal, so you can more easily write and read backslashes.
 
@@ -18,8 +20,36 @@ print(s1) # we can't write \ as easily, but escapes ' work
 print(s2) # we can write \ more easily but escapes \" dont work
 ```
 
+## Match: `re.match(pattern, text)`
 
-## Matching and Searching
+
+```python
+import re
+result = re.match(r"(\w+) (\w+)", "Isaac Newton, physicist")
+result.group(0)     # The entire match 'Isaac Newton'
+result.group(1)     # The first parenthesized subgroup 'Isaac'
+result.group(2)     # The second parenthesized subgroup 'Newton'
+result.group(1, 2)  # Multiple arguments give us a tuple ('Isaac', 'Newton')
+```
+
+
+
+
+## Search: `re.search(pattern, text)`
+
+
+
+
+
+
+
+TODO
+
+
+
+
+
+
 
 `match` and `search` both use a regular expression to find occurrences of a pattern in a string. The difference between them is that `match` only checks for a match at the beginning of a string, while `search` searches the entire string.
 
@@ -51,34 +81,29 @@ We can also use `match` and `search` to find the location and text that was matc
 ```python
 import re
 regex = r"([a-zA-Z]+) (\d+)"
-match = re.search(regex, "June 14")
+result = re.search(regex, "June 14")
 
-print(match.start()) # the beginning of the match, 0
-print(match.end()) # the end of the match, 7
+print(result.start()) # the beginning of the match, 0
+print(result.end()) # the end of the match, 7
 
-print(match.group()) # same as match.group(0), 'June 14'
-print(match.group(1)) # 'June'
-print(match.group(2)) # '24'
+print(result.group()) # same as result.group(0), 'June 14'
+print(result.group(1)) # 'June'
+print(result.group(2)) # '24'
 ```
 
-```python
-import re
-m = re.match(r"(\w+) (\w+)", "Isaac Newton, physicist")
-m.group(0)     # The entire match 'Isaac Newton'
-m.group(1)     # The first parenthesized subgroup 'Isaac'
-m.group(2)     # The second parenthesized subgroup 'Newton'
-m.group(1, 2)  # Multiple arguments give us a tuple ('Isaac', 'Newton')
-```
-
-## Splitting
+## Splitting: `re.split(pattern, text)`
 
 `split` works just like it does with strings, but allows for regular expressions rather than splitting on a particular string.
 
 ```python
 import re
-s = "this isn\'t the best. test? and I think, this may work! yay."
+s = "Hello! Is this a question? This is a statement."
 print(re.split('[.?!]', s))
 ```
+
+## Find All: `re.findall(pattern, text)`
+
+TODO
 
 ## Compiling Regular Expressions
 

@@ -159,8 +159,8 @@ keyword.kwlist
 | **and** | boolean operator |
 | **as** | used with imports |
 | **assert** | used for debugging |
-| **async** |  |
-| **await** |  |
+| **async** | asynchronous |
+| **await** | asynchronous |
 | **break** | used with loops, exit the current loop |
 | **class** | blueprints of an object, including data and methods |
 | **continue** | used for loops, skip the rest of the current iteration and go to the next |
@@ -180,17 +180,17 @@ keyword.kwlist
 | **is** | a boolean operator, tests for equality |
 | **lambda** | a short-hand function |
 | **None** | represents the absence of a value |
-| **nonlocal** | ??? |
+| **nonlocal** | variable scope |
 | **not** | a boolean operator |
 | **or** | a boolean operator |
-| **pass** |  |
-| **raise** | |
-| **return** | |
-| **True** | |
-| **try** | |
-| **while** | |
-| **with** | |
-| **yield** | |
+| **pass** | a placeholder |
+| **raise** | exceptions |
+| **return** | functions |
+| **True** | boolean literal |
+| **try** | exceptions |
+| **while** | looping |
+| **with** | safely open and close files |
+| **yield** | generators |
 
 
 

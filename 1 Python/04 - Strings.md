@@ -2,9 +2,9 @@
 # Strings
 
 1. [String Literals](#string-literals)
-2. [Escape Sequences](#escape-sequences)
+2. [Escape Sequences: `'\n'`, `'\t'`, etc](#escape-sequences-n-t-etc)
 3. [Raw Strings](#raw-strings)
-4. [Ascii Codes](#ascii-codes)
+4. [Ascii Codes: `ord` and `chr`](#ascii-codes-ord-and-chr)
 5. [String Operations](#string-operations)
    1. [Concatenation: `a + b`, `a += b`](#concatenation-a--b-a--b)
    2. [Multiplication: `a * b`, `a *= b`](#multiplication-a--b-a--b)
@@ -12,7 +12,7 @@
    4. [Access: `a[i]`](#access-ai)
    5. [Slicing: `a[i:j]`, `a[i:j:k]`](#slicing-aij-aijk)
    6. [Find: `a.find(b)`](#find-afindb)
-   7. [Converting Case: `a.upper()`, `a.lower()`](#converting-case-aupper-alower)
+   7. [Converting Case: `a.upper()`, `a.lower()`, `a.title()`](#converting-case-aupper-alower-atitle)
    8. [Starts-with and Ends-with: `startswith`, `endswith`](#starts-with-and-ends-with-startswith-endswith)
    9. [Replace `a.replace(b, c)`](#replace-areplaceb-c)
    10. [Strip `a.strip()`](#strip-astrip)
@@ -52,7 +52,7 @@ To define a string literal, you can enclose text in either single-quotes or doub
 ```
 > and 'vice versa' with double-quotes
 
-## Escape Sequences
+## Escape Sequences: `'\n'`, `'\t'`, etc
 
 Escape sequences allow us to define special characters within strings.
 
@@ -90,21 +90,16 @@ r'this is a raw string \n\t\\'
 > this is a raw string \n\t\\\\
 
 
-## Ascii Codes
+## Ascii Codes: `ord` and `chr`
 
 There are two built-in functions for switching back and forth between characters and their ascii codes: `chr` and `ord`. You can find more information about these in the official docs for [chr](https://docs.python.org/3.6/library/functions.html#chr) and [ord](https://docs.python.org/3.6/library/functions.html#ord). You can view the ASCII table [here](https://en.wikipedia.org/wiki/ASCII#Character_set)
 
 ```python
-ord('a')
+print(ord('a')) # 97
+print(chr(97))) # a
 ```
-> 97
-```python
-chr(97)
-```
-> a
 
 ## String Operations
-
 
 Remember that strings are **immutable** meaning their values cannot be changed. Each of these operations returns a **new** string. You can find some reasons why strings are immutable [here](https://stackoverflow.com/questions/22397861/why-is-string-immutable-in-java).
 
@@ -124,14 +119,13 @@ print(s)
 > hello world
 
 
-
 ### Multiplication: `a * b`, `a *= b`
 
 Repeat a string
 
 ```python
 s = 'hello! '
-'hello! ' * 4
+print('hello! ' * 4)
 ```
 > hello! hello! hello! hello! 
 
@@ -141,17 +135,17 @@ Get the length of a string
 
 ```python
 s = 'hello world!'
-len(s)
+print(len(s))
 ```
 > 12
 
 
 ### Access: `a[i]`
 
-Get the character at index `i`, indices start at 0
+Get the character at a given index, indices start at 0.
 
 ```python
- #   012345
+#    012345
 s = 'hello!'
 print(s[0])
 print(s[4])
@@ -161,71 +155,77 @@ print(s[4])
 
 ### Slicing: `a[i:j]`, `a[i:j:k]`
 
-Get the sub-string from `i` to `j`.
+Slicing allows you to extract a portion of a string. The syntax is `string[start_index : end_index : increment]`.
 
 ```python
+#    0123456789..
 s = 'hello world!'
-print(s[3:9])
+print(s[3:9]) # lo wor
 ```
-> lo wor
 
 If you leave out the starting index, it's implied to be the start of the string.
 
 ```python
-print(s[:9])
+#    0123456789..
+s = 'hello world!'
+print(s[:9]) # hello wor
 ```
-> hello wor
 
 If you leave out the ending index, it's implied to be the end of the string.
 
 ```python
-print(s[9:])
+#    0123456789..
+s = 'hello world!'
+print(s[9:]) # ld
 ```
-> ld
 
 You may optionally add a third number, the increment. The code below will yield every other character.
 
 ```python
-print(s[::2])
+#    0123456789..
+s = 'hello world!'
+print(s[::2]) # hlowrd
 ```
-> hlowrd
 
 You can use the increment to reverse a string.
 
 ```python
-print(s[::-1])
+#    0123456789..
+s = 'hello world!'
+print(s[::-1]) # dlrow olleh
 ```
-> dlrow olleh
-
-
-
-
-```python
-
-```
-> 
 
 ### Find: `a.find(b)`
 
 `s.find(a)` returns the index of a the first occurance of `a`
 
 ```python
+print('hello world'.find('l'))
 ```
-> 
+> 2
 
-### Converting Case: `a.upper()`, `a.lower()`
+### Converting Case: `a.upper()`, `a.lower()`, `a.title()`
 
-`s.upper()` convert to upper case
+`s.upper()` converts to upper case
 
 ```python
+print('hello'.upper())
 ```
-> 
-`s.lower()` convert to lower case
+> HELLO
+
+`s.lower()` converts to lower case
 
 ```python
+print('Hello'.lower())
 ```
-> 
+> hello
 
+`s.title()` makes the first letter of each word a capital
+
+```python
+print('hello world'.title())
+```
+> Hello World
 
 
 ### Starts-with and Ends-with: `startswith`, `endswith`
@@ -252,63 +252,52 @@ print('hello world'.endswith('world'))
 
 ### Replace `a.replace(b, c)`
 
-`a.replace(b, c)` replaces occurances of string `a` with string `b`
+`a.replace(b, c)` replaces occurances of string `b` with string `c`
 
 ```python
+print('hello world'.replace('hello', 'goodbye'))
 ```
-> 
+> goodbye world
 
 ### Strip `a.strip()`
 
 `s.strip()`removes leading and trailing characters, if given no parameter, it'll strip whitespace
 
 ```python
+print('   hello\t\n  '.strip())
 ```
-> 
+> hello
+```python
+print('__%__hello_world__%__'.strip('_%'))
+```
+> hello_world
 
 ### Split: `a.split(b)`
-
 
 `s.split(delimeter)` splits a string into a list, if no parameter is given, it'll split on whitespace
 
 ```python
+fruits = 'apples, bananas, pears'
+print(fruits.split(', '))
 ```
-> 
+> ['apples', 'bananas', 'pears']
 
 ### Delimeter: `a.join(b)`
 
 `delimeter.join(list)` combines the elements of a list into a single string, separated by the delimeter
 
 ```python
+print(' - '.join(['apples', 'bananas', 'pears'])
 ```
-> 
+> apples - bananas - pears
 
 
 ### Count: `a.count(b)`
 
+```python
+```
+> 
 
-```python
-s = ' Hello! '
-s.lower() # this returns a new string, use s = s.lower()
-s.strip() # this returns a new string, use s = s.strip()
-print(s) # ' Hello! ' original value is unchanged
-```
-`strip` and `split` can take arguments or not:
-```python
-s = " Hello there"
-a = s.strip()
-b = s.strip('e')
-c = s.split()
-d = s.split('e')
-print(a)
->>> 'Hello there' #Stripped it of the whitespace at the beginning
-print(b)
->>> ' Hello ther' #Stripped it of the 'e' at the end
-print(c)
->>> ['Hello', 'there'] #Split it into a list, getting rid of and splitting at the whitespace
-print(d)
->>> [' H', 'llo th', 'r', ''] #Split it into a list, this time getting rid of and splitting at the 'e'
-```
 
 
 ## f-strings
@@ -347,5 +336,5 @@ if char in text:
 
 ## Docstrings
 
-Docstrings are a special kind of multi-line string that's used for generating documentation. You can read more [here](Docstrings.md)
+Docstrings are a special kind of multi-line string that's used for generating documentation. You can read more [here](15%20-%20Docstrings.md)
 

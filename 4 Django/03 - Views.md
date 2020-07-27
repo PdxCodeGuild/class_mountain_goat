@@ -1,6 +1,8 @@
 
 # Views
 
+**Views** are python functions that are executed when a request follows a route. The view can then respond with HTML, JSON, text, etc. An app's views are contained in its `views.py` file. You can read more about views [here](https://docs.djangoproject.com/en/3.0/topics/http/views/), [here](https://docs.djangoproject.com/en/3.0/topics/http/views/), and [here](https://docs.djangoproject.com/en/3.0/ref/request-response/).
+
 1. [Requests](#requests)
    1. [Path Parameters](#path-parameters)
          1. [urls.py](#urlspy)
@@ -13,10 +15,6 @@
    2. [Responding with a Template](#responding-with-a-template)
    3. [Responding with JSON](#responding-with-json)
    4. [Redirecting](#redirecting)
-
-
-**Views** are python functions that are executed when a request follows a route. The view can then respond with HTML, JSON, text, etc. An app's views are contained in its `views.py` file. You can read more about views [here](https://docs.djangoproject.com/en/3.0/topics/http/views/) and [here](https://docs.djangoproject.com/en/3.0/ref/request-response/).
-
 
 ## Requests
 

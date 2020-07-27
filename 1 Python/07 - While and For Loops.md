@@ -4,12 +4,11 @@
 1. [While Loops](#while-loops)
 2. [For Loops](#for-loops)
    1. [Range](#range)
-   2. [String](#string)
-   3. [List](#list)
+   2. [Strings](#strings)
+   3. [Lists](#lists)
 3. [Break and Continue](#break-and-continue)
    1. [Break](#break)
    2. [Continue](#continue)
-   3. [Set a Flag](#set-a-flag)
 
 
 ## While Loops
@@ -103,40 +102,57 @@ for i in range(0, 10, 1):
 
 
 
-### String
+### Strings
+
+You can use a for loop with a string to iterate over its characters one at a time.
 
 ```python
-text = 'hello world!'
+text = 'hello!'
 for char in text:
     print(char) 
 ```
+> h
+> e
+> l
+> l
+> o
+> !
 
 
 
-
-### List
+### Lists
 
 If we use a list, we can iterate over the elements.
 ```python
-fruits = ['apples', 'bananas', 'pears', 'cherries', 'pineapple']
+fruits = ['apples', 'bananas', 'pears']
 for fruit in fruits:
     print(fruit)
 ```
+> apples
+> bananas
+> pears
 
 We can also iterate over the indices by using a `range`.
-```python
- # iterate over the indices
-fruits = ['apples', 'bananas', 'pears', 'cherries', 'pineapple']
-for i in range(len(fruits)):
-    print(fruits[i])
-```
 
-If we want both the indices and values, we can use enumerate. This uses tuple unpacking.
 ```python
-fruits = ['apples', 'bananas', 'pears', 'cherries', 'pineapple']
-for i, fruit in enumerate(fruits):
-    print(str(i)+' '+str(fruit))
+fruits = ['apples', 'bananas', 'pears']
+for i in range(len(fruits)):
+    print(str(i) + ' ' + fruits[i])
 ```
+> 0 apples
+> 1 bananas
+> 2 pears
+
+If we want both the indices and values at the same time, we can use enumerate. This uses tuple unpacking.
+
+```python
+fruits = ['apples', 'bananas', 'pears']
+for i, fruit in enumerate(fruits):
+    print(str(i) + ' ' + fruit)
+```
+> 0 apples
+> 1 bananas
+> 2 pears
 
 
 ## Break and Continue
@@ -144,15 +160,16 @@ for i, fruit in enumerate(fruits):
 The keywords `break` and `continue` are two ways of controlling the operation of a loop.
 
 ### Break
+
 `break` causes the loop to exit immediately, not executing any more statements of the loop's body.
 
 ```python
->>> for i in range(100):
->>>     print(i, end=' ')
->>>     if i == 5:
->>>         break
-0 1 2 3 4 5
+for i in range(100):
+    print(i, end=' ')
+    if i == 5:
+        break
 ```
+> 0 1 2 3 4 5
 
 This is particularly useful when you need tighter control over when a loop terminates, and can use an infinite loop (`while True`) with a `break`.
 
@@ -165,54 +182,28 @@ while True:
     nums.append(int(num))
 print(nums)
 ```
+
 It only works on the loop that you're currently in however, not the loop that loop is in if you're using nested loops.
+
 ```python
 nums = [1,2,3,4]
 while True:
     for num in nums:
-        print(num)
+        print(num, end=' ')
         if num == 3:
             break
-   
->>> 1
->>> 2
->>> 3
->>> 1
->>> 2
->>> 3
->>> 1
->>> 2
->>> 3
->>> 1
->>> 2
->>> 3
-etc.
 ```
+> 1 2 3 1 2 3 1 2 ...
 
 ### Continue
-`continue` skips the current iteration and continues with the next. In the example below, we skip iterations that are of odd numbers.
+
+The `continue` statement skips the current iteration and continues with the next. Any code after `continue` is hit will not be run. In the example below, we skip iterations that are of odd numbers.
 
 ```python
->>> for i in range(20):
->>>     if i%2 == 1:
->>>         continue
->>>     print(i, end=' ')
-0 2 4 6 8 10 12 14 16 18
+for i in range(20):
+    if i%2 == 1:
+        continue
+    print(i, end=' ')
 ```
+> 0 2 4 6 8 10 12 14 16 18
 
-### Set a Flag
-A flag is a boolean variable used to represent true or false for the while loop in order to break out of it.
-The flag variable may be named whatever you wish.
-```python
-new_list = []
-my_flag = True
-while my_flag:
-    new_list.append("flag")
-    if len(new_list) > 3:
-        my_flag = False
-
-
-print(new_list)
-
->>> ['flag', 'flag', 'flag', 'flag']
-```

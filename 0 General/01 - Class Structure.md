@@ -8,7 +8,7 @@
    2. [Why Python?](#why-python)
    3. [Why Django?](#why-django)
 3. [Course Overview](#course-overview)
-4. [Submitting Labs](#submitting-labs)
+4. [Submitting Lab Solutions](#submitting-lab-solutions)
 5. [Daily Habits](#daily-habits)
 6. [Exercises](#exercises)
    1. [Lectures & Demonstrations](#lectures--demonstrations)
@@ -34,7 +34,7 @@
 
 ### What is programming?
 
-A program is a series of instructions given to a computer which perform operations on data, transforming input into output. We write our instructions, or 'source code' in text files, then 'run' those instructions by giving the file to the python interpreter.
+A program is a series of instructions given to a computer which perform operations on data, transforming input into output. We write our instructions, or 'source code' in text files, then 'run' those instructions opening those files in the python interpreter or browser. 
 
 ### Why Python?
 
@@ -48,14 +48,15 @@ A program is a series of instructions given to a computer which perform operatio
 
 - It has a great community, active development
 - It enables the quick development of web applications
-- Web dev is very popular (& lucrative)
-
+- Web dev is very popular and lucrative
 
 ## Course Overview
 
-This course is a kick-start to learning web development, it is immersive and pragmatic. We focus on understanding the principles in practice. Most of the class will consist of alternating between lectures, demos, and labs. While we're working on our labs, you're free to use the entirety of the space. The class will use a git repository for viewing docs, labs, and solutions. This is also where each student will submit their own solutions, in a folder with their name. Tutoring outside of class is free and can be scheduled with the instructor.
+This course is a kick-start to learning web development, it is immersive and pragmatic. We learn by doing, and focus on understanding the principles of programming practice. Most of the class time will consist of lectures, demos, mob programming, and labs. Tutoring outside of class is free and can be scheduled with the instructor.
 
-## Submitting Labs
+## Submitting Lab Solutions
+
+Students will submit lab solutions by using `commit` and `push` to a repository and creating a link in the `README.md` to them.
 
 ## Daily Habits
 
@@ -90,11 +91,11 @@ Avoid getting burnt-out:
 
 ### Lectures & Demonstrations
 
-The purpose of lectures is to introduce and explain a topic. Most lectures are followed by live demonstrations. Please do not speak or distract yourself during lecture. These will be recorded and posted after class.
+The purpose of lectures is to introduce and explain a topic. Most lectures are followed by live demonstrations. Please do not  distract yourself during lecture. These will be recorded and posted after class.
 
 ### Labs
 
-Labs represent the bulk of the course work. Read the lab description, plan out a solution, and implement your solution in a `.py` file. Please label your solutions very clearly (lab01.py, lab02.py) and split the different versions into different files (unless the advanced version is a direct extension of the last solution).
+Labs represent the bulk of the course work. Read the lab description, plan out a solution, and implement your solution in a `.py` file. Please label your solutions very clearly (`lab01.py`, `lab02.py`) and split the different versions into different files (unless the advanced version is a direct extension of the last solution).
 
 Lab solutions must perform the function described in the lab description. All solutions must be formatted, tested, and commented in order to be considered 'complete'.
 
@@ -106,7 +107,7 @@ Make an honest attempt before you ask for help on a lab. Look carefully at the e
 
 Don't consider an assignment 'finished' until it's been thoroughly tested. Try many different inputs and verify the output. Check for 'edge' cases or unexpected user input. I'll review your solutions from time to time and verify that they successfully fit the requirements of the assignment. If they don't, you'll need to fix them.
 
-Once you've finished a lab, or a major portion of a lab, commit and push your work. Unless you have a good reason (building's on fire), try to only commit working code.
+Once you've finished a lab, or a major portion of a lab, commit and push your work. Unless you have a good reason (building's on fire), only commit working code.
 
 
 ### Pair, Group, & Mob Programming
@@ -118,7 +119,7 @@ For [mob programming](https://en.wikipedia.org/wiki/Mob_programming), one studen
 
 ### Student Presentations
 
-At the end of the Python and JavaScript sections, you'll give a presentation on an assignment of your choice. This is practice for your capstone presentation which you'll give on the last day of class.
+At the end of each section, you'll give a presentation on an assignment of your choice. This is practice for your capstone presentation which you'll give on the last day of class.
 
 These presentations help you practice communicating technical topics in English. Being able to speak intelligently about programming is almost as important as programming itself. This skill will allow you to better talk to interviewers, managers, clients, coworkers, and more.
 
@@ -136,15 +137,11 @@ For your capstone presentation, you should plan out what features of your projec
 
 ## Rough Timeline
 
-- Weeks 1, 2, 3, 4: Python
-- Week 5: HTML/CSS
-- Week 6: Flask
-- Week 7, 8: Django
-- Weeks 9, 10, 11: JavaScript
-- Weeks 12, 13, 14: Capstone
-
-
-
+- Week 1, 2, 3: Python
+- Week 4: HTML + CSS
+- Week 5, 6, 7: JavaScript
+- Week 8, 9, 10, 11: Django
+- Week 12, 13, 14: Capstone
 
 ## Code of Conduct
 
@@ -167,6 +164,6 @@ At PDX Code Guild we seek to create an environment conducive to personal and pro
 
 ## Academic Honesty
 
-Do not look at the solution or other students' solutions until you've finished the lab yourself. You're only inhibiting your own learning by doing so.
+Do not look at the solution or other students' solutions until you've finished the lab yourself. Do not copy other student's code. Do not copy code off the internet unless it's a small amount and you know exactly what it means. Do not try and complete a lab by googling a tutorial. You're only inhibiting your own learning by doing so. Cheating is also a violation of our code of conduct and can result in expulsion.
 
 You are encouraged to use resources (docs, online, books, each other) to research solutions. If you copy code from the internet or a book, you must understand what it means and how it works. If you're not sure, look up the function in the docs, try running it with a variety of inputs, and try tweaking the syntax, throw in print statements to print the values of variables at different times, etc. You also cannot use a single function which performs the entirety of the solution for you. The early labs are designed to practice string and list operations, using a function that does it all defeats the purpose.

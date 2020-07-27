@@ -1,39 +1,45 @@
 # Dictionaries
 
-1. [Accessing Values](#accessing-values)
-2. [Adding and Updating Values](#adding-and-updating-values)
-3. [Checking if a Key Exists](#checking-if-a-key-exists)
-4. [Combining Dictionaries](#combining-dictionaries)
-5. [Retrieving Keys and Values](#retrieving-keys-and-values)
-6. [Order](#order)
-7. [Conversions](#conversions)
+**Dictionaries** or 'dicts'  provide an unordered, mutable, sequence of key-value pairs or a mapping between keys and values. For more information check the [official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict). Dict literals are written using curly braces, and key-value pairs defined with colons and separated by commas. Keys have to be unique, values do not. Any _immutable_ value (int, float, string, tuple) can be a key, thus lists and other dicts can't be keys. Values can be any type.
 
-**Dictionaries** or 'dicts'  provide an unordered, mutable, sequence of key-value pairs or a mapping between keys and values. For more information check the [official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict).
+1. [Accessing a Value with a Key: `dict[key]`](#accessing-a-value-with-a-key-dictkey)
+2. [Adding a Key-Value Pair](#adding-a-key-value-pair)
+3. [Updating a Key-Value Pair](#updating-a-key-value-pair)
+4. [Removing a Key-Value Pair](#removing-a-key-value-pair)
+5. [Checking if a Key Exists](#checking-if-a-key-exists)
+6. [Combining Dictionaries](#combining-dictionaries)
+7. [Retrieving Keys and Values](#retrieving-keys-and-values)
+8. [Order](#order)
+9. [Conversions](#conversions)
 
-Dict literals are written using curly braces, and key-value pairs defined with colons and separated by commas.
 
 ```python
 {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
-{'David': ['day'], 'Sheri': ['day', 'night']}
-{}
 ```
 
-Keys have to be unique, values do not. Any _immutable_ value (int, float, string, tuple) can be a key, thus lists and other dicts can't be keys. Values can be any type.
-
-
-## Accessing Values
+## Accessing a Value with a Key: `dict[key]`
 
 The values of a dictionary are accessed by using the square-brackets with the key, similarly to how we access a specific element from a list using its index.
 
 ```python
-product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
-product_to_price['apple']  #> 1.0
-product_to_price['grapes']  #> 0.75
-product_to_price['banana']  # Throws KeyError
+product_to_price = {'apple': 1.0, 'banana': 1.5, 'pear': 0.75}
+print(product_to_price['apple'])  # 1.0
+print(product_to_price['pear'])  # 0.75
+print(product_to_price['grapes'])  # Throws KeyError
 product_to_price[1.0]  # Throws KeyError
 ```
 
-## Adding and Updating Values
+## Adding a Key-Value Pair: `dict[key] = value`
+
+```python
+product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
+product_to_price['apple'] = 2.0
+product_to_price  #> {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
+product_to_price['banana'] = 0.25
+product_to_price  #> {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
+```
+
+## Updating a Key-Value Pair: `dict[key] = value`
 
 Values can then be added or updated by using the assignment operator `=`.
 
@@ -45,18 +51,19 @@ product_to_price['banana'] = 0.25
 product_to_price  #> {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
 ```
 
-## Checking if a Key Exists
+## Removing a Key-Value Pair: `del dict[key]`
+
+## Checking if a Key Exists: `key in dict`
 
 To check if a list contains a key, use `in`
 
 ```python
 product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
 if 'apple' in product_to_price:
-    print('apple ' + str(product_to_price['apple']))
-'apple 1.0'
+    print('apple ' + str(product_to_price['apple'])) # 'apple 1.0'
 ```
 
-## Combining Dictionaries
+## Combining Dictionaries: `dict1.update(dict2)`
 
 To combine two dictionaries, use the `.update()` type method. Note that it changes the given dict and does not return a new one.
 

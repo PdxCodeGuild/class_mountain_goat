@@ -7,14 +7,13 @@
 3. [Types](#types)
 4. [Type Conversion](#type-conversion)
 5. [Literals](#literals)
-6. [Mutability](#mutability)
-7. [Functions](#functions)
-8. [Classes](#classes)
-9. [Methods](#methods)
-10. [I/O](#io)
+6. [I/O](#io)
    1. [Print](#print)
+      1. [End](#end)
+      2. [Multiple Parameters](#multiple-parameters)
+      3. [Sep](#sep)
    2. [Input](#input)
-11. [Common Built-in Functions](#common-built-in-functions)
+7. [Mutability](#mutability)
 
 
 ## Common Built-in Types
@@ -94,47 +93,12 @@ The easiest way to enter data in your problem is through 'literals', which are c
 - list literals: `[]`, `[1, 2, 3]`
 - dict literals: `{}`, `{'a': 1, 'b': 2}`
 
-## Mutability
-
-Certain datatypes in Python are **immutable** meaning their values **cannot** be changed. Immutable types include ints, floats, strings, and tuples. This is why string methods like `lower`, `replace` and `strip` return **copies** of the given string.
-
-
-```python
-x = 5
-y = x
-y += 2
-print(x)
-print(y)
-```
-> 5
-> 7
-
-```python
-x = ['apples', 'bananas', 'pears']
-y = x
-y.append('cherries')
-print(x)
-print(y)
-```
-> ['apples', 'bananas', 'pears', 'cherries']
-> ['apples', 'bananas', 'pears', 'cherries']
-
-
-## Functions
-
-
-## Classes
-
-
-## Methods
-
-
 
 ## I/O
 
 ### Print
 
-Print is a function in python that allows us to print text to the terminal. Each call to `print` results in a new-line.
+Print is a function in python that allows us to print text to the terminal. Each call to `print` will output whatever's passed as a parameter to the console. [python docs](https://docs.python.org/3/library/functions.html#print)
 
 ```python
 print('hello')
@@ -144,13 +108,17 @@ print('world')
 > world
 
 
-By default, print will have a newline at the end, if you wish to 
+#### End
+
+By default, print will have a newline at the end, if you wish to print change that you can specify an `end` parameter.
 
 ```python
 print('hello', end=' ')
 print('world')
 ```
 > hello world
+
+#### Multiple Parameters
 
 If you pass multiple arguments (separated by commas), it'll print them each on a single line with spaces in between. 
 
@@ -160,6 +128,8 @@ score = 97
 print("Total score for", name, "is", score)
 ```
 > Total score for Jane is 97
+
+#### Sep
 
 If you want to specify a different separator character (space is default), you can write something like:
 
@@ -173,7 +143,7 @@ print("Total score for ", name, " is ", score, sep='_')
 
 ### Input
 
-The `input` function allows us to prompt the user for input on the terminal. The string that's passed to it determines what's displayed with the prompt.
+The `input` function allows us to prompt the user for input on the terminal. The string that's passed to it determines what's displayed with the prompt. [python docs](https://docs.python.org/3/library/functions.html#input)
 
 ```python
 name = input('What is your name? ')
@@ -184,35 +154,24 @@ print('Hello', name, '!')
 > Hello Joe !
 
 
+## Mutability
+
+Certain datatypes in Python are **immutable** meaning their values **cannot** be changed. Immutable types include ints, floats, strings, and tuples. This is why string methods like `lower`, `replace` and `strip` return **copies** of the given string. [stack overflow](https://stackoverflow.com/questions/8056130/immutable-vs-mutable-types)
 
 
-## Common Built-in Functions
+```python
+x = 5
+y = x
+y += 2
+print(x) # 5
+print(y) # 7
+```
 
-For all the built-in functions, check the [official docs](https://docs.python.org/3/library/functions.html)
-
-
-- [I/O](#i/o)
-    - input() prompts the user for input on the terminal
-    - print() displays text to the user on the terminal
-- Arithmetic
-    - abs() returns the absolute value of a number
-    - round() rounds a number, an optional second argument can specify how many decimal places the output should have
-    - min() returns the minimum of the values passed to it
-    - max() returns the maximum of the values passed to it
-    - sum() returns the sum of the values passed to it
-- Type Conversion
-    - int() converts a value to an int
-    - float() converts a value to a float
-    - str() converts a value to a string
-    - chr() converts an int to a string containing the character with that unicode value, for example `chr(97)` returns the string 'a'
-    - ord() converts a character into an int representing the unicode value, for example `ord('a')` returns `97`
-    - bool() converts a value to a boolean
-    - list() converts a value to a list
-    - tuple() converts a value to a tuple
-    - set() converts a value to a set
-    - dict() converts a value to a dict
-- Iterables
-    - len() returns the length of a list
-    - sorted() sorts a list
-    - reversed() reverses a list
+```python
+x = ['apples', 'bananas', 'pears']
+y = x
+y.append('cherries')
+print(x) # ['apples', 'bananas', 'pears', 'cherries']
+print(y) # ['apples', 'bananas', 'pears', 'cherries']
+```
 
