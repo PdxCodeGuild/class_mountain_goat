@@ -1,19 +1,33 @@
 
 # Lists and Tuples
 
-1. [Lists](#lists)
-   1. [List Operations](#list-operations)
-   2. [Python List Functions](#python-list-functions)
-2. [List Comprehensions](#list-comprehensions)
+1. [Defining Lists](#defining-lists)
+2. [List Operations](#list-operations)
+   1. [Access: `mylist[i]`](#access-mylisti)
+   2. [Length `len(mylist)`](#length-lenmylist)
+   3. [Comparison `mylist == otherlist`, `mylist != otherlist`](#comparison-mylist--otherlist-mylist--otherlist)
+   4. [Inclusion: `element in mylist`](#inclusion-element-in-mylist)
+   5. [Append: `mylist.append(element)`](#append-mylistappendelement)
+   6. [Insert: `mylist.insert(index, element)`](#insert-mylistinsertindex-element)
+   7. [Remove: `mylist.remove(element)`](#remove-mylistremoveelement)
+   8. [Pop: `mylist.pop(index)`](#pop-mylistpopindex)
+   9. [Delete `del mylist[index]`](#delete-del-mylistindex)
+   10. [Extend: `mylist.extend(otherlist)`](#extend-mylistextendotherlist)
+   11. [Copy: `mylist.copy()`](#copy-mylistcopy)
+   12. [Index: `mylist.index(element)`](#index-mylistindexelement)
+   13. [Slicing: `mylist[start : end : increment]`](#slicing-myliststart--end--increment)
+   14. [Reverse: `mylist.reverse()`](#reverse-mylistreverse)
+   15. [Sort: `mylist.sort()`](#sort-mylistsort)
+   16. [Built-in Functions `reversed` and `sorted`](#built-in-functions-reversed-and-sorted)
+3. [List Comprehensions](#list-comprehensions)
    1. [Transforming Elements](#transforming-elements)
    2. [Filtering Elements](#filtering-elements)
    3. [Nested Comprehensions](#nested-comprehensions)
-3. [Tuples](#tuples)
+4. [Tuples](#tuples)
 
-## Lists
+## Defining Lists
 
-
-Lists are collections of ordered elements. We can define lists using square brackets. The elements a list contains don't have to all be of the same type.
+Lists are collections of ordered elements. We can define lists using square brackets and commas. The elements a list contains don't have to all be of the same type.
 
 ```python
 fruits = ['apple', 'banana', 'peach', 'pear']
@@ -21,14 +35,32 @@ nums = [4, 56, 73, 12]
 mixed = [3, 'red', 45.012, [3, 5]] # lists can even contain other lists!
 ```
 
-We can check if a list contains an element using 'in':
+
+## List Operations
+
+
+### Access: `mylist[i]`
+
+Access list elements by index, note that indices start at 0. You can also access elements using negative indices, which begin from the end and go backward.
 
 ```python
-fruits = ['apples', 'bananas', 'pears']
-if 'apples' in fruits:
-    print('true!')
+fruits = ['apples', 'bananas', 'pears', 'cherries']
+print(fruits[0]) # apples
+print(fruits[2]) # pears
+print(fruits[-1]) # cherries
+print(fruits[-3]) # bananas
 ```
-> true!
+
+### Length `len(mylist)`
+
+We can use the `len` function to get the length of a list:
+
+```python
+fruits = ['apple', 'banana', 'peach', 'pear']
+print(len(fruits)) # 4
+```
+
+### Comparison `mylist == otherlist`, `mylist != otherlist`
 
 We can use `==` and `!=` with lists.
 
@@ -38,72 +70,153 @@ fruits2 = ['pears', 'cherries']
 print(fruits1 == fruits2) # False
 print(fruits1 != fruits2) # True
 ```
-Access lists by index, note that indexes start at 0. You can also access them negatively
+
+### Inclusion: `element in mylist`
+
+We can check if a list contains an element using `in`.
+
 ```python
-nums = [4, 56, 73, 12]
-print(nums[0])
-print(nums[2])
-
->>> 4
->>> 73
-
-print(nums[-1])
-print(nums[-3])
-
->>> 12
->>> 56
+fruits = ['apples', 'bananas', 'pears']
+if 'apples' in fruits:
+    print('true!')
 ```
-You can also access lists using colons (`[::]`), this is called slicing! The value before the first colon is the steps you want to take, the second value is the subset of string you may want to take, and the third value is the reverse step. Note that you cannot use the first and third values at the same time (no such thing as simultaneous forward and backward stepping).
+> true!
+
+### Append: `mylist.append(element)`
+
+We can use the `append` method to add an element to the end of a list.
+
+```python
+fruits = ['apple', 'banana', 'peach', 'pear']
+fruits.append('pineapple')
+print(fruits) # ['apple', 'banana', 'peach', 'pear', 'pineapple']
+```
+
+### Insert: `mylist.insert(index, element)`
+
+We can insert an element into an arbitrary place in the list
+
+```python
+fruits = ['apples', 'bananas', 'pears']
+fruits.insert(1, 'cherries') # insert an element at index 1
+print(fruits) # ['apples', 'cherries', 'bananas', 'pears']
+```
+
+### Remove: `mylist.remove(element)`
+
+We can use the `remove` method to remove an element. This only removes the first occurance.
+
+```python
+fruits = ['apples', 'pears', 'bananas', 'pears']
+fruits.remove('pears')
+print(fruits) # ['apples', 'bananas', 'pears']
+```
+
+### Pop: `mylist.pop(index)`
+
+The `pop` method removes an element at a given index and returns it.
+
+```python
+fruits = ['apples', 'bananas', 'pears']
+print(fruits.pop(1)) # 'bananas'
+print(fruits) # ['apples', 'pears']
+```
+
+### Delete `del mylist[index]`
+
+We can use the `del` operator to remove an element.
+
+```python
+fruits = ['apples', 'bananas', 'pears']
+del fruits[1]
+print(fruits) # ['apples', 'pears']
+```
+
+### Extend: `mylist.extend(otherlist)`
+
+The `extend` method appends all the elements from one list to another.
+
+```python
+fruits1 = ['apples', 'bananas', 'pears']
+fruits2 = ['cherries', 'pineapples']
+fruits1.extend(fruits2) # ['apples', 'bananas', 'pears', 'cherries', 'pineapples']
+print(fruits1)
+```
+
+### Copy: `mylist.copy()`
+
+We can use the `copy` method to create a copy of a list. Editing a copy won't change the original.
+
+```python
+fruits1 = ['apples', 'bananas', 'pears']
+fruits2 = fruits1.copy()
+fruits2[0] = 'pineapples'
+print(fruits1) # ['apples', 'bananas', 'pears']
+print(fruits2) # ['pineapples', 'bananas', 'pears']
+```
+
+
+### Index: `mylist.index(element)`
+
+The `index` method gives us the index of the first occurrence of an element.
+
+```python
+fruits = ['apples', 'bananas', 'pears']
+print(fruits.index('bananas')) # 1
+```
+
+### Slicing: `mylist[start : end : increment]`
+
+We can get sublists using square brackets and colons `[::]`, this is called slicing. The first number is the starting index, the second is the ending index, and the third is the increment. If you leave out the first number, it's implied to be the beginning. If you leave out the second number it's implied to be the end. If you leave out the third number, it's implied to be 1.
+
 ```python
 nums = [4, 56, 73, 12, 17, 99, 42, 87]
-print(nums)
-print(nums[2::])
-print(nums[:2:])
-print(nums[::-1])
-print(nums[2:4:])
-print(nums[:6:-1])
-print(nums[2:6:-1])
-print(nums[::-2])
-
-
->>> [4, 56, 73, 12, 17, 99, 42, 87]
->>> [73, 12, 17, 99, 42, 87]
->>> [4, 56]
->>> [87, 42, 99, 17, 12, 73, 56, 4]
->>> [73, 12]
->>> [87]
->>> []
->>> [87, 99, 12, 56]
+print(nums) # [4, 56, 73, 12, 17, 99, 42, 87]
+print(nums[2::]) # [73, 12, 17, 99, 42, 87]
+print(nums[:2:]) # [4, 56]
+print(nums[::-1]) # [87, 42, 99, 17, 12, 73, 56, 4]
+print(nums[2:4:]) # [73, 12]
+print(nums[:6:-1]) # [87]
+print(nums[2:6:-1]) # []
+print(nums[::-2]) # [87, 99, 12, 56]
 ```
 
-### List Operations
+### Reverse: `mylist.reverse()`
 
+We can use the `reverse` method to reverse a list:
 
-- `copy()` creates a copy of the list
-- `append()` appends an element to the end
-- `insert()` inserts the value at the specified index
-- `remove()` removes the first occurance of the element
-- `pop()` removes the element at the given index
-- `extend()` combines two lists into one
-- `index()` returns the index of a given element
-- `reverse()` reverses a list
-- `sort()` sorts a list
+```python
+fruits = ['apples', 'bananas', 'pears']
+fruits.reverse()
+print(fruits) # ['pears', 'bananas', 'apples']
+```
 
-### Python List Functions
+### Sort: `mylist.sort()`
+
+We can use the `sort` method to sort a list:
+
+```python
+fruits = ['cherries', 'bananas', 'pears', 'apples']
+fruits.sort()
+print(fruits) # ['apples', 'bananas', 'cherries', 'pears']
+```
+
+### Built-in Functions `reversed` and `sorted`
+
 - `reversed(seq)` returns a reversed object when given an iterable, should be typecasted to list for further usage
 - `sorted(seq)` returns a new sorted list when given an unsorted iterable, unlike `reversed(seq)` it does not need typecasting
 
 ```python
-seqString = 'Python'
-print(reversed(seqString))
-print(list(reversed(seqString)))
-print(list(sorted(seqString)))
-print(sorted(seqString))
+mystring = 'Python'
+print(reversed(mystring))
+print(list(reversed(mystring)))
+print(list(sorted(mystring)))
+print(sorted(mystring))
 
 >>> <reversed object at 0x7fb67b77dd68>
->>> ['n', 'o', 'h', 't', 'y', 'P'] #List typecasted reversed object
+>>> ['n', 'o', 'h', 't', 'y', 'P']
 >>> ['P', 'h', 'n', 'o', 't', 'y']
->>> ['P', 'h', 'n', 'o', 't', 'y'] #Same as the non typecasted version
+>>> ['P', 'h', 'n', 'o', 't', 'y']
 ```
 
 ## List Comprehensions
@@ -171,9 +284,9 @@ doubled_odds = [n * 2 for n in numbers if n % 2 == 1]
 ```python
 [[1 if col == row else 0 for col in range(0, 3)] for row in range(0, 3)]
 ```
-> [[1, 0, 0],
->  [0, 1, 0],
->  [0, 0, 1]]
+> [[1, 0, 0],<br>
+>  [0, 1, 0],<br>
+>  [0, 0, 1]]<br>
 
 ## Tuples
 

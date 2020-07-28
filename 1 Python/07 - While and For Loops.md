@@ -22,11 +22,11 @@ while i < 5:
     i += 1
 print('done')
 ```
-> 0
-> 1
-> 2
-> 3
-> 4
+> 0<br>
+> 1<br>
+> 2<br>
+> 3<br>
+> 4<br>
 > done
 
 You can add an `else` statement to a while loop. whatever is in the else statement will execute when the while loop is finished, but won't execute when you `break` out of one or if an exception is raised.
@@ -111,11 +111,11 @@ text = 'hello!'
 for char in text:
     print(char) 
 ```
-> h
-> e
-> l
-> l
-> o
+> h<br>
+> e<br>
+> l<br>
+> l<br>
+> o<br>
 > !
 
 

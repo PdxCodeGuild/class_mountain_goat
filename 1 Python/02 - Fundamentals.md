@@ -41,7 +41,7 @@ print(id(x))
 message = 'hello' # message is the variable, 'hello' is the object
 print(id(message))
 ```
-> 512341256
+> 512341256<br>
 > 231661621
 
 Everything is an object in python, including None, booleans, integers, floats, modules, classes, and functions. This means they can be assigned to variables, passes as parameters to functions, and be put into lists and dictionaries.
@@ -104,7 +104,7 @@ Print is a function in python that allows us to print text to the terminal. Each
 print('hello')
 print('world')
 ```
-> hello
+> hello<br>
 > world
 
 
@@ -150,7 +150,7 @@ name = input('What is your name? ')
 print('Hello', name, '!')
 
 ```
-> What is your name? Joe
+> What is your name? Joe<br>
 > Hello Joe !
 
 

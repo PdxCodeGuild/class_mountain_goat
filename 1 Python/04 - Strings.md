@@ -147,11 +147,9 @@ Get the character at a given index, indices start at 0.
 ```python
 #    012345
 s = 'hello!'
-print(s[0])
-print(s[4])
+print(s[0]) # h
+print(s[4]) # o
 ```
-> h
-> o
 
 ### Slicing: `a[i:j]`, `a[i:j:k]`
 
@@ -209,23 +207,20 @@ print('hello world'.find('l'))
 `s.upper()` converts to upper case
 
 ```python
-print('hello'.upper())
+print('hello'.upper()) # HELLO
 ```
-> HELLO
 
 `s.lower()` converts to lower case
 
 ```python
-print('Hello'.lower())
+print('Hello'.lower()) # hello
 ```
-> hello
 
 `s.title()` makes the first letter of each word a capital
 
 ```python
-print('hello world'.title())
+print('hello world'.title()) # Hello World
 ```
-> Hello World
 
 
 ### Starts-with and Ends-with: `startswith`, `endswith`
@@ -233,21 +228,17 @@ print('hello world'.title())
 `a.startswith(b)` returns true if `a` starts with `b`
 
 ```python
-print('hello world'.startswith('hello'))
-print('hello world'.startswith('world'))
+print('hello world'.startswith('hello')) # True
+print('hello world'.startswith('world')) # False
 ```
-> True
-> False
 
 
 `a.endswith(b)` returns true if the string ends with `b`
 
 ```python
-print('hello world'.endswith('hello'))
-print('hello world'.endswith('world'))
+print('hello world'.endswith('hello')) # False
+print('hello world'.endswith('world')) # True
 ```
-> False
-> True
 
 
 ### Replace `a.replace(b, c)`
@@ -255,9 +246,8 @@ print('hello world'.endswith('world'))
 `a.replace(b, c)` replaces occurances of string `b` with string `c`
 
 ```python
-print('hello world'.replace('hello', 'goodbye'))
+print('hello world'.replace('hello', 'goodbye')) # goodbye world
 ```
-> goodbye world
 
 ### Strip `a.strip()`
 
@@ -268,9 +258,8 @@ print('   hello\t\n  '.strip())
 ```
 > hello
 ```python
-print('__%__hello_world__%__'.strip('_%'))
+print('__%__hello_world__%__'.strip('_%')) # hello_world
 ```
-> hello_world
 
 ### Split: `a.split(b)`
 
@@ -278,41 +267,34 @@ print('__%__hello_world__%__'.strip('_%'))
 
 ```python
 fruits = 'apples, bananas, pears'
-print(fruits.split(', '))
+print(fruits.split(', ')) # ['apples', 'bananas', 'pears']
 ```
-> ['apples', 'bananas', 'pears']
 
 ### Delimeter: `a.join(b)`
 
 `delimeter.join(list)` combines the elements of a list into a single string, separated by the delimeter
 
 ```python
-print(' - '.join(['apples', 'bananas', 'pears'])
+print(' - '.join(['apples', 'bananas', 'pears']) # apples - bananas - pears
 ```
-> apples - bananas - pears
 
 
 ### Count: `a.count(b)`
 
 ```python
+print('abcacba'.count('a')) # 3
 ```
-> 
-
-
 
 ## f-strings
 
 We can use **f-strings** to quickly format text with variables, `f-strings` are prefixed with an `f`, and contain curly braces `{}` to include variables or even expressions.
 
-
 ```python
 a = 'one'
 b = 2
-print(f'a is {a} and b is {b}')
-print(f'1+1={1+1})
+print(f'a is {a} and b is {b}') # a is one and b is 2
+print(f'1+1={1+1}) # 1+1=2
 ```
-> a is one and b is 2
-> 1+1=2
 
 ## `in`
 

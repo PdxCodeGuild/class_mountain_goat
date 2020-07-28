@@ -19,7 +19,11 @@
    4. [Minimum `min(x)`](#minimum-minx)
    5. [Maximum `max(x)`](#maximum-maxx)
    6. [Sum `sum(x)`](#sum-sumx)
-5. [The Math Module](#the-math-module)
+5. [The Random Module](#the-random-module)
+   1. [Random Element: `random.choice(x)`](#random-element-randomchoicex)
+   2. [Random Integer: `random.randint(x, y)`](#random-integer-randomrandintx-y)
+   3. [Shuffle: `random.shuffle(x)`](#shuffle-randomshufflex)
+6. [The Math Module](#the-math-module)
    1. [Floor `math.floor(x)`](#floor-mathfloorx)
    2. [Ceiling `math.ceil(x)`](#ceiling-mathceilx)
    3. [Square-root `math.sqrt(x)`](#square-root-mathsqrtx)
@@ -169,6 +173,40 @@ print(max(5, 2)) # 5
 
 ```python
 print(sum(5, 2, 3)) # 10
+```
+
+
+
+## The Random Module
+
+### Random Element: `random.choice(x)`
+
+The `random.choice(x)` function returns a random element of a list, or a random character of a string.
+
+```python
+import random
+print(random.choice(['apples', 'bananas', 'pears'])) # randomly prints apples, bananas, or pears
+print(random.choice('abc')) # randomly prints a, b, or c
+```
+
+### Random Integer: `random.randint(x, y)`
+
+The `random.randint(x, y)` function returns a random integer between `x` and `y` (inclusive - it can be `x` or `y` as well).
+
+```python
+import random
+print(random.randint(5, 10)) # randomly prints 5, 6, 7, 8, 9, or 10
+```
+
+### Shuffle: `random.shuffle(x)`
+
+The `random.shuffle(x)` module randomly shuffles a list in-place (it does not return a new list).
+
+```python
+import random
+fruits = ['apples', 'bananas', 'pears']
+random.shuffle(fruits)
+print(fruits) # e.g. ['bananas', 'pears', 'apples']
 ```
 
 ## The Math Module

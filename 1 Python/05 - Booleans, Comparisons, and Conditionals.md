@@ -8,7 +8,8 @@
 2. [Comparisons](#comparisons)
    1. [Shorthand: `a < b < c`](#shorthand-a--b--c)
    2. [Shorthand: `a == b == c`](#shorthand-a--b--c-1)
-   3. [in, is, not](#in-is-not)
+   3. [`in`, `not in`](#in-not-in)
+   4. [`is`, `is not`](#is-is-not)
 3. [Conditionals: `if` `elif` `else`](#conditionals-if-elif-else)
    1. [Short-Circuited Evaluation](#short-circuited-evaluation)
    2. [Shorthand: `x if c else y`](#shorthand-x-if-c-else-y)
@@ -36,27 +37,20 @@ print(True and True) # True
 `a or b` is true if `a` is true or `b` is true
 
 ```python
-False or False
-True or False
-False or True
-True or True
+print(False or False) # False
+print(True or False) # True
+print(False or True) # True
+print(True or True) # True
 ```
-> False
-> True
-> True
-> True
-
 
 ### Not: `not`
 
 `not a` will be the opposite of a
 
 ```python
-not True
-not False
+print(not True) # False
+print(not False) # True
 ```
-> False
-> True
 
 ## Comparisons
 
@@ -84,12 +78,7 @@ print(5==5==5) # True
 print((5==5)==5) # False
 ```
 
-### in, is, not
-
-There are other special comparison operators:
-
-- `in`, `not in`
-- `is`, `is not`
+### `in`, `not in`
 
 The `in` operator can be used to see if a element is in a list or not:
 
@@ -101,6 +90,8 @@ print(x in my_list) # True
 print(y in my_list) # False
 print(y not in my_list) # True
 ```
+
+### `is`, `is not`
 
 The `is` operator is used to see if two variables point to the same `Object` or not. Note, however, that if you assign two variables the same value then python will sometimes try to make them point to the same object to save memory. As a general rule it's better practice to use `==` when comparing number values or objects.
 
