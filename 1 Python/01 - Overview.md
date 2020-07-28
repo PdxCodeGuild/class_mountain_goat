@@ -1,19 +1,19 @@
 
 # Overview
-1. [Running Python](#running-python)
-2. [Installing Packages with `pip`](#installing-packages-with-pip)
-3. [Checking Your Installation Path](#checking-your-installation-path)
-4. [Common Built-in Modules](#common-built-in-modules)
-5. [Other Popular Modules](#other-popular-modules)
-6. [Terms](#terms)
-7. [Keywords](#keywords)
-8. [Resources](#resources)
-   1. [Practice Problems](#practice-problems)
-   2. [Courses / Online Books](#courses--online-books)
-   3. [Lists of Resources](#lists-of-resources)
-   4. [Online Courses](#online-courses)
-   5. [Books](#books)
-   6. [Reference Documents and Tutorials](#reference-documents-and-tutorials)
+- [Running Python](#running-python)
+- [Installing Packages with `pip`](#installing-packages-with-pip)
+- [Checking Your Installation Path](#checking-your-installation-path)
+- [Common Built-in Modules](#common-built-in-modules)
+- [Other Popular Modules](#other-popular-modules)
+- [Terms](#terms)
+- [Keywords](#keywords)
+- [Resources](#resources)
+  - [Practice Problems](#practice-problems)
+  - [Courses / Online Books](#courses--online-books)
+  - [Lists of Resources](#lists-of-resources)
+  - [Online Courses](#online-courses)
+  - [Books](#books)
+  - [Reference Documents and Tutorials](#reference-documents-and-tutorials)
 
 Python is a popular general-purpose multi-paradigm programming language. General purpose means it can be used for a variety of purposes: desktop applications, [games](https://wiki.python.org/moin/GameProgramming), [embedded systems](https://micropython.org/), web development (Flask and Django), [data science](https://www.upwork.com/hiring/data/15-python-libraries-data-science/), [artificial intelligence](https://wiki.python.org/moin/PythonForArtificialIntelligence) and more. It also means that its core principles carry over to other languages, so you'll be able to more easily broaden your horizon. Python always has an active community with plenty of learning resources, conferences, and libraries. For more information, check out the [Python Language Reference](https://docs.python.org/3/reference/index.html#reference-index) and [Python Standard Library](https://docs.python.org/3/library/index.html). The [wikipedia article](https://en.wikipedia.org/wiki/Python_(programming_language)) offers a decent overview.
 
