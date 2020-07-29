@@ -1,6 +1,6 @@
 # Lab 7: Rock Paper Scissors
 
-Let's play rock-paper-scissors with the computer.
+Let's play rock-paper-scissors with the computer. You may want to try using these emojis 🗿📃✂️✊✋✌
 
 1. The computer will ask the user for their choice (rock, paper, scissors)
 2. The computer will randomly choose rock, paper or scissors

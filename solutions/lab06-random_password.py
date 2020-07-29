@@ -1,7 +1,8 @@
 
 
 import string
-
+import random
+import pyperclip
 
 def get_integer(text, min=0, max=99999):
     while True:
@@ -15,23 +16,49 @@ def get_integer(text, min=0, max=99999):
         else:
             print('that is not a valid number')
 
-def random_password(n_lowercase, n_uppercase, n_digits, n_punctuation):
-    ...
+def get_yes_no(text):
+    while True:
+        response = input(text)
+        response = response.lower().trim()
+        if response in ['y', 'yes', 'yeah', 'yah', 'ok', 'okay']:
+            return True
+        elif response in ['n', 'no', 'nah', 'nope', 'nada']:
+            return False
+        else:
+            print('please enter yes or no')
 
-    string.digits
-    string.ascii_lowercase
-    string.ascii_uppercase
-    string.punctuation
+
+
+def random_password(n_lowercase, n_uppercase, n_digits, n_punctuation):
+    password = ''
+    for i in range(n_lowercase):
+        password += random.choice(string.ascii_lowercase)
+    for i in range(n_uppercase):
+        password += random.choice(string.ascii_uppercase)
+    for i in range(n_digits):
+        password += random.choice(string.digits)
+    for i in range(n_punctuation):
+        password += random.choice(string.punctuation)
+    password = list(password)
+    # password_list = []
+    # for char in password:
+    #     password_list.append(char)
+    random.shuffle(password)
+    password = ''.join(password)
+    return password
 
 
 print('Welcome the the random password generator 5000 (tm)')
-n_lowercase = get_integer('how many lower case letters? ', 0, 100)
-n_uppercase = get_integer('how many upper case letters? ')
-n_digits = get_integer('how many digits? ')
-n_punctuation = get_integer('how many punctuation characters?')
 
 
+while True:
+    n_lowercase = get_integer('how many lower case letters? ', 0, 100)
+    n_uppercase = get_integer('how many upper case letters? ')
+    n_digits = get_integer('how many digits? ')
+    n_punctuation = get_integer('how many punctuation characters? ')
+    password = random_password(n_lowercase, n_uppercase, n_digits, n_punctuation)
+    print(password)
+    pyperclip.copy(password)
 
-
-
-
+    if not get_yes_no('would you like another password? '):
+        break
