@@ -23,15 +23,18 @@ print(double_letters('hello')) # hheelllloo
 
 ## Problem 2
 
-Write a function that takes a string, and returns a list of strings, each missing a different character.
+Return the number of letter occurances in a string.
 
 ```python
-def missing_char(word):
-  ...
-print(missing_char('kitten')) # ['itten', 'ktten', 'kiten', 'kiten', 'kittn', 'kitte']
+def count_letter(letter, word):
+    ...
+print(count_letter('i', 'antidisestablishmentterianism')) # 5
+print(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis')) # 2
 ```
 
+
 ## Problem 3
+
 Return the letter that appears the latest in the english alphabet.
 
 ```python
@@ -39,6 +42,7 @@ def latest_letter(word):
   ...
 print(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) # v
 ```
+
 
 ## Problem 4
 
@@ -52,33 +56,31 @@ print(count_hi('hihi')) # 2
 
 ## Problem 5
 
-Write a function that returns True if a given string contains the same number of 'cat' as it does 'dog'
+Write a function that converts text to snake case (all lowercase, underscores for spaces, no special characters).
 
 ```python
-def cat_dog(text):
-  ...
-print(cat_dog('catdog')) # True
-print(cat_dog('catcat')) # False
-print(cat_dog('catdogcatdog')) # True
+def snake_case(text):
+    ...
+print(snake_case('Hello World!')) # hello_world
 ```
 
 ## Problem 6
 
-Return the number of letter occurances in a string.
+Write a function that converts text to camel case (no spaces, leading capitals except the first).
+
 ```python
-def count_letter(letter, word):
+def pascal_case(text):
     ...
-print(count_letter('i', 'antidisestablishmentterianism')) # 5
-print(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis')) # 2
+print(pascal_case('hello world')) # helloWorld
 ```
 
 ## Problem 7
 
-Convert input strings to lowercase without any surrounding whitespace.
+Write a function that converts text to alternating case.
 
 ```python
-def lower_case(text):
-  ...
-print(lower_case("SUPER!")) # 'super!'
-print(lower_case("        NANNANANANA BATMAN        ")) # 'nannananana batman'
+def alternating_case(text):
+    ...
+print(alternating_case('hello world')) # HeLlO WoRlD
 ```
+
