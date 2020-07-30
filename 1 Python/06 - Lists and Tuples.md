@@ -208,15 +208,10 @@ print(fruits) # ['apples', 'bananas', 'cherries', 'pears']
 
 ```python
 mystring = 'Python'
-print(reversed(mystring))
-print(list(reversed(mystring)))
-print(list(sorted(mystring)))
-print(sorted(mystring))
-
->>> <reversed object at 0x7fb67b77dd68>
->>> ['n', 'o', 'h', 't', 'y', 'P']
->>> ['P', 'h', 'n', 'o', 't', 'y']
->>> ['P', 'h', 'n', 'o', 't', 'y']
+print(reversed(mystring)) # <reversed object at 0x7fb67b77dd68>
+print(list(reversed(mystring))) # ['n', 'o', 'h', 't', 'y', 'P']
+print(list(sorted(mystring))) # ['P', 'h', 'n', 'o', 't', 'y']
+print(sorted(mystring)) # ['P', 'h', 'n', 'o', 't', 'y']
 ```
 
 ## List Comprehensions
