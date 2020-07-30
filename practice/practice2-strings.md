@@ -62,16 +62,18 @@ Write a function that converts text to snake case (all lowercase, underscores fo
 def snake_case(text):
     ...
 print(snake_case('Hello World!')) # hello_world
+print(snake_case('This is another example.')) # this_is_another_example
 ```
 
 ## Problem 6
 
-Write a function that converts text to camel case (no spaces, leading capitals except the first).
+Write a function that converts text to camel case (no spaces, no special characters, leading capitals except the first).
 
 ```python
-def pascal_case(text):
+def camel_case(text):
     ...
-print(pascal_case('hello world')) # helloWorld
+print(camel_case('Hello World!')) # helloWorld
+print(camel_case('This is another example.')) # thisIsAnotherExample
 ```
 
 ## Problem 7
@@ -81,6 +83,7 @@ Write a function that converts text to alternating case.
 ```python
 def alternating_case(text):
     ...
-print(alternating_case('hello world')) # HeLlO WoRlD
+print(alternating_case('Hello World!')) # HeLlO WoRlD!
+print(alternating_case('This is another example.')) # ThIs iS AnOtHeR ExAmPle.
 ```
 
