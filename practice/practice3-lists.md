@@ -26,23 +26,6 @@ print(random_element(['apples', 'bananas', 'pears'])) # 'apples', 'bananas' or '
 
 ## Problem 2
 
-Write a REPL which asks users for a list of numbers, which they enter, until they say 'done'. Then print out the list.
-
-```python
-def get_numbers():
-  ...
-print(get_numbers())
-# example run -----------------
-# Enter a number (or 'done'): 5
-# Enter a number (or 'done'): 34
-# Enter a number (or 'done'): 515
-# Enter a number (or 'done'): done
-# [5, 34, 515]
-```
-
-
-## Problem 3
-
 Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
 
 ```python
@@ -50,17 +33,9 @@ print(eveneven([5, 6, 2])) # True
 print(eveneven([5, 5, 2])) # False
 ```
 
-## Problem 4
 
-Print out every other element of a list, first using a while loop, then using a for loop.
+## Problem 3
 
-```python
-def print_every_other(nums):
-  ...
-print_every_other([0, 1, 2, 3, 4, 5, 6, 7, 8]) # 0, 2, 4, 6, 8
-```
-
-## Problem 5
 Write a function that returns the reverse of a list.
 
 ```python
@@ -69,7 +44,8 @@ def reverse(nums):
 print(reverse([1, 2, 3])) # 3, 2, 1
 ```
 
-## Problem 6
+## Problem 4
+
 Write a function to move all the elements of a list with value less than 10 to a new list and return it.
 
 ```python
@@ -78,7 +54,7 @@ def extract_less_than_ten(nums):
 print(extract_less_than_ten([2, 8, 12, 18])) # [2, 8]
 ```
 
-## Problem 7
+## Problem 5
 Write a function to find all common elements between two lists.
 
 ```python
@@ -88,7 +64,7 @@ print(common_elements([1, 2, 3], [2, 3, 4])) # [2, 3]
 ```
 
 
-## Problem 8
+## Problem 6
 Write a function to combine two lists of equal length into one, alternating elements.
 
 ```python
@@ -98,7 +74,7 @@ print(combine(['a','b','c'],[1,2,3])) # ['a', 1, 'b', 2, 'c', 3]
 ```
 
 
-## Problem 9
+## Problem 7
 
 Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
 
@@ -109,7 +85,7 @@ print(find_pair([5, 6, 2, 3], 7)) # [5, 2]
 ```
 
 
-## Problem 10
+## Problem 8
 
 Write a function that merges two lists into a single list, where each element of the output list is a list containing two elements, one from each of the input lists.
 
@@ -120,7 +96,7 @@ print(merge([5,2,1], [6,8,2])) # [[5,6],[2,8],[1,2]]
 ```
 
 
-## Problem 11
+## Problem 9
 
 Write a function `combine_all` that takes a list of lists, and returns a list containing each element from each of the lists.
 
@@ -130,7 +106,7 @@ def combine_all(nums):
 print(combine_all([[5,2,3],[4,5,1],[7,6,3]])) # [5,2,3,4,5,1,7,6,3]
 ```
 
-## Problem 12
+## Problem 10
 
 Write a function that takes `n` as a parameter, and returns a list containing the first `n` [Fibonacci Numbers](https://en.wikipedia.org/wiki/Fibonacci_number).
 
@@ -140,7 +116,7 @@ def fibonacci(n):
 print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
 ```
 
-## Problem 13
+## Problem 11
 
 Write functions to find the minimum, maximum, mean, and (optionally) mode of a list of numbers.
 
@@ -159,7 +135,7 @@ def mode(nums): # (OPTIONAL)
 ```
 
 
-## Problem 14
+## Problem 12
 
 Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
 
