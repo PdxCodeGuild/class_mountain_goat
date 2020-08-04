@@ -96,7 +96,7 @@ def average(nums):
 print(average([1, 2, 3, 4, 5])) # 3
 ```
 
-# Problem 9
+## Problem 9
 
 Write a function to remove all empty strings from a list.
 
