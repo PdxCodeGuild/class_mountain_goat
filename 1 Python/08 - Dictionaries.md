@@ -1,19 +1,22 @@
 # Dictionaries
 
-**Dictionaries** or 'dicts'  provide an unordered, mutable, sequence of key-value pairs or a mapping between keys and values. For more information check the [official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict). Dict literals are written using curly braces, and key-value pairs defined with colons and separated by commas. Keys have to be unique, values do not. Any _immutable_ value (int, float, string, tuple) can be a key, thus lists and other dicts can't be keys. Values can be any type.
+**Dictionaries** or 'dicts'  provide an unordered, mutable, sequence of key-value pairs or a mapping between keys and values. For more information check the [official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict). Keys have to be unique, values do not. Any _immutable_ value (int, float, string, tuple) can be a key, thus lists and other dicts can't be keys. Values can be any type.
 
-1. [Accessing a Value with a Key: `dict[key]`](#accessing-a-value-with-a-key-dictkey)
-2. [Adding a Key-Value Pair](#adding-a-key-value-pair)
-3. [Updating a Key-Value Pair](#updating-a-key-value-pair)
-4. [Removing a Key-Value Pair](#removing-a-key-value-pair)
-5. [Checking if a Key Exists](#checking-if-a-key-exists)
-6. [Combining Dictionaries](#combining-dictionaries)
-7. [Retrieving Keys and Values](#retrieving-keys-and-values)
-8. [Order](#order)
-9. [Conversions](#conversions)
+- [Defining Dictionaries](#defining-dictionaries)
+- [Accessing a Value with a Key: `dict[key]`](#accessing-a-value-with-a-key-dictkey)
+- [Adding a Key-Value Pair: `dict[key] = value`](#adding-a-key-value-pair-dictkey--value)
+- [Updating a Key-Value Pair: `dict[key] = value`](#updating-a-key-value-pair-dictkey--value)
+- [Removing a Key-Value Pair: `del dict[key]`](#removing-a-key-value-pair-del-dictkey)
+- [Checking if a Key Exists: `key in dict`](#checking-if-a-key-exists-key-in-dict)
+- [Combining Dictionaries: `dict1.update(dict2)`](#combining-dictionaries-dict1updatedict2)
+- [Retrieving Keys and Values](#retrieving-keys-and-values)
+- [Order](#order)
+- [Conversions](#conversions)
 
 
 ## Defining Dictionaries
+
+Dict literals are written using curly braces, and key-value pairs defined with colons and separated by commas.
 
 ```python
 {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
@@ -54,6 +57,8 @@ product_to_price  #> {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
 ```
 
 ## Removing a Key-Value Pair: `del dict[key]`
+
+
 
 ## Checking if a Key Exists: `key in dict`
 

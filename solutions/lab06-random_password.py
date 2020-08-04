@@ -4,6 +4,7 @@ import string
 import random
 import pyperclip
 
+# get an integer from the user
 def get_integer(text, min=0, max=99999):
     while True:
         num = input(text)
@@ -16,6 +17,7 @@ def get_integer(text, min=0, max=99999):
         else:
             print('that is not a valid number')
 
+
 def get_yes_no(text):
     while True:
         response = input(text)
@@ -26,8 +28,6 @@ def get_yes_no(text):
             return False
         else:
             print('please enter yes or no')
-
-
 
 def random_password(n_lowercase, n_uppercase, n_digits, n_punctuation):
     password = ''

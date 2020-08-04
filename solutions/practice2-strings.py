@@ -213,3 +213,16 @@ print(camel_case('This is another example.')) # thisIsAnotherExample
 #             count += 1
 #     return count
 
+def alternating_case(text):
+    output = ''
+    alternating = False
+    for char in text:
+        # if alternating:
+        #     output += char.upper()
+        # else:
+        #     output += char.lower()
+        output += char.upper() if alternating else char.lower()
+        alternating = not alternating
+    return output
+print(alternating_case('Hello World!')) # HeLlO WoRlD!
+print(alternating_case('This is another example.')) # ThIs iS AnOtHeR ExAmPle.

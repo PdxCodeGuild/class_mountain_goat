@@ -85,7 +85,29 @@ print(find_pair([5, 6, 2, 3], 7)) # [5, 2]
 ```
 
 
+
 ## Problem 8
+
+Write a function to find the average of a list of numbers
+
+```python
+def average(nums):
+    ...
+print(average([1, 2, 3, 4, 5])) # 3
+```
+
+# Problem 9
+
+Write a function to remove all empty strings from a list.
+
+```python
+def remove_empty(mylist)
+    ...
+print(remove_empty(['a', 'b', '', 'c', '', 'd'])) # ['a', 'b', 'c', 'd']
+```
+
+
+## Problem 10
 
 Write a function that merges two lists into a single list, where each element of the output list is a list containing two elements, one from each of the input lists.
 
@@ -96,7 +118,7 @@ print(merge([5,2,1], [6,8,2])) # [[5,6],[2,8],[1,2]]
 ```
 
 
-## Problem 9
+## Problem 11
 
 Write a function `combine_all` that takes a list of lists, and returns a list containing each element from each of the lists.
 
@@ -106,7 +128,7 @@ def combine_all(nums):
 print(combine_all([[5,2,3],[4,5,1],[7,6,3]])) # [5,2,3,4,5,1,7,6,3]
 ```
 
-## Problem 10
+## Problem 12
 
 Write a function that takes `n` as a parameter, and returns a list containing the first `n` [Fibonacci Numbers](https://en.wikipedia.org/wiki/Fibonacci_number).
 
@@ -116,26 +138,9 @@ def fibonacci(n):
 print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
 ```
 
-## Problem 11
-
-Write functions to find the minimum, maximum, mean, and (optionally) mode of a list of numbers.
-
-```python
-def minimum(nums):
-    ...
-
-def maxmimum(nums):
-    ...
-
-def mean(nums):
-    ...
-
-def mode(nums): # (OPTIONAL)
-    ...
-```
 
 
-## Problem 12
+## Problem 13
 
 Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
 

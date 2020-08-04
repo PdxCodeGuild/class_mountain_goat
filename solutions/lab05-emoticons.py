@@ -39,7 +39,7 @@ while i < how_many:
         left_eye = random.choice(eyes_list)
         right_eye = random.choice(eyes_list)
     mouth = random.choice(mouths_list)
-    while mouth.lower() == eyes.lower():
+    while mouth.lower() == left_eye.lower() or mouth.lower() == right_eye.lower():
         mouth = random.choice(mouths_list)
     sides = random.choice(sides_list)
 
