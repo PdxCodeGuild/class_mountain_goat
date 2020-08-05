@@ -154,7 +154,7 @@ def factorial(n):
 print(factorial(5)) # 120
 ```
 
-## Problem 13
+## Problem 14
 
 Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
 
