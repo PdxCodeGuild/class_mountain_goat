@@ -3,18 +3,18 @@
 Functions are isolated pieces of code that take input, perform some operation, and return a result. Functions we've used so far include `input()`, `print()`, `len()`, etc. Python provides many built-in functions for you to use. For all the built-in functions, check the [official docs](https://docs.python.org/3/library/functions.html)
 
 
-1. [Defining Functions](#defining-functions)
-2. [Parameters](#parameters)
-   1. [Passing by Position](#passing-by-position)
-   2. [Optional Arguments](#optional-arguments)
-   3. [Passing by Keyword](#passing-by-keyword)
-   4. [\*args & \*\*kwargs](#args--kwargs)
-3. [Returning](#returning)
-   1. [Implicit Return - None](#implicit-return---none)
-   2. [Returning Multiple Values](#returning-multiple-values)
-4. [Decorators](#decorators)
-5. [Recursion](#recursion)
-6. [Lambda Functions](#lambda-functions)
+- [Defining Functions](#defining-functions)
+- [Parameters](#parameters)
+  - [Passing by Position](#passing-by-position)
+  - [Optional Arguments](#optional-arguments)
+  - [Passing by Keyword](#passing-by-keyword)
+  - [\*args & \*\*kwargs](#args--kwargs)
+- [Returning](#returning)
+  - [Implicit Return - None](#implicit-return---none)
+  - [Returning Multiple Values](#returning-multiple-values)
+- [Decorators](#decorators)
+- [Recursion](#recursion)
+- [Lambda Functions](#lambda-functions)
 
 
 
@@ -123,9 +123,8 @@ def min(a, b):
         return a
     return b
 x = min(5, 2)
-print(x)
+print(x) # 2
 ```
-> 2
 
 
 ### Implicit Return - None
@@ -136,9 +135,8 @@ If a function does not return anything, it implicitly returns `None`
 def say_hi():
     print('hi')
 x = say_hi()
-print(x)
+print(x) None
 ```
-> None
 
 
 ### Returning Multiple Values

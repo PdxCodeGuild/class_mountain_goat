@@ -16,7 +16,7 @@
 
 ## Defining Dictionaries
 
-Dict literals are written using curly braces, and key-value pairs defined with colons and separated by commas.
+Dictionary literals are written using curly braces, and key-value pairs defined with colons and separated by commas.
 
 ```python
 {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
@@ -31,7 +31,6 @@ product_to_price = {'apple': 1.0, 'banana': 1.5, 'pear': 0.75}
 print(product_to_price['apple'])  # 1.0
 print(product_to_price['pear'])  # 0.75
 print(product_to_price['grapes'])  # Throws KeyError
-product_to_price[1.0]  # Throws KeyError
 ```
 
 ## Adding a Key-Value Pair: `dict[key] = value`
@@ -39,9 +38,7 @@ product_to_price[1.0]  # Throws KeyError
 ```python
 product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
 product_to_price['apple'] = 2.0
-product_to_price  #> {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
-product_to_price['banana'] = 0.25
-product_to_price  #> {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
+print(product_to_price)  # {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
 ```
 
 ## Updating a Key-Value Pair: `dict[key] = value`
@@ -50,19 +47,23 @@ Values can then be added or updated by using the assignment operator `=`.
 
 ```python
 product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
-product_to_price['apple'] = 2.0
-product_to_price  #> {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
 product_to_price['banana'] = 0.25
-product_to_price  #> {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
+print(product_to_price) # {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
 ```
 
 ## Removing a Key-Value Pair: `del dict[key]`
 
+You can delete a key-value pair using the `del` operator.
 
+```python
+product_to_price = {'apple': 1.0, 'banana': 1.5, 'pear': 0.75}
+del product_to_price['apple']
+print(product_to_price) # {'banana': 1.5, 'pear': 0.75}
+```
 
 ## Checking if a Key Exists: `key in dict`
 
-To check if a list contains a key, use `in`
+To check if a dictionary contains a key, use `in`
 
 ```python
 product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
@@ -104,8 +105,8 @@ You can cast a sequences of two-tuples to a dictionary using `dict()`. This mean
 
 ```python
 names_and_fav_colors = [('Alice', 'red'), ('David', 'green')]
-dict(names_and_fav_colors)  #> {'Alice': 'red', 'David': 'green'}
-dict(product_to_price.items()) == product_to_price  #> True
+print(dict(names_and_fav_colors))  #> {'Alice': 'red', 'David': 'green'}
+dict(names_and_fav_colors.items()) == names_and_fav_colors  #> True
 ```
 
 # Dict Comprehensions
@@ -114,6 +115,6 @@ Dict comprehensions also look similar to list comprehensions, but with curly bra
 
 ```py
 names_to_ages = {'Amanda': 90, 'David': 50}
-{name: age / 2 for name, age in names_to_ages.items()}
+names_to_ages = {name: age / 2 for name, age in names_to_ages.items()}
+print(names_to_ages) # {'Amanda': 45, 'David': 25}
 ```
-> {'Amanda': 45, 'David': 25}

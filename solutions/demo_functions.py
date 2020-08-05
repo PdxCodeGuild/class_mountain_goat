@@ -63,5 +63,12 @@
 
 
 
+# def peaks(llama):
+#     data = 'hello'
+#     print(data)
+
+# data = [1, 2, 3]
+# print(data)
+# peaks(data)
 
 
