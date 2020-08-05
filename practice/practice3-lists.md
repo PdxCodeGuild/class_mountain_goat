@@ -128,6 +128,11 @@ def combine_all(nums):
 print(combine_all([[5,2,3],[4,5,1],[7,6,3]])) # [5,2,3,4,5,1,7,6,3]
 ```
 
+
+
+
+
+
 ## Problem 12
 
 Write a function that takes `n` as a parameter, and returns a list containing the first `n` [Fibonacci Numbers](https://en.wikipedia.org/wiki/Fibonacci_number).
@@ -138,7 +143,16 @@ def fibonacci(n):
 print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
 ```
 
+## Problem 13
 
+Write a function that takes `n` as a parameter and returns `n` factorial.
+
+
+```python
+def factorial(n):
+  ...
+print(factorial(5)) # 120
+```
 
 ## Problem 13
 
