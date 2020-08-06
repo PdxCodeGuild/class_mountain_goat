@@ -1,6 +1,6 @@
 # Dictionaries
 
-**Dictionaries** or 'dicts'  provide an unordered, mutable, sequence of key-value pairs or a mapping between keys and values. For more information check the [official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict). Keys have to be unique, values do not. Any _immutable_ value (int, float, string, tuple) can be a key, thus lists and other dicts can't be keys. Values can be any type.
+**Dictionaries** or 'dicts'  provide an unordered, mutable, sequence of key-value pairs or a mapping between keys and values. For more information check the [official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict) and [w3schools](https://www.w3schools.com/python/python_dictionaries.asp). Keys have to be unique, values do not. Any _immutable_ value (int, float, string, tuple) can be a key, thus lists and other dicts can't be keys. Values can be any type.
 
 - [Defining Dictionaries](#defining-dictionaries)
 - [Accessing a Value with a Key: `dict[key]`](#accessing-a-value-with-a-key-dictkey)
