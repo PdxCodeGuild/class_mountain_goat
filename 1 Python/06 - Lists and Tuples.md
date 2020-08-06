@@ -41,14 +41,16 @@ mixed = [3, 'red', 45.012, [3, 5]] # lists can even contain other lists!
 
 ### Access: `mylist[i]`
 
-Access list elements by index, note that indices start at 0. You can also access elements using negative indices, which begin from the end and go backward.
+Access list elements by index, note that indices start at 0. You can also access elements using negative indices, which begin from the end and go backward. Using an index which is beyond the list will cause an **IndexError**.
 
 ```python
+#            0          1         2          3
 fruits = ['apples', 'bananas', 'pears', 'cherries']
 print(fruits[0]) # apples
 print(fruits[2]) # pears
 print(fruits[-1]) # cherries
 print(fruits[-3]) # bananas
+print(fruits[4]) # IndexError
 ```
 
 ### Length `len(mylist)`
@@ -210,7 +212,6 @@ print(fruits) # ['apples', 'bananas', 'cherries', 'pears']
 mystring = 'Python'
 print(reversed(mystring)) # <reversed object at 0x7fb67b77dd68>
 print(list(reversed(mystring))) # ['n', 'o', 'h', 't', 'y', 'P']
-print(list(sorted(mystring))) # ['P', 'h', 'n', 'o', 't', 'y']
 print(sorted(mystring)) # ['P', 'h', 'n', 'o', 't', 'y']
 ```
 

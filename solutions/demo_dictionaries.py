@@ -10,6 +10,11 @@ product_to_price = {
     'kumquats': 2.0,
     'dragonfruit': 4.0
 }
+
+# print(product_to_price['blueberries'])
+print(product_to_price.get('blueberries', 1))
+
+
 print(product_to_price)
 print(product_to_price['apples']) # 1.0
 product_to_price['apples'] += 0.5
@@ -75,4 +80,9 @@ output = ''
 for char in word:
     output += cipher[char]
 print(output)
+
+
+
+
+
 

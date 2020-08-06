@@ -4,8 +4,9 @@
 
 - [Defining Dictionaries](#defining-dictionaries)
 - [Accessing a Value with a Key: `dict[key]`](#accessing-a-value-with-a-key-dictkey)
-- [Adding a Key-Value Pair: `dict[key] = value`](#adding-a-key-value-pair-dictkey--value)
+- [Accessing a Value with a Key Safely: `dict.get(key)`](#accessing-a-value-with-a-key-safely-dictgetkey)
 - [Updating a Key-Value Pair: `dict[key] = value`](#updating-a-key-value-pair-dictkey--value)
+- [Adding a Key-Value Pair: `dict[key] = value`](#adding-a-key-value-pair-dictkey--value)
 - [Removing a Key-Value Pair: `del dict[key]`](#removing-a-key-value-pair-del-dictkey)
 - [Checking if a Key Exists: `key in dict`](#checking-if-a-key-exists-key-in-dict)
 - [Combining Dictionaries: `dict1.update(dict2)`](#combining-dictionaries-dict1updatedict2)
@@ -24,21 +25,26 @@ Dictionary literals are written using curly braces, and key-value pairs defined 
 
 ## Accessing a Value with a Key: `dict[key]`
 
-The values of a dictionary are accessed by using the square-brackets with the key, similarly to how we access a specific element from a list using its index.
+The values of a dictionary are accessed by using the square-brackets with the **key**, similarly to how we access a specific element from a list using its **index**. If you use a key which does not exist in the dictionary, you'll get a **KeyError**.
 
 ```python
-product_to_price = {'apple': 1.0, 'banana': 1.5, 'pear': 0.75}
-print(product_to_price['apple'])  # 1.0
-print(product_to_price['pear'])  # 0.75
-print(product_to_price['grapes'])  # Throws KeyError
+fruits = {'apple': 1.0, 'banana': 1.5, 'pear': 0.75}
+print(fruits['apple'])  # 1.0
+print(fruits['pear'])  # 0.75
+print(fruits['grapes'])  # Throws KeyError
 ```
 
-## Adding a Key-Value Pair: `dict[key] = value`
+
+## Accessing a Value with a Key Safely: `dict.get(key)`
+
+The `get` method allows us to safely access a value with a key. If the key is not in the dictionary, it will return `None`. You can also specify a second parameter as a default, which will be returned if the result is not found.
+
 
 ```python
-product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
-product_to_price['apple'] = 2.0
-print(product_to_price)  # {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
+fruits = {'apple': 1.0, 'banana': 1.5, 'pear': 0.75}
+print(fruits.get('apple'))  # 1.0
+print(fruits.get('grapes'))  # None
+print(fruits.get('grapes', 4.0)) # 4.0
 ```
 
 ## Updating a Key-Value Pair: `dict[key] = value`
@@ -46,9 +52,17 @@ print(product_to_price)  # {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
 Values can then be added or updated by using the assignment operator `=`.
 
 ```python
-product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
-product_to_price['banana'] = 0.25
-print(product_to_price) # {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
+fruits = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
+fruits['banana'] = 0.25
+print(fruits) # {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
+```
+
+## Adding a Key-Value Pair: `dict[key] = value`
+
+```python
+fruits = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
+fruits['apple'] = 2.0
+print(fruits)  # {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
 ```
 
 ## Removing a Key-Value Pair: `del dict[key]`
@@ -56,9 +70,9 @@ print(product_to_price) # {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 
 You can delete a key-value pair using the `del` operator.
 
 ```python
-product_to_price = {'apple': 1.0, 'banana': 1.5, 'pear': 0.75}
-del product_to_price['apple']
-print(product_to_price) # {'banana': 1.5, 'pear': 0.75}
+fruits = {'apple': 1.0, 'banana': 1.5, 'pear': 0.75}
+del fruits['apple']
+print(fruits) # {'banana': 1.5, 'pear': 0.75}
 ```
 
 ## Checking if a Key Exists: `key in dict`
@@ -66,9 +80,9 @@ print(product_to_price) # {'banana': 1.5, 'pear': 0.75}
 To check if a dictionary contains a key, use `in`
 
 ```python
-product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
-if 'apple' in product_to_price:
-    print('apple ' + str(product_to_price['apple'])) # 'apple 1.0'
+fruits = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
+if 'apple' in fruits:
+    print('apple ' + str(fruits['apple'])) # 'apple 1.0'
 ```
 
 ## Combining Dictionaries: `dict1.update(dict2)`
@@ -76,9 +90,9 @@ if 'apple' in product_to_price:
 To combine two dictionaries, use the `.update()` type method. Note that it changes the given dict and does not return a new one.
 
 ```python
-product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
-product_to_price.update({'banana': 0.25})
-product_to_price  #> {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
+fruits = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
+fruits.update({'banana': 0.25})
+fruits  #> {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
 ```
 
 ## Retrieving Keys and Values
@@ -86,9 +100,9 @@ product_to_price  #> {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
 There are a few type methods that allow you to view different parts of the dictionary. All produce sequences and not proper lists, so cast them to a list to use them normally.
 
 ```python
-list(product_to_price.keys())  #> ['pear', 'apple', 'grapes']
-list(product_to_price.values())  #> [0.75, 1.0, 1.5]
-list(product_to_price.items())  #> [('grapes', 0.75), ('apple', 1.0), ('pear', 1.5)]
+list(fruits.keys())  #> ['pear', 'apple', 'grapes']
+list(fruits.values())  #> [0.75, 1.0, 1.5]
+list(fruits.items())  #> [('grapes', 0.75), ('apple', 1.0), ('pear', 1.5)]
 ```
 
 ## Order
@@ -96,7 +110,7 @@ list(product_to_price.items())  #> [('grapes', 0.75), ('apple', 1.0), ('pear', 1
 Dictionaries are unordered; there is no guarantee the same order will come out at each call. Call `sorted()` on the results if you need a stable order.
 
 ```python
-sorted(product_to_price.keys())  #> ['apple', 'grapes', 'pear']
+sorted(fruits.keys())  #> ['apple', 'grapes', 'pear']
 ```
 
 ## Conversions

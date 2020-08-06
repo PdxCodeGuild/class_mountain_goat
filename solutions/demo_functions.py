@@ -72,3 +72,34 @@
 # peaks(data)
 
 
+
+def get_dimensions():
+    return 5, 8
+
+# d = get_dimensions()
+# print(d)
+# width = d[0]
+# height = d[1]
+
+width, height = get_dimensions()
+print(width)
+print(height)
+
+
+fruits = ['apples', 'bananas', 'pears']
+# swap the elements at index 0 and 1
+temp = fruits[0]
+fruits[0] = fruits[1]
+fruits[1] = temp
+
+
+fruits[0], fruits[1] = fruits[1], fruits[0]
+
+print(fruits)
+
+
+
+
+
+
+
