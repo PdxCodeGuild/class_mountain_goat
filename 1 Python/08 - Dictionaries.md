@@ -54,7 +54,8 @@ Values can then be added or updated by using the assignment operator `=`.
 ```python
 fruits = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
 fruits['apple'] = 2.0
-print(fruits)  # {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
+fruits['pear'] += 0.5
+print(fruits)  # {'apple': 2.0, 'pear': 2.0, 'grapes': 0.75}
 ```
 
 
