@@ -53,16 +53,17 @@ Values can then be added or updated by using the assignment operator `=`.
 
 ```python
 fruits = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
-fruits['banana'] = 0.25
-print(fruits) # {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
+fruits['apple'] = 2.0
+print(fruits)  # {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
 ```
+
 
 ## Adding a Key-Value Pair: `dict[key] = value`
 
 ```python
 fruits = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
-fruits['apple'] = 2.0
-print(fruits)  # {'apple': 2.0, 'pear': 1.5, 'grapes': 0.75}
+fruits['banana'] = 0.25
+print(fruits) # {'apple': 1.0, 'pear': 1.5, 'banana': 0.25, 'grapes': 0.75}
 ```
 
 ## Removing a Key-Value Pair: `del dict[key]`
