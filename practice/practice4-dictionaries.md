@@ -93,9 +93,9 @@ Write a function that takes two dictionaries and returns a new dictionary with t
 ```python
 def merge_dictionaries(d1, d2):
     ...
-d1 = {'a': 100, 'b': 200, 'c':300}
-d2 = {'a': 300, 'b': 200, 'd':400}
-print(merge_dictionaries(d1, d2)) # {'a': 400, 'b': 400, 'd': 400, 'c': 300}
+d1 = {'a': 100, 'b': 200, 'c': 300}
+d2 = {'a': 300, 'b': 200, 'd': 400}
+print(merge_dictionaries(d1, d2)) # {'a': 400, 'b': 400, 'c': 300, 'd': 400}
 ```
 
 ## Problem 10
@@ -105,7 +105,7 @@ Write a function that takes a list of strings and counts of the number of occura
 ```python
 def count_votes(votes):
     ...
-votes = ['john', 'johnny', 'jackie', 'jamie', 'john', 'jackie', 'jamie', 'jamie', 'john', 'johnny', 'jamie', 'johnny', 'john']
+votes = ['john', 'johnny', 'john', 'jackie', 'jamie', 'jackie', 'jamie', 'jamie', 'john', 'johnny', 'jamie', 'johnny', 'john']
 print(count_votes(votes)) # {'john': 4, 'johnny': 3, 'jackie': 2, 'jamie': 4}
 ```
 
