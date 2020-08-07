@@ -68,7 +68,7 @@ print(merge(['a', 'b'], [1, 2])) # {'a': 1, 'b': 2}
 
 ## Problem 7
 
-Write a function that takes a dictionary and returns a new dictionary without and values less than 10.
+Write a function that takes a dictionary and returns a new dictionary without values less than 10.
 
 ```python
 def remove_less_than_10(d):
