@@ -8,14 +8,14 @@ Find a book on [Project Gutenberg](http://www.gutenberg.org) and navigate to the
 
 ```python
 import requests
-response = requests.get('https://raw.githubusercontent.com/PdxCodeGuild/class_mountain_goat/master/data/english.txt')
+response = requests.get('http://www.gutenberg.org/cache/epub/17192/pg17192.txt')
 print(response.text)
 ```
 
 We can also download a file of english words and place it next our `.py` file and load it like so:
 
 ```python
-with open('english.txt', 'r') as file:
+with open('the_raven.txt', 'r') as file:
     text = file.read()
 print(text)
 ```
