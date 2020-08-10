@@ -50,8 +50,11 @@ already guessed: a, k
 Guess a letter:
 ```
 
-
 ## Extra Credit 1
+
+Allow the user to user to guess the whole word- if they enter more than one letter check if the string entered matches the secret word, and if so, they win!
+
+## Extra Credit 2
 
 We can use the following ASCII art to show the user how many wrong guesses they've made. Hint: use the number of incorrect guesses as an index into this list.
 
@@ -105,9 +108,34 @@ hangman_pics = ['''
  /|\  |
  / \  |
       |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\. |
+ / \  |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+./|\. |
+ / \  |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+./|\. |
+ / \. |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+./|\. |
+./ \. |
+      |
 =========''']
 ```
 
-## Extra Credit 2
-
-Allow the user to user to guess the whole word- if they enter more than one letter check if the string entered matches the secret word, and if so, they win!

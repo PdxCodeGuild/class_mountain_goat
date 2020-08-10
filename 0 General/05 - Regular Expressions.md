@@ -1,50 +1,62 @@
 
 # Regular Expressions
 
-1. [Overview](#overview)
-2. [Character Match](#character-match)
-3. [Line Match: `^`, `$`](#line-match--)
-4. [Repeats: `?`, `*`, `+`](#repeats---)
-5. [Escapes](#escapes)
-6. [Character Classes](#character-classes)
-7. [Character Sets](#character-sets)
-8. [Captures](#captures)
-   1. [Named Captures](#named-captures)
+Regular expressions or 'regex' are a way to match patterns in strings. They can be executed in nearly any programming language. They can be used to validate a phone number or address in an input field on a website, or to find the occurrences of a phrase in a block of text, etc.
 
-Regular expressions or 'regex' are a way to match patterns in strings. They can be executed in nearly any programming language. They can be used to validate a phone number or address in an input field on a website, or to find the occurrences of a phrase in a block of text, etc. Use a [regexp debugging tool](https://regex101.com) to try out a regular expression before using it in your code.
-
+- [Regex101](https://regex101.com)
+- [RegexOne](https://regexone.com/)
+- [RegexLib](https://regexlib.com/)
+- [Regexr](https://regexr.com/)
 - [Regular Expressions in Python](../1%20Python/docs/Regular%20Expressions%20in%20Python.md)
 - [Regular Expressions in JavaScript](../3%20JavaScript/docs/Regular%20Expressions%20in%20JavaScript.md)
+
+--------
+
+- [Overview](#overview)
+- [Character Match: `abc`, `.`](#character-match-abc-)
+- [Line Match: `^`, `$`](#line-match--)
+- [Repeats: `?`, `*`, `+`](#repeats---)
+- [Escapes](#escapes)
+- [Character Classes](#character-classes)
+- [Character Sets](#character-sets)
+- [Captures](#captures)
+- [Named Captures](#named-captures)
 
 
 ## Overview
 
+- `abc123..` match a character literally
+- `.` matches any character except a newline
+- `\d` matches any digit character (0-9)
+- `\s` matches any whitespace character (space, \t, or \n)
+- `\w` matches any word character (A-Z, a-z, 0-9, and _)
 - `[]` define a character class
 - `^` within a character class, matches everything BUT what follows
 - `$` matches the end of a string, or just before the next newline
 - `*` matches 0 or more occurrences
 - `+` matches 1 or more occurrences
 - `?` matches 0 or 1 occurrences
-- `.` matches any character except a newline
-- `\d` matches any digit character (0-9)
-- `\s` matches any whitespace character (space, \t, or \n)
-- `\w` matches any word character (A-Z, a-z, 0-9, and _)
 
-## Character Match
+## Character Match: `abc`, `.`
 
 Most characters match themselves.
 
 ```re
 david s
 ```
-> **david s**
-> 
-> David s
-> 
-> hello **david s**
-> 
-> hello **david s** today
+> **david s**<br/>
+> David s<br/>
+> hello **david s**<br/>
+> hello **david s** today<br/>
 
+We can use `.` to match any character.
+
+```re
+davi. s
+```
+> **david s**<br/>
+> **davix s**<br/>
+> davidd s<br/>
 
 ## Line Match: `^`, `$`
 
@@ -54,60 +66,45 @@ david s
 ```re
 ^fire
 ```
-> **fire** hydrant
-> 
-> no fire here
+> **fire** hydrant<br/>
+> no fire here<br/>
 
 ```re
 fire$
 ```
-> wood **fire**
-> 
-> fire wood
+> wood **fire**<br/>
+> fire wood<br/>
 
-```re
-davi. s
-```
-> **david s**
-> 
-> **davix s**
-> 
-> davidd s
 
 ## Repeats: `?`, `*`, `+`
 
 There are some special characters that mark how many times the previous character should repeat.
 
-* `?` means one or zero times
-* `*` means zero or more times
-* `+` means at least one time
-
+The `?` character means one or zero times.
 
 ```re
 rhu?ba?rb
 ```
-> **rhbrb**
-> 
-> **rhubrb**
-> 
+> **rhbrb**<br/>
+> **rhubrb**<br/>
 > **rhubarb**
+
+The `+` character means at least one time.
 
 ```re
 sna+cks
 ```
-> **snacks**
-> 
-> sncks
-> 
+> **snacks**<br/>
+> sncks<br/>
 > **snaaaaaacks**
+
+The `*` character means zero or more times.
 
 ```re
 sna*cks
 ```
-> **snacks**
-> 
-> **sncks**
-> 
+> **snacks**<br/>
+> **sncks**<br/>
 > **snaaaaaacks**
 
 ## Escapes
@@ -117,8 +114,7 @@ If you want to use any special characters literally, use backslash `\` in front 
 ```re
 Hello\.
 ```
-> **Hello.**
-> 
+> **Hello.**<br/>
 > Hellox
 
 ## Character Classes
@@ -135,11 +131,9 @@ Each group still only matches one character, but repeat characters can be used o
 ```re
 \d+\s\w+
 ```
-> **12 a5**
-> 
-> 1f ap
-> 
-> **12\ta**
+> **12 a5**<br/>
+> 1f ap<br/>
+> **12\ta**<br/>
 
 ## Character Sets
 
@@ -148,10 +142,8 @@ If you want to be more discerning than a whole character class, you can use a **
 ```re
 [bp]anana
 ```
-> **banana**
-> 
-> **panana**
-> 
+> **banana**<br/>
+> **panana**<br/>
 > pbanana
 
 ```re
@@ -164,8 +156,7 @@ You can specify **ranges** of characters with dash `-`, so dash must be escaped 
 ```re
 My Name Is: [a-zA-Z]+
 ```
-> **My Name Is: David**
-> 
+> **My Name Is: David**<br/>
 > My Name Is: C4t
 
 ## Captures
@@ -177,8 +168,7 @@ More useful than that, is when the regular expression library matches text, it w
 ```re
 (hot+)+dogs
 ```
-> **hotdogs**
-> 
+> **hotdogs**<br/>
 > **hothotthotttdogs**
 
 ```re
@@ -186,7 +176,7 @@ More useful than that, is when the regular expression library matches text, it w
 ```
 > **123-456-7890**
 
-### Named Captures
+## Named Captures
 
 Instead of just remembering the text that matched each capture by the order it appears in the whole regular expression, you can also use a **named capture**. It is still a sub-match specified in parentheses `()`, but with `?P<NAME>` first inside.
 

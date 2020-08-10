@@ -1,13 +1,14 @@
 # Regular Expressions in Python
 
-1. [Raw Strings: `r''`](#raw-strings-r)
-2. [Match: `re.match(pattern, text)`](#match-rematchpattern-text)
-3. [Search: `re.search(pattern, text)`](#search-researchpattern-text)
-4. [Splitting: `re.split(pattern, text)`](#splitting-resplitpattern-text)
-5. [Find All: `re.findall(pattern, text)`](#find-all-refindallpattern-text)
-6. [Compiling Regular Expressions](#compiling-regular-expressions)
+Regular Expressions are a way of matching patterns in text, they can be used for searching, doing input validation, and more. You can find out more about regular expressions in Python [here](https://docs.python.org/3.8/howto/regex.html#regex-howto) and [here](https://docs.python.org/3.8/library/re.html#re-syntax).
 
-You can find out more about regular expressions [here](https://docs.python.org/3.6/howto/regex.html#regex-howto) and [here](https://docs.python.org/3.6/library/re.html#re-syntax).
+- [Raw Strings: `r''`](#raw-strings-r)
+- [Match: `re.match(pattern, text)`](#match-rematchpattern-text)
+- [Search: `re.search(pattern, text)`](#search-researchpattern-text)
+- [Splitting: `re.split(pattern, text)`](#splitting-resplitpattern-text)
+- [Find All: `re.findall(pattern, text)`](#find-all-refindallpattern-text)
+- [Compiling Regular Expressions](#compiling-regular-expressions)
+
 
 ## Raw Strings: `r''`
 
