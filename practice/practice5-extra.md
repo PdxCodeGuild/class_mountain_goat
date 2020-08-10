@@ -65,3 +65,15 @@ def scramble_letters(text):
     ...
 print(scramble_letters('hello world!')) # hlelo wlrod!
 ```
+
+## Problem 6
+
+Write a function `cart_total` to calculate the total of a shopping cart.
+
+```python
+def cart_total(prices, cart):
+    ...
+prices = {'apples': 1.0, 'bananas': 0.5, 'kiwis': 2.0}
+cart = [{'item': 'apples', 'quantity': 3}, {'item': 'kiwis', 'quantity': 4}]
+print(cart_total(prices, cart)) # 11.0
+```
