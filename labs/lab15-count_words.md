@@ -16,7 +16,7 @@ print(response.text)
 We can also download a file of english words and place it next our `.py` file and load it like so:
 
 ```python
-with open('the_raven.txt', 'r') as file:
+with open('the_raven.txt', 'r', encoding='utf-8') as file:
     text = file.read()
 print(text)
 ```
