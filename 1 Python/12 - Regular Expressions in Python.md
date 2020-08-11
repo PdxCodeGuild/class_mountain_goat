@@ -23,7 +23,18 @@ print(s2) # we can write \ more easily but escapes \" dont work
 
 ## Match and Search: `re.match(pattern, text)`, `re.search(pattern, text)`
 
-The `match` function is used to check that a string matches a pattern, and checks from the beginning from the string. If the pattern is matched, we'll get a match object in response.
+The `match` function is used to check that a string matches a pattern, starting from the beginning from the string. The `search` function behaves similarly, but will look for a match anywhere in the string.
+
+```python
+import re
+print(re.match('a', 'abcdef'))    # match
+print(re.match('c', 'abcdef'))    # no match
+print(re.search('c', 'abcdef'))   # match
+print(re.search('^c', 'abcdef'))  # no match
+print(re.search('^a', 'abcdef'))  # match
+```
+
+If the pattern is matched, we'll get a match object in response.
 
 ```python
 import re
@@ -64,17 +75,6 @@ if re.match(regex, "June 24"):
     ...
 ```
 
-The `search` function behaves similarly, but will check the whole string.
-
-```python
-import re
-print(re.match('a', 'abcdef'))    # match
-print(re.match('c', 'abcdef'))    # no match
-print(re.search('c', 'abcdef'))   # match
-print(re.search('^c', 'abcdef'))  # no match
-print(re.search('^a', 'abcdef'))  # match
-```
-
 ## Splitting: `re.split(pattern, text)`
 
 The `split` function works just like it does with strings, but allows for regular expressions.
@@ -105,6 +105,8 @@ print(results) # [('5', '6'), ('4', '1'), ('1', '5'), ('6', '7')]
 
 ## Flags
 
+Flags allow us to control how regular expressions are applied. [examples](http://xahlee.info/python/python_regex_flags.html)
+
 | short name | long name | meaning |
 | --- | --- | --- |
 | re.I | re.IGNORECASE | ignore case. |
@@ -117,7 +119,7 @@ print(results) # [('5', '6'), ('4', '1'), ('1', '5'), ('6', '7')]
 
 ## Compiling Regular Expressions
 
-The `compile` function allows us to 'compile' a regular expression, this allows us to re-use a regex without re-writing it.
+The `compile` function allows us to 'compile' a regular expression into a regex object, which we can then call methods on.
 
 ```python
 import re

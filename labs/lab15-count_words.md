@@ -8,7 +8,8 @@ Find a book on [Project Gutenberg](http://www.gutenberg.org) and navigate to the
 
 ```python
 import requests
-response = requests.get('http://www.gutenberg.org/cache/epub/17192/pg17192.txt')
+response = requests.get('https://www.gutenberg.org/files/62897/62897-0.txt')
+response.encoding = 'utf-8' # set encoding to utf-8
 print(response.text)
 ```
 
