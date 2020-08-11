@@ -54,10 +54,13 @@ Write a function `find_numbers` which returns a list of floats found in the give
 def find_numbers(text):
     ...
 text = '''
-contact name, age
-2.0
-3.0
+name  favorite number
+joe   1.23
+jane  5.45
+julie -1.34
+bob   4.123
 '''
+print(find_numbers(text)) # [1.23, 5.45, -1.34, 4.123]
 ```
 
 
