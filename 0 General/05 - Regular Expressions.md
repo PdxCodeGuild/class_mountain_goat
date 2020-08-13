@@ -1,7 +1,7 @@
 
 # Regular Expressions
 
-Regular expressions or 'regex' are a way to match patterns in strings. They can be executed in nearly any programming language. They can be used to validate a phone number or address in an input field on a website, or to find the occurrences of a phrase in a block of text, etc. There are also docs on [Regular Expressions in Python](../1%20Python/docs/Regular%20Expressions%20in%20Python.md) and [Regular Expressions in JavaScript](../3%20JavaScript/docs/Regular%20Expressions%20in%20JavaScript.md).
+Regular expressions or 'regex' are a way to match patterns in strings. They can be executed in nearly any programming language. They can be used to validate a phone number or address in an input field on a website, or to find the occurrences of a phrase in a block of text, etc. There are also docs on [Regular Expressions in Python](../1%20Python/12%20-%20Regular%20Expressions%20in%20Python.md) and [Regular Expressions in JavaScript](../3%20JavaScript/Regex%20and%20Form%20Validation.md).
 
 - [Resources](#resources)
 - [Overview](#overview)
