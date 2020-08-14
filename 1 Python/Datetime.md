@@ -37,9 +37,11 @@ print(d.second) # 17
 
 ## Creating a Datetime from Components: `datetime(year, month, day)`
 
+You can create a datetime using integers representing the various components: year, month, day, hour, minute, second.
 
 ```python
 from datetime import datetime
+
 d = datetime(2020, 5, 17)
 print(d) # 2020-05-17 00:00:00
 
@@ -49,16 +51,22 @@ print(d) # 2020-05-17 12:30:15
 
 ## Creating a Datetime from a String: `datetime.strptime(s, format)`
 
+The `strptime` "string parse time" function allows us to convert a string to a datetime, according to the given format. You can find the format codes [here](#format-codes-for-strftime-and-strptime), and in the [official docs](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
+
 ```python
 from datetime import datetime
+
 d = datetime.strptime('25-MAR-2016', '%d-%b-%Y')
 print(d) # 2016-03-25 00:00:00
 ```
 
 ## Converting a Datetime to a String: `d.strftime(format)`
 
+The `strftime` "string format time" converts a datetime to a string, according to the given format. You can find the format codes [here](#format-codes-for-strftime-and-strptime), and in the [official docs](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
+
 ```python
 from datetime import datetime
+
 d = datetime(2016, 5, 17)
 print(d.strftime('%d-%b-%Y'))  # 17-May-2016
 ```
@@ -93,6 +101,7 @@ These are the codes used by `strftime` and `strptime` from the [official docs](h
 |%x|Locale’s appropriate date representation.|08/16/88 (None); 08/16/1988 (en_US); 16.08.1988 (de_DE)|
 |%X|Locale’s appropriate time representation.|21:30:00 (en_US); 21:30:00 (de_DE)|
 |%%|A literal '%' character.|%|
+
 
 
 

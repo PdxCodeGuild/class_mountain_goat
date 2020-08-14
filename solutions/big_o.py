@@ -124,7 +124,16 @@ def linear_search(nums, target):
 # y_values = []
 
 # number_of_trials = 5000
-# for list_size in range(500, 1000, 100):
+# start_size = 500
+# end_size = 1000
+# step_size = 100
+
+# number_of_trials = 1000
+# start_size = 1
+# end_size = 256
+# step_size = 1
+
+# for list_size in range(start_size, end_size, step_size):
 #     trial_sum = 0
 #     for i in range(number_of_trials):
 #         global counter

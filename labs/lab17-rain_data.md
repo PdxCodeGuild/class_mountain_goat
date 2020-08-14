@@ -2,9 +2,7 @@
 # Lab 17: Rain Data
 
 
-The 'City of Portland Bureau of Environmental Services' operates and maintains a network of rain gauges around Portland, and publishes their data publicly:  http://or.water.usgs.gov/non-usgs/bes/
-
-The data tables available on the site look something like...
+The 'City of Portland Bureau of Environmental Services' operates and maintains a network of rain gauges around Portland, and publishes their data publicly:  http://or.water.usgs.gov/non-usgs/bes/. The data tables available on the site look something like...
 
 ```
 Daily  Hourly data -->
@@ -15,14 +13,13 @@ Daily  Hourly data -->
 24-MAR-2016     6    0   1
 23-MAR-2016     -    -   -
 MORE...
-
 ```
 
 ## Version 1
 
-Download or use `requests` to get these files. The two columns that are most important are the date and the daily total. The simplest representation of this data is a list of tuples, but you may also use a list of dictionaries, or a list of instances of a custom class.
+Download or use `requests` to get one of these files. The two columns that are most important are the date and the daily total. The simplest representation of this data is a list of tuples, but you may also use a list of dictionaries, or a list of instances of a custom class.
 
-To parse the dates, use [datetime.strptime](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior). This allows for easy access to the year, month, and day as `int`s. Below I've shown how to parse an example string, resulting in a [datetime](https://docs.python.org/3.6/library/datetime.html#date-objects) object. We can then access the year, month, and day on that datetime as ints. Later, if you want to print the datetime in a more human-readable format, you can use [datetime.strftime](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
+To parse the dates, use [datetime.strptime](../1%20Python/Datetime.md#creating-a-datetime-from-a-string-datetimestrptimes-format). This allows for easy access to the year, month, and day as `int`s. Below I've shown how to parse an example string, resulting in a [datetime](../1%20Python/Datetime.md) object. We can then access the year, month, and day on that datetime as ints. Later, if you want to print the datetime in a more human-readable format, you can use [datetime.strftime](../1%20Python/Datetime.md#creating-a-datetime-from-a-string-datetimestrptimes-format).
 
 ```python
 from datetime import datetime
@@ -44,7 +41,7 @@ print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
 
 Now that you've successfully extracted the data, let's calculate some statistics.
 
-### 1. Calculae the Mean
+### 1. Calculate the Mean
 
 The mean is the sum of all the daily totals divided by the number of daily totals.
 
@@ -68,21 +65,24 @@ Loop over all the records to find the one which had the most rain, print out the
 
 ## Version 3 (optional)
 
-Using `matplotlib` create a chart of the dates and the daily totals for a given year. The `x_values` will be a list of dates, The `y_values` are a list of the daily totals. If you don't have matplotlib installed, run `pip install matplotlib`. You can learn more about matplotlib [here](https://matplotlib.org/2.1.0/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py).
+Using `matplotlib` create a chart of the dates and the daily totals for a given year. The `x_values` will be a list of dates, The `y_values` are a list of the daily totals. If you don't have matplotlib installed, run `pip install matplotlib` (or `python -m pip install matplotlib`). You can learn more about matplotlib [here](https://matplotlib.org/2.1.0/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py).
 
 ```python
 import matplotlib.pyplot as plt
-...
+from datetime import datetime
+x_values = [datetime(2018, 5, 23), datetime(2018, 5, 24)]
+y_values = [0.56, 1.23]
 plt.plot(x_values, y_values)
 plt.show()
 ```
 
 Some charts you can make are:
-- all the data, date vs daily total
-- monthly totals, average across multiple years
-- total yearly rainfall, year by year
+- All the data (x-axis: date, y-axis: daily total)
+- Monthly totals, averaged across multiple years (x-axis: month, y-axis: average for that month)
+- Average rainfall per year (x-axis: year, y-axis: average rainfall for that year)
+- A [histogram](https://en.wikipedia.org/wiki/Histogram) of the rainfall.
 
 
 ## Version 4 (optional)
 
-Use regular expressions to pull all the .rain files from the html source of the main page and do statistics on all of them.
+Use the CSV in the data folder to do some statistics on multiple locations: [link](./data/rain_output.csv).
