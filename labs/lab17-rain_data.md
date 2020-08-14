@@ -19,6 +19,19 @@ MORE...
 
 Download or use `requests` to get one of these files. The two columns that are most important are the date and the daily total. The simplest representation of this data is a list of tuples, but you may also use a list of dictionaries, or a list of instances of a custom class.
 
+
+```python
+import requests
+response = requests.get('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
+print(response.text)
+```
+
+```python
+with open('hayden_island.rain', 'r') as file:
+    text = file.read()
+print(text)
+```
+
 To parse the dates, use [datetime.strptime](../1%20Python/Datetime.md#creating-a-datetime-from-a-string-datetimestrptimes-format). This allows for easy access to the year, month, and day as `int`s. Below I've shown how to parse an example string, resulting in a [datetime](../1%20Python/Datetime.md) object. We can then access the year, month, and day on that datetime as ints. Later, if you want to print the datetime in a more human-readable format, you can use [datetime.strftime](../1%20Python/Datetime.md#creating-a-datetime-from-a-string-datetimestrptimes-format).
 
 ```python
