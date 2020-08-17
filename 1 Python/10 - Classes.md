@@ -3,23 +3,88 @@
 
 Classes, like functions and modules, are another of the major building-blocks of a python program. They represent the grouping of data and functions which together serve a common purpose.
 
+- [Introductory Example: List vs Dictionary vs Class](#introductory-example-list-vs-dictionary-vs-class)
+  - [List](#list)
+  - [Dictionary](#dictionary)
+  - [Class](#class)
+- [Types](#types)
+- [Initializers](#initializers)
+- [Methods](#methods)
+- [Static Variables](#static-variables)
+- [Static Methods](#static-methods)
+- [Private Variables](#private-variables)
+- [Private Methods](#private-methods)
+- [Inheritance](#inheritance)
+  - [Multiple Inheritance](#multiple-inheritance)
+- [Dunder Methods](#dunder-methods)
+  - [Dunder Methods Overview](#dunder-methods-overview)
+  - [\_\_str__](#__str__)
+  - [\_\_repr__](#__repr__)
+  - [\_\_eq__ and \_\_neq__](#__eq__-and-__neq__)
+  - [\_\_getitem__ and \_\_len__](#__getitem__-and-__len__)
 
-1. [Types](#types)
-2. [Initializers](#initializers)
-3. [Methods](#methods)
-4. [Static Variables](#static-variables)
-5. [Static Methods](#static-methods)
-6. [Private Variables](#private-variables)
-7. [Private Methods](#private-methods)
-8. [Inheritance](#inheritance)
-   1. [Multiple Inheritance](#multiple-inheritance)
-9. [Dunder Methods](#dunder-methods)
-   1. [Dunder Methods Overview](#dunder-methods-overview)
-   2. [\_\_str__](#str)
-   3. [\_\_repr__](#repr)
-   4. [\_\_eq__ and \_\_neq__](#eq-and-neq)
-   5. [\_\_getitem__ and \_\_len__](#getitem-and-len)
 
+
+
+## Introductory Example: List vs Dictionary vs Class
+
+Let's say we want to represent a point in a [Cartesian Coordinate System](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) with two integers `x` and `y`.
+
+### List
+
+We could do that with lists of length 2, with the first element being the `x` coordinate, and the second being the `y` coordinate. We can then write a method for calculating the distance, taking two points as parameters. Unfortunately, this requires us to use `[0]` and `[1]` in our code, which is not clear to whoever is reading the code.
+
+```python
+import math
+
+def distance(p1, p2):
+    dx = p1[0] - p2[0]
+    dy = p1[1] - p2[1]
+    return math.sqrt(dx*dx + dy*dy)
+
+p1 = [5, 2]
+p2 = [8, 4]
+print(distance(p1, p2))
+```
+
+### Dictionary
+
+A better strategy would be to use dictionaries with two key-value pairs, which allows us to explicitly refer to `x` and `y` by a string. Unfortunately we still cannot directly associate the `distance` function with the objects representing point, so whoever calls the function must remember the format of the parameters.
+
+```python
+import math
+
+def distance(p1, p2):
+    dx = p1['x'] - p2['x']
+    dy = p1['y'] - p2['y']
+    return math.sqrt(dx*dx + dy*dy)
+
+p1 = {'x': 5, 'y': 2}
+p2 = {'x': 8, 'y': 4}
+print(distance(p1, p2))
+```
+
+
+### Class
+
+Classes allow us to group together data and functions into a single unit. The variables associated with a class are called 'member variables', 'attributes', or 'fields'. The functions associated with a class are called 'methods'.
+
+```python
+class Point:
+    def __init__(self, x, y): # this is the initializer
+        self.x = x # these are member variables
+        self.y = y
+    
+    def distance(self, p): # method, or 'member function'
+        dx = self.x - p.x
+        dy = self.y - p.y
+        return math.sqrt(dx*dx + dy*dy)
+    
+p = Point(5,2) # call the initializer, instantiate the class
+print(p.x) # 5
+print(p.y) # 2
+print(type(p)) # Point
+```
 
 ## Types
 
@@ -36,52 +101,27 @@ print(type(type(y))) # 'type'
 
 ## Initializers
 
-The built-in types also have initializers, which allow us to create instances of the type.
-
-```python
- # call the initializer of the str class
-s = str() # equivalent to: s = ''
-
- # call the initializer of the int class
-i = int() # equivalent to: i = 0
-```
-
-Our classes can have initializers too, which allows us to create instances of them. The initializer is a special type of function which uses the parameters passed into it to initialize the instance. Here, we copy the parameters `x` and `y` into the instance by assigning them to variables on `self`, which is an object that represents the class' "self".
-
-The variables associated with a class are called 'member variables', 'attributes', or 'fields'. The functions associated with a class are called 'methods'.
+We use a class's initializer to create an instance of that class. The initializer is a special type of method which uses the parameters passed into it to initialize the instance. Here, we copy the parameters `x` and `y` into the instance by assigning them to variables on `self`, which is an object that represents the class' "self".
 
 
 ```python
 class Point:
-    def __init__(self, x, y): # this is the initializer
-        self.x = x # these are member variables
+    def __init__(self, x, y):
+        self.x = x
         self.y = y
-    
-p = Point(5,2) # call the initializer, instantiate the class
-print(p.x) # 5
-print(p.y) # 2
 
-print(type(p)) # Point
+p = Point() # call the initializer of the Point class
 ```
 
-If you tried to do this with dictionaries, every time you'd want to refer to the member variables `x` and `y`, you'd have to write `p['x']` and `p['y']`. If you used lists, you'd have to refer ambiguously to `p[0]` and `p[1]`. You'd also have no way of checking the type, or attaching functions to the object.
+The built-in types also have initializers, which allow us to create instances of the type. 
+
 
 ```python
-import math
+# call the initializer of the str class
+s = str() # equivalent to: s = ''
 
- # we could instead use dictionaries instead of classes
- # p1 = {'x': 5, 'y': 2}
- # p1['x']
-
- # or just use lists, and write functions to perform operations on those lists
-def distance(p1, p2):
-    dx = p1[0] - p2[0]
-    dy = p1[1] - p2[1]
-    return math.sqrt(dx*dx + dy*dy)
-
-p1 = [5, 2]
-p2 = [8, 4]
-print(distance(p1, p2))
+# call the initializer of the int class
+i = int() # equivalent to: i = 0
 ```
 
 
@@ -112,16 +152,25 @@ p2 = Point(8,4)
 dist = p1.distance(p2) # or p2.distance(p1), either works
 print(dist)
 
- # similar to how we can call methods of the str class
-s = 'hello world'
-print(s.split(' '))
+ # similar to how we can call methods of the string class
+s = str('hello world')
+words = s.split(' ')
+print(words)
 ```
 
 ## Static Variables
 
+Static variables are variables that belong to the class, and not the instance.
+
+```python
+class Point:
+    pi = 3.1415
+print(Point.pi)
+```
+
 ## Static Methods
 
-Static methods are methods that belong to the **type** and **not** the instance. They're represented by an `@staticmethod` above the function declaration.
+Static methods are methods that belong to the class and not the instance. They're represented by an `@staticmethod` above the method declaration.
 
 
 ```python
@@ -140,8 +189,6 @@ class Point:
 polar_point = Point.from_polar(5.0, math.pi/6)
 polar_point.scale(2)
 ```
-
-
 
 ## Private Variables
 
@@ -367,8 +414,6 @@ print(p1 == p3) # False
 print(p1 != p2) # False
 print(p1 != p3) # True
 ```
-
-
 
 ### \_\_getitem__ and \_\_len__
 
