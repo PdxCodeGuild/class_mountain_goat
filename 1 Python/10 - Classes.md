@@ -80,10 +80,12 @@ class Point:
         dy = self.y - p.y
         return math.sqrt(dx*dx + dy*dy)
     
-p = Point(5,2) # call the initializer, instantiate the class
-print(p.x) # 5
-print(p.y) # 2
-print(type(p)) # Point
+p1 = Point(5, 2) # call the initializer, instantiate the class
+p2 = Point(8, 4)
+print(p1.x) # 5
+print(p1.y) # 2
+print(type(p1)) # Point
+print(p1.distance(p2))
 ```
 
 ## Types
