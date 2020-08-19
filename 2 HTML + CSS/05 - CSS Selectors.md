@@ -1,8 +1,7 @@
 # CSS Selectors
 
-- [Overview](#overview)
-  - [Simple Selectors](#simple-selectors)
-  - [Combining Selectors](#combining-selectors)
+Selectors control which elements get applied a set of properties. You can find more info [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Simple_selectors), [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors), and [here](https://www.w3schools.com/cssref/css_selectors.asp). To get some practice with selectors, try [this](https://flukeout.github.io/).
+
 - [Tag Selector: `tag`](#tag-selector-tag)
 - [Class Selector: `.class`](#class-selector-class)
 - [ID Selector: `#id`](#id-selector-id)
@@ -11,32 +10,6 @@
 - [Using Multiple Selectors: `,`](#using-multiple-selectors-)
 - [Descendant Selector: `selector1 selector2`](#descendant-selector-selector1-selector2)
 - [Child Selector: `selector1 > selector2`](#child-selector-selector1--selector2)
-- [Psuedo-Class: `selector::psuedo-class`](#psuedo-class-selectorpsuedo-class)
-- [Psuedo-Element: `selector::psuedo-element`](#psuedo-element-selectorpsuedo-element)
-
-You can find more info [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Simple_selectors), [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors), and [here](https://www.w3schools.com/cssref/css_selectors.asp). To get some practice with selectors, try [this](https://flukeout.github.io/).
-
-## Overview
-
-### Simple Selectors
-
-| selector | description |
-|--- |--- |
-| [element](#tag-selector) | select all elements of that type |
-| [.class](#class-selector) | select all elements with that class |
-| [#id](#id-selector) | select the element with that id |
-| [s[attribute="value"]](#attribute-selector) | select elements based on the attribute's value |
-| [*](#universal-selector) | select all elements |
-
-
-### Combining Selectors
-
-| selector | description |
-|--- |--- |
-| [s1, s2](#using-multiple-selectors) | select all elements that match s1 or match s2 |
-| [s1 s2](#descendent-selector) | select all elements that match s2 with an ancestor that matches s1 |
-| [s1 > s2](#child-selector) | select all elements that match s2 with a parent that matches s1 |
-
 
 
 ## Tag Selector: `tag`
@@ -165,8 +138,3 @@ To only select immediate children (not grand-children, great grand-children, etc
     </div>
 </div>
 ```
-
-## Psuedo-Class: `selector::psuedo-class`
-
-
-## Psuedo-Element: `selector::psuedo-element`

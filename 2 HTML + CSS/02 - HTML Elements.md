@@ -1,31 +1,32 @@
 
 # HTML Elements
 
+HTML elements make up the structure of a page. Many of these come with default styling from the browser. However all can be altered using CSS, thus their meaning is largely what you give to them. For a complete list of tags, look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and [here](https://www.w3schools.com/tags/).
+
+
 - [Overview](#overview)
   - [Common Elements](#common-elements)
   - [Interactive Elements](#interactive-elements)
-  - [Text Formatting Elements](#text-formatting-elements)
   - [Semantic Elements](#semantic-elements)
   - [Common Attributes](#common-attributes)
 - [Common Elements](#common-elements-1)
-  - [Header Tags](#header-tags)
-  - [Paragraph Tags](#paragraph-tags)
-  - [Quotes and Block-Quotes](#quotes-and-block-quotes)
-  - [Pre-formatted Text](#pre-formatted-text)
-  - [Lines and Breaks](#lines-and-breaks)
-  - [Anchor Tags](#anchor-tags)
-  - [Image Tags](#image-tags)
-  - [Division Tags](#division-tags)
-  - [Span Tags](#span-tags)
-  - [Tables](#tables)
-  - [Ordered and Unordered Lists](#ordered-and-unordered-lists)
+  - [Header Tags: `h1`, `h2`, etc](#header-tags-h1-h2-etc)
+  - [Paragraph Tags: `p`](#paragraph-tags-p)
+  - [Quotes and Block-Quotes: `q`, `blockquote`](#quotes-and-block-quotes-q-blockquote)
+  - [Pre-formatted Text: `pre`](#pre-formatted-text-pre)
+  - [Lines and Breaks: `hr`, `br`](#lines-and-breaks-hr-br)
+  - [Anchor Tags: `a`](#anchor-tags-a)
+  - [Image Tags: `img`](#image-tags-img)
+  - [Division Tags: `div`](#division-tags-div)
+  - [Span Tags: `span`](#span-tags-span)
+  - [Tables: `table`, `tr`, `th`, `td`](#tables-table-tr-th-td)
+  - [Ordered and Unordered Lists: `ol`, `ul`](#ordered-and-unordered-lists-ol-ul)
 - [Interactive Elements](#interactive-elements-1)
-  - [Buttons](#buttons)
-  - [Input](#input)
-  - [Dropdown Lists](#dropdown-lists)
-- [Text Formatting Elements](#text-formatting-elements-1)
+  - [Buttons: `button`](#buttons-button)
+  - [Input: `input`](#input-input)
+  - [Dropdown Lists: `select`](#dropdown-lists-select)
+- [Text Formatting Elements](#text-formatting-elements)
 
-Many of these come with default styling from the browser. However all can be altered using CSS, thus their meaning is largely what you give to them. For a complete list of tags, look [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and [here](https://www.w3schools.com/tags/).
 
 
 ## Overview
@@ -56,22 +57,6 @@ Many of these come with default styling from the browser. However all can be alt
 | [buttons](#button) | button |
 | [input](#input) | various forms of input, uses attribute `type` |
 | [select, option](#dropdown-lists) | drop-down list |
-
-### Text Formatting Elements
-
-| element | description |
-|---  |---    |
-| [b](#text-formatting-elements) | bold text |
-| [strong](#text-formatting-elements) | important text, usually bold |
-| [i](#text-formatting-elements) | italic text |
-| [em](#text-formatting-elements) | emphasized text, usually italic |
-| [mark](#text-formatting-elements) | marked or highlighted text |
-| [small](#text-formatting-elements) | small text |
-| [del](#text-formatting-elements) | deleted text (line-through) |
-| [ins](#text-formatting-elements) | inserted text (underlined) |
-| [sub](#text-formatting-elements) | subscript text |
-| [sup](#text-formatting-elements) | superscript text |
-| [time](#text-formatting-elements) | identify a time "11:23" within text |
 
 
 ### Semantic Elements
@@ -110,7 +95,7 @@ You can read more about semantic elements [here](https://www.w3schools.com/html/
 
 ## Common Elements
 
-### Header Tags
+### Header Tags: `h1`, `h2`, etc
 
 The header (`h1`, `h2`, etc) let us define titles.
 
@@ -122,7 +107,7 @@ The header (`h1`, `h2`, etc) let us define titles.
 <h5>and so on...</h5>
 ```
 
-### Paragraph Tags
+### Paragraph Tags: `p`
 
 The paragraph `p` tag lets us define paragraphs
 
@@ -132,7 +117,7 @@ The paragraph `p` tag lets us define paragraphs
 <p>Donec at ligula hendrerit....</p>
 ```
 
-### Quotes and Block-Quotes
+### Quotes and Block-Quotes: `q`, `blockquote`
 
 ```html
 <q>this is a quote</q>
@@ -140,7 +125,7 @@ The paragraph `p` tag lets us define paragraphs
 <blockquote>This is a blockquote. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur nisi nec orci maximus, at facilisis lorem dignissim. Fusce vitae orci pharetra, facilisis dui ut, ullamcorper ex.</blockquote>
 ```
 
-### Pre-formatted Text
+### Pre-formatted Text: `pre`
 
 The `<pre>` tag allows pre-formatted text, and preserves spaces and line breaks.
 
@@ -156,11 +141,11 @@ The `<pre>` tag allows pre-formatted text, and preserves spaces and line breaks.
 </pre>
 ```
 
-### Lines and Breaks
+### Lines and Breaks: `hr`, `br`
 
 The two tags `<hr/>` and `<br/>` are used without closing tags, and represent a broad horizontal line and line break respectively.
 
-### Anchor Tags
+### Anchor Tags: `a`
 
 The anchor tag `a` lets us create links.
 
@@ -176,7 +161,7 @@ You can also create "internal links", which will take you do another part of the
 ```
 
 
-### Image Tags
+### Image Tags: `img`
 
 An `img` tag lets us display an image. The `src` attribute can be a relative path or a url. The `alt` is the text that will be displayed if the image fails to load.
 
@@ -186,7 +171,7 @@ An `img` tag lets us display an image. The `src` attribute can be a relative pat
 
 
 
-### Division Tags
+### Division Tags: `div`
 
 The `div` tag represents a generic block-level container.
 
@@ -195,7 +180,7 @@ The `div` tag represents a generic block-level container.
 ```
 
 
-### Span Tags
+### Span Tags: `span`
 
 The `span` tag represents a generic inline-level container.
 
@@ -204,7 +189,7 @@ The `span` tag represents a generic inline-level container.
 ```
 
 
-### Tables
+### Tables: `table`, `tr`, `th`, `td`
 
 Table are defined first by row, then by column.
 
@@ -242,7 +227,7 @@ Tables can also contain a top row of `th` 'table head' tags:
 
 
 
-### Ordered and Unordered Lists
+### Ordered and Unordered Lists: `ol`, `ul`
 
 Unordered lists are shown with bullet points, ordered lists are shown with numbers.
 
@@ -263,13 +248,13 @@ Unordered lists are shown with bullet points, ordered lists are shown with numbe
 
 ## Interactive Elements
 
-### Buttons
+### Buttons: `button`
 
 ```html
 <button>this is a button</button>
 ```
 
-### Input
+### Input: `input`
 
 `input` tags allow for user-input.
 
@@ -290,7 +275,7 @@ If radio buttons are given the same `name` attribute, only allow one among them 
 <input type="radio" name="gender" value="other"> Other
 ```
 
-### Dropdown Lists
+### Dropdown Lists: `select`
 
 A `select` tag defines a dropdown list. Each `option` defines an option of that dropdown list. Note that the `value` attribute differs from the inner text. The inner text servers human interests, the `value` serves the code's interests.
 
