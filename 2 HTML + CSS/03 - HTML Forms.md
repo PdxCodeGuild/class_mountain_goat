@@ -4,13 +4,13 @@
 Forms are a particular element that allows us to submit data to the back-end. You can read more about forms on the [MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms).
 
 
-1. [Input and Select Elements](#input-and-select-elements)
-2. [Form](#form)
-3. [Fieldset](#fieldset)
-4. [The Placeholder Attribute](#the-placeholder-attribute)
-5. [The Disabled Attribute](#the-disabled-attribute)
-6. [The Required Attribute](#the-required-attribute)
-7. [The Pattern Attribute](#the-pattern-attribute)
+- [Input and Select Elements](#input-and-select-elements)
+- [Form](#form)
+- [Fieldset](#fieldset)
+- [The Placeholder Attribute](#the-placeholder-attribute)
+- [The Disabled Attribute](#the-disabled-attribute)
+- [The Required Attribute](#the-required-attribute)
+- [The Pattern Attribute](#the-pattern-attribute)
 
 
 ## Input and Select Elements

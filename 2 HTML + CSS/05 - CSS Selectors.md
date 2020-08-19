@@ -1,18 +1,18 @@
 # CSS Selectors
 
-1. [Overview](#overview)
-   1. [Simple Selectors](#simple-selectors)
-   2. [Combining Selectors](#combining-selectors)
-2. [Tag Selector](#tag-selector)
-3. [Class Selector](#class-selector)
-4. [ID Selector](#id-selector)
-5. [Attribute Selector](#attribute-selector)
-6. [Universal Selector](#universal-selector)
-7. [Using Multiple Selectors](#using-multiple-selectors)
-8. [Descendant Selector](#descendant-selector)
-9. [Child Selector](#child-selector)
-10. [Psuedo-Class](#psuedo-class)
-11. [Psuedo-Element](#psuedo-element)
+- [Overview](#overview)
+  - [Simple Selectors](#simple-selectors)
+  - [Combining Selectors](#combining-selectors)
+- [Tag Selector: `tag`](#tag-selector-tag)
+- [Class Selector: `.class`](#class-selector-class)
+- [ID Selector: `#id`](#id-selector-id)
+- [Attribute Selector: `element[attribute="value"]`](#attribute-selector-elementattributevalue)
+- [Universal Selector: `*`](#universal-selector-)
+- [Using Multiple Selectors: `,`](#using-multiple-selectors-)
+- [Descendant Selector: `selector1 selector2`](#descendant-selector-selector1-selector2)
+- [Child Selector: `selector1 > selector2`](#child-selector-selector1--selector2)
+- [Psuedo-Class: `selector::psuedo-class`](#psuedo-class-selectorpsuedo-class)
+- [Psuedo-Element: `selector::psuedo-element`](#psuedo-element-selectorpsuedo-element)
 
 You can find more info [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Simple_selectors), [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors), and [here](https://www.w3schools.com/cssref/css_selectors.asp). To get some practice with selectors, try [this](https://flukeout.github.io/).
 
@@ -39,7 +39,7 @@ You can find more info [here](https://developer.mozilla.org/en-US/docs/Learn/CSS
 
 
 
-## Tag Selector
+## Tag Selector: `tag`
 
 If you just write the tag name as the selector, it'll select all tags of that type.
 
@@ -59,7 +59,7 @@ p {
 }
 ```
 
-## Class Selector
+## Class Selector: `.class`
 
 Putting a `.` before a selector allows you to define a CSS class. This will apply to all elements with that class in their `class` attribute. A `class` attribute can contain multiple classes, separated by spaces.
 
@@ -78,7 +78,7 @@ Putting a `.` before a selector allows you to define a CSS class. This will appl
 <div class="warning">This is a warning</div>
 ```
 
-## ID Selector
+## ID Selector: `#id`
 
 Putting a `#` in front of your selector lets you target the particular element with that `id`.
 
@@ -95,7 +95,7 @@ Putting a `#` in front of your selector lets you target the particular element w
 <p id="paragraph2">blahblahblah</p>
 ```
 
-## Attribute Selector
+## Attribute Selector: `element[attribute="value"]`
 
 Using square brackets, you can select elements based on their attribute's value.
 
@@ -108,12 +108,12 @@ Using square brackets, you can select elements based on their attribute's value.
 <input type="text">
 ```
 
-## Universal Selector
+## Universal Selector: `*`
 
 Using a `*` will select everything, it's generally better to apply a style to the `body` tag and let descendants pick it up.
 
 
-## Using Multiple Selectors
+## Using Multiple Selectors: `,`
 
 If you want to apply a set of properties using several different selectors, use a comma.
 
@@ -128,7 +128,7 @@ If you want to apply a set of properties using several different selectors, use 
 ```
 
 
-## Descendant Selector
+## Descendant Selector: `selector1 selector2`
 
 To select all descendants, use a space ` `.
 
@@ -147,7 +147,7 @@ To select all descendants, use a space ` `.
 </div>
 ```
 
-## Child Selector
+## Child Selector: `selector1 > selector2`
 
 To only select immediate children (not grand-children, great grand-children, etc), use `>`.
 
@@ -166,7 +166,7 @@ To only select immediate children (not grand-children, great grand-children, etc
 </div>
 ```
 
-## Psuedo-Class
+## Psuedo-Class: `selector::psuedo-class`
 
 
-## Psuedo-Element
+## Psuedo-Element: `selector::psuedo-element`

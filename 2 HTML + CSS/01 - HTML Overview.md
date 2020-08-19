@@ -1,13 +1,13 @@
 
 # HTML Overview
 
-1. [HTML Syntax](#html-syntax)
-2. [Void Elements](#void-elements)
-3. [Page Template](#page-template)
-4. [Meta Tags](#meta-tags)
-5. [Comments](#comments)
-6. [Block and Inline Elements](#block-and-inline-elements)
-7. [Preprocessors](#preprocessors)
+- [HTML Syntax](#html-syntax)
+- [Void Elements](#void-elements)
+- [Page Template](#page-template)
+- [Meta Tags](#meta-tags)
+- [Comments](#comments)
+- [Block and Inline Elements](#block-and-inline-elements)
+- [Preprocessors](#preprocessors)
 
 [HTML](https://en.wikipedia.org/wiki/HTML) stands for 'hypertext markup language', hypertext meaning that it also contains multimedia such as images, sound, and video, markup language meaning it's for formatting. HTML is the skeleton of a page, forming its fundamental structure. HTML is displayed, not 'run' like Python. You can read more about HTML on the [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML) or [w3schools](https://www.w3schools.com/html/default.asp).
 
