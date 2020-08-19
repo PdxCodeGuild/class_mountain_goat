@@ -3,14 +3,17 @@
 
 CSS properties allow you to control visual aspects of an HTML element. For more info, look [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) and [here](https://www.w3schools.com/cssref/).
 
+| Property           | Values                                                    | Description                                                                               | Links                                                                                                                                           |
+|--------------------|-----------------------------------------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `color`            | `red`, `#DC143C`, `rgb(220,20,60)`                        | Set the color of text                                                                     | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/color), [w3schools](https://www.w3schools.com/cssref/pr_text_color.asp)                  |
+| `font-family`      | `Arial`, `Helvetica`, `"Times New Roman"`                 | Set the font family, for custom fonts check out [Google Fonts](https://fonts.google.com/) | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family), [w3schools](https://www.w3schools.com/cssref/pr_font_font-family.asp)      |
+| `font-size`        | `40px`, `10%`                                             | Set the font size                                                                         | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [w3schools](https://www.w3schools.com/cssref/pr_font_font-size.asp)          |
+| `text-align`       | `left`, `center`, `right`                                 | Set the alignment of text                                                                 | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align), [w3schools](https://www.w3schools.com/cssref/pr_text_text-align.asp)        |
+| `background-color` | `red`, `#DC143C`, `rgb(220,20,60)`                        | Set the background color of an element                                                    | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color), [w3schools](https://www.w3schools.com/cssref/pr_background-color.asp) |
+| `background-image` | `url("image.jpg")`, `url("https://webite.com/image.jpg")` | Set the background image of an element                                                    | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image), [w3schools](https://www.w3schools.com/cssref/pr_background-image.asp) |
+| `margin`           | `50px`, `5%`, `10px 0`                                    | Set the margin, the space between elements                                                | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [w3schools](https://www.w3schools.com/css/css_margin.asp)                       |
+| `padding`          | `50px`, `5%`, `10px 0`                                    | Set the padding, the space inside an element                                              | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [w3schools](https://www.w3schools.com/css/css_padding.asp)                     |
+| `border`           | `1px solid black`                                         | Set the border                                                                            | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/border), [w3schools](https://www.w3schools.com/css/css_border.asp)                       |
+| `width`            | `100px`, `100%`                                           | Set the width of the element (only works on block elements)                               | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/width), [w3schools](https://www.w3schools.com/css/css_dimension.asp)                     |
+| `height`           | `100px`, `100%`                                           | Set the height of the element (only works on block elements)                              | [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/height), [w3schools](https://www.w3schools.com/css/css_dimension.asp)                    |
 
-| property | description |
-|--- |--- |
-| color, background-color | foreground and background color, possible values look like `red`, `#FF0000`, `rgb(255,0,0)` or `rgba(255,0,0,1.0)`  |
-| background-image | background image `url(myimage.jpg)`|
-| text-align | text alignment, possible values are `left`, `right`, `center` and `justify` |
-| display | controls how the element is displayed, possible values are `block`, `inline`, `inline-block` and `none` |
-| width, height | the element's width and height, possible values look like `50px`, `100em`, `50%` |
-| border | the element's border `1px solid black` |
-| margin, padding | the element's margin (external) and padding (internal) |
-| font-family, font-size | the font family and font sized used within the element |
