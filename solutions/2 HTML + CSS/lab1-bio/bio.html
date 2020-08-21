@@ -68,10 +68,27 @@
             color: #2611AD;
             
         }
+        #box {
+            background-color:red;
+            width:400px;
+            height:100px;
+            position:fixed;
+            left: 10px;
+            bottom: 10px;
+            z-index: 10;
+        }
+        .timeline_photo {
+            display:flex;
+            flex-direction:row;
+            justify-content:space-between;
+        }
     </style>
 </head>
 
 <body>
+    <div id="box">
+
+    </div>
     <header>
         <div>Disney.com</div>
         <div>Upcoming Movies!</div>
@@ -84,12 +101,16 @@
             <img src="Darth_Vader.jpg"/>
         </div>
         <p>Born of the lovely lava shores on the planet Mustafar, remade by Darth Sidious <a href="https://starwars.fandom.com/wiki/Anakin_Skywalker" target="_blank">Read More on Wookiepedia</a></p>
-        <ul class="timeline">
-            <li>41.9 bby Born on Tatooine</li>
-            <li>?? bby had some kids</li>
-            <li>?? bby became Darth Vader</li>
-            <li>0 bby Died at the Battle of Yavin</li>
-        </ul>
+        
+        <div class="timeline_photo">
+            <ul class="timeline">
+                <li>41.9 bby Born on Tatooine</li>
+                <li>?? bby had some kids</li>
+                <li>?? bby became Darth Vader</li>
+                <li>0 bby Died at the Battle of Yavin</li>
+            </ul>
+            <img src="Darth_Vader.jpg"/>
+        </div>
         <p>Lucas ipsum dolor sit amet dagobah skywalker bothan jabba hutt ackbar wedge alderaan organa kessel. Obi-wan
             organa tatooine coruscant kenobi anakin dooku chewbacca ben. Kessel solo bothan naboo anakin grievous. Organa
             greedo endor wedge yavin. Fisto ventress solo owen yavin lobot ponda dagobah moff. Leia moff tatooine darth

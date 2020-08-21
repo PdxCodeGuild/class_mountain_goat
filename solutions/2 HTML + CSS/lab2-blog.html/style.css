@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Cyberpunk';
+    src: url('Cyberpunk-Regular.ttf') format('truetype');
+}
+h1 {
+    font-family: 'Cyberpunk';
+}
+body {
+    background-color: #2C66B8;
+    margin: 0;
+    font-family: 'Baloo Tamma 2', cursive;
+    background-image: url('Vaporwave-Aesthetic.jpg');
+    background-size:cover;
+    text-shadow: 0 0 3px purple;
+    color: purple;
+}
+main {
+    min-height:100%;
+}
+footer {
+    text-align:center;
+    color:white;
+    border-top: 1px solid white;
+}
+main {
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    max-width:800px;
+    margin: 0 auto;
+}
+article, aside {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding:20px;
+    margin: 0 20px 20px 20px;
+}
+aside {
+    width:100px;
+}
