@@ -1,12 +1,13 @@
 
 # Booleans, Comparisons, and Conditionals
 
-1. [Booleans](#booleans)
-2. [Comparisons](#comparisons)
-3. [Type Coercion](#type-coercion)
-4. [Conditionals](#conditionals)
-5. [Truthy and Falsey](#truthy-and-falsey)
-6. [Ternary Operator](#ternary-operator)
+- [Booleans](#booleans)
+- [Comparisons](#comparisons)
+- [Boolean Operators](#boolean-operators)
+- [Type Coercion](#type-coercion)
+- [Conditionals](#conditionals)
+- [Truthy and Falsey](#truthy-and-falsey)
+- [Ternary Operator](#ternary-operator)
 
 ## Booleans
 
@@ -24,6 +25,27 @@ You can compare values using comparison operators.
 - `<=` less-than-or-equal-to
 - `>` greater-than
 - `>=` greater-than-or-equal-to
+
+## Boolean Operators
+
+There are three boolean operators: 'and' `&&`, 'or' `||` and 'not' `!`.
+
+```javascript
+let x = 5
+if (x > 0 && x < 10) {
+    console.log('x is between 5 and 10')
+}
+
+if (x == 5 || x == 6) {
+    console.log('x is 5 or 6')
+}
+
+let y = false
+if (!y) {
+    console.log('y is false')
+}
+```
+
 
 ## Type Coercion
 

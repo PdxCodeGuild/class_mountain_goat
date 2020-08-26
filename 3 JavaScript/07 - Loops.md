@@ -1,8 +1,8 @@
 
 # Loops
 
-1. [While Loops](#while-loops)
-2. [For Loops](#for-loops)
+- [While Loops](#while-loops)
+- [For Loops](#for-loops)
 
 ## While Loops
 
@@ -22,6 +22,7 @@ while (i < 10) {
 For loops have three parts, separated by semi-colons. The first is the **initialization**, the second is the **condition** and the third is the **increment**. These are simply the parts of the `while` loop from above re-arranged.
 
 ```javascript
+// for (initialization; condition; increment)
 for (let i=0; i<10; ++i) {
     console.log(i)
 }

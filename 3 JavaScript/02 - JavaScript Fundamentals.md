@@ -2,12 +2,12 @@
 # Fundamentals
 
 
-1. [Declaring Variables](#declaring-variables)
-2. [Data Types](#data-types)
-3. [Type Conversion](#type-conversion)
-4. [Comments](#comments)
-5. [Input](#input)
-6. [Output](#output)
+- [Declaring Variables](#declaring-variables)
+- [Data Types](#data-types)
+- [Type Conversion](#type-conversion)
+- [Comments](#comments)
+- [Input](#input)
+- [Output](#output)
 
 
 ## Declaring Variables
@@ -16,23 +16,23 @@ There are three ways to declare variables: `var`, `let` and `const`. The only di
 
 ```javascript
 if (2 < 10) {
-    var x = 10; // scope extends beyond the if
-    let y = 11; // scope is limited to the if
+    var x = 10 // scope extends beyond the if
+    let y = 11 // scope is limited to the if
 }
-console.log(x); // 10
-console.log(y); // error
+console.log(x) // 10
+console.log(y) // error
 
 for (var x=0; x<10; ++x) {}
-alert(x); // 10
+alert(x) // 10
 
 for (let y=0; y<10; ++i) {}
-alert(y); // error
+alert(y) // error
 ```
 
 Variables declared `const` cannot change value, this is advantageous for declaring constants.
 
 ```javascript
-const pi = 3.1415;
+const pi = 3.1415
 pi += 1 // error
 ```
 
@@ -40,26 +40,26 @@ pi += 1 // error
 ## Data Types
 
 ```javascript
-let a = 5; // number
-let b = 10.4; // number
-let c = "hello!"; // string
-let d = true; // boolean
-let e = null; // null
-let f = undefined; // undefined
+let a = 5 // number
+let b = 10.4 // number
+let c = "hello!" // string
+let d = true // boolean
+let e = null // null
+let f = undefined // undefined
 
 // arrays are like python lists
-let fruits = ["apple", "bananana", "pear"];
-fruits[0] = 'cherry'; // set the element at that position
-fruits.push('pomegranate'); // add a new element
+let fruits = ["apple", "bananana", "pear"]
+fruits[0] = 'cherry' // set the element at that position
+fruits.push('pomegranate') // add a new element
 
 // objects are like Python dictionaries
 let person = {
     firstName:"John",
     lastName:"Doe",
     age:46
-};
-person.age += 1;
-person['age'] += 1;
+}
+person.age += 1
+person['age'] += 1
 ```
 
 ## Type Conversion
@@ -67,9 +67,9 @@ person['age'] += 1;
 To convert between types, use `parseInt`, `parseFloat` and `toString`.
 
 ```javascript
-let x = parseInt('4');
-let y = parseFloat('4.2');
-let z = x.toString();
+let x = parseInt('4')
+let y = parseFloat('4.2')
+let z = x.toString()
 ```
 
 
@@ -79,7 +79,7 @@ Use `//` for line-comments, `/* ... */` for block-comments.
 
 ```javascript
 // this is a line comment
-let x = 10; // this is another line comment
+let x = 10 // this is another line comment
 /* this is a block comment
 which can span multiple lines*/
 ```
@@ -90,8 +90,8 @@ which can span multiple lines*/
 An easy way to get input from a user is `prompt`, a function which takes the text to display as a parameter and returns whatever the user entered.
 
 ```javascript
-let name = prompt("Please enter your name");
-alert("Hello " + name + "! How are you today?");
+let name = prompt("Please enter your name")
+alert("Hello " + name + "! How are you today?")
 ```
 
 You can also use `input` elements.
@@ -99,9 +99,9 @@ You can also use `input` elements.
 ```html
 <input id="name_input" type="text"/>
 <script>
-    let name_input = document.querySelector('#name_input');
-    let name_value = name_input.value;
-    alert(name_value);
+    let name_input = document.querySelector('#name_input')
+    let name_value = name_input.value
+    alert(name_value)
 </script>
 ```
 
@@ -113,18 +113,18 @@ Below are three simple ways of getting output to the user.
 The `alert` function shows the user text in the form of a popup.
 
 ```javascript
-alert('Hello World!');
+alert('Hello World!')
 ```
 
 The `console.log` function will print the parameter in the developer console (F12). If the parameter is an object, you'll be able to look through the data much more easily than if it were one giant string.
 
 ```javascript
-console.log("Hello World!");
+console.log("Hello World!")
 ```
 
 The `document.write(s)`  function will replace all existing HTML on the page with whatever you give it (which can be a string containing HTML)
 
 ```javascript
-document.write('<span>Hello World!</span>');
+document.write('<span>Hello World!</span>')
 ```
 

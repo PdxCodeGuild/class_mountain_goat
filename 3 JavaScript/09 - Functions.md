@@ -2,10 +2,10 @@
 
 # Functions
 
-1. [Overview](#overview)
-2. [Defining Functions](#defining-functions)
-3. [Default Arguments](#default-arguments)
-4. [Passing Functions as Parameters](#passing-functions-as-parameters)
+- [Overview](#overview)
+- [Defining Functions](#defining-functions)
+- [Default Arguments](#default-arguments)
+- [Passing Functions as Parameters](#passing-functions-as-parameters)
 
 ## Overview
 
@@ -20,7 +20,7 @@ There are two ways to define functions in JavaScript. You can declare a function
 function add(a, b) {
     return a + b
 }
-console.log(add(5, 2));
+console.log(add(5, 2))
 ```
 
 You can also assign an anonymous function to a variable:
@@ -29,20 +29,20 @@ You can also assign an anonymous function to a variable:
 var add = function(a, b) {
     return a + b
 }
-console.log(add(5, 2));
+console.log(add(5, 2))
 ```
 
 When we declare a function, it's automatically moved to the top of the script when the script is run. This means it can be called before it's declared.
 
 ```javascript
 // ok
-console.log(add(5, 2));
+console.log(add(5, 2))
 function add(a, b) {
     return a + b
 }
 
 // crashes
-console.log(add(5, 2));
+console.log(add(5, 2))
 var add = function(a, b) {
     return a + b
 }
@@ -74,5 +74,5 @@ let nums = [1, 2, 3];
 perform_operation(nums, function(x) {
   return x*x
 });
-alert(nums); // [1, 4, 9]
+alert(nums) // [1, 4, 9]
 ```

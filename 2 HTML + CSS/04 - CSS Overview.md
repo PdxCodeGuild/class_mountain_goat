@@ -7,8 +7,6 @@
   - [Inline CSS](#inline-css)
   - [Style Tag](#style-tag)
   - [External CSS](#external-css)
-- [CSS Lengths](#css-lengths)
-- [CSS Colors](#css-colors)
 - [Removing the Browser's Built-In CSS](#removing-the-browsers-built-in-css)
 - [CSS Preprocessors](#css-preprocessors)
 - [Learning](#learning)
@@ -119,46 +117,6 @@ You can also include CSS from a remote server by putting a URL in `href`. Your b
 ```html
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 ```
-
-## CSS Lengths
-
-You can read more about lengths in CSS [here](https://css-tricks.com/the-lengths-of-css/), [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Values_and_units), and [here](https://www.w3schools.com/cssref/css_units.asp). Keep in mind that in CSS a 'pixel' [isn't the same as a screen pixel](https://stackoverflow.com/questions/27382331/how-a-css-pixel-size-is-calculated).
-
-
-| Unit | Relative To | Description |
-|--- |--- |--- |
-| px | absolute | pixels |
-| cm | absolute | centimeters |
-| mm | absolute | millimeters |
-| in | absolute | inches |
-| pt | absolute | point, 1pt == 1/72in |
-| pc | absolute | pica, 1pc == 12pt |
-| em | font | font size of the element, does not change with font family |
-| rem | font | font size of root element (html), does not change with font family |
-| ex | font | the height of "x", does change with font family |
-| ch | font  | the width of "0", does change with font family |
-| vw | viewport | 1vw == 1% of the width of the viewport |
-| vh | viewport | 1vh == 1% of the height of the viewport |
-| vmin | viewport | 1vmin == 1% of the viewport's smaller dimension |
-| vmax | viewport | 1vmax == 1% of the viewport's larger dimension |
-| %	 | parent | relative to the length of the parent's width or height |
-
-
-## CSS Colors
-
-RGB is short for [red green blue](https://en.wikipedia.org/wiki/RGB_color_model), with each value going from 0 to 255 (0 to FF in hexidecimal). Hexidecimal RGB values can also be specified with 3 values, in which case the digit is repeated (`#FFF` is the same as `#FFFFFF`).
-
-HSL is short for [hue saturation lightness](https://en.wikipedia.org/wiki/HSL_and_HSV), with hue going from 0 to 360, and saturation and lightness going from 0% to 100%. The A stands for [alpha](https://en.wikipedia.org/wiki/Alpha_compositing), which goes from 0.0 to 1.0. You can learn more about CSS colors at the [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) and [w3schools](https://www.w3schools.com/cssref/css_colors.asp). You can view a nicely organized list of named colors [here](http://htmlcolorcodes.com/color-names/).
-
-| color type | examples |
-|--- |--- |
-| RGB Hex | `#7FFFD4`, `#A9A9A9`, `#F00` |
-| RGB Decimal | `rgb(127, 255, 212)` |
-| RGBA Decimal | `rgba(255, 0, 0, 0.5)` |
-| HSL | `hsl(120, 100%, 50%)` |
-| HSLA | `hsla(120, 100%, 50%, 0.3)` |
-| named color | `red`, `goldenrod`, `magenta` |
-
 
 
 
