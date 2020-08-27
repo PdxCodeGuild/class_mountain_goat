@@ -2,6 +2,27 @@
 # Class Mountain Goat
 
 
+- [0 General](#0-general)
+- [1 Python](#1-python)
+  - [Docs](#docs)
+  - [Labs](#labs)
+  - [Practice](#practice)
+  - [Solutions](#solutions)
+- [2 HTML + CSS](#2-html--css)
+  - [Docs](#docs-1)
+  - [Labs](#labs-1)
+  - [Solutions](#solutions-1)
+- [3 JavaScript](#3-javascript)
+  - [Docs](#docs-2)
+  - [Labs](#labs-2)
+  - [Solutions](#solutions-2)
+- [4 Django](#4-django)
+  - [Docs](#docs-3)
+  - [Solutions](#solutions-3)
+
+
+
+
 ## 0 General
 - [01 - Class Structure](0%20General/01%20-%20Class%20Structure.md)
 - [02 - Setup](0%20General/02%20-%20Setup.md)
