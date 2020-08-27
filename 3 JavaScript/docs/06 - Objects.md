@@ -1,9 +1,9 @@
 
 # Objects
 
-1. [Overview](#overview)
-2. [Objects as Dictionaries](#objects-as-dictionaries)
-3. [Navigating Data](#navigating-data)
+- [Overview](#overview)
+- [Objects as Dictionaries](#objects-as-dictionaries)
+- [Navigating Data](#navigating-data)
 
 
 ## Overview
@@ -16,6 +16,7 @@ let contact = {
     last_name: 'Doe',
     age: 34
 }
+console.log(contact.first_name) // Jane
 ```
 
 ## Objects as Dictionaries
@@ -28,7 +29,7 @@ let contact = {
     '0': 'use a number as a key',
     'third-key': 'or use a hyphen'
 }
-console.log(contact['name']) // jane
+console.log(contact['name']) // Jane
 console.log(contact['0']) // use a number as a key
 console.log(contact['third-key']) // or use a hyphen
 ```

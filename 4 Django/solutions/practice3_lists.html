@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // Problem 1
+        // Write a function using Math.random() to generate an index, use that index to pick a random element of a list and return it.
+
+        function random_element(arr) {
+            return arr[parseInt(Math.random()*arr.length)]
+        }
+        // console.log(random_element(['apples', 'bananas', 'pears'])) // 'apples', 'bananas' or 'pears'
+        
+
+        // Problem 2
+        // Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
+
+
+        // let i = 0
+        // while (i < 10) {
+        //     console.log(i)
+        //     i++
+        // }
+
+        // for (let i=0; i<10; i++) {
+        //     console.log(i)
+        // }
+
+        //              0           1         2         3
+        // let fruits = ['apples', 'bananas', 'plums', 'zucchinis']
+        // let i = 0
+        // while (i < fruits.length) {
+        //     console.log(fruits[i])
+        //     i++
+        // }
+
+        // for (let i=0; i<fruits.length; ++i) {
+        //     console.log(fruits[i])
+        // }
+
+        function eveneven(nums) {
+            let even_count = 0
+            for (let i=0; i<nums.length; ++i) {
+                if (nums[i]%2 == 0) {
+                    even_count++
+                }
+            }
+            // if (even_count%2 == 0) {
+            //     return true
+            // } else {
+            //     return false
+            // }
+            return even_count%2 == 0
+        }
+        console.log(eveneven([5, 6, 2])) // 2 - True
+        console.log(eveneven([5, 5, 2])) // 1 - False
+
+
+        // Problem 3
+        // Write a function that returns the reverse of a list.
+
+        function reverse(nums) {
+
+        }
+        // console.log(reverse([1, 2, 3])) // 3, 2, 1
+
+
+        // Problem 4
+        // Write a function to move all the elements of a list with value less than 10 to a new list and return it.
+
+        function extract_less_than_ten(nums) {
+
+        }
+        // console.log(extract_less_than_ten([2, 8, 12, 18])) // [2, 8]
+
+        
+        // Problem 5
+        // Write a function to find all common elements between two lists.
+
+        function common_elements(nums1, nums2) {
+
+        }
+        // console.log(common_elements([1, 2, 3], [2, 3, 4])) // [2, 3]
+
+
+        // Problem 6
+        // Write a function to combine two lists of equal length into one, alternating elements.
+
+        function combine(nums1, nums2) {
+
+        }
+        // console.log(combine(['a','b','c'],[1,2,3])) // ['a', 1, 'b', 2, 'c', 3]
+
+
+        // Problem 7
+        // Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
+
+        function find_pair(nums, target) {
+
+        }
+        // console.log(find_pair([5, 6, 2, 3], 7)) // [5, 2]
+    </script>
+</body>
+</html>

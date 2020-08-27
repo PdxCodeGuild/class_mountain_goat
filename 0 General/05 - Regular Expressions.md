@@ -12,7 +12,10 @@ Regular expressions or 'regex' are a way to match patterns in strings. They can 
 - [Line Match: `^`, `$`](#line-match--)
 - [Escapes: `\`](#escapes-)
 - [Captures: `()`](#captures-)
-- [Named Captures](#named-captures)
+- [Flags: `g`, `i`, `m`](#flags-g-i-m)
+  - [Global: `g`](#global-g)
+  - [Case-Insensitive: `i`](#case-insensitive-i)
+  - [Multi-line: `m`](#multi-line-m)
 
 
 ## Resources
@@ -210,13 +213,27 @@ More useful than that, is when the regular expression library matches text, it w
 ```
 > **123-456-7890**
 
-## Named Captures
-
 Instead of just remembering the text that matched each capture by the order it appears in the whole regular expression, you can also use a **named capture**. It is still a sub-match specified in parentheses `()`, but with `?P<NAME>` first inside.
 
 ```re
 (?P<first_name>.+) (?P<last_name>.+)
 ```
 > **bob dole**
+
+
+## Flags: `g`, `i`, `m`
+
+### Global: `g`
+
+```re
+hello
+```
+> hello goodbye
+> goodbye hello
+> Hello Goodbye
+
+### Case-Insensitive: `i`
+
+### Multi-line: `m`
 
 

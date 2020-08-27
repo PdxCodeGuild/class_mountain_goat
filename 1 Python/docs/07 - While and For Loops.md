@@ -2,7 +2,7 @@
 # Loops
 
 - [While Loops](#while-loops)
-- [For Loops](#for-loops)
+- [For-Loops](#for-loops)
   - [Range](#range)
   - [Strings](#strings)
   - [Lists](#lists)
@@ -32,30 +32,24 @@ print('done')
 You can add an `else` statement to a while loop. whatever is in the else statement will execute when the while loop is finished, but won't execute when you `break` out of one or if an exception is raised.
 ```python
 i = 0
-
-while i < 10:
+while i < 5:
     print(i)
     i += 1
 else:
     print('done')
-    
->>> 0
->>> 1
->>> 2
->>> 3
->>> 4
->>> 5
->>> 6
->>> 7
->>> 8
->>> 9
->>> done
 ```
+> 0
+> 1
+> 2
+> 3
+> 4
+> done
 
-## For Loops
+
+## For-Loops
 
 
-For Loops are much more flexible, they allow us to iterate anything that's **iterable**: ranges, lists, strings, sets, dicts, etc. For loops in python are more like For-Each Loops in other languages. The table below shows each types of variables you'll get when writing `for x in y`
+For-Loops are much more flexible, they allow us to iterate anything that's **iterable**: ranges, lists, strings, sets, dicts, etc. For loops in python are more like For-Each Loops in other languages. The table below shows each types of variables you'll get when writing `for x in y`
 
 | x | y |
 |--- |--- |
@@ -97,10 +91,10 @@ Thus passing 1 parameter to range is equivalent to having the lower bound at 0, 
 ```python
  # these two are equivalent
 for i in range(10):
+    ...
 for i in range(0, 10, 1):
+    ...
 ```
-
-
 
 ### Strings
 

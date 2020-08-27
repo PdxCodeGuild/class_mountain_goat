@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        function removeSpecialCharacters(text) {
+            // let spec_chars = String.raw`!@#$%^&*\(\)_+{}:\?,\.\/;'[]\\-='<>`
+            // let output = ''
+            // for (let i = 0; i<text.length; ++i) {
+            //     // if (spec_chars.indexOf(text[i]) == -1) {
+            //     if (!spec_chars.includes(text[i])) {
+            //         output += text[i]
+            //     }
+            // }
+            // return output
+            return text.replace(/[<>!?\.();'"=-@#$%^&*]/g, '')
+        }
+        // console.log(removeSpecialCharacters('Hello<> !#World!??..'))
+
+        // Problem 6
+        // Write a function that converts text to camel case (no spaces, no special characters, leading capitals except the first).
+
+        function camelCase(text) {
+            text = text.toLowerCase()
+            text = removeSpecialCharacters(text)
+            while (text.indexOf(" ") != -1) {
+
+                // |   | V   |
+                // hello world
+
+                // 'hello world'.indexOf(' ')
+                // 5
+                
+                // 'hello world'.slice(0, 5)
+                // 'hello'
+
+                // 'hello world'.slice(6,7)
+                // 'w'
+
+                // 'hello world'.slice(7)
+                // 'orld'
+
+                let index = text.indexOf(" ")
+                let first_part = text.slice(0, index) // hello
+                let second_part = text.slice(index+1, index+2).toUpperCase() // W
+                let third_part = text.slice(index+2) // orld
+
+                text = first_part + second_part + third_part
+                // console.log(text)
+            }
+            return text
+
+        }
+
+        // i
+        // a b c d e f g
+        //   i
+        // a b c d e f g
+        //     i
+        // a b c d e f g
+        //     i 
+        // a b d e f g
+
+        // letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+        // for (let i=0; i<letters.length; ++i) {
+        //     if (letters[i] == 'c') {
+        //         letters.splice(i, 1)
+        //         i--
+        //     }
+        // }
+        // console.log(letters)
+
+
+
+        function camelCase2(text) {
+            text = text.toLowerCase()
+            text = removeSpecialCharacters(text)
+            let arr = []
+            for (let i=0; i<text.length; ++i) {
+                arr.push(text[i])
+            }
+            for (let i=0; i<arr.length; ++i) {
+                if (arr[i] == ' ') {
+                    arr[i] = ''
+                    if (i < arr.length-1) {
+                        arr[i+1] = arr[i+1].toUpperCase()
+                    }
+                }
+            }
+            return arr.join('')
+        }
+        // console.log(camelCase2('Hello World! ')) // helloWorld
+        // console.log(camelCase2('This is     another  example. ')) // thisIsAnotherExample
+
+    </script>
+</body>
+
+</html>
