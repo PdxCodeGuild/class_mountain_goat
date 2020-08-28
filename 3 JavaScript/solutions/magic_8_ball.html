@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input_question" type="text" placeholder="what is your question?"/>
+    <button id="btn_shake">shake</button>
+    <div id="div_output"></div>
+    <script>
+        let input_question = document.querySelector('#input_question')
+        let btn_shake = document.querySelector('#btn_shake')
+        let div_output = document.querySelector('#div_output')
+
+        function random_element(arr) {
+            return arr[Math.floor(Math.random()*arr.length)]
+        }
+
+        // console.log(input_question)
+        btn_shake.addEventListener('click', function() {
+            if (input_question.value == '') {
+                div_output.innerText = 'you did not enter a question!'
+                return
+            }
+            let answers = ['yes', 'no', 'maybe so']
+            let answer = random_element(answers)
+            div_output.innerText = `Your question was ${input_question.value}\nThe 8-ball's answer is "${answer}"`
+
+        })
+
+    </script>
+</body>
+</html>

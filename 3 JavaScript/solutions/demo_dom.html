@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .special {
+            background-color: yellow;
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <img id="img_couch" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSeDhQ1KLqpotseixfSO8eM1d_osIDvelDqfluAmBNg6_U2DeviqNr4GpTJvv9Kemos7i0fPw&usqp=CAc"/>
+    <div id="div_output" class="otherclass">nothing here</div>
+    <button id="btn_click">click</button>
+    <script>
+
+        let img_couch = document.querySelector('#img_couch')
+        let div_output = document.querySelector('#div_output')
+        let btn_click = document.querySelector('#btn_click')
+
+        // btn_click.onclick = function() {
+        //     alert('hello world!')
+        // }
+        // btn_click.onclick = function() {
+        //     alert('goodbye world!')
+        // }
+
+
+        // btn_click.addEventListener('click', function() {
+        //     alert('hello world! x 2')
+        // })
+        // btn_click.addEventListener('click', function() {
+        //     alert('goodbye world! x 2')
+        // })
+
+        
+
+        
+        
+        // img_couch.src = 'https://packardcommunications.com/wp-content/uploads/2019/03/couch_web-300x250.jpg'
+        img_couch.setAttribute('src', 'https://packardcommunications.com/wp-content/uploads/2019/03/couch_web-300x250.jpg')
+
+
+        // div_output.innerText = '<b>hello!</b>'
+        // div_output.innerHTML = '<b>hello!</b>'
+        // div_output.innerText = 'hello!'
+        // div_output.style.backgroundColor = 'red'
+        // div_output.style.fontSize = '40px'
+
+        // div_output.setAttribute('class', 'special')
+        // div_output.classList.add('special')
+
+        
+
+
+    </script>
+</body>
+</html>
