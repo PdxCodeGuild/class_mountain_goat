@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        // Write a function that takes n as a parameter and returns n factorial.
+        // 5! = 5*4*3*2*1
+        // 8! = 8*7*6*5*...
+
+        // 0! = 1
+        // 1! = 1 = 1
+        // 2! = 2*1 = 2
+        // 3! = 3*2*1 = 6
+        // 4! = 4*3*2*1 = 24
+        // 5! = 5*4*3*2*1 = 120
+
+        function factorial(n) {
+            let acc = 1
+            for (let i=1; i<=n; ++i) {
+                acc *= i
+            }
+            return acc
+        }
+        // console.log(factorial(5)) // 120
+
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
+        // function factorial_bigint(n) {
+        //     let acc = BigInt(1)
+        //     for (let i=1; i<=n; ++i) {
+        //         // console.log(i)
+        //         acc *= BigInt(i)
+        //     }
+        //     return acc
+        // }
+        // console.log(Number.MAX_VALUE)
+        // for (let i=0; i<=500; ++i) {
+        //     console.log(`${i}! = ${factorial_bigint(i)}`)
+        // }
+        
+        //      012345
+        // word = 'hello!'
+        // console.log(word[4]) // l
+        // for (let i=0; i<word.length; ++i) {
+        //     console.log(word[i])
+        // }
+
+        // Return the number of letter occurances in a string.
+        function count_letter(letter, word) {
+
+            let acc = 0
+            for (let i=0; i<word.length; ++i) {
+                if (word[i] == letter) {
+                    acc++
+                }
+            }
+            return acc
+
+            // let acc = 0
+            // for (char of word) {
+            //     if (char == letter) {
+            //         acc++
+            //     }
+            // }
+            // return acc
+        }
+        // console.log(count_letter('i', 'antidisestablishmentterianism')) // 5
+        // console.log(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis')) // 2
+
+
+        // Write a function to move all the elements of a list with value less than 10 to a new list and return it.
+        function extract_less_than_ten(nums) {
+            let acc = []
+            for (let i=0; i<nums.length; ++i) {
+                if (nums[i] < 10) {
+                    acc.push(nums[i])
+                }
+            }
+            return acc
+
+            // return nums.filter(num => num < 10)
+        }
+        console.log(extract_less_than_ten([2, 8, 12, 18])) // [2, 8]
+
+        //              0    1    2    3
+        // let letters = ['a', 'b', 'c', 'd']
+        // let i = 0
+        // while (i < letters.length) {
+        //     console.log(letters[i])
+        //     ++i
+        // }
+
+        // Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
+        function find_unique(nums) {
+            let acc = []
+            for (let i=0; i<nums.length; ++i) {
+                if (!acc.includes(nums[i])) {
+                    acc.push(nums[i])
+                }
+            }
+            return acc
+        }
+        // nums = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
+        // nums.sort((a, b) => a - b)
+        // nums = [12, 24, 24, 35, 88, 88, 120, 120, 155, 155]
+        // console.log(nums)
+        // console.log(find_unique(nums)) // [12, 24, 35, 88, 120, 155]
+
+
+        // function only_uniques(nums) {
+        //     let acc = []
+        //     for (let i=0; i<nums.length; ++i) {
+        //         let is_unique = true
+        //         for (let j=0; j<nums.length; ++j) {
+        //             if (i == j) {
+        //                 continue
+        //             }
+        //             if (nums[i] == nums[j]) {
+        //                 is_unique = false
+        //                 break
+        //             }
+        //         }
+        //         if (is_unique) {
+        //             acc.push(nums[i])
+        //         }
+        //     }
+        //     return acc
+        // }
+        // nums = [12, 24, 24, 35, 88, 88, 120, 120, 155, 155]
+        // console.log(nums)
+        // console.log(only_uniques(nums)) // [12, 35]
+
+
+
+        // Write a function that takes n as a parameter, and returns a list containing the first n Fibonacci Numbers.
+        // f(n) = f(n-1) + f(n-2), f(0)=1, f(1)=1
+        function fibonacci_list(n) {
+            if (n == 0) {
+                return [1]
+            }
+            let acc = [1, 1]
+            for (let i=2; i<=n; ++i) {
+                acc.push(acc[i-2]+acc[i-1])
+            }
+            // [1, 1]
+            // [1, 1, 2]
+            // [1, 1, 2, 3]
+            return acc
+        }
+        // console.log(fibonacci_list(9)) // [1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+        // function fibonacci_recursive(n) {
+        //     console.log('fibonacci(' + n + ')')
+        //     if (n == 0 || n == 1) {
+        //         console.log('returning 1')
+        //         return 1
+        //     }
+        //     a = fibonacci_recursive(n-1)
+        //     b = fibonacci_recursive(n-2)
+        //     console.log('returning ' + (a + b))
+        //     return a + b
+        // }
+        // console.log(fibonacci_recursive(9)) // 55
+
+        // function fibonacci(n) {
+        //     if (n == 0) {
+        //         return 1
+        //     }
+        //     let current_num = 1
+        //     let last_num = 1
+        //     let last_last_num = 1
+        //     for (let i=1; i<n; ++i) {
+        //         current_num = last_num + last_last_num
+        //         console.log(`${last_last_num} + ${last_num} = ${current_num}`)
+        //         last_last_num = last_num
+        //         last_num = current_num
+        //     }
+        //     return current_num
+        // }
+        // for (let i=0; i<10; ++i) {
+        //     console.log(`fibonacci(${i}) = ${fibonacci(i)}`)
+        // }
+        // fibonacci(0) = 1
+        // fibonacci(1) = 1
+        // fibonacci(2) = 2
+        // fibonacci(3) = 3
+        // fibonacci(4) = 5
+        // fibonacci(5) = 8
+        // fibonacci(6) = 13
+        // fibonacci(7) = 21
+        // fibonacci(8) = 34
+        // fibonacci(9) = 55
+        // console.log(fibonacci(8)) // 21
+
+    </script>
+</body>
+</html>
