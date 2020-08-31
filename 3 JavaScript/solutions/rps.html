@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="select_rps"></select>
+    <button id="btn_play">play rock paper scissors</button>
+    <script>
+        let select_rps = document.querySelector('#select_rps')
+        let btn_play = document.querySelector('#btn_play')
+        let rps = ['rock', 'paper', 'scissors']
+        for (let i=0; i<rps.length; ++i) {
+            let option = document.createElement('option')
+            option.innerText = rps[i][0].toUpperCase() + rps[i].slice(1)
+            option.value = rps[i]
+            select_rps.appendChild(option)
+        }
+        btn_play.addEventListener('click', function(){
+            alert('you selected ' + select_rps.value)
+        })
+    </script>
+</body>
+</html>

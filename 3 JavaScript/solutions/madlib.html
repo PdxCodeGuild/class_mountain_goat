@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Madlib Generator</h1>
+            <hr/>
+        </div>
+        <div class="row">
+            <div class="col form-group">
+                <label for="input_noun1">Noun 1</label>
+                <input type="text" class="form-control" id="input_noun1">
+            </div>
+            <div class="col form-group">
+                <label for="input_noun2">Noun 2</label>
+                <input type="text" class="form-control" id="input_noun2">
+            </div>
+            <div class="col form-group">
+                <label for="input_noun3">Noun 3</label>
+                <input type="text" class="form-control" id="input_noun3">
+            </div>
+            <div class="col form-group">
+                <label for="input_plural_noun">Plural Noun</label>
+                <input type="text" class="form-control" id="input_plural_noun">
+            </div>
+            <div class="col form-group">
+                <label for="input_place">Place</label>
+                <input type="text" class="form-control" id="input_place">
+            </div>
+            <div class="col form-group">
+                <label for="input_adjective">Adjective</label>
+                <input type="text" class="form-control" id="input_adjective">
+            </div>
+            <div class="col">
+                <label>&nbsp;</label><br/>
+                <button id="btn_generate" class="btn btn-primary">Generate</button>
+            </div>
+        </div>
+        <pre id="pre_output">
+
+        </pre>
+    </div>
+    <script>
+        // input elements
+        let input_noun1 = document.querySelector('#input_noun1')
+        let input_noun2 = document.querySelector('#input_noun2')
+        let input_noun3 = document.querySelector('#input_noun3')
+        let input_plural_noun = document.querySelector('#input_plural_noun')
+        let input_place = document.querySelector('#input_place')
+        let input_adjective = document.querySelector('#input_adjective')
+        // button
+        let btn_generate = document.querySelector('#btn_generate')
+        // output
+        let pre_output = document.querySelector('#pre_output')
+
+        btn_generate.addEventListener('click', function() {
+
+            // let noun1 = 'ball'
+            // let noun2 = 'koala'
+            // let noun3 = 'bus'
+            // let plural_noun = 'chopsticks'
+            // let place = 'Timbuktu'
+            // let adjective = 'moist'
+
+            let noun1 = input_noun1.value
+            let noun2 = input_noun2.value
+            let noun3 = input_noun3.value
+            let plural_noun = input_plural_noun.value
+            let place = input_place.value
+            let adjective = input_adjective.value
+
+            if (noun1 == '' || noun2 == '' || noun3 == '' || plural_noun == '' || place == '' || adjective == '') {
+                pre_output.innerText = 'one of the inputs is blank'
+                return
+            }
+
+            let madlib = `Be kind to your ${noun1}-footed ${plural_noun}
+For a duck may be somebody's ${noun2},
+Be kind to your ${plural_noun} in ${place}
+Where the weather is always ${adjective}.
+
+You may think that this is the ${noun3},
+Well it is.`
+            pre_output.innerText = madlib
+        })
+
+
+    </script>
+</body>
+
+</html>
