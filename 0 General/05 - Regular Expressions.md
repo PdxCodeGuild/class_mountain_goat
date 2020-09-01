@@ -225,15 +225,54 @@ Instead of just remembering the text that matched each capture by the order it a
 
 ### Global: `g`
 
+The `g` flag allows us to get multiple matches, rather than just one.
+
+Without the `g` flag:
 ```re
 hello
 ```
-> hello goodbye
+> **hello** goodbye
 > goodbye hello
-> Hello Goodbye
+
+With the `g` flag:
+```re
+hello
+```
+> **hello** goodbye
+> goodbye **hello**
 
 ### Case-Insensitive: `i`
 
+The `i` flag allow us to make case insensitive matches.
+
+Without the `i` flag:
+```re
+hello
+```
+> Hello
+
+With the `i` flag:
+```re
+hello
+```
+> **Hello**
+
 ### Multi-line: `m`
 
+The `m` flag makes `^` and `$` refer to the beginning and end of a line, rather than the whole string.
 
+Without the `m` flag:
+```re
+^hello
+```
+> **hello** goodbye
+> goodbye hello
+> hello goodbye
+
+With the `m` flag:
+```re
+^hello
+```
+> **hello** goodbye
+> goodbye hello
+> **hello** goodbye

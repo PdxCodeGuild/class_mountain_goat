@@ -44,45 +44,56 @@ for (let i=0; i<5; ++i) {
 
 ### Iterating over a String
 
-### Iterating over an Array
-
-### Iterating over an Object
-
-iterate over the indices of a string
-      01234
+```javascript
+//       01234
 let s = 'hello'
-for (let i=0; i<s.length; ++i) {
+
+// iterate over the indices of the characters of a string using a while-loop
+let i = 0
+while (i < s.length) {
+    console.log(s[i])
+    i++
+}
+// iterate over the indices of the characters of a string using a for-loop
+for (let i=0; i<s.length; i++) {
     console.log(s[i])
 }
-
-for i in range(len(s)):
-    print(s[i])
-
-iterate over the indices of an array
-let fruits = ['apples', 'bananas', 'plums']
-for (let i=0; i<fruits.length; ++i) {
-    console.log(fruits[i])
-}
-
-let fruits = ['apples', 'bananas', 'plums']
-iterate over the indices
-for (i in fruits) {
-    console.log(fruits[i])
-}
-iterate over the elements
-for (fruit of fruits) {
-    console.log(fruit)
-}
-
-let s = 'hello'
-iterate over the indices of a string
+// iterate over the indices of a string
 for (i in s) {
     console.log(s[i])
 }
-iterate over the characters of a string
+// iterate over the characters of a string
 for (char of s) {
     console.log(char)
 }
+```
+
+### Iterating over an Array
+
+```javascript
+let fruits = ['apples', 'bananas', 'plums']
+// iterate over the indices of an array using a while-loop
+let i=0
+while (i < fruits.length) {
+    console.log(fruits[i])
+    i++
+}
+// iterate over the indices of an array
+for (let i=0; i<fruits.length; i++) {
+    console.log(fruits[i])
+}
+// iterate over the indices using for-of
+for (i in fruits) {
+    console.log(fruits[i])
+}
+// iterate over the elements
+for (fruit of fruits) {
+    console.log(fruit)
+}
+```
+
+### Iterating over an Object
+
 
 ## Continue and Break
 

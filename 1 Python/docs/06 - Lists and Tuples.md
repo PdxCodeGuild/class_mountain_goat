@@ -4,6 +4,7 @@
 - [Defining Lists](#defining-lists)
 - [List Operations](#list-operations)
   - [Access: `mylist[i]`](#access-mylisti)
+  - [Assignment `mylist[index] = value`](#assignment-mylistindex--value)
   - [Length `len(mylist)`](#length-lenmylist)
   - [Comparison `mylist == otherlist`, `mylist != otherlist`](#comparison-mylist--otherlist-mylist--otherlist)
   - [Inclusion: `element in mylist`](#inclusion-element-in-mylist)
@@ -52,6 +53,16 @@ print(fruits[-1]) # cherries
 print(fruits[-3]) # bananas
 print(fruits[4]) # IndexError
 ```
+
+### Assignment `mylist[index] = value`
+
+```python
+#            0          1         2
+fruits = ['apples', 'bananas', 'pears']
+fruits[0] = 'cherries'
+print(fruits) # ['cherries', 'bananas', 'pears']
+```
+
 
 ### Length `len(mylist)`
 
