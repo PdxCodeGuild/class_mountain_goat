@@ -21,9 +21,8 @@ Arrays are ordered collections of elements. They can hold elements of any type, 
   - [Joining: `array.join(delimiter)`](#joining-arrayjoindelimiter)
   - [Concatenating Arrays: `array1.concat(array2)`](#concatenating-arrays-array1concatarray2)
   - [Slicing: `array.slice(start, end)`](#slicing-arrayslicestart-end)
-  - [Sorting: `array.sort()`](#sorting-arraysort)
   - [Reversing: `array.reverse()`](#reversing-arrayreverse)
-- [Looping Over Arrays](#looping-over-arrays)
+  - [Sorting: `array.sort()`](#sorting-arraysort)
 
 ## Defining Arrays
 
@@ -130,33 +129,94 @@ console.log(fruits) // ['apples', 'cherries', 'plums']
 
 ### Joining: `array.join(delimiter)`
 
+The `join` method will combine the elements of an array into a single string, separated by the given delimiter.
+
+```javascript
+let fruits = ['apples', 'bananas', 'plums']
+console.log(fruits.join('_')) // apples_bananas_plums
+
+```
+
+Neither the elements nor the delimiter need to be strings.
+
+```javascript
+let random = [1, 2, false]
+console.log(random.join(null)) // 1null2nullfalse
+```
+
 - `join(delimeter)` turns the array into a string, with elements separated by `delimeter`
 
 ### Concatenating Arrays: `array1.concat(array2)`
 
-The `concat` method 
-- `concat(array)` returns a **new** array which is made of elements from both arrays
+
+
+The `concat` method will combine multiple arrays into a single array.
+
+```javascript
+console.log([1, 2, 3].concat([4, 5, 6])) // [1, 2, 3, 4, 5, 6]
+console.log([1, 2].concat([3, 4], [5, 6])) // [1, 2, 3, 4, 5, 6]
+```
 
 
 ### Slicing: `array.slice(start, end)`
 
-The `slice(start, end)` method returns an array containing a subset of the original array, starting at `start` and ending at `end`.
+The `slice(start, end)` method returns an array containing a subset of the original array, starting at `start` and ending at `end`. This does not alter the original array.
 
-
-### Sorting: `array.sort()`
-
-The `sort()` sorts an array.
-
+```javascript
+// indices:      0          1         2        3          4
+let fruits = ['apples', 'bananas', 'plums', 'pears', 'cherries']
+console.log(fruits.slice(1, 3)) // ['bananas', 'plums']
+```
 
 ### Reversing: `array.reverse()`
 
 The `reverse()` reverses an array.
 
-## Looping Over Arrays
+```javascript
+let fruits = ['apples', 'bananas', 'plums', 'pears', 'cherries']
+fruits.reverse() // ['cherries', 'pears', 'plums', 'bananas', 'apples']
+```
+
+### Sorting: `array.sort()`
+
+The `sort()` sorts an array in **alphabetical** order.
 
 ```javascript
-let fruits = ['apples', 'bananas', 'pears']
-for (let i=0; i<fruits.length; ++i) {
-    console.log(fruits[i])
-}
+let fruits = ['plums', 'bananas', 'pears', 'apples', 'cherries']
+fruits.sort()
+console.log(fruits) // ['apples', 'bananas', 'cherries', 'pears', 'plums']
 ```
+
+This can lead to some surprising results when sorting numbers:
+
+```javascript
+let nums = [20, 10, 102]
+nums.sort()
+console.log(nums) // [10, 102, 20]
+```
+
+The proper way to sort an array of numbers is by supplying a callback function which tells `sort` the order. This function takes two parameters `a` and `b`, which are elements of the array, and should return a negative number if `a` goes before `b`, a positive number if `a` goes after `b`, or `0` if they're equal.
+
+```javascript
+let nums = [20, 10, 102]
+nums.sort(function(a, b) {
+  if (a < b) {
+    return -1
+  } else if (a < b) {
+    return 1
+  } else {
+    return 0
+  }
+})
+console.log(nums) // [10, 20, 102]
+```
+
+A shorter way to write this would be to just subtract one number from the other.
+
+
+```javascript
+let nums = [20, 10, 102]
+nums.sort((a, b) => a - b)
+console.log(nums) // [10, 20, 102]
+```
+
