@@ -6,14 +6,6 @@
 Arrays are ordered collections of elements. They can hold elements of any type, and elements of different types simultaneously. You can find more info [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and [here](https://www.w3schools.com/jsref/jsref_obj_array.asp).
 
 
-Array literals are designated by square-brackets and commas. The indices of an array begin at 0 and go up to the length minus one.
-
-```javascript
-// index:   0  1  2
-let nums = [2, 1, 3]
-// index:       0         1         2
-let fruits = ['apple', 'banana', 'plums']
-```
 
 
 - [Defining Arrays](#defining-arrays)
@@ -35,7 +27,14 @@ let fruits = ['apple', 'banana', 'plums']
 
 ## Defining Arrays
 
+Array literals are designated by square-brackets and commas. The indices of an array begin at 0 and go up to the length minus one.
 
+```javascript
+// index:   0  1  2
+let nums = [2, 1, 3]
+// index:       0         1         2
+let fruits = ['apple', 'banana', 'plums']
+```
 
 ## Array Operations
 
