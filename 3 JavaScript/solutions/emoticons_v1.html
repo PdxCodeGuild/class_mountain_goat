@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="select_emoticon_count"></select>
+    <button id="btn_generate">generate</button>
+    <button id="btn_clear">clear</button>
+    <ul id="ul_output"></ul>
+    <script>
+
+        let select_emoticon_count = document.querySelector('#select_emoticon_count')
+        let btn_generate = document.querySelector('#btn_generate')
+        let ul_output = document.querySelector('#ul_output')
+        let btn_clear = document.querySelector('#btn_clear')
+
+
+        for (let i=1; i<=10; ++i) {
+            let option = document.createElement('option')
+            option.innerText = i
+            option.value = i
+            select_emoticon_count.appendChild(option)
+        }
+
+
+        let eyes = [':', ';', '8', 'B', '0', 'X']
+        let nose = ['', 'o', '-']
+        let mouth = [')', '(', 'P', 'p', ']', '[', 'D']
+        let emoti_len = prompt('How many emoticons would you like to generate? ')
+
+        function random_element(arr) {
+            return arr[Math.floor(Math.random()*arr.length)]
+        }
+
+        let lis = []
+
+        btn_generate.addEventListener('click', function() {
+            ul_output.innerHTML = ''
+            let emoti_len = parseInt(select_emoticon_count.value)
+            for (let i=0; i<emoti_len; ++i){
+                emoticon = random_element(eyes) + random_element(nose) + random_element(mouth)
+                let li = document.createElement('li')
+                li.innerText = emoticon
+                li.id = 'li' + i
+                li.classList.add('container')
+                lis.push(li)
+                ul_output.appendChild(li)
+            }
+        })
+
+        btn_clear.addEventListener('click', function() {
+            for (let i=0; i<lis.length; ++i) {
+                // let li = document.querySelector('#li' + i)
+                lis[i].innerText = ''
+            }
+        })
+
+    </script>
+</body>
+</html>

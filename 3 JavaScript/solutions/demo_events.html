@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input_name" type="text"/>
+    <button id="btn_say_hello">say hello</button>
+    <div id="div_output"></div>
+    <script>
+        let input_name = document.querySelector('#input_name')
+        let btn_say_hello = document.querySelector('#btn_say_hello')
+        let div_output = document.querySelector('#div_output')
+
+        function sayHello() {
+            div_output.innerText = 'Hello, ' + input_name.value + '!'
+        }
+        btn_say_hello.addEventListener('click', sayHello)
+        input_name.addEventListener('keypress', function(event) {
+            // console.log(event)
+            if (event.code == 'Enter') {
+                sayHello()
+            }
+        })
+        input_name.addEventListener('change', sayHello)
+        input_name.addEventListener('input', sayHello)
+
+
+
+        // function add(a, b) {
+        //     console.log(a)
+        //     console.log(b)
+        //     return a + b
+        // }
+        // console.log(add(5, 2))
+        // console.log(add(5))
+        // console.log(add())
+        // console.log(add(5, 2, 3))
+
+
+    </script>
+</body>
+</html>

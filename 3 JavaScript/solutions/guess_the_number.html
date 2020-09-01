@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.44/Tone.js" integrity="sha512-iS3y4sBZP69RAaTxQA/qq4ryBOT3lCv4tWqu++zT5H9sCfSQK52sPHDiXD99N85pbh9cEITvTKETXLPUh21UGA==" crossorigin="anonymous"></script>
+
+    <title>Guess the Number</title>
+    <style>
+        #btn_container button {
+            width:100%;
+        }
+        .row {
+            margin-bottom: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <h1>Guess the Number</h1>
+        </div>
+        <div class="row">
+            <input id="input_num_buttons" type="number"/>
+            <button id="btn_start" class="btn btn-primary">play</button>
+        </div>
+        <div class="row" id="btn_container">
+        </div>
+    </div>
+
+    <script>
+        let btn_container = document.querySelector('#btn_container')
+        let input_num_buttons = document.querySelector('#input_num_buttons')
+        let btn_start = document.querySelector('#btn_start')
+
+        const synth = new Tone.Synth().toDestination()
+
+        let computer_number = 0
+        let buttons = []
+        let guesses = 0
+
+        let notes = ['C4','D4','E4','F4','G4','A4','B4','C5']
+
+        btn_start.addEventListener('click', function() {
+            btn_container.innerHTML = ''
+            buttons = []
+            guesses = 0
+            let num_buttons = input_num_buttons.value
+            computer_number = 1+Math.floor(Math.random()*num_buttons)
+            for (let i=1; i<=num_buttons; ++i) {
+
+                let div = document.createElement('div')
+                div.classList.add('col-1')
+
+                let btn = document.createElement('button')
+                btn.innerText = i
+                btn.classList.add('btn')
+                btn.classList.add('btn-primary')
+                btn.addEventListener('click', function() {
+                    synth.triggerAttackRelease(notes[i%notes.length], "8n")
+                    if (computer_number == i) {
+                        alert('Correct! The number was ' + computer_number +', you took ' + guesses + ' guesses')
+                        for (let i=0; i<buttons.length; ++i) {
+                            buttons[i].removeAttribute('disabled')
+                        }
+                        computer_number = 1+Math.floor(Math.random()*num_buttons)
+                    } else {
+                        btn.setAttribute('disabled', 'disabled')
+                        // btn.disabled = false
+                        guesses++
+                    }
+                })
+                buttons.push(btn)
+
+                div.appendChild(btn)
+                btn_container.appendChild(div)
+            }
+        })
+
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
