@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>Document</title>
+    <style>
+        .warning {
+            color:goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <select id="select_rps">
+        <option value="rock">Rock</option>
+        <option value="paper">Paper</option>
+        <option value="scissors">Scissors</option>
+    </select>
+    <button id="btn_play">play</button>
+    <div id="div_output"></div>
+    <ul id="mylist">
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Plums</li>
+    </ul>
+    <script>
+        // let select_rps = document.querySelector('#select_rps')
+        // let btn_play = document.querySelector('#btn_play')
+        // btn_play.addEventListener('click', function() {
+        //     alert(select_rps.value)
+        //     let lis = document.querySelectorAll('#mylist li')
+        //     for (li of lis) {
+        //         li.classList.add('warning')
+        //     }
+        // })
+        $('#div_output').hide()
+        $('#btn_play').click(function () {
+            $('#mylist li').addClass('warning')
+            // alert($('#select_rps').val())
+            $('#div_output').hide()
+            let human_choice = $('#select_rps').val()
+            let computer_choice = ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)]
+            if (human_choice == computer_choice) {
+                $('#div_output').text('tie')
+            } else if (human_choice == 'rock' && computer_choice == 'scissors') {
+                $('#div_output').text('human wins')
+            } else if (human_choice == 'paper' && computer_choice == 'rock') {
+                $('#div_output').text('human wins')
+            } else if (human_choice == 'scissors' && computer_choice == 'paper') {
+                $('#div_output').text('human wins')
+            } else {
+                $('#div_output').text('computer wins')
+            }
+            $('#div_output').fadeIn()
+        })
+
+        
+    </script>
+</body>
+
+</html>
