@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.44/Tone.js"
+        integrity="sha512-iS3y4sBZP69RAaTxQA/qq4ryBOT3lCv4tWqu++zT5H9sCfSQK52sPHDiXD99N85pbh9cEITvTKETXLPUh21UGA=="
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        #cnv {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cnv" width="500" height="500"></canvas>
+    <script>
+        let cnv = document.querySelector('#cnv')
+        let ctx = cnv.getContext('2d')
+        const synth = new Tone.Synth().toDestination()
+        let notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5']
+
+        // create a ball going in a random direction
+        let angle = Math.random() * Math.PI * 2
+        let ball = {
+            radius: 10,
+            x: cnv.width / 2,
+            y: cnv.height / 2,
+            vx: 2 * Math.cos(angle),
+            vy: 2 * Math.sin(angle)
+        }
+        let friction = 0.8
+        let gravity = 0.1
+        // play a note
+        function playNote() {
+            // synth.triggerAttackRelease(notes[Math.floor(Math.random()*notes.length)], "16n")
+        }
+        function animation_step() {
+
+            if (!mouse_down) {
+
+
+                // update the position according to the velocity
+                ball.x += ball.vx
+                ball.y += ball.vy
+                if (Math.abs(ball.y + ball.radius - cnv.height) > 2 * gravity) {
+                    ball.vy += gravity
+                }
+
+                if (ball.x - ball.radius < 0) { // collision with the left side
+                    ball.x = 0 + ball.radius // move the ball back onto the canvas
+                    ball.vx *= -1 // reflecting the ball of the side
+                    ball.vx *= friction
+                    ball.vy *= friction
+                    playNote()
+                    // console.log('collision left')
+                } else if (ball.x + ball.radius > cnv.width) { // collision with the right side
+                    ball.x = cnv.width - ball.radius // move the ball back onto the canvas
+                    ball.vx *= -1 // reflecting the ball of the side
+                    ball.vx *= friction
+                    ball.vy *= friction
+                    playNote()
+                    // console.log('collision right')
+                }
+                if (ball.y - ball.radius < 0) { // collision with the top
+                    ball.y = 0 + ball.radius // move the ball back onto the canvas
+                    ball.vy *= -1 // reflecting the ball of the side
+                    ball.vx *= friction
+                    ball.vy *= friction
+                    playNote()
+                    // console.log('collision top')
+                } else if (ball.y + ball.radius > cnv.height) { // collision with the bottom
+                    ball.y = cnv.height - ball.radius // move the ball back onto the canvas
+                    ball.vy *= -1 // reflecting the ball of the side
+                    ball.vx *= friction
+                    ball.vy *= friction
+                    playNote()
+                    // console.log('collision bottom')
+                }
+            }
+            // draw the ball
+            ctx.clearRect(0, 0, cnv.width, cnv.height)
+            ctx.beginPath()
+            ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI, false)
+            ctx.fillStyle = 'blue'
+            ctx.fill()
+            
+
+            window.requestAnimationFrame(animation_step)
+        }
+        window.requestAnimationFrame(animation_step)
+
+        function getMousePosition(event, canvas) {
+            let rect = canvas.getBoundingClientRect()
+            return {
+                x: event.clientX - rect.left,
+                y: event.clientY - rect.top
+            }
+        }
+
+        let mouse_down = false
+        let mouse_position = null
+        let total_dx = 0
+        let total_dy = 0
+        let total_moves = 0
+        cnv.addEventListener('mousedown', function (event) {
+            total_dx = 0
+            total_dy = 0
+            total_moves = 0
+            mouse_position = getMousePosition(event, cnv)
+            ball.x = mouse_position.x
+            ball.y = mouse_position.y
+            ball.vx = 0
+            ball.vy = 0
+            mouse_down = true
+        })
+        cnv.addEventListener('mouseup', function (event) {
+            mouse_down = false
+
+        })
+        cnv.addEventListener('mouseleave', function () {
+            mouse_down = false
+        })
+        cnv.addEventListener('mousemove', function (event) {
+            if (mouse_down) {
+                // mouse_position = getMousePosition(event, cnv)
+                // ball.x = mouse_position.x
+                // ball.y = mouse_position.y
+                
+                let new_mouse_position = getMousePosition(event, cnv)
+                let dx = new_mouse_position.x - mouse_position.x
+                let dy = new_mouse_position.y - mouse_position.y
+                if (dx == 0 && dy == 0) {
+                    total_dx = 0
+                    total_dy = 0
+                    total_moves = 0
+                }
+                ball.vx = total_dx / total_moves * 2
+                ball.vy = total_dy / total_moves * 2
+
+                total_dx += dx
+                total_dy += dy
+                total_moves += 1
+
+                mouse_position = new_mouse_position
+                ball.x = mouse_position.x
+                ball.y = mouse_position.y
+            }
+        })
+
+
+
+        // for (let i=0; i<1000; ++i) {
+        //     let x = Math.random()*cnv.width
+        //     let y = Math.random()*cnv.height
+        //     let width = Math.random()*100
+        //     let height = Math.random()*100
+        //     let color = 'hsl(' + Math.floor(Math.random()*360) + ',100%,50%)'
+        //     ctx.fillStyle = color
+        //     ctx.fillRect(x, y, width, height)
+        // }
+
+        // ctx.fillStyle = 'green'
+        // ctx.fillRect(200, 300, 100, 100)
+    </script>
+</body>
+
+</html>
