@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Contact List</title>
+    <style>
+        input {
+            /* width:100%; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Contact List</h1>
+        <div id="div_alert" class="alert alert-warning collapse" role="alert"></div>
+        <table id="table_contacts" class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input id="input_name" type="text" class="form-control" /></td>
+                    <td><input id="input_address" type="text" class="form-control" /></td>
+                    <td><input id="input_phone" type="text" class="form-control" /></td>
+                    <td><input id="input_email" type="text" class="form-control" /></td>
+                    <td><button id="btn_create" class="btn btn-success">create</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let tbody = document.querySelector('#table_contacts tbody')
+        let input_name = document.querySelector('#input_name')
+        let input_address = document.querySelector('#input_address')
+        let input_phone = document.querySelector('#input_phone')
+        let input_email = document.querySelector('#input_email')
+        let btn_create = document.querySelector('#btn_create')
+        let div_alert = document.querySelector('#div_alert')
+
+        // let contacts = [{
+        //     name: 'Donna C. Garrett',
+        //     address: '3125 Flanigan Oaks Drive, Capitol Heights, MD 20027',
+        //     phone: '301-333-4869',
+        //     email: 'DonnaCGarrett@armyspy.com'
+        // },{
+        //     name: 'Jessie M. Russell',
+        //     address: '1220 Clark Street, Deerpark, NY 11729',
+        //     phone: '631-243-6435',
+        //     email: 'JessieMRussell@teleworm.us'
+        // },{
+        //     name: 'Larry R. Flores',
+        //     address: '3768 Cessna Drive, Fort Wayne, IN 46802',
+        //     phone: '260-366-7487',
+        //     email: 'LarryRFlores@rhyta.com'
+        // }]
+        // localStorage.setItem('contacts', JSON.stringify(contacts))
+        
+        function loadContacts() {
+            return JSON.parse(localStorage.getItem('contacts'))
+        }
+        function saveContacts(contacts) {
+            localStorage.setItem('contacts', JSON.stringify(contacts))
+        }
+
+        let contacts = loadContacts()
+        for (let i = 0; i<contacts.length; i++) {
+            addContactToTable(i, contacts[i])
+        }
+
+
+
+        function isValidPhoneNumber(phone_number) {
+            var pattern = /^\d{3}-\d{3}-\d{4}$/;
+            if (phone_number.match(pattern)) {
+                return true
+            } else {  
+                return false
+            }
+        }
+
+        function isValidEmailAddress(email_address) {
+            var pattern = /^[\w\.]+@[\w\.]+$/;
+            if (email_address.match(pattern)) {
+                return true
+            } else {  
+                return false
+            }
+        }
+
+        function addContactToTable(i, contact) {
+            let tr = document.createElement('tr')
+            // create a td for each property
+
+            let td_name = document.createElement('td')
+            // td.innerText = contact['name']
+            td_name.innerText = contact.name
+            tr.appendChild(td_name)
+
+            let td_address = document.createElement('td')
+            td_address.innerText = contact.address
+            tr.appendChild(td_address)
+
+            let td_phone = document.createElement('td')
+            td_phone.innerText = contact.phone
+            tr.appendChild(td_phone)
+
+            let td_email = document.createElement('td')
+            td_email.innerText = contact.email
+            tr.appendChild(td_email)
+
+            // create a td for the button
+            let td_button = document.createElement('td')
+            // <td><button class="btn btn-danger">delete</button></td>
+            let button = document.createElement('button')
+            button.innerText = 'delete'
+            button.classList.add('btn')
+            button.classList.add('btn-danger')
+            button.dataset.index = i
+            button.addEventListener('click', function() {
+                tbody.removeChild(tr)
+                // alert(this.dataset.index)
+                contacts.splice(this.dataset.index, 1)
+                console.log(contacts)
+                while (tbody.children.length > 1) {
+                    tbody.removeChild(tbody.lastChild)
+                }
+                for (let i=0; i<contacts.length; ++i) {
+                    addContactToTable(i, contacts[i])
+                }
+                // saveContacts(contacts)
+            })
+            td_button.appendChild(button)
+            tr.appendChild(td_button)
+
+            // put the tr in the tbody
+            tbody.appendChild(tr)
+        }
+
+        function showAlert(text) {
+            div_alert.innerText = text
+            $('#div_alert').collapse('show')
+            setTimeout(function() {
+                $('#div_alert').collapse('hide')
+            }, 3000)
+        }
+
+        btn_create.addEventListener('click', function () {
+            if (input_name.value.trim() == '') {
+                showAlert('The contact\'s name cannot be blank!')
+                return
+            }
+            if (!isValidPhoneNumber(input_phone.value)) {
+                showAlert('Please enter a valid phone number (e.g. 555-555-5555)')
+                return
+            }
+            if (!isValidEmailAddress(input_email.value)) {
+                showAlert('Please enter a valid email address (e.g. example@gmail.com)')
+                input_email.classList.add('border', 'border-warning')
+                return
+            }
+            input_email.classList.remove('border', 'border-warning')
+
+            // get the values out the input fields
+            let contact = {
+                name: input_name.value,
+                address: input_address.value,
+                phone: input_phone.value,
+                email: input_email.value
+            }
+            input_name.value = ''
+            input_address.value = ''
+            input_phone.value = ''
+            input_email.value = ''
+
+
+
+            // console.log(contact)
+            contacts.push(contact)
+            saveContacts(contacts)
+            addContactToTable(0, contact)
+
+            // create a contact object
+            // call addContactToTable
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+        // let obj = {
+        //     name: 'bob',
+        //     '0name': 'test1',
+        //     'na-me': 'test2',
+        //     'age': 56,
+        //     true: false,
+        //     5: 'test'
+        // }
+
+
+
+
+
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
