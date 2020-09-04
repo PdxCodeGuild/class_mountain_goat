@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="words.js"></script>
+    <title>Hangman</title>
+    <style>
+        span {
+            margin-right: 1%;
+        }
+        .container{
+            display: flex;
+        }
+        #left_side{
+            flex-direction: column;
+        }
+        #right_side{
+            flex-direction: column;
+        }
+        #content{
+            justify-content: space-between;
+        }
+        #guesses_content{
+            flex-direction: column;
+        }
+        #label_wrong_guess{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Don't hang that man!</h1>
+
+    <!-- start button
+        
+        clear button(restart)
+        
+        hangman status -->
+
+
+    <div id="content" class="container">
+        <div id="left_side" class="container">
+            <div id="div_chosen_word"></div>
+            <input type="text" id="input_guess">
+        </div>
+
+
+
+        <div id="right_side" class="container">
+            <div id="div_hangman"><img id="image_hangman" src = "1.png"></div>
+            <div id="div_result"></div>
+            <div id="guesses_content" class="container">
+                <label id="label_wrong_guess" for="div_wrong_guesses">Wrong Guesses</label> 
+                <div id="div_wrong_guesses"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- letters guessed list -->
+
+    <script>
+        function allLetter(input_txt) {
+            var letters = /^[A-Za-z]+$/;
+            if (input_txt.match(letters)) {
+                return true;
+            }
+            else {
+                alert("Please enter a letter");
+                return false;
+            }
+        }
+        //choosing random word from an array, making sure its longer than 6 characters
+        function randWord() {
+            temp_word = words[Math.floor(Math.random() * words.length)]
+            while (temp_word.length < 6) {
+                temp_word = words[Math.floor(Math.random() * words.length)]
+            }
+            return temp_word
+        }
+        //checking winning condition
+        function checkWin() {
+            for (let i = 0; i < spn_array.length; ++i) {
+                if (spn_array[i].innerText == "_") {
+                    return false
+                }
+            }
+            return true
+        }
+        let input_guess = document.querySelector("#input_guess")
+        let div_chosen_word = document.querySelector("#div_chosen_word")
+        let div_wrong_guesses = document.querySelector("#div_wrong_guesses")
+        let div_result = document.querySelector("#div_result")
+        let image_hangman = document.querySelector("#image_hangman")
+        let spn_array = []
+        let guess_array = []
+        let chosen_word = randWord()
+        console.log(chosen_word)
+        // this is the shortcut for commented code below
+        let arr_chosen_word = chosen_word.split('')
+        // let arr_chosen_word= []
+        // for(let i = 0; i< chosen_word.length; ++i){
+        //     arr_chosen_word.push(chosen_word[i])
+        // }
+        //creating s and pushing them to parent div
+        for (let i = 0; i < chosen_word.length; ++i) {
+            let spn = document.createElement("span")
+            spn.innerText = "_"
+            div_chosen_word.appendChild(spn)
+            spn_array.push(spn)
+        }
+        input_guess.addEventListener('keypress', function (e) {
+            if (guess_array.length>7){
+                return
+            }
+            let guess = input_guess.value
+            input_guess.value = ""
+            if (e.key === 'Enter') {
+                if (!allLetter(guess)) {
+                    return
+                }
+                //found_match is a boolean flag that keeps track of whether we found the letter the user entered in the chosen_word
+                let found_match = false
+                //the loop replaces any underscores(place holders in spans) with the letter that the user input if it is correct
+                for (let i = 0; i < chosen_word.length; ++i) {
+                    if (guess == arr_chosen_word[i]) {
+                        spn_array[i].innerText = arr_chosen_word[i]
+                        found_match = true
+                    }
+                }
+                //The letter that the user guessed is not in the word then it is added to the array of wrong_guesses
+                if (!found_match) {
+                    guess_array.push(guess)
+                    let spn = document.createElement("span")
+                    spn.innerText = guess
+                    div_wrong_guesses.appendChild(spn)
+                }
+                //updating the hangman image with the wrong guess count(image is named 1-7)
+                image_hangman.src=`${guess_array.length + 1}.png`
+            }
+            //lose condition
+            if (guess_array.length >= 7) {
+                let spn = document.createElement("span")
+                spn.innerText = "YOU LOSE!"
+                div_result.appendChild(spn)
+                image_hangman.src="7.png"
+            }
+            //win condition
+            if (checkWin()) {
+                let spn = document.createElement("span")
+                spn.innerText = "YOU WIN!"
+                div_result.appendChild(spn)
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>
