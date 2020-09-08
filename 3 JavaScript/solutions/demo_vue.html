@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span>My name is {{name}}</span>
+        <img v-bind:src="img_url" />
+        <span v-show="seen">Now you see me</span>
+        <ol>
+            <li v-for="todo in todos">{{ todo.text }}</li>
+        </ol>
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+        <button v-on:click="sayHello">Say Hello</button>
+        <button v-on:click="randomCat">Random Cat</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: 'Bob',
+                img_url: 'https://placekitten.com/50/50',
+                seen: true,
+                todos: [
+                    { text: 'Learn JavaScript' },
+                    { text: 'Learn Vue' },
+                    { text: 'Build something awesome' }
+                ],
+                message: 'reverse me!'
+            },
+            methods: {
+                reverseMessage: function() {
+                    this.message = this.message.split('').reverse().join('')
+                    // this.message += '!'
+                },
+                sayHello: function() {
+                    alert('hello world!')
+                },
+                randomCat: function() {
+                    let width = Math.floor(20+Math.random()*80)
+                    let height = Math.floor(20+Math.random()*80)
+                    this.img_url = `https://placekitten.com/${width}/${height}/`
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

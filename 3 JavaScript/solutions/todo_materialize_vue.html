@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        html,
+        body,
+        main {
+            min-height: 100vh;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-wrapper {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        .todo_item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .todo_item .todo_text {
+            flex-grow: 1;
+            padding-left: 0.75rem;
+        }
+
+        .todo_item .priority {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .completed {
+            text-decoration: line-through;
+            color:grey;
+        }
+    </style>
+</head>
+
+<body class="light-blue darken-4">
+    <main id="app" class="blue lighten-5 z-depth-3">
+        <!-- nav -->
+        <nav class="indigo">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">
+                    <i class="large material-icons">check_circle</i>
+                    Todo List
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+                <ul class="right hide-on-large-and-up">
+                    <li><a href="#" data-target="slide-out" class="sidenav-trigger"><i
+                                class="material-icons">menu</i></a></li>
+                </ul>
+            </div>
+        </nav>
+        <section>
+            <div class="row">
+                <div class="input-field col s8">
+                    <input id="input_todo" type="text" class="validate" v-model="input_todo">
+                    <label for="input_todo">Todo</label>
+                </div>
+                <div class="input-field col s3">
+                    <select class="browser-default" v-model="input_priority">
+                        <option v-for="priority in priorities" v-bind:value="priority">{{priority.name}}</option>
+                    </select>
+                </div>
+                <div class="input-field col s1">
+                    <a class="waves-effect waves-light btn" href="#" v-on:click="createTodo"><i
+                            class="material-icons">add</i></a>
+                </div>
+            </div>
+            <div class="todo_item" v-for="(todo, index) in todos">
+                <div class="todo_text" v-bind:class="{completed: todo.completed}">
+                    <span class="priority" v-bind:class="todo.priority.color + '-text'">{{todo.priority.name}}</span>
+                    <span>{{todo.text}}</span>
+                </div>
+                <div class="todo_buttons nowrap">
+                    <a class="waves-effect waves-light btn green" v-on:click="completeTodo(index)"><i class="material-icons">{{todo.completed? 'refresh': 'check'}}</i></a>
+                    <a class="waves-effect waves-light btn red" v-on:click="clearTodo(index)"><i class="material-icons">clear</i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <ul id="slide-out" class="sidenav">
+        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+        <li><a href="#!">Second Link</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader">Subheader</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+    <script>
+        M.AutoInit()
+        let app = new Vue({
+            el: '#app',
+            data: {
+                input_todo: '',
+                input_priority: {
+                    name: 'Low',
+                    color: 'blue'
+                },
+                priorities: [{
+                    name: 'High',
+                    color: 'red'
+                },{
+                    name: 'Medium',
+                    color: 'orange'
+                },{
+                    name: 'Low',
+                    color: 'blue'
+                }],
+                todos: []
+            },
+            methods: {
+                createTodo: function () {
+                    // input validation
+                    if (!this.input_todo || !this.input_priority) {
+                        M.toast({ html: 'Please enter todo text and priority' })
+                        return
+                    }
+                    
+                    // add to our todo list
+                    this.todos.push({
+                        text: this.input_todo,
+                        priority: this.input_priority,
+                        completed: false
+                    })
+                    this.sortTodos()
+
+                    // reset input fields
+                    this.input_todo = ''
+                    this.input_priority = {
+                        name: 'Low',
+                        color: 'blue'
+                    }
+                },
+                completeTodo: function(index) {
+                    this.todos[index].completed = !this.todos[index].completed
+                    this.sortTodos()
+                },
+                clearTodo: function(index) {
+                    this.todos.splice(index, 1)
+                    this.sortTodos()
+                },
+                sortTodos: function() {
+                    this.todos.sort(function(a, b) {
+                        if (a.completed && !b.completed) {
+                            return 1
+                        } else if (!a.completed && b.completed) {
+                            return -1
+                        } else {
+                            return 0
+                        }
+                    })
+                }
+            }
+        })
+
+        // let people = [{
+        //     name: 'bob',
+        //     age: 45
+        // },{
+        //     name: 'jane',
+        //     age: 23
+        // },{
+        //     name: 'joseph',
+        //     age: 89
+        // }]
+        // people.sort(function(a, b) {
+        //     if (a.age < b.age) {
+        //         return -1
+        //     } else if (a.age > b.age) {
+        //         return 1
+        //     } else {
+        //         return 0
+        //     }
+        // })
+        // console.log(people)
+
+
+
+    </script>
+</body>
+
+</html>
