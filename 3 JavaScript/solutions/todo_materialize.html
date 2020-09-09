@@ -145,14 +145,18 @@
         // </div>
         $('#completed_title').hide()
         $('#btn_add_todo').click(function () {
+
+            // get the values out of the input fields
             let todo_text = $('#input_todo').val()
             let priority = $('#select_priority').val()
 
+            // input validation
             if (!todo_text || !priority) {
                 M.toast({ html: 'Please enter todo text and priority' })
                 return
             }
 
+            // reset the input fields
             $('#input_todo').val('')
             $('#select_priority').val('low')
 
@@ -162,6 +166,7 @@
                 'high': 'red-text'
             }
 
+            // start building 
             let div_container = $('<div>', { class: 'todo_item' })
 
             let div_todo_text = $('<div>', { class: 'todo_text' })

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- declarative rendering -->
+        <span>{{ 'Hello ' + name + '!' }}
+            Next year bob will be {{ age + 1 }}</span>
+        <hr />
+        <!-- binding attributes -->
+        <div title="world!">hello</div>
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds
+            to see my dynamically bound title!
+        </span>
+        <hr />
+        <!-- conditional rendering -->
+        <div v-if="seen">v-if will remove the element from the html if seen is false</div>
+        <div v-show="seen">v-show will add display:none to the style if seen is false</div>
+        <hr />
+        <!-- v-for -->
+        <div v-show="todos.length > 0">Todos</div>
+        <div>There are {{todos.length}} todo items</div>
+        <ol>
+            <li v-for="todo in todos">{{ todo.text }}</li>
+        </ol>
+        <hr />
+        <!-- events -->
+        <div id="app-5">
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">Reverse Message</button>
+        </div>
+        <hr/>
+        <!-- v-model -->
+        <input v-model="message">
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: 'Bob',
+                age: 56,
+                message: 'hello world!',
+                seen: true,
+                todos: [
+                    { text: 'Learn JavaScript' },
+                    { text: 'Learn Vue' },
+                    { text: 'Build something awesome' }
+                ],
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message += '!'
+                    // this.todos.push({
+                    //     text: 'walk the dog'
+                    // })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

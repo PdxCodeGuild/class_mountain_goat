@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        html, body, #app {
+            min-height:100vh;
+        }
+        body {
+            background-color:lightblue;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .btn {
+            background-color: blue;
+            color:white;
+            cursor: pointer;
+            user-select: none;
+            padding: 2px;
+            border-radius: 2px;
+        }
+        .btn:hover {
+            background-color:royalblue;
+        }
+        .btn:active {
+            background-color:darkblue;
+        }
+        #app {
+            max-width:800px;
+            margin: 0 auto;
+            background-color:white;
+            padding:20px;
+            
+        }
+        #todo_items > div {
+            display:flex;
+            flex-direction:row;
+            justify-content:space-between;
+            margin-bottom:10px;
+        }
+        #todo_items {
+            max-width:400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Todo</h1>
+        <input type="text" v-model="input_todo"/>
+        <select v-model="input_priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <a class="btn" v-on:click="addTodo">add todo</a>
+        <div id="todo_items">
+            <div v-for="(todo, index) in todos">
+                <div>{{index+1}}. {{todo.text}} ({{todo.priority}})</div>
+                <div><a class="btn" v-on:click="removeTodo(index)">X</a></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                input_todo: 'test',
+                input_priority: 'low',
+                todos: [{
+                    text: 'walk the dog',
+                    priority: 'low'
+                },{
+                    text: 'wash the car',
+                    priority: 'medium'
+                },{
+                    text: 'smell the roses',
+                    priority: 'high'
+                }]
+            },
+            methods: {
+                addTodo: function() {
+                    // alert(this.input_todo)
+                    // alert(this.input_priority)
+                    // create a new todo item
+                    let todo = {
+                        text: this.input_todo,
+                        priority: this.input_priority
+                    }
+                    // add the todo item to our array
+                    this.todos.push(todo)
+                    // reset our input fields
+                    this.input_todo = ''
+                    this.input_priority = 'low'
+                },
+                removeTodo: function(index) {
+                    this.todos.splice(index, 1)
+                    // alert('remove todo with index ' + index)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
