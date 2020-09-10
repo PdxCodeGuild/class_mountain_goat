@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Long Cang', cursive;
+        }
+
+        #title {
+            font-size: 80px;
+
+        }
+
+        .resize {
+            animation-name: resize;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        @keyframes resize {
+            from {
+                transform: scale(1)
+            }
+
+            to {
+                transform: scale(1.5)
+            }
+        }
+
+        @keyframes color {
+            from {
+                color: red;
+            }
+
+            to {
+                color: blue;
+            }
+        }
+
+        .color {
+            animation-name: color;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rotate {
+            animation-name: rotate;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            display: inline-block;
+            animation-timing-function: ease-in-out;
+        }
+
+        .bounce {
+            animation-name: bounce;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            display: inline-block;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0)
+            }
+
+            33% {
+                transform: translateY(-20px)
+            }
+
+            66% {
+                transform: translateY(20px)
+            }
+
+            100% {
+                transform: translateY(0)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="title">
+            <span v-for="char in title" v-bind:class="randomAnimation()"
+                v-bind:style="{color: randomColor()}">{{char}}</span>
+        </div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: 'hello world!'
+            },
+            methods: {
+                randomColor() {
+                    let hue = Math.floor(Math.random() * 360)
+                    return 'hsl(' + hue + ',100%,50%)'
+                },
+                randomAnimation() {
+                    let animations = ['resize', 'color', 'rotate', 'bounce']
+                    return animations[Math.floor(Math.random() * animations.length)]
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
