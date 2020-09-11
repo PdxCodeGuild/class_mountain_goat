@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #div_lights_out {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            background-image: url("bobs_burgers.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 600px;
+            height: 600px;
+
+        }
+
+        .row {
+            display: flex;
+            align-items: stretch;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+
+        .cell {
+            border: 1px solid black;
+            flex-grow: 1;
+            /* background-color: blue; */
+        }
+
+        .status {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="number" v-model="input_number" v-on:input="generateBoard"/>
+        <!-- html goes here -->
+        <div id="div_lights_out">
+            <div v-for="(row, i) in board" class="row">
+                <span v-on:click="cellClicked(i,j)" v-for="(column, j) in row" class="cell" v-bind:class="{status: column}">
+                    <span>{{i}},{{j}}</span>
+
+                </span>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                // data goes here
+                board: [],
+                input_number: 3
+            },
+
+            created: function(){
+                this.generateBoard()
+            },
+
+            methods: {
+                // methods go here
+                toggleCell: function(i, j) {
+                    if (i < 0 || i >= this.input_number) {
+                        return
+                    } else if (j < 0 || j >= this.input_number) {
+                        return
+                    } else {
+                        this.board[i][j] = !this.board[i][j]
+                    }
+                },
+
+                cellClicked: function (i, j) {
+                    this.toggleCell(i,j)
+                    this.toggleCell(i-1,j)
+                    this.toggleCell(i+1,j)
+                    this.toggleCell(i,j-1)
+                    this.toggleCell(i,j+1)
+                    this.$forceUpdate()
+                    setTimeout(() => {
+                        console.log(this)
+                        if (this.checkWin()) {
+                            alert('You win')
+                            this.generateBoard()
+                        }
+                    }, 100)
+                },
+                generateBoard: function() {
+                    this.board= []
+                    if (this.input_number == '') {
+                        return
+                    }
+                    for (let i=0; i<this.input_number; ++i) {
+                        let temp_row = []
+                        for (let j=0; j<this.input_number; ++j) {
+                            // if (Math.floor(Math.random()*2)) {
+                            //     temp_row.push(true)
+                            // } else {
+                            //     temp_row.push(false)
+                            // }
+                            temp_row.push(Math.random() < 0.5)
+                        }
+                        this.board.push(temp_row)
+                    }
+                },
+                checkWin: function() {
+                    for (let i=0; i<this.input_number; ++i) {
+                        if (this.board[i].includes(true)) {
+                            return false
+                        } 
+                    }
+                    return true
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

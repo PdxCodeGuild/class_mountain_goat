@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+    <style>
+        #quote {
+            max-width:500px;
+            margin:0 auto;
+            font-family: 'Amatic SC', cursive;
+            font-size:60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="quote">
+            <div>"{{quote}}"<br/>- {{author}}</div>
+            <button v-on:click="getQuote">↻</button>
+        </div>
+        
+    </div>
+    <script>
+
+        // function add(a, b) {
+        //     return a + b
+        // }
+        // console.log(add(5, 2))
+
+        // let add = function(a, b) {
+        //     return a + b
+        // }
+        // console.log(add(5, 2))
+
+        // let add = (a, b) => {
+        //     return a + b
+        // }
+        // console.log(add(5, 2))
+
+        // let Math = {
+        //     abs: function(x) {
+        //         return (x < 0)? -x: x
+        //     }
+        // }
+        // console.log(Math.abs(-5)) // 5
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                quote: '',
+                author: ''
+            },
+            methods: {
+                getQuote: function() {
+                    axios({
+                        method: 'get',
+                        url: 'https://favqs.com/api/qotd'
+                    }).then(response => {
+                        console.log(this)
+                        // console.log(response.data)
+                        // let data = response.data
+                        // let body = data.quote.body
+                        // let author = data.quote.author
+                        // console.log('"' + body + '" - ' + author)
+                        this.quote = response.data.quote.body
+                        this.author = response.data.quote.author
+                    })
+                }
+            },
+            created: function() {
+                this.getQuote()
+            }
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
