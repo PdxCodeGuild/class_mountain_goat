@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Axios.js -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- API Key -->
+    <script src="secrets.js"></script>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Tone js for goats -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.53/Tone.js"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* * {
+            box-sizing: border-box;
+        } */
+
+        .collapsible li .collapsible_arrow {
+            transition: all 500ms;
+        }
+
+        .collapsible li.active .collapsible_arrow {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .collapsible-header>span {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .collapsible-header a {
+            margin-top: 4px;
+        }
+
+        .pagination {
+            text-align: center;
+        }
+
+        .collapsible-body img {
+            height: 200px;
+            margin-right:40px;
+        }
+
+        .no_movies {
+            text-align: center;
+            color: grey;
+        }
+
+
+
+
+        .lds-circle {
+            display: block;
+            position:absolute;
+            z-index:10;
+            background: rgba(255, 255, 255, 0.8);
+            /* transform: translateZ(1px); */
+            min-width:85%;
+
+            /* display:flex;
+            flex-direction:row;
+            justify-content:center; */
+            min-height:100%;
+        }
+
+        .lds-circle>div {
+            position:relative;
+            left:50%;
+            top:60px;
+            transform:translateX(-50%);
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            background: #64b5f6;
+            animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+
+        @keyframes lds-circle {
+
+            0%,
+            100% {
+                animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+            }
+
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            50% {
+                transform: rotateY(1800deg);
+                animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+            }
+
+            100% {
+                transform: rotateY(3600deg);
+            }
+        }
+
+
+
+        .movie_details {
+            display:flex;
+            flex-direction:row;
+        }
+        .movie_details > div {
+            flex-grow:1;
+        }
+        .movie_details_text {
+            display:flex;
+            flex-direction:column;
+            justify-content: space-between;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1>Movie Search</h1>
+        <!-- <div class="lds-circle" v-show="loading"><div></div></div> -->
+        <div class="row">
+            <div class="input-field col s10">
+                <input id="input_text" type="text" autocomplete="off" v-model="input_text"
+                    v-on:keypress.enter="searchMovies" />
+                <label for="input_text">Search Term</label>
+            </div>
+            <div class="col s2">
+                <label>&nbsp;</label>
+                <button class="btn waves-effect waves-light" v-on:click="searchMovies">search</button>
+            </div>
+        </div>
+        <ul class="pagination" v-show="movies.length > 0">
+            <li v-bind:class="{disabled: current_page == 1}" v-bind:disabled="current_page == 1"
+                v-on:click="setPage(1)">
+                <a href="#!"><i class="material-icons">first_page</i></a>
+            </li>
+            <li v-bind:class="{disabled: current_page == 1}" v-bind:disabled="current_page == 1"
+                v-on:click="setPage(current_page-1)">
+                <a href="#!"><i class="material-icons">chevron_left</i></a>
+            </li>
+            <!-- <li class="waves-effect" v-bind:class="{active:current_page==i}"
+                v-for="i in pages"
+                v-on:click="setPage(i)">
+                <a href="#!">{{i}}</a>
+            </li> -->
+
+            <!-- BEGIN BAD PAGINATION -->
+            <li class="waves-effect" v-show="current_page > 2" v-on:click="setPage(current_page-2)">
+                <a href="#!">{{current_page-2}}</a>
+            </li>
+            <li class="waves-effect" v-show="current_page > 1" v-on:click="setPage(current_page-1)">
+                <a href="#!">{{current_page-1}}</a>
+            </li>
+            <li class="waves-effect active">
+                <a href="#!">{{current_page}}</a>
+            </li>
+            <li class="waves-effect" v-show="current_page < pages" v-on:click="setPage(current_page+1)">
+                <a href="#!">{{current_page+1}}</a>
+            </li>
+            <li class="waves-effect" v-show="current_page < pages-1" v-on:click="setPage(current_page+2)">
+                <a href="#!">{{current_page+2}}</a>
+            </li>
+            <!-- END BAD PAGINATION -->
+
+            <li v-bind:class="{disabled: current_page == pages}" v-bind:disabled="current_page == pages"
+                class="waves-effect" v-on:click="setPage(current_page+1)">
+                <a href="#!"><i class="material-icons">chevron_right</i></a>
+            </li>
+            <li v-bind:class="{disabled: current_page == pages}" v-bind:disabled="current_page == pages"
+                v-on:click="setPage(pages)">
+                <a href="#!"><i class="material-icons">last_page</i></a>
+            </li>
+        </ul>
+        
+        <div class="no_movies" v-show="!loading && movies.length == 0">No Movies to Show</div>
+        <ul class="collapsible" v-show="movies.length > 0">
+            <li v-for="(movie, index) in movies">
+                <div class="collapsible-header" v-on:click="getMovieDetails(movie)">
+                    <span>
+                        <i class="material-icons">{{movie.icon}}</i>
+                        <span>{{movie.title}} ({{movie.year}})</span>
+                    </span>
+                    <span>
+                        <a v-on:click="preventOpen" v-bind:href="movie.imdb_url" target="_blank"><i
+                                class="material-icons">link</i></a>
+                        <i class="material-icons collapsible_arrow">expand_more</i>
+                    </span>
+                </div>
+                <div class="collapsible-body">
+                    <!-- <img v-if="movie.poster != ''" v-bind:src="movie.poster" /> -->
+                    <div class="movie_details" v-if="movie.details">
+                        <img v-if="movie.details.poster != ''" v-bind:src="movie.details.poster" />
+                        <div class="movie_details_text">
+                            <div>{{movie.details.plot}}</div>
+                            <div><b>Director:</b> {{movie.details.director}}</div>
+                            <div><b>Cast:</b> {{movie.details.cast}}</div>
+                            <div><b>Genre:</b> {{movie.details.genre}}</div>
+                            <div><b>Runtime:</b> {{movie.details.runtime}}</div>
+                            <div><b>Rating:</b> {{movie.details.rating}}</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="pagination" v-show="movies.length > 0">
+            <li v-bind:class="{disabled: current_page == 1}" v-bind:disabled="current_page == 1"
+                v-on:click="setPage(1)">
+                <a href="#!"><i class="material-icons">first_page</i></a>
+            </li>
+            <li v-bind:class="{disabled: current_page == 1}" v-bind:disabled="current_page == 1"
+                v-on:click="setPage(current_page-1)">
+                <a href="#!"><i class="material-icons">chevron_left</i></a>
+            </li>
+            <!-- <li class="waves-effect" v-bind:class="{active:current_page==i}"
+                v-for="i in pages"
+                v-on:click="setPage(i)">
+                <a href="#!">{{i}}</a>
+            </li> -->
+
+            <!-- BEGIN BAD PAGINATION -->
+            <li class="waves-effect" v-show="current_page > 2" v-on:click="setPage(current_page-2)">
+                <a href="#!">{{current_page-2}}</a>
+            </li>
+            <li class="waves-effect" v-show="current_page > 1" v-on:click="setPage(current_page-1)">
+                <a href="#!">{{current_page-1}}</a>
+            </li>
+            <li class="waves-effect active">
+                <a href="#!">{{current_page}}</a>
+            </li>
+            <li class="waves-effect" v-show="current_page < pages" v-on:click="setPage(current_page+1)">
+                <a href="#!">{{current_page+1}}</a>
+            </li>
+            <li class="waves-effect" v-show="current_page < pages-1" v-on:click="setPage(current_page+2)">
+                <a href="#!">{{current_page+2}}</a>
+            </li>
+            <!-- END BAD PAGINATION -->
+            <li v-bind:class="{disabled: current_page == pages}" v-bind:disabled="current_page == pages"
+                class="waves-effect" v-on:click="setPage(current_page+1)">
+                <a href="#!"><i class="material-icons">chevron_right</i></a>
+            </li>
+            <li v-bind:class="{disabled: current_page == pages}" v-bind:disabled="current_page == pages"
+                v-on:click="setPage(pages)">
+                <a href="#!"><i class="material-icons">last_page</i></a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // M.AutoInit();
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.collapsible')
+            var instances = M.Collapsible.init(elems, {})
+        });
+
+        const synth = new Tone.Synth().toDestination();
+
+
+        
+        let app = new Vue({
+            el: '#app',
+            data: {
+                input_text: '',
+                movies: [],
+                pages: 10,
+                current_page: 1,
+                loading: false
+            },
+            methods: {
+                setPage: function (i) {
+                    if (i >= 1 && i <= this.pages) {
+                        this.current_page = i
+                        this.searchMovies()
+                    }
+                },
+                getMovieDetails: function (movie) {
+                    // send request for details
+                    // http://www.omdbapi.com/?t=valley%20of%20the%20wind&apikey=6659897b&r=json
+                    if (!movie.details) {
+                        this.loading = true
+                        axios({
+                            method: 'get',
+                            url: 'http://www.omdbapi.com/',
+                            params: {
+                                i: movie.imdb_id,
+                                apiKey: omdb_api_key,
+                                r: 'json',
+                            }
+                        }).then(response => {
+                            this.loading = false
+                            let data = response.data
+                            let poster = data.Poster
+                            if (poster == 'N/A') {
+                                poster = 'http://placegoat.com/150/200'
+                                synth.triggerAttackRelease("C2", "4n")
+                            }
+                            movie.details = {
+                                plot: data.Plot,
+                                poster: poster,
+                                director: data.Director,
+                                cast: data.Actors,
+                                genre: data.Genre,
+                                runtime: data.Runtime,
+                                rating: data.Rated
+                            }
+                        })
+                    }
+
+                },
+                searchMovies: function () {
+                    let icon_for_type = {
+                        'movie': 'local_movies',
+                        'game': 'videogame_asset',
+                        'series': 'live_tv'
+                    }
+                    this.loading = true
+                    setTimeout(() => {
+                        axios({
+                            method: 'get',
+                            url: 'http://www.omdbapi.com/',
+                            params: {
+                                s: this.input_text,
+                                apiKey: omdb_api_key,
+                                r: 'json',
+                                page: this.current_page
+                            }
+                        }).then(response => {
+                            console.log(response.data)
+                            this.loading = false
+                            // this.movies = response.data.Search
+                            this.movies = []
+                            if (response.data.Response == 'False') {// ?????
+                                M.toast({ html: 'No results found!' })
+                                return
+                            }
+                            let search_results = response.data.Search
+                            this.pages = Math.ceil(parseInt(response.data.totalResults) / 10)
+                            for (let i = 0; i < search_results.length; ++i) {
+                                let type = search_results[i].Type
+                                let icon = icon_for_type[type]
+                                let imdb_id = search_results[i].imdbID
+                                let poster = search_results[i].Poster
+                                if (poster == 'N/A') {
+                                    poster = ''
+                                }
+                                this.movies.push({
+                                    title: search_results[i].Title,
+                                    poster: poster,
+                                    type: type,
+                                    icon: icon,
+                                    year: search_results[i].Year,
+                                    imdb_id: imdb_id,
+                                    imdb_url: `https://www.imdb.com/title/${imdb_id}/`,
+                                    details: null
+                                })
+                            }
+                            window.scrollTo(0, 0)
+                        })
+                    }, Math.random()*1000)
+                },
+                preventOpen: function (event) {
+                    event.stopPropagation()
+                }
+            }
+            // created: function () {
+            //     this.searchMovies()
+            // }
+        })
+    </script>
+</body>
+
+</html>
