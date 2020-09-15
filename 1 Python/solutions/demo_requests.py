@@ -2,14 +2,19 @@
 
 
 import requests
-# import json
+import json
 
-# response = requests.get('https://cat-fact.herokuapp.com/facts')
+response = requests.get('https://cat-fact.herokuapp.com/facts')
 
-# data = response.json()
-# for fact in data['all']:
-#     print(fact['text'])
-#     print()
+data = json.loads(response.text)
+data = response.json()
+for fact in data['all']:
+    print(fact['text'])
+    if 'user' in fact:
+        print(fact['user']['name']['first'] + ' ' + fact['user']['name']['last'])
+    else:
+        print('No user')
+    print()
 
 
 # headers = {'Accept': 'text/plain'}
@@ -30,9 +35,12 @@ import requests
 # while True:
 #     params = {'page': page, 'term': term}
 #     headers = {'Accept': 'application/json'}
+#     # response = requests.get('https://icanhazdadjoke.com/search?term=' + term + '&page=' + page)
 #     response = requests.get('https://icanhazdadjoke.com/search', headers=headers, params=params)
 #     print(response.url)
+#     # print(response.text)
 #     data = response.json()
+#     # print(data)
 #     for joke in data['results']:
 #         print(joke['joke'])
 #     total_pages = data["total_pages"]
@@ -45,21 +53,21 @@ import requests
 
 
 
-def get_country_from_currency(currency):
-    response = requests.get('https://restcountries.eu/rest/v2/currency/' + currency)
-    data = response.json()
-    return [row['name'] for row in data]
+# def get_country_from_currency(currency):
+#     response = requests.get('https://restcountries.eu/rest/v2/currency/' + currency)
+#     data = response.json()
+#     return [row['name'] for row in data]
 
-from_amount = float(input('what is the amount? '))
-from_currency = input('what is the currency?').upper().strip()
-print(get_country_from_currency(from_currency))
-to_currency = input('what is the currency you\'d like to convert to?').upper().strip()
-print(get_country_from_currency(to_currency))
+# from_amount = float(input('what is the amount? '))
+# from_currency = input('what is the currency?').upper().strip()
+# print(get_country_from_currency(from_currency))
+# to_currency = input('what is the currency you\'d like to convert to?').upper().strip()
+# print(get_country_from_currency(to_currency))
 
-response = requests.get('https://api.exchangeratesapi.io/latest', params={'base': from_currency})
-rates = response.json()['rates']
-to_amount = rates[to_currency]*from_amount
-print(f'{from_amount} {from_currency} is {to_amount} {to_currency}')
+# response = requests.get('https://api.exchangeratesapi.io/latest', params={'base': from_currency})
+# rates = response.json()['rates']
+# to_amount = rates[to_currency]*from_amount
+# print(f'{from_amount} {from_currency} is {to_amount} {to_currency}')
 
 
 

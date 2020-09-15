@@ -16,23 +16,40 @@
 # # from .module_example import add
 # print(module_example.add(5, 2))
 
+import json
+contact = {'name': 'bob', 'age': 55}
+contact_json = json.dumps(contact)
+print(contact_json)
+contact = json.loads(contact_json)
+print(contact)
 
 
-# import math
+exit()
 
-# class Point:
-#     def __init__(self, x, y):
-#         self.x = x
-#         self.y = y
+
+
+import math
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
     
-#     def distance(self, p): # method, or 'member function'
-#         dx = self.x - p.x
-#         dy = self.y - p.y
-#         return math.sqrt(dx*dx + dy*dy)
+    def distance(self, p): # method, or 'member function'
+        dx = self.x - p.x
+        dy = self.y - p.y
+        return math.sqrt(dx*dx + dy*dy)
     
-#     def scale(self, v):
-#         self.x *= v
-#         self.y *= v
+    def scale(self, v):
+        self.x *= v
+        self.y *= v
+
+
+p = Point(5, 2)
+print(p.x)
+print(p.y)
+
+exit()
 
 
 # print('start program')
