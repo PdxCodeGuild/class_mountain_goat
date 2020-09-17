@@ -5,6 +5,7 @@
 - [Management Commands](#management-commands)
   - [Custom Management Commands](#custom-management-commands)
 - [Resources](#resources)
+  - [General](#general)
   - [Tutorials](#tutorials)
   - [Videos](#videos)
   - [Forums](#forums)
@@ -28,12 +29,7 @@ The core of Django is the [request-response cycle](django_diagram.png). A reques
 
 Django applications are contained in a **project** which can have multiple **apps**. Each app has its own routes, views, templates, and models. How you divide up the functionality of the application is up to your discretion, what's important is that it makes sense to you.
 
-- [MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
-- [Wikipedia](https://en.wikipedia.org/wiki/Django_(web_framework))
-- [Official Docs](https://docs.djangoproject.com/en/3.1/)
-  - [Table of Contents](https://docs.djangoproject.com/en/3.1/contents/)
-  - [Official Tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/)
-- [Django Girls Tutorial](https://tutorial.djangogirls.org/en/django/)
+
 
 ## Management Commands
 
@@ -79,6 +75,13 @@ Now you can execute this function using `python manage.py <command name>`. Any p
 
 
 ## Resources
+
+### General
+
+- [MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
+- [Wikipedia](https://en.wikipedia.org/wiki/Django_(web_framework))
+- [Official Docs](https://docs.djangoproject.com/en/3.1/)
+  - [Table of Contents](https://docs.djangoproject.com/en/3.1/contents/)
 
 ### Tutorials
 
