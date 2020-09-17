@@ -1,83 +1,110 @@
 
 # Views
 
-**Views** are python functions that are executed when a request follows a route. The view can then respond with HTML, JSON, text, etc. An app's views are contained in its `views.py` file. You can read more about views [here](https://docs.djangoproject.com/en/3.0/topics/http/views/), [here](https://docs.djangoproject.com/en/3.0/topics/http/views/), and [here](https://docs.djangoproject.com/en/3.0/ref/request-response/).
 
-1. [Requests](#requests)
-   1. [Path Parameters](#path-parameters)
-         1. [urls.py](#urlspy)
-         2. [views.py](#viewspy)
-   2. [Receiving Query Parameters](#receiving-query-parameters)
-   3. [Receiving a Form Submission](#receiving-a-form-submission)
-   4. [Receiving JSON](#receiving-json)
-2. [Responses](#responses)
-   1. [Responding with a String / Raw HTML](#responding-with-a-string--raw-html)
-   2. [Responding with a Template](#responding-with-a-template)
-   3. [Responding with JSON](#responding-with-json)
-   4. [Redirecting](#redirecting)
+
+- [Overview](#overview)
+- [Requests](#requests)
+  - [The Request Object](#the-request-object)
+  - [Path Parameters](#path-parameters)
+  - [Receiving Query Parameters](#receiving-query-parameters)
+  - [Receiving a Form Submission](#receiving-a-form-submission)
+  - [Receiving JSON](#receiving-json)
+- [Responses](#responses)
+  - [Responding with a String / Raw HTML](#responding-with-a-string--raw-html)
+  - [Responding with a Template](#responding-with-a-template)
+  - [Responding with JSON](#responding-with-json)
+  - [Redirecting](#redirecting)
+
+
+## Overview
+
+**Views** are python functions that do the bulk of the work, they receive the incoming request and return a response. The view can then respond with HTML, JSON, text, etc. An app's views are contained in its `views.py` file. You can read more about views [here](https://docs.djangoproject.com/en/3.1/topics/http/views/) and [here](https://docs.djangoproject.com/en/3.1/ref/request-response/).
+
+```python
+from django.http import HttpResponse
+def index(request):
+    return HttpResponse('hello world!')
+```
 
 ## Requests
+
+### The Request Object
 
 The request object received by the view contains lots of important information.
 
 - `request.method` tells you which of the HTTP methods was used (GET, POST, etc)
 - `request.body` the raw request body, you can also use `request.read()`
-- `request.path` path of the requested page, e.g. `"/music/bands/the_beatles/"`
-- `request.GET` dictionary-like object of query parameters
-- `request.POST` dictionary-like object of post parameters
+- `request.path` path of the requested page, e.g. `"/music/bands/beatles/"`
+- `request.GET` dictionary of query parameters
+- `request.POST` dictionary of form parameters
 - `request.COOKIES` a dictionary of cookies
 
 
 ### Path Parameters
 
-You can specify parameters in the path using a datatype (`int`, `str`) and a name. Those values will then be automatically taken out of the path and passed as parameters to the view function.
+You can specify parameters in the path using a datatype (`int`, `str`) and a name. Those values will then be automatically taken out of the path and passed as parameters to the view function. A common use for these is for a detail view for a record, with the primary key of the record specified in the path.
 
-##### urls.py
+**urls.py**
 ```python
 from django.urls import path
 from . import views
 app_name = 'todoapp'
 urlpatterns = [
-    # e.g. /detail/5, /detail/23
+    # e.g. /detail/5/, /detail/23/
     path('detail/<int:todo_item_id>/', views.detail, name='detail')
 ]
 ```
 
-##### views.py
-
+**views.py**
 ```python
+from django.shortcuts import get_object_or_404
+from .models import TodoItem
 def detail(request, todo_item_id):
+    # look up the TodoItem with the given id
     todo_item = get_object_or_404(TodoItem, pk=todo_item_id)
+    # pass that todo item to the template to be rendered
     return render(request, 'todoapp/detail.html', {'todo_item': todo_item})
 ```
 
 
 ### Receiving Query Parameters
 
-Query parameters are passed as part of the url and are turned into dictionary-like objects. For example, if the path entered is `/path/to/view/?todo_text=take+a+walk`, we can retrieve the query parameters by name.
+Query parameters are passed as part of the url and are turned into dictionary-like objects. For example, if the path entered is `/mypath/?myvar=mytext`, we can retrieve the query parameters by name.
 
 ```python
 def view(request):
-    print(request.GET['todo_text']) # 'take a walk'
+    print(request.GET['myvar']) # 'mytext'
 ```
-
 
 ### Receiving a Form Submission
 
-When a form is submitted to a view, the data in the form is arranged into a dictionary. The `name` attributes of the input elements become the `keys` and the values the user enters into the input elements become the `values`. The view can then use the key to get the values out of the dictionary.
+When a form is submitted to a view, the data in the form is arranged into a dictionary. The `name` attributes of the input elements become the `keys` and the values the user enters into the input elements become the `values`. The view can then use the key to get the values out of the dictionary. For more about forms, check out [Templates - Forms](04%20-%20Templates.md#forms).
 
 
+**myapp/templates/myapp/mytemplate.html**
 ```html
-<form action="/path/to/receive_form/" method="post">
-  <input name="todo_text"/>
+<form action="{% url 'myapp:mypathname' %}" method="post">
+  <input name="myname"/>
   <button type="submit">submit</button>
 </form>
 ```
 
-
+**myapp/urls.py**
 ```python
-def receive_form(request):
-    print(request.POST['todo_text'])
+from django.urls import path
+
+app_name = 'myapp'
+urlpatterns = [
+    path('mypath/', views.myview, name='mypathname')
+]
+```
+
+**myapp/views.py**
+```python
+from django.http import HttpResponse
+def myview(request):
+    print(request.POST['myname'])
     return HttpResponse('ok')
 ```
 
@@ -88,9 +115,12 @@ To read JSON data sent via AJAX, you can use the built-in `json` module to read 
 
 
 ```javascript
-let data = {foo: 'bar', hello: 'world'}
-axios.post('/path/to/postdata', data).then(function(response) {
-  console.log(response.data)
+axios({
+    method: 'post',
+    url: '{% url 'myapp:mypathname' %}',
+    data: {foo: 'bar', hello: 'world'}
+}).then(function(response) {
+    console.log(response.data)
 })
 ```
 
@@ -109,8 +139,17 @@ def postdata(request):
 
 ```python
 from django.http import HttpResponse
+
 def index(request):
     return HttpResponse('Hello World!')
+
+def fruits(request):
+    fruits = ['apples', 'bananas', 'plums']
+    html = '<ul>'
+    for fruit in fruits:
+        html += '<li>' + fruit + '</li>'
+    html += '</ul>'
+    return HttpResponse(html)
 ```
 
 ### Responding with a Template
@@ -128,36 +167,55 @@ def index(request):
 
 ### Responding with JSON
 
-To respond with a JSON object, you can just pass a dictionary to a JsonResponse.
+To respond with JSON, you can just pass a dictionary to a `JsonResponse`.
 
+**myapp/urls.py**
 ```python
 from django.http import JsonResponse
-def getdata(request):
+def myview(request):
     data = {'foo': 'bar', 'hello': 'world'}
     return JsonResponse(data)
 ```
 
+You can then send an HTTP request to this view via ajax.
+
+**myapp/templates/myapp/index.html**
 ```javascript
-axios.get('/path/to/getdata/').then(function(response) {
-  console.log(response.data)
+axios{
+    method: 'get',
+    path: "{% url 'myapp:myview' %}"
+}).then(function(response) {
+    console.log(response.data)
 })
 ```
 
 
 ### Redirecting
 
-To redirect, you can use the HttpResponseRedirect class. It's also best to use the [reverse](https://docs.djangoproject.com/en/2.2/ref/urlresolvers/#reverse) function to look up the url using the name rather than hard-coding it.
+To redirect, you can use the HttpResponseRedirect class. You can redirect to a full url `http://mysite.com/` or if you put a path `/mypath/`, django will add it to the current domain `http://localhost:8000/mypath/`. This can cause issues (`reverse('google.com')` will redirect to `localhost:8000/google.com`.
+
+```python
+from django.http import HttpResponseRedirect
+def myview(request):
+    ...
+    return HttpResponseRedirect('/mypath/')
+```
+```python
+def myview(request):
+    ...
+    return HttpResponseRedirect('http://mysite.com/')
+```
+
+It's also best to use the [reverse](https://docs.djangoproject.com/en/3.1/ref/urlresolvers/#reverse) function to look up the url using the name rather than hard-coding it. This does the same reverse url redirect as the template: [04 Template - Reverse URL Lookup](04%20-%20Templates.md#reverse-url-lookup)
 
 ```python
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 def add(request):
-    ...
-    return HttpResponseRedirect('/todos/')
-    return HttpResponseRedirect(reverse('todos:index'))
+    return HttpResponseRedirect(reverse('myapp:myview'))
 ```
 
-If you need to redirect to a full url, you can use the [redirect](https://docs.djangoproject.com/en/2.2/topics/http/shortcuts/#redirect) function.
+You can also use the [redirect](https://docs.djangoproject.com/en/3.1/topics/http/shortcuts/#redirect) function. The difference is explained [here](https://stackoverflow.com/questions/13304149/what-the-difference-between-using-django-redirect-and-httpresponseredirect).
 
 ```python
 from django.shortcuts import redirect

@@ -66,8 +66,8 @@ Before deploying, make sure you've taken the following steps:
 
 
 
-https://docs.djangoproject.com/en/3.0/howto/static-files/#deployment
-https://docs.djangoproject.com/en/3.0/howto/static-files/deployment/
+https://docs.djangoproject.com/en/3.1/howto/static-files/#deployment
+https://docs.djangoproject.com/en/3.1/howto/static-files/deployment/
 
 ### Deploying with PythonAnywhere
 

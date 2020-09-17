@@ -2,36 +2,36 @@
 
 # Models
 
-1. [Overview](#overview)
-2. [Field Types](#field-types)
-   1. [Nullable Fields](#nullable-fields)
-   2. [Default Values](#default-values)
-3. [Database Relationships](#database-relationships)
-      1. [Users](#users)
-      2. [Cities](#cities)
-   1. [One-to-One](#one-to-one)
-   2. [Many-to-One](#many-to-one)
-   3. [Many-to-Many](#many-to-many)
-   4. [on_delete](#on_delete)
-4. [ORM Operations](#orm-operations)
-   1. [Example Model](#example-model)
-   2. [Create an Instance](#create-an-instance)
-   3. [Changing a Property on an Instance](#changing-a-property-on-an-instance)
-   4. [Save an Instance](#save-an-instance)
-   5. [Get All Rows](#get-all-rows)
-   6. [Get a Particular Row](#get-a-particular-row)
-   7. [Check if a Record Exists](#check-if-a-record-exists)
-   8. [Filter Rows](#filter-rows)
-   9. [Specify an Order](#specify-an-order)
-   10. [Specify the Number of Rows to Return](#specify-the-number-of-rows-to-return)
-   11. [Get the Number of Rows](#get-the-number-of-rows)
+- [Overview](#overview)
+- [Field Types](#field-types)
+  - [Nullable Fields](#nullable-fields)
+  - [Default Values](#default-values)
+- [Database Relationships](#database-relationships)
+    - [Users](#users)
+    - [Cities](#cities)
+  - [One-to-One](#one-to-one)
+  - [Many-to-One](#many-to-one)
+  - [Many-to-Many](#many-to-many)
+  - [on_delete](#on_delete)
+- [ORM Operations](#orm-operations)
+  - [Example Model](#example-model)
+  - [Create an Instance](#create-an-instance)
+  - [Changing a Property on an Instance](#changing-a-property-on-an-instance)
+  - [Save an Instance](#save-an-instance)
+  - [Get All Rows](#get-all-rows)
+  - [Get a Particular Row](#get-a-particular-row)
+  - [Check if a Record Exists](#check-if-a-record-exists)
+  - [Filter Rows](#filter-rows)
+  - [Specify an Order](#specify-an-order)
+  - [Specify the Number of Rows to Return](#specify-the-number-of-rows-to-return)
+  - [Get the Number of Rows](#get-the-number-of-rows)
 
 
 ## Overview
 
-Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to queries on the database. You can read more about models [here](https://docs.djangoproject.com/en/2.2/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/2.2/ref/models/querysets/).
+Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to queries on the database. You can read more about models [here](https://docs.djangoproject.com/en/3.1/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/3.1/ref/models/querysets/).
 
-- [Polls Tutorial - Part 2](https://docs.djangoproject.com/en/3.0/intro/tutorial02/)
+- [Polls Tutorial - Part 2](https://docs.djangoproject.com/en/3.1/intro/tutorial02/)
 
 Database tables are like excel spreadsheets: they have headers and rows. Tables can also be thought of as Python classes, where the headers are class attributes, and the rows are instances. All models are automatically given an `id` field as a primary key, which uniquely identifies a row.
 
@@ -54,17 +54,17 @@ contact3 = Contact(email='brian@gmail.com', first_name='Brian', last_name='Barbe
 
 ## Field Types
 
-You can read more about the field types [here](https://docs.djangoproject.com/en/2.2/ref/models/fields/).
+You can read more about the field types [here](https://docs.djangoproject.com/en/3.1/ref/models/fields/).
 
 - `BooleanField` represents a boolean (true/false) value
 - `IntegerField` represents an integer
 - `FloatField` represents a floating-point number
 - `CharField` represents a string, requires `max_length` parameter indicating the number of characters
 - `TextField` like `CharField` but has unlimited length
-- `DateTimeField` represents a datetime (more [here](https://docs.djangoproject.com/en/2.2/topics/i18n/timezones/))
-- `OneToOneField` represents a [one-to-one relationship](https://docs.djangoproject.com/en/2.2/topics/db/examples/one_to_one/)
-- `ForeignKey` represents a [many-to-one relationship](https://docs.djangoproject.com/en/2.2/topics/db/examples/many_to_one/)
-- `ManyToManyField` represents a [many-to-many relationship](https://docs.djangoproject.com/en/2.2/topics/db/examples/many_to_many/)
+- `DateTimeField` represents a datetime (more [here](https://docs.djangoproject.com/en/3.1/topics/i18n/timezones/))
+- `OneToOneField` represents a [one-to-one relationship](https://docs.djangoproject.com/en/3.1/topics/db/examples/one_to_one/)
+- `ForeignKey` represents a [many-to-one relationship](https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_one/)
+- `ManyToManyField` represents a [many-to-many relationship](https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/)
 
 ### Nullable Fields
 
@@ -122,7 +122,7 @@ class User(models.Model):
 
 ### One-to-One
 
-A one-to-one relationship means that for every row in table A, there will be a single corresponding row in table B. An example might be between [counties and capital cities](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CPT-Databases-OnetoOne.svg/460px-CPT-Databases-OnetoOne.svg.png). Any country only has one capital. Any capital only pretains to one country. You can read more about one-to-one relationships [here](https://docs.djangoproject.com/en/2.2/topics/db/examples/one_to_one/). Normally a one-to-one relationship is unnecessary, because one could just take the fields from both models and put them onto one model. But you may have to associate new fields with an old model without changing the old model, or need to restrict access to certain data [more info](https://stackoverflow.com/questions/25206447/when-to-use-one-to-one-relationships-in-django-models).
+A one-to-one relationship means that for every row in table A, there will be a single corresponding row in table B. An example might be between [counties and capital cities](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CPT-Databases-OnetoOne.svg/460px-CPT-Databases-OnetoOne.svg.png). Any country only has one capital. Any capital only pretains to one country. You can read more about one-to-one relationships [here](https://docs.djangoproject.com/en/3.1/topics/db/examples/one_to_one/). Normally a one-to-one relationship is unnecessary, because one could just take the fields from both models and put them onto one model. But you may have to associate new fields with an old model without changing the old model, or need to restrict access to certain data [more info](https://stackoverflow.com/questions/25206447/when-to-use-one-to-one-relationships-in-django-models).
 
 
 ```python
@@ -167,12 +167,12 @@ class Child(models.Model):
 ### Many-to-Many
 
 An example might be between [authors and books](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/CPT-Databases-ManytoMany.svg/460px-CPT-Databases-ManytoMany.svg.png). One book may have multiple authors. One author may have multiple books. To define such a relationship, you can create a [junction table](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Databases-ManyToManyWJunction.jpg/800px-Databases-ManyToManyWJunction.jpg) with two many-to-one relationships. Or you can use a `ManyToManyField`
-You can read more about many-to-many relationships [here](https://docs.djangoproject.com/en/2.2/topics/db/examples/many_to_many/).
+You can read more about many-to-many relationships [here](https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/).
 
 
 ### on_delete
 
-The `on_delete` parameter lets you control what to do with other rows when a connected row is deleted. You can read more about `on_delete` [here](https://docs.djangoproject.com/en/2.2/ref/models/fields/#arguments). The important options are:
+The `on_delete` parameter lets you control what to do with other rows when a connected row is deleted. You can read more about `on_delete` [here](https://docs.djangoproject.com/en/3.1/ref/models/fields/#arguments). The important options are:
 
 - `CASCADE` deleted this row when the other is deleted
 - `PROTECT` throws an exception when the other is deleted, this forces the developer re-assign the relationship when they want to delete a row
@@ -182,7 +182,7 @@ The `on_delete` parameter lets you control what to do with other rows when a con
 
 ## ORM Operations
 
-The ORM 'object relational mapping' provides functions in Python that perform operations on the database. To read more about ORM operations, look [here](https://docs.djangoproject.com/en/2.2/topics/db/queries/). Note that `__init__`, `get`,  and `filter` take `**kwargs` (which turns named parameters into a dictionary), whereas `order_by` takes `*args` (which turns arguments into a list).
+The ORM 'object relational mapping' provides functions in Python that perform operations on the database. To read more about ORM operations, look [here](https://docs.djangoproject.com/en/3.1/topics/db/queries/). Note that `__init__`, `get`,  and `filter` take `**kwargs` (which turns named parameters into a dictionary), whereas `order_by` takes `*args` (which turns arguments into a list).
 
 ### Example Model
 

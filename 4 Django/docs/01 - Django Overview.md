@@ -1,17 +1,19 @@
 
 # Django Overview
 
-1. [What is Django?](#what-is-django)
-2. [Management Commands](#management-commands)
-3. [Custom Management Commands](#custom-management-commands)
-4. [Resources](#resources)
-   1. [Learn](#learn)
-   2. [Libraries](#libraries)
-   3. [Tools](#tools)
+- [Overview](#overview)
+- [Management Commands](#management-commands)
+  - [Custom Management Commands](#custom-management-commands)
+- [Resources](#resources)
+  - [Tutorials](#tutorials)
+  - [Videos](#videos)
+  - [Forums](#forums)
+  - [Libraries](#libraries)
+  - [Tools](#tools)
 
 
 
-## What is Django?
+## Overview
 
 Django is a back-end framework written in Python. Django is a **high-level framework** meaning that it provides a great deal of functionality for you, but you have to connect the pieces together. You have to learn things the 'django way'. This also means that isn't necessarily any deeper intuition behind things, the only answer may be "that's just how Django does things".
 
@@ -28,13 +30,14 @@ Django applications are contained in a **project** which can have multiple **app
 
 - [MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
 - [Wikipedia](https://en.wikipedia.org/wiki/Django_(web_framework))
-- [Official Docs](https://docs.djangoproject.com/en/3.0/)
-  - [Table of Contents](https://docs.djangoproject.com/en/3.0/contents/)
+- [Official Docs](https://docs.djangoproject.com/en/3.1/)
+  - [Table of Contents](https://docs.djangoproject.com/en/3.1/contents/)
+  - [Official Tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/)
 - [Django Girls Tutorial](https://tutorial.djangogirls.org/en/django/)
 
 ## Management Commands
 
-You can view a full list of the management commands [here](https://docs.djangoproject.com/en/3.0/ref/django-admin/)
+Management commands are executed in a terminal to perform operations on a django project. You can view a full list of the management commands [here](https://docs.djangoproject.com/en/3.1/ref/django-admin/)
 
 | Command | Description |
 | ---     | ---         |
@@ -47,11 +50,19 @@ You can view a full list of the management commands [here](https://docs.djangopr
 | `python manage.py collectstatic` | collects static files from each app and puts them into one folder, used for deployment |
 | `python manage.py shell` | open an interactive session, often used to do database operations |
 
-## Custom Management Commands
+### Custom Management Commands
 
-If you need to execute some Python code to perform administrative operations (load data into a database from a file or API, erase saved files, etc), you can write a custom management command. These are executed just like other management commands (`runserver`, `startapp`, `migrate`, etc).
+If you need to execute some Python code to perform administrative operations (load data into a database from a file or API, erase saved files, etc), you can write a custom management command. These are executed just like other management commands (`runserver`, `startapp`, `migrate`, etc). To create a custom management command, first create a `management` folder inside your app. Inside of that, create a `commands` folder. Inside of that, create a `mycommand.py`. \
 
-To create a custom management command, first create a `management` folder inside your app. Inside of that, create a `commands` folder. Inside of that, create a `<command name>.py`. Inside your `<command name>.py`, write the following.
+- myproject
+  - myproject
+  - myapp
+    - management
+      - commands
+        - mycommand.py
+
+
+Inside your `mycommand.py`, write the following.
 
 ```python
 from django.core.management.base import BaseCommand
@@ -60,7 +71,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # write the code here
-        pass
+        print('hello!')
 ```
 
 Now you can execute this function using `python manage.py <command name>`. Any parameters you write after the `<command name>` will be passed to the `handle` function.
@@ -69,16 +80,29 @@ Now you can execute this function using `python manage.py <command name>`. Any p
 
 ## Resources
 
-### Learn
+### Tutorials
 
-- [official tutorial](https://docs.djangoproject.com/en/3.0/intro/tutorial01/)
-- [django girls tutorial](https://tutorial.djangogirls.org/en/)
-- [8-hour video (uses Django 1.11)](https://www.youtube.com/watch?v=yDv5FIAeyoY)
-- [fullstack python](https://www.fullstackpython.com/django.html)
+- [Official Tutorial](https://docs.djangoproject.com/en/3.1/intro/tutorial01/)
+- [Django Girls Tutorial](https://tutorial.djangogirls.org/en/)
+- [Real Python](https://realpython.com/tutorials/django/)
+- [Simple is Better Than Complex](https://simpleisbetterthancomplex.com/archive/)
+
+### Videos
+
+- [Corey Schafer's Video Series](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)
+- [The Net Ninja's Video Series](https://www.youtube.com/watch?v=n-FTlQ7Djqc&list=PL4cUxeGkcC9ib4HsrXEYpQnTOTZE1x0uc)
+- [The Django Book](https://djangobook.com/beginning-django-tutorial-contents/)
+- [Traversey Media](https://www.youtube.com/watch?v=e1IyzVyrLSU)
+- [Dennis Ivy](https://www.youtube.com/watch?v=4RWFvXDUmjo)
+
+### Forums
+
+- [Official Forum](https://forum.djangoproject.com/)
 
 ### Libraries
 
-- [django packages](https://djangopackages.org/): a library of django libraries
+- [Django Packages](https://djangopackages.org/)
+- [A List](https://vsupalov.com/favorite-django-packages-2019/)
 
 ### Tools
 

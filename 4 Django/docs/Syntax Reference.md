@@ -15,7 +15,7 @@
 
 ## Common Commands
 
-You can find a complete list of django admin commands [here](https://docs.djangoproject.com/en/2.2/ref/django-admin/).
+You can find a complete list of django admin commands [here](https://docs.djangoproject.com/en/3.1/ref/django-admin/).
 
 | Command                                       | Description                      |
 |-----------------------------------------------|----------------------------------|

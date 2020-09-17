@@ -1,23 +1,26 @@
 # Templates
 
-1. [Passing a Value to the Template](#passing-a-value-to-the-template)
-2. [Template Rendering Syntax](#template-rendering-syntax)
-   1. [Rendering a Value](#rendering-a-value)
-   2. [Conditionals](#conditionals)
-   3. [Looping](#looping)
-3. [Reverse URL Lookup](#reverse-url-lookup)
-4. [Forms](#forms)
-5. [Static Files](#static-files)
-6. [Template Inheritance: `block` and `extend`](#template-inheritance-block-and-extend)
-      1. [base.html](#basehtml)
-      2. [index.html](#indexhtml)
-      3. [detail.html](#detailhtml)
+- [Overview](#overview)
+- [Passing a Value to the Template](#passing-a-value-to-the-template)
+- [Template Rendering Syntax](#template-rendering-syntax)
+  - [Rendering a Value](#rendering-a-value)
+  - [Conditionals](#conditionals)
+  - [Looping](#looping)
+- [Reverse URL Lookup](#reverse-url-lookup)
+- [Forms](#forms)
+- [Static Files](#static-files)
+- [Template Inheritance: `block` and `extend`](#template-inheritance-block-and-extend)
 
-Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/3.0/topics/templates/) and [here](https://docs.djangoproject.com/en/3.0/ref/templates/builtins/)
+## Overview
 
-The variable names referred to inside the template must be defined in the data context (a dictionary) passed to the `render` function inside the view. For more information, see the [views doc](02%20-%20Views.md).
+Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/3.1/topics/templates/) and [here](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/)
+
 
 ## Passing a Value to the Template
+
+The variable names referred to inside the template must be defined in the data context (a dictionary) passed to the `render` function inside the view.
+
+
 
 
 ## Template Rendering Syntax
@@ -81,7 +84,7 @@ def index(self)
 
 ## Reverse URL Lookup
 
-In order for Django to find the proper path when rendering the template, the app's `urls.py` must contain the variable `app_name`, e.g. `app_name = 'todos'`.
+In order for Django to find the proper path when rendering the template, the app's `urls.py` must contain the variable `app_name`, e.g. `app_name = 'todos'`. The `name` given in `urls.py` and the actual `path` can be different. To keep things simple, use consistent names.
 
 
 **urls.py**
@@ -105,22 +108,24 @@ urlpatterns = [
 ```
 
 
-The `name` given in `urls.py` and the actual `path` can be different. To keep things simple, use consistent names. You can read more about [routing](https://docs.djangoproject.com/en/3.0/topics/http/urls/) and the [urls package](https://docs.djangoproject.com/en/3.0/ref/urls/).
-
-
 ## Forms
 
-A form is an HTML element that can transmit data to a server. Forms have two important attributes: `action` and `method`. The `action` is the url to which the form's data will be submitted. The `method` is the HTTP method (POST, GET, PUT, DELETE).
+A form is an HTML element that can transmit data to a server. You can read more about forms [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form). To save the form data, check out [03 Views - Forms](03%20-%20Views.md#receiving-a-form-submission).
 
-The `input` elements inside a form. To 'submit' the data, add a button with `type="submit` inside the form. You can read more about forms [here](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form).
+There are 5 important parts to a form:
 
-Django also requires a CSRF token to be submitted as part of the form. CSRF stands for 'cross-site request forgery' You can include this just by adding `{% csrf_token %}` inside the form. You can read more about CSRF [here](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
+
+1. The `action` is the path or url to which the form's data will be submitted. This is usually connected to a view and read via the dictionary `request.POST`.
+2. The `method` is the HTTP method to send the request in (POST, GET, PUT, DELETE).
+3. The `input` elements inside a form need name attributes, which will be used to retreive the data on the back-end.
+4. The `<button type="submit">` or `<input type="submit">` will submit the form when clicked.
+5. The `{% csrf_token %}` will insert a token that protects against [Cross-site request forgeries](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
 ```html
-<form action="/savetodo" method="post">
+<form action="/mypath/" method="post">
     {% csrf_token %}
-    <input type="text" name="todo_text"/>
-    <button type="submit">+</button>
+    <input type="text" name="myname"/>
+    <button type="submit">save</button>
 </form>
 ```
 
@@ -128,12 +133,12 @@ Django also requires a CSRF token to be submitted as part of the form. CSRF stan
 
 To load static files into a page, create a folder in your app called `static`. Inside that folder, create a folder with the same name as your app (just as you did with templates). In your template, you then must add `{% load static %}` before you load your static file.
 
-- [Managing Static Files](https://docs.djangoproject.com/en/3.0/howto/static-files/)
-- [Polls Tutorial: Part 6](https://docs.djangoproject.com/en/3.0/intro/tutorial06/)
+- [Managing Static Files](https://docs.djangoproject.com/en/3.1/howto/static-files/)
+- [Polls Tutorial: Part 6](https://docs.djangoproject.com/en/3.1/intro/tutorial06/)
 
 ```html
 {% load static %}
-<img src="{% static 'todos/example.jpg' %}" alt="My image"/>
+<img src="{% static 'myapp/example.jpg' %}" alt="My image"/>
 ```
 
 ## Template Inheritance: `block` and `extend`
@@ -143,8 +148,7 @@ You can have one template 'inherit' from another, meaning the child template's c
 In the example below, `base.html` contains the header and footer. Two pages, `index.html` and `detail.html` inherit from `base.html`. The contents of each `{% block %}` in the child templates are used to fill the corresponding block in the parent when the template is rendered.
 
 
-#### base.html
-
+**base.html**
 ```html
 <html>
     <head>
@@ -165,8 +169,7 @@ In the example below, `base.html` contains the header and footer. Two pages, `in
 </html>
 ```
 
-#### index.html
-
+**index.html**
 ```html
 {% extends 'myapp/base.html' %}
 {% block title %}Home{% endblock %}
@@ -175,8 +178,7 @@ In the example below, `base.html` contains the header and footer. Two pages, `in
 {% endblock %}
 ```
 
-#### detail.html
-
+**detail.html**
 ````html
 {% extends 'myapp/base.html' %}
 {% block title %}Details{% endblock %}
