@@ -6,15 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/savetodo/" method="post">
-        {% csrf_token %}
-        <input type="text" name="todo_text" placeholder="todo text" required/>
-        <button type="submit">save</button>
-    </form>
+    <h1>{{title}}</h1>
     <ul>
         {% for todo_item in todo_items %}
         <li>{{todo_item.text}}</li>
         {% endfor %}
     </ul>
+
 </body>
 </html>

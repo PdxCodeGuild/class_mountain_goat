@@ -7,6 +7,7 @@
 2. Move into the project folder `cd myproject`
 3. Create the database with built-in models `python manage.py migrate`
 4. Create a superuser `python manage.py createsuperuser`
+5. Set the timezone in your `settings.py` (e.g. `TIME_ZONE = 'America/Los_Angeles'`) [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 ## 2) App Setup
 
@@ -118,6 +119,7 @@ def index(request):
 
 ```python
 from django.db import models
+from .models import MyModel
 
 class MyModel(models.Model):
     title = models.CharField(max_length=200)
