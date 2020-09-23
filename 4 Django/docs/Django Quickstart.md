@@ -119,9 +119,8 @@ def index(request):
 
 ```python
 from django.db import models
-from .models import MyModel
 
-class MyModel(models.Model):
+class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     body = models.TextField()
@@ -139,9 +138,9 @@ class MyModel(models.Model):
 
 ```python
 from django.contrib import admin
-from .models import MyModel
+from .models import BlogPost
 
-admin.site.register(MyModel)
+admin.site.register(BlogPost)
 ```
 
 4. Log into your admin panel `localhost:8000/admin`, you should see your models, and can make sure they work by creating some record
@@ -152,9 +151,10 @@ admin.site.register(MyModel)
 
 ```python
 from django.shortcuts import render
+from .models import BlogPost
 
 def index(request):
-    blog_posts = MyModel.objects.order_by('-date_published')
+    blog_posts = BlogPost.objects.order_by('-date_published')
     context = {
         'blog_posts': blog_posts
     }

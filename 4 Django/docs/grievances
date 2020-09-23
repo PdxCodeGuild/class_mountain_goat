@@ -1,0 +1,15 @@
+
+
+
+- Django is an MVC framework, but they call the controller the view
+  - MVC (model - data structure, view - display/html, controller - the code that manages the relationship)
+- having to put templates and static files in an additional subfolder (myapp/templates/myapp/index.html instead of myapp/templates/myapp/index.html)
+- not creating urls.py when you create an app (it's possible to link a project urls directly to the app view)
+- why have a different app_name in the urls.py for your reverse url lookup
+- urlpatterns in urls.py isn't snake case
+- automatically register our model with the admin panel
+- adding the app to the list of installed apps is unnecessarily complicated
+- why is it called urls.py if it only uses the path part of the url, 'routes.py' would be a better name imho
+
+
+
