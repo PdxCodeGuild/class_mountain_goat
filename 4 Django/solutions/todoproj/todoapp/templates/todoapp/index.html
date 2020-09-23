@@ -9,7 +9,7 @@
     <h1>{{title}}</h1>
     <ul>
         {% for todo_item in todo_items %}
-        <li>{{todo_item.text}}</li>
+        <li>{{todo_item.text}} ({{todo_item.priority.name}})</li>
         {% endfor %}
     </ul>
 

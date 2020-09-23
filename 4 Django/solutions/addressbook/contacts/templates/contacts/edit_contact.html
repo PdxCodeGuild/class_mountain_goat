@@ -1,0 +1,36 @@
+{% extends 'contacts/base.html' %}
+
+{% block title %}
+Edit Contact
+{% endblock %}
+
+
+{% block style %}
+<style>
+    form{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form id="contact-fields" action="{% url 'contacts:edit' contact.id %}" method="POST">
+        {% csrf_token %}
+        <label for="first-name">First Name</label>
+        <input value="{{contact.first_name}}" for="contact-fields" name="first-name" placeholder="First Name" type="text">
+        <label for="last-name">Last Name</label>
+        <input value="{{contact.last_name}}" for="contact-fields" name="last-name" placeholder="Last Name" type="text">
+        <label for="email">Email</label>
+        <input value="{{contact.email}}" for="contact-fields" name="email" placeholder="Email" type="text">
+        <label for="phone-number">Phone Number</label>
+        <input value="{{contact.phone_number}}" for="contact-fields" name="phone-number" placeholder="Phone Number" type="text">
+        <label for="address">Address</label>
+        <input value="{{contact.address}}" for="contact-fields" name="address" placeholder="Address" type="text">
+        <input class="btn btn-primary" type="submit" value="Update Contact">
+    </form>
+    <a class="btn btn-danger" href="{% url 'contacts:delete' contact.id %}">Delete Me</a>
+</div>
+{% endblock %}

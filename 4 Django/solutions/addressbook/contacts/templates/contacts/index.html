@@ -1,0 +1,45 @@
+{% extends 'contacts/base.html' %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'contacts:add' %}">Add Contact</a>
+    {% if contacts %}
+        {% for contact in contacts %}
+        
+        
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse{{contact.id}}" aria-expanded="false" aria-controls="collapseOne">
+                    {{contact.first_name}} {{contact.last_name}}
+                  </button>
+                </h2>
+              </div>
+          
+              <div id="collapse{{contact.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul>
+                        <li>{{contact.address}}</li>
+                        <li>{{contact.phone_number}}</li>
+                        <li>{{contact.email}}</li>
+                    </ul>
+                    <a href="{% url 'contacts:edit' contact.id %}"><h4>Edit Contact</h4></a>
+                </div>
+              </div>
+            </div>            
+          </div>
+        {% endfor %}
+    {% else %}
+        <h1>No contacts found.</h1>
+    {% endif %}
+{% endblock %}
