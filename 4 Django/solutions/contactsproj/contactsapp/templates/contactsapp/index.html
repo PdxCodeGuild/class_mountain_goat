@@ -24,7 +24,7 @@
             <td>{{ contact.first_name }}</td>
             <td>{{ contact.last_name }}</td>
             <td>{{ contact.phone_number }}</td>
-            <td><a href="??" class="btn">details</a></td>
+            <td><a href="{% url 'contactsapp:details' contact.id %}" class="btn">details</a></td>
         </tr>
         {% endfor %}
     </tbody>

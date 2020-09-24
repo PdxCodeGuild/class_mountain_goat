@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-
+from django.urls import reverse
 from .models import Contact
 
 def index(request):
@@ -24,10 +24,19 @@ def about(request):
 def details(request, contact_id):
     # return HttpResponse(f'Contact with id {contact_id}')
     contact = get_object_or_404(Contact, pk=contact_id)
+
     # print(contact)
     context = {
         'contact': contact
     }
+
     return render(request, 'contactsapp/details.html', context)
+
+def delete(request, contact_id):
+    contact = get_object_or_404(Contact, pk=contact_id)
+    contact.delete()
+
+    return redirect('contactsapp:index')
+
 
 
