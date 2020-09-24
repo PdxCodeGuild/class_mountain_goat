@@ -1,0 +1,19 @@
+# Lab 2: Todo
+
+## Part 1
+
+Let's create a simple todo app. This can be done with a single model `TodoItem` which contains a CharField `name`, a TextField `description`, a DateTimeField `created_date`, a nullable DateTimeField `completed_date`. Newly created `TodoItem`s should have a `null` completed date. The index page should have a list of all the todo items (showing only the name), with completed items in a separate list (or at the bottom of the existing list) with grey color and maybe a line through them.. There should also be a text field and a button (in a form), When the clicks the button it should saves a new todo item to the database and shows the newly-added item in the list. Use one view to render the template, and another view to receive the form submission and redirect back to the first view.
+
+## Part 2
+
+Add a detail page for a given `TodoItem` (passing the `id` in the path). On that page show the `name`, `description`, `created_date`, and `completed_date` if completed. This can be accomplished by having a form in each todo item with a hidden input field containing todo item `id` inside the form containing the `complete` button.
+
+## Part 3
+
+Add a `Priority` model with a `name` field (e.g. low, medium, high). Then add a `ForeignKeyField` to the `TodoItem` linking it to a `Priority`. The form for creating a todo item should also have a dropdown list for selecting the priority. Display the priority in the list of todo items.
+
+## Part 4
+
+Add a `delete` button to the todo item detail page.
+
+
