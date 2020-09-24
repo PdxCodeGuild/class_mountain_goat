@@ -9,6 +9,8 @@ class Contact(models.Model):
     email = models.CharField(max_length=50)
     address = models.CharField(max_length=200)
     birthday = models.DateField()
+    deceased = models.DateField(null=True, blank=True)
+
 
     def name(self):
         return self.first_name + ' ' + self.last_name

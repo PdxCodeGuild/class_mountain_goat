@@ -5,28 +5,80 @@
     .btn {
         text-transform: capitalize;
     }
+    #message_success {
+        background-color:lightgreen;
+        text-align:center;
+        padding:20px;
+        margin:10px;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
 
-    <h1>{{contact.name}}</h1>
-    <input action="">
-        <label for="first-name">First Name:</label>
-        <input id="first-name" type="text" name="first_name" value="{{ contact.first_name }}" />
-        <label for="last-name">Last Name:</label>
-        <input id="last-name" type="text" name="last_name" value="{{ contact.last_name }}" />
-        <label for="phone">Phone #:</label>
-        <input id="phone" type="text" name="phone_number" value="{{ contact.phone_number }}" />
-        <label for="email">Email:</label>
-        <input id="email" type="text" name="email" value="{{ contact.email }}" />
-        <label for="address">Address:</label>
-        <input id="address" type="text" name="address" value="{{ contact.address }}"/>
-        <label for="birthday">Birthday:</label>
-        <input id="birthday" type="text" name="birthday" value="{{ contact.birthday }}" />
-        <input class="btn waves-effect waves-light" type="submit" value="save" />
+<h1>{{contact.name}}{% if contact.deceased %}(deceased {{contact.deceased | date:'Y-m-d'}}){% endif %}</h1>
+{% if message == 'success' %}
+<div id="message_success">Contact saved successfully</div>
+{% endif %}
+<div class="row">
+    <form action="{% url 'contactsapp:save' contact.id %}" method="post" class="col s12">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col m6 s12">
+                <input id="first_name" type="text" name="first_name" value="{{ contact.first_name }}" class="validate"
+                    required />
+                <label for="first_name">First Name:</label>
+            </div>
+            <div class="input-field col m6 s12">
+                <input id="last_name" type="text" name="last_name" value="{{ contact.last_name }}" class="validate"
+                    required />
+                <label for="last_name">Last Name:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col m6 s12">
+                <input id="phone_number" type="text" name="phone" value="{{ contact.phone_number }}" class="validate"
+                    required />
+                <label for="phone_number">Phone Number:</label>
+            </div>
+            <div class="input-field col m6 s12">
+                <input id="email" type="text" name="email" value="{{ contact.email }}" class="validate" required />
+                <label for="email">Email:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col m8 s12">
+                <input id="address" type="text" name="address" value="{{ contact.address }}" class="validate"
+                    required />
+                <label for="address">Address:</label>
+            </div>
+            <div class="input-field col m4 s12">
+                <!-- https://materializecss.com/pickers.html -->
+                <input id="birthday" type="text" class="datepicker validate" name="birthday" value="{{ contact.birthday | date:'M d, Y' }}" required />
+                <label for="birthday">Birthday:</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn green waves-effect waves-light" type="submit">Save</button>
+            <a class="btn red waves-effect waves-light" href="{% url 'contactsapp:delete' contact.id %}">Delete</a>
+            <!-- https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
+            <input type="date" class="validate" name="birthday_vanilla" value="{{ contact.birthday | date:'Y-m-d' }}" required />
+        </div>
     </form>
-    <a href="{% url 'contactsapp:delete' contact.id %}">X</a>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // var elems = document.querySelectorAll('.datepicker');
+        // var instances = M.Datepicker.init(elems, {
+        //     defaultDate: "{{ contact.birthday | date:'M d, Y' }}",
+        //     setDefaultDate: true
+        // });
+
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {});
+    });
+</script>
 
 
 {% endblock %}

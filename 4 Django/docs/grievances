@@ -10,6 +10,6 @@
 - automatically register our model with the admin panel
 - adding the app to the list of installed apps is unnecessarily complicated
 - why is it called urls.py if it only uses the path part of the url, 'routes.py' would be a better name imho
-
+- the docs suck
 
 
