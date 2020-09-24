@@ -12,7 +12,7 @@ class Contact(models.Model):
 
     def name(self):
         return self.first_name + ' ' + self.last_name
-    
+
     def age(self):
         # today = datetime.now()
         # this_year_birthday = datetime(today.year, self.birthday.month, self.birthday.day)

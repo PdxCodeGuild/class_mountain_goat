@@ -1,5 +1,32 @@
 {% extends 'contactsapp/base.html' %}
+
+{% block style %}
+<style>
+    .btn {
+        text-transform: capitalize;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<h1>{{contact.name}}</h1>
-<p>Age: {{contact.age}}</p>
+
+    <h1>{{contact.name}}</h1>
+    <input action="">
+        <label for="first-name">First Name:</label>
+        <input id="first-name" type="text" name="first_name" value="{{ contact.first_name }}" />
+        <label for="last-name">Last Name:</label>
+        <input id="last-name" type="text" name="last_name" value="{{ contact.last_name }}" />
+        <label for="phone">Phone #:</label>
+        <input id="phone" type="text" name="phone_number" value="{{ contact.phone_number }}" />
+        <label for="email">Email:</label>
+        <input id="email" type="text" name="email" value="{{ contact.email }}" />
+        <label for="address">Address:</label>
+        <input id="address" type="text" name="address" value="{{ contact.address }}"/>
+        <label for="birthday">Birthday:</label>
+        <input id="birthday" type="text" name="birthday" value="{{ contact.birthday }}" />
+        <input class="btn waves-effect waves-light" type="submit" value="save" />
+    </form>
+    <a href="{% url 'contactsapp:delete' contact.id %}">X</a>
+
+
 {% endblock %}
