@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>{{question.question_text}}</h1>
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+        {% csrf_token %}
+        {% for choice in question.choices.all %}
+        <input type="radio" name="choice_id" id="choice{{ forloop.counter }}" value="{{choice.id}}">
+        <label for="choice{{ forloop.counter }}">{{choice.choice_text}}</label>
+        <br />
+        {% endfor %}
+        <button type="submit">Vote</button>
+    </form>
+    <a href="{% url 'polls:index' %}">Back</a>
+</body>
+
+</html>
