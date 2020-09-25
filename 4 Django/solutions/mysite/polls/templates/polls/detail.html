@@ -9,6 +9,28 @@
 
 <body>
     <h1>{{question.question_text}}</h1>
+    <h2>Radio Buttons</h2>
+    <!-- <input type="text"/>
+    <input type="email"/>
+    <input type="password"/>
+    <input type="hidden"/>
+    <input type="color"/>
+    <input type="number"/>
+    <input type="checkbox"/>
+    <input type="radio"/>
+    <input type="date"/>
+    <input type="time"/>
+    <textarea>???</textarea>
+    <input type="submit"/> 
+    <select>
+        <option>Apples</option>
+        <option>Bananas</option>
+        <option>Pears</option>
+    </select>-->
+    <form>
+        <input type="text" name="phone_number" pattern="\d{3}-\d{3}-\d{4}" required title="Please enter a phone number in the format 555-555-5555"/>
+        <button type="submit">submit</button>
+    </form>
     <form action="{% url 'polls:vote' question.id %}" method="post">
         {% csrf_token %}
         {% for choice in question.choices.all %}
@@ -16,6 +38,16 @@
         <label for="choice{{ forloop.counter }}">{{choice.choice_text}}</label>
         <br />
         {% endfor %}
+        <button type="submit">Vote</button>
+    </form>
+    <h2>Drop-down List</h2>
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+        {% csrf_token %}
+        <select name="choice_id">
+            {% for choice in question.choices.all %}
+            <option value="{{choice.id}}">{{choice.choice_text}}</option>
+            {% endfor %}
+        </select>
         <button type="submit">Vote</button>
     </form>
     <a href="{% url 'polls:index' %}">Back</a>
