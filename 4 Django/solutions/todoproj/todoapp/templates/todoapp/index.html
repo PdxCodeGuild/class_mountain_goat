@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>To Do List!</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>To Do List!</h1>
+
+        <form method="post" action="{% url 'todoapp:save' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="input_todo">Description of to do item</label>
+                <input type="text" class="form-control" id="input_todo" required name="todo_item_description">
+            </div>
+            <button class="btn btn-success" type="submit">Save</button>
+        </form>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">To Do Item</th>
+                    <th scope="col">Created Date</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for todo_item in todo_items %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ todo_item.description }}</td>
+                    <td>{{ todo_item.created_date }}</td>
+                    <td>
+                        <div class="container">
+                            <!-- passing data by path -->
+                            <a href="{% url 'todoapp:complete' todo_item.id %}" class="btn btn-success">Complete</a>
+                            <!-- passing data by query string -->
+                            <a href="{% url 'todoapp:complete2' %}?todo_item_id={{todo_item.id}}" class="btn btn-success">Complete2</a>
+                            <!-- passing data by form data -->
+                            <form action="{% url 'todoapp:complete3' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="todo_item_id" value="{{todo_item.id}}"/>
+                                <button type="submit" class="btn btn-success">Complete3</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+            </tbody>
+        </table>
+
+        {% if completed_items %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Item Done</th>
+                    <th scope="col">Completed Date</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for todo_item in completed_items %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ todo_item.description }}</td>
+                    <td>{{ todo_item.completed_date }}</td>
+                    <td>
+                        <div class="container">
+                            <a href="{% url 'todoapp:delete' todo_item.id %}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
