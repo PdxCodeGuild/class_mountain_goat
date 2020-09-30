@@ -275,7 +275,7 @@ class Book(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=200)
-    books = models.ManyToManyField(Tag, related_name='authors')
+    books = models.ManyToManyField(Book, related_name='authors')
 
     def __str__(self):
         return self.title
