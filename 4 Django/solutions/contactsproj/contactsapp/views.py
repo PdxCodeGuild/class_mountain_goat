@@ -3,18 +3,42 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from .models import Contact
 from datetime import datetime
+from django.core.paginator import Paginator
+from django.db.models import Q
+
 
 def index(request):
     contacts = Contact.objects.all().order_by('last_name')
-    # contacts = Contacts.objects.order_by('last_name')
-    # contacts = Contacts.objects.filter(last_name='Smith')
-    # contacts = Contacts.objects.filter(address__icontains='portland')
-    # print(contacts[0].last_name)
+    search = request.GET.get('search', '')
+    if search != '':
+        # search in one field
+        # contacts = contacts.filter(first_name__icontains=search)
+        # search for term in first_name AND last_name
+        # contacts = contacts.filter(first_name__icontains=search, last_name__icontains=search)
+
+        contacts = contacts.filter(Q(first_name__icontains=search)
+                                    | Q(last_name__icontains=search)
+                                    | Q(phone_number__icontains=search))
+                                    # | Q(email__icontains=search)
+                                    # | Q(address__icontains=search))
+    
+    # d = {'apples': 1, 'bananas': 2}
+    # print(d.get('cherries', 3))
+
+    # get the page if it was specified in the query string
+    # or get 1 if it isn't
+    page_number = request.GET.get('page', 1)
+
+    contacts_per_page = 10
+    paginator = Paginator(contacts, contacts_per_page)
+    contacts_page = paginator.page(page_number)
 
     context = {
         'message': 'contacts',
-        'contacts': contacts
+        'contacts': contacts_page,
+        'search': search,
     }
+    print(context)
     return render(request, 'contactsapp/index.html', context)
 
 

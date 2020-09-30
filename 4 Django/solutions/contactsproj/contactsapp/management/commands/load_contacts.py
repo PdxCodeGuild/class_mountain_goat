@@ -7,7 +7,7 @@ from datetime import datetime
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        Contact.objects.all().delete(s) # wipe the table
+        Contact.objects.all().delete() # wipe the table
         response = requests.get('https://randomuser.me/api/?results=100&nat=us')
         data = response.json()
         # print(data)

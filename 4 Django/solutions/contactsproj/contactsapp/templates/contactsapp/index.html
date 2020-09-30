@@ -5,12 +5,33 @@
         cursor: pointer;
         user-select: none;
     }
+
+    .pagination {
+        text-align: center;
+    }
 </style>
 <h1>{{message | title}}</h1>
+<div class="row">
+    <form action="" method="get" class="col s12">
+        <input type="hidden" name="page" value="1"/>
+        <div class="row">
+            <div class="input-field col s8">
+                <input id="search_text" type="text" class="validate" name="search" value="{{search}}">
+                <label for="search_text">Search</label>
+            </div>
+            <div class="input-field col s2">
+                <button type="submit" class="btn">search</button>
+            </div>
+            <div class="input-field col s2">
+                <a type="submit" class="btn blue" href="?">clear</a>
+            </div>
+        </div>
+    </form>
+</div>
 <table class="highlight">
     <thead>
         <tr>
-            <th></th>
+            <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Phone Number</th>
@@ -20,7 +41,7 @@
     <tbody>
         {% for contact in contacts %}
         <tr>
-            <td>{{ forloop.counter }}</td>
+            <td>{{ contact.id }}</td>
             <td>{{ contact.first_name }}</td>
             <td>{{ contact.last_name }}</td>
             <td>{{ contact.phone_number }}</td>
@@ -29,4 +50,31 @@
         {% endfor %}
     </tbody>
 </table>
+<ul class="pagination">
+    
+    <!-- previous page button -->
+    {% if contacts.has_previous %}
+    <li class="waves-effect"><a href="?page={{ contacts.previous_page_number }}{% if search %}&search={{search}}{% endif %}"><i
+                class="material-icons">chevron_left</i></a></li>
+    {% else %}
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    {% endif %}
+
+    <!-- page buttons -->
+    {% for page in contacts.paginator.page_range %}
+    {% if contacts.number == page %}
+    <li class="active"><a href="#!">{{page}}</a></li>
+    {% else %}
+    <li class="waves-effect"><a href="?page={{page}}{% if search %}&search={{search}}{% endif %}">{{page}}</a></li>
+    {% endif %}
+    {% endfor %}
+
+    <!-- next page button -->
+    {% if contacts.has_next %}
+    <li class="waves-effect"><a href="?page={{ contacts.next_page_number }}{% if search %}&search={{search}}{% endif %}"><i
+                class="material-icons">chevron_right</i></a></li>
+    {% else %}
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    {% endif %}
+</ul>
 {% endblock %}
