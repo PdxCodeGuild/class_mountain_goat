@@ -1,0 +1,11 @@
+{% extends 'contactsapp/base.html' %}
+
+
+{% block content %}
+<h1>Edit Contact</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Edit Contact</button>
+</form>
+{% endblock %}

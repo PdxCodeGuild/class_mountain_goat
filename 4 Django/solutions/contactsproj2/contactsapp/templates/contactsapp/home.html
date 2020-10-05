@@ -1,0 +1,21 @@
+{% extends 'contactsapp/base.html' %}
+
+
+{% block content %}
+<style>
+    table img {
+        width:100px;
+    }
+</style>
+<h1>{{user.username | title}}'s Contacts</h1>
+<a href="{% url 'contactsapp:create' %}">Create New Contact</a>
+<table>
+    {% for contact in contacts %}
+    <tr>
+        <td><img src="{{contact.image.url}}"/></td>
+        <td>{{contact.name}}</td>
+        <td><a href="{% url 'contactsapp:edit' contact.id %}">edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

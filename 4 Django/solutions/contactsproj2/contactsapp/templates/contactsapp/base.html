@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        nav {
+            padding:20px;
+            background-color:blue;
+            color:white;
+            display:flex;
+            flex-direction:row;
+            justify-content:space-between;
+            align-items:center;
+        }
+        #title {
+            font-size:40px;
+        }
+        main {
+            max-width:800px;
+            margin: 0 auto;
+        }
+        a {
+            color:orange;
+        }
+        a:visited {
+            color:darkorange;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <nav>
+            <span id="title">Contacts</span>
+            <div>
+                {% if user.is_authenticated %}
+                <span>Logged in as {{user.username}}</span>
+                <a href="{% url 'contactsapp:logout' %}">logout</a>
+                {% else %}
+                <a href="{% url 'contactsapp:login' %}">login</a>
+                <span>|</span>
+                <a href="{% url 'contactsapp:register' %}">register</a>
+                {% endif %}
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

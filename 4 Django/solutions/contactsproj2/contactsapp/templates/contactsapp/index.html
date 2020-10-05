@@ -1,0 +1,7 @@
+{% extends 'contactsapp/base.html' %}
+
+
+{% block content %}
+<h1>Contacts App</h1>
+<div><a href="{% url 'contactsapp:login' %}">Login</a> or <a href="{% url 'contactsapp:register' %}">register</a> to start entering contacts!</div>
+{% endblock %}
