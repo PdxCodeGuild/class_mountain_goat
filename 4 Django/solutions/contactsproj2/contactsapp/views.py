@@ -4,6 +4,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .forms import ContactForm
 from .models import Contact
+import requests
+
+from contactsproj2 import secrets
 
 
 # from django.contrib.auth import login as login_user
@@ -13,28 +16,44 @@ def index(request):
     return render(request, 'contactsapp/index.html')
 
 def register(request):
-    message = ''
+
     if request.method == 'POST': # receiving form submission
 
+        # recaptcha
+        recaptcha_data = {
+            'response': request.POST['g-recaptcha-response'],
+            'secret': secrets.recaptcha_secret_key
+        }
+        response = requests.post('https://www.google.com/recaptcha/api/siteverify', data=recaptcha_data)
+
+        if (response.json()['success'] == False):
+            message = 'invalid_recaptcha'
+            return render(request, 'contactsapp/register.html', {'message': message})
+        
         # get data out of form submission
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         retype_password = request.POST['retype_password']
 
-        if password == retype_password: # if the passwords match
-            if not User.objects.filter(username=username).exists(): # if a user doesn't exist with that username
-                # create the user
-                user = User.objects.create_user(username, email, password)
-                # log the user in (sets a cookie)
-                django.contrib.auth.login(request, user)
-                # redirect to the home page
-                return HttpResponseRedirect(reverse('contactsapp:home'))
-            else:
-                message = 'user_already_exists'
-        else:
+        if password != retype_password:
             message = 'passwords_dont_match'
-    return render(request, 'contactsapp/register.html', {'message': message})
+            return render(request, 'contactsapp/register.html', {'message': message})
+
+        # if a user doesn't exist with that username
+        if User.objects.filter(username=username).exists():
+            message = 'user_already_exists'
+            return render(request, 'contactsapp/register.html', {'message': message})
+
+             
+        # create the user
+        user = User.objects.create_user(username, email, password)
+        # log the user in (sets a cookie)
+        django.contrib.auth.login(request, user)
+        # redirect to the home page
+        return HttpResponseRedirect(reverse('contactsapp:home'))
+            
+    return render(request, 'contactsapp/register.html')
 
 
 def login(request):

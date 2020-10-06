@@ -1,11 +1,12 @@
 {% extends 'contactsapp/base.html' %}
 
+{% load bootstrap %}
 
 {% block content %}
 <h1>Create Contact</h1>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|bootstrap }}
     <button type="submit">Create Contact</button>
 </form>
 {% endblock %}

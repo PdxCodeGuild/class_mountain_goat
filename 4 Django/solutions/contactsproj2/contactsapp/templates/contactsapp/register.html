@@ -2,37 +2,49 @@
 
 
 {% block content %}
+
+{% if message %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
     {% if message == 'passwords_dont_match' %}
-    <div style="color:red">The passwords entered do not match!</div>
+    The passwords entered do not match!
     {% elif message == 'user_already_exists' %}
-    <div style="color:red">A user with that username already exists</div>
+    A user with that username already exists
+    {% elif message == 'invalid_recaptcha' %}
+    Invalid recaptcha!
     {% endif %}
-    <h1>Register</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="username" required/>
-        <input type="email" id="input_email" name="email" placeholder="email" required/>
-        <input type="password" id="input_password" name="password" placeholder="password" required/>
-        <input type="password" id="input_retype_password" name="retype_password" placeholder="retype password" required/>
-        <button id="btn_register" type="submit">Register</button>
-    </form>
-    <div><a href="{% url 'contactsapp:login' %}">login</a></div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
 
-    <script>
-        let input_email = document.querySelector('#input_email')
-        let input_password = document.querySelector('#input_password')
-        let input_retype_password = document.querySelector('#input_retype_password')
-        let btn_register = document.querySelector('#btn_register')
-        btn_register.addEventListener('click', function(event) {
-            if (!input_email.value.match(/^.+@.+\..+$/)) {
-                event.preventDefault() // prevent the form from being submitted
-                alert('That email address is in a bad format')
-            }
-            if (input_password.value != input_retype_password.value) {
-                event.preventDefault() // prevent the form from being submitted
-                alert('The passwords don\'t match! :(')
-            }
-        })
+<h1>Register</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="username" required />
+    <input type="email" id="input_email" name="email" placeholder="email" required />
+    <input type="password" id="input_password" name="password" placeholder="password" required />
+    <input type="password" id="input_retype_password" name="retype_password" placeholder="retype password" required />
+    <div class="g-recaptcha" data-sitekey="6LdkGqwZAAAAAIqpizwPB2RbWsPEny9-g9P2kvoJ"></div>
+    <button id="btn_register" type="submit">Register</button>
+</form>
+<div><a href="{% url 'contactsapp:login' %}">login</a></div>
 
-    </script>
+<script>
+    let input_email = document.querySelector('#input_email')
+    let input_password = document.querySelector('#input_password')
+    let input_retype_password = document.querySelector('#input_retype_password')
+    let btn_register = document.querySelector('#btn_register')
+    btn_register.addEventListener('click', function (event) {
+        if (!input_email.value.match(/^.+@.+\..+$/)) {
+            event.preventDefault() // prevent the form from being submitted
+            alert('That email address is in a bad format')
+        }
+        if (input_password.value != input_retype_password.value) {
+            event.preventDefault() // prevent the form from being submitted
+            alert('The passwords don\'t match! :(')
+        }
+    })
+
+</script>
 {% endblock %}
