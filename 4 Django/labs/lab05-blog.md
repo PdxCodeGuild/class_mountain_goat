@@ -29,6 +29,8 @@ Create the following model:
   - image (`ImageField`)
   - user (`ForeignKey` to `django.contrib.auth.models.User`)
   - public (`BooleanField`)
+  - date_created (`DateTimeField` with `auto_now_add=True`)
+  - (optional) date_edited (`DateTimeField` with `auto_now=True`)
 
 Create the following pages:
 
