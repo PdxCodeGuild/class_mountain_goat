@@ -1,0 +1,12 @@
+
+<li>{{comment.text}}
+    {% if comment.children.count > 0 %}
+    <ul>
+        {% for child in comment.children.all %}
+        {% include 'blogapp/comment.html' with comment=child %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</li>
+
+
