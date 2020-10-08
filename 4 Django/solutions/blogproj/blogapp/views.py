@@ -11,8 +11,8 @@ def index(request):
 
 def detail(request, blog_post_id):
     post = BlogPost.objects.get(id=blog_post_id)
-    top_level_comments = post.comments.all()
-    # top_level_comments = post.comments.filter(parent__isnull=True)
+    # top_level_comments = post.comments.all()
+    top_level_comments = post.comments.filter(parent__isnull=True)
     context = {
         'post': post,
         'top_level_comments': top_level_comments
