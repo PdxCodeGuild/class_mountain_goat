@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{post.title}}</h1>
+    <p>{{post.body | safe}}</p>
+
+    <ul>
+        {% for comment in top_level_comments %}
+        {% include 'blogapp/comment.html' %}
+        {% endfor %}
+    </ul>
+
+    {% comment %}
+    <ul>
+        {% for comment in top_level_comments %}
+        <li>{{ comment.text }}
+            {% if comment.children.count > 0 %}
+            <ul>
+                {% for child_comment in comment.children.all %}
+                <li>{{child_comment.text}}
+                    {% if child_comment.children.count > 0 %}
+                    <ul>
+                        {% for child_child_comment in child_comment.children.all %}
+                        <li>{{child_child_comment.text}}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endcomment %}
+</body>
+</html>
