@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Todo List</h1>
+        <input type="text" v-model="input_todo_text"/>
+        <select v-model="input_priority_id">
+            <option value="" disabled>Select a Priority</option>
+            {% for priority in priorities %}
+            <option value="{{priority.id}}">{{priority.name}}</option>
+            {% endfor %}
+        </select>
+        <button v-on:click="saveTodo">add</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Todo Item</th>
+                    <th>Priority</th>
+                    <th>Date Created</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="todo in todos">
+                    <td>[[todo.text]]</td>
+                    <td>[[todo.priority]]</td>
+                    <td>[[todo.date_created]]</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data: {
+                todos: [],
+                input_todo_text: '',
+                input_priority_id: ''
+            },
+            methods: {
+                getTodos: function() {
+                    axios({
+                        method: 'get',
+                        url: "{% url 'main:todos' %}"
+                    }).then(response => {
+                        this.todos = response.data.todos
+                    })
+                },
+                saveTodo: function() {
+                    axios({
+                        method: 'post',
+                        url: "{% url 'main:save_todo' %}",
+                        data: {
+                            todo_text: this.input_todo_text,
+                            priority_id: this.input_priority_id
+                        },
+                        headers: {
+                            'X-CSRFToken': '{{ csrf_token }}'
+                        }
+                    }).then(response => {
+                        console.log(response.data)
+                        this.getTodos()
+                    })
+                }
+            },
+
+            created: function() {
+                this.getTodos()
+            }
+        })
+    </script>
+</body>
+</html>

@@ -6,7 +6,7 @@ from .forms import ContactForm
 from .models import Contact
 import requests
 
-from contactsproj2 import secrets
+from django.conf import settings
 
 
 # from django.contrib.auth import login as login_user
@@ -22,7 +22,7 @@ def register(request):
         # recaptcha
         recaptcha_data = {
             'response': request.POST['g-recaptcha-response'],
-            'secret': secrets.recaptcha_secret_key
+            'secret': settings.RECAPTCHA_SECRET_KEY
         }
         response = requests.post('https://www.google.com/recaptcha/api/siteverify', data=recaptcha_data)
 
@@ -53,7 +53,7 @@ def register(request):
         # redirect to the home page
         return HttpResponseRedirect(reverse('contactsapp:home'))
             
-    return render(request, 'contactsapp/register.html')
+    return render(request, 'contactsapp/register.html', {'recaptcha_public_key': settings.RECAPTCHA_PUBLIC_KEY})
 
 
 def login(request):
@@ -93,6 +93,10 @@ def create(request):
         form = ContactForm(request.POST, request.FILES)
         if form.is_valid():
             print(form.instance)
+
+            # form.save()
+            # return HttpResponseRedirect(reverse('contactsapp:home'))
+
             contact = form.save(commit=False)
             contact.user = request.user
             contact.save()
