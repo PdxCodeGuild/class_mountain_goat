@@ -34,8 +34,8 @@ For example, accessing `localhost:8000/search?text=chaucer&page=1` should return
             "link": "https://en.wikipedia.org/wiki/The_Canterbury_Tales",
             "country": "England",
             "language": "English",
-            "year": 1450
-            "pages": 544,
+            "year": 1450,
+            "pages": 544
         }
     ]
 }
