@@ -25,7 +25,7 @@
     <input type="email" id="input_email" name="email" placeholder="email" required />
     <input type="password" id="input_password" name="password" placeholder="password" required />
     <input type="password" id="input_retype_password" name="retype_password" placeholder="retype password" required />
-    <div class="g-recaptcha" data-sitekey="6LdkGqwZAAAAAIqpizwPB2RbWsPEny9-g9P2kvoJ"></div>
+    <div class="g-recaptcha" data-sitekey="{{recapatcha_public_key}}"></div>
     <button id="btn_register" type="submit">Register</button>
 </form>
 <div><a href="{% url 'contactsapp:login' %}">login</a></div>

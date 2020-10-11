@@ -7,6 +7,6 @@
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|bootstrap }}
-    <button type="submit">Create Contact</button>
+    <button class="btn btn-primary" type="submit">Create Contact</button>
 </form>
 {% endblock %}
