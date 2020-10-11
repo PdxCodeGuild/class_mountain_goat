@@ -14,11 +14,11 @@ Create an app `pokedex` and add two models to store our pokemon, `Pokemon` and `
 `Pokemon` should have the following fields:
 - `number` (IntegerField)
 - `name` (CharField)
-- `height` (IntegerField)
-- `weight` (IntegerField)
+- `height` (FloatField)
+- `weight` (FloatField)
 - `image_front` (CharField)
 - `image_back` (CharField)
-- `types` (MantToManyField with `PokemonType`)
+- `types` (ManyToManyField with `PokemonType`)
 
 ## Part 2
 
