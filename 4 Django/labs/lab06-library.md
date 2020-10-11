@@ -1,6 +1,8 @@
 
 
-# Library
+# Lab 6: Library
+
+Let's build a single page application for managing a library of books.
 
 ## Part 1
 
@@ -41,7 +43,7 @@ For example, accessing `localhost:8000/search?text=chaucer&page=1` should return
 
 ## Part 3
 
-Create an `index` view that returns a template containing a Vue app. The Vue app should have a `books` array in its `data` and send an ajax `GET` request from the app's `created` lifecycle hook. It should then show the books in the page. Allow the user to enter text and change the page number to get different results. You can show the images from the books by concatenating them with 
+Create an `index` view that returns a template containing a Vue app. The Vue app should have a `books` array in its `data` and send an ajax `GET` request from the app's `created` lifecycle hook. It should then show the books in the page. Allow the user to enter text and change the page number to get different results. You can show the image for each book by concatenating them with the url to the image, e.g. `https://raw.githubusercontent.com/PdxCodeGuild/class_mountain_goat/master/4%20Django/labs/images/<image>.jpg`
 
 ![library](./library.png)
 
