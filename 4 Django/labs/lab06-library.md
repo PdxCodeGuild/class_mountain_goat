@@ -20,7 +20,7 @@ Define the following model, and load the data from [books.json](./books.json) in
 
 ## Part 2
 
-Set up a `search` view accessed by `localhost:8000` that takes two query parameters, `search` and `page`. The view should return `json` containing books that match the search text (if blank or missing, return all books) and page number (5 books per page, use the django paginator).
+Set up a `search` view accessed by `localhost:8000/search/` that takes two query parameters, `text` and `page`. The view should return `json` containing books that match the search text (if blank or missing, return all books) and page number (5 books per page, use the django paginator).
 
 For example, accessing `localhost:8000/search?text=chaucer&page=1` should return something like:
 
