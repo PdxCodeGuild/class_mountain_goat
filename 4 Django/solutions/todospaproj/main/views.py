@@ -10,17 +10,6 @@ def index(request):
     return render(request, 'main/index.html')
 
 
-def priorities(request):
-    data = {'priorities': []}
-    priorities = Priority.objects.all()
-    for priority in priorities:
-        data['priorities'].append({
-            'id': priority.id,
-            'name': priority.name,
-            'order': priority.order,
-        })
-    return JsonResponse(data)
-
 def add_todo(request):
     data = json.loads(request.body)
     
@@ -48,14 +37,33 @@ def delete_todo(request):
 
 
 def todos(request):
-    data = {'todos': []}
     todos = TodoItem.objects.order_by('date_completed', '-priority', 'date_created')
+    todo_data = []
     for todo in todos:
-        data['todos'].append({
+        todo_data.append({
             'id': todo.id,
             'text': todo.text,
             'priority': todo.priority.name,
             'date_created': todo.date_created.strftime('%Y-%m-%d %H:%M'),
             'date_completed': todo.date_completed.strftime('%Y-%m-%d %H:%M') if todo.date_completed else None,
         })
+    return JsonResponse({'todos': todo_data})
+
+
+def priorities(request):
+    data = {'priorities': []}
+    priorities = Priority.objects.all()
+    for priority in priorities:
+        data['priorities'].append({
+            'id': priority.id,
+            'name': priority.name,
+            'order': priority.order,
+        })
     return JsonResponse(data)
+
+
+def clear_completed(request):
+    completed_todos = TodoItem.objects.filter(date_completed__isnull=False)
+    completed_todos.delete()
+
+    return HttpResponse('ok')

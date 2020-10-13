@@ -23,9 +23,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-    <!-- Lodash -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
-
     <style>
         .low {
             color:blue;
@@ -50,13 +47,6 @@
         .col-2 {
             padding-right: 0 !important;
         }
-
-        .list-move {
-            transition: transform 1s;
-        }
-        .todo_row div {
-            padding:10px;
-        }
         
     </style>
 </head>
@@ -80,32 +70,29 @@
             </div>
         </div>
         <div class="row">
-            <a class="btn btn-warning" v-on:click="shuffle">Shuffle</a>
-            <a class="btn btn-primary" v-on:click="clearCompleted">Clear Completed</a>
-        </div>
-        <div class="row">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4">Todo</div>
-                    <div class="col-2">Priority</div>
-                    <div class="col-2">Created</div>
-                    <div class="col-2">Completed</div>
-                    <div class="col-2">-</div>
-                </div>
-                <hr/>
-                <transition-group name="list" tag="span">
-                    <div class="row todo_row" v-for="todo in todos" v-bind:key="todo.id" v-bind:class="{completed: todo.date_completed}">
-                        <div class="col-4">[[ todo.text ]]</div>
-                        <div class="col-2" v-bind:class="!todo.date_completed? todo.priority: ''">[[ todo.priority | capitalize ]]</div>
-                        <div class="col-2">[[ todo.date_created ]]</div>
-                        <div class="col-2">[[ todo.date_completed? todo.date_completed: '-' ]]</div>
-                        <div class="col-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Todo</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Completed</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="todo in todos" v-bind:class="{completed: todo.date_completed}">
+                        <td>[[ todo.text ]]</td>
+                        <td v-bind:class="!todo.date_completed? todo.priority: ''">[[ todo.priority | capitalize ]]</td>
+                        <td>[[ todo.date_created ]]</td>
+                        <td>[[ todo.date_completed ]]</td>
+                        <td>
                             <a v-if="!todo.date_completed" class="btn btn-success" v-on:click="completeTodo(todo.id)">complete</a>
                             <a v-else class="btn btn-danger" v-on:click="deleteTodo(todo.id)">delete</a>
-                        </div>
-                    </div>
-                </transition-group>
-            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <script>
@@ -136,8 +123,6 @@
                         //     text: this.input_todo_text,
                         //     priority: ''
                         // })
-                        this.input_todo_text = ''
-                        this.input_priority_id = ''
                         this.getTodos()
                     })
                 },
@@ -174,18 +159,6 @@
                         this.getTodos()
                     })
                 },
-                shuffle: function() {
-                    this.todos = _.shuffle(this.todos)
-                },
-                clearCompleted: function() {
-                    axios({
-                        url: '{% url "main:clear_completed" %}',
-                        method: 'get'
-                    }).then(response => {
-                        console.log(response.data)
-                        this.getTodos()
-                    })
-                }
             },
             filters: {
                 capitalize: function (value) {
