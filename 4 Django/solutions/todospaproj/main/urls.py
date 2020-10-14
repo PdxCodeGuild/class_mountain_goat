@@ -13,5 +13,6 @@ urlpatterns = [
     path('complete_todo/', views.complete_todo, name='complete_todo'),
     path('delete_todo/', views.delete_todo, name='delete_todo'),
     path('clear_completed/', views.clear_completed, name='clear_completed'),
+    path('save_edited_todo/', views.save_edited_todo, name='save_edited_todo'),
 ]
 

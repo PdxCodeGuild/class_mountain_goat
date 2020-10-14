@@ -14,7 +14,7 @@ Define the following model, and load the data from [books.json](./books.json) in
   - image (`CharField`)
   - year (`IntegerField`)
   - pages (`IntegerField`)
-  - url (`IntegerField`)
+  - url (`CharField`)
   - country (`CharField`)
   - language (`CharField`)
 
@@ -43,7 +43,7 @@ For example, accessing `localhost:8000/search?text=chaucer&page=1` should return
 
 ## Part 3
 
-Create an `index` view that returns a template containing a Vue app. The Vue app should have a `books` array in its `data` and send an ajax `GET` request from the app's `created` lifecycle hook. It should then show the books in the page. Allow the user to enter text and change the page number to get different results. You can show the image for each book by concatenating them with the url to the image, e.g. `https://raw.githubusercontent.com/PdxCodeGuild/class_mountain_goat/master/4%20Django/labs/images/<image>.jpg`
+Create an `index` view that returns a template containing a Vue app. The Vue app should have a `books` array in its `data` and send an ajax `GET` request from the app's `created` lifecycle hook. It should then show the books in the page. Allow the user to enter text and change the page number to get different results. You can show the image for each book by concatenating them with the url to the image, e.g. `https://raw.githubusercontent.com/PdxCodeGuild/class_mountain_goat/master/4%20Django/labs/images/<file name>`
 
 ![library](./library.png)
 

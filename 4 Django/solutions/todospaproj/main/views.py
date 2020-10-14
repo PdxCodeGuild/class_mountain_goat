@@ -43,7 +43,11 @@ def todos(request):
         todo_data.append({
             'id': todo.id,
             'text': todo.text,
-            'priority': todo.priority.name,
+            'priority': {
+                'id': todo.priority.id,
+                'name': todo.priority.name,
+                'order': todo.priority.order
+            },
             'date_created': todo.date_created.strftime('%Y-%m-%d %H:%M'),
             'date_completed': todo.date_completed.strftime('%Y-%m-%d %H:%M') if todo.date_completed else None,
         })
@@ -65,5 +69,19 @@ def priorities(request):
 def clear_completed(request):
     completed_todos = TodoItem.objects.filter(date_completed__isnull=False)
     completed_todos.delete()
+
+    return HttpResponse('ok')
+
+def save_edited_todo(request):
+    todo_data = json.loads(request.body)
+
+    todo_item = TodoItem.objects.get(id=todo_data['id'])
+    todo_item.text = todo_data['text']
+    
+    # priority = Priority.objects.get(id=todo_data['priority']['id'])
+    # todo_item.priority = priority
+
+    todo_item.priority_id = todo_data['priority']['id']
+    todo_item.save()
 
     return HttpResponse('ok')

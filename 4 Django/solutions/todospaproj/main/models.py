@@ -19,5 +19,5 @@ class TodoItem(models.Model):
     date_completed = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return self.text
+        return self.priority.name + ' ' + self.text
 

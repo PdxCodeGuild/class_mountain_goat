@@ -25,28 +25,41 @@
         crossorigin="anonymous"></script>
     <!-- Lodash -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+    <!-- Font Awesome 4.7 -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+    <!-- <i class="fa fa-arrow-up" aria-hidden="true"></i> -->
+    <!-- https://fontawesome.com/v4.7.0/ -->
+    <!-- Font Awesome 5.15 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
     <style>
         .low {
-            color:blue;
+            color: blue;
         }
+
         .medium {
-            color:orange;
+            color: orange;
         }
+
         .high {
             color: red;
         }
+
         .completed {
-            color:grey;
+            color: grey;
             text-decoration: line-through;
         }
+
         .input_row {
-            margin-bottom:20px;
-            justify-content:space-evenly;
+            margin-bottom: 20px;
+            justify-content: space-evenly;
         }
+
         .col-8 {
             padding-left: 0 !important;
         }
+
         .col-2 {
             padding-right: 0 !important;
         }
@@ -54,20 +67,52 @@
         .list-move {
             transition: transform 1s;
         }
-        .todo_row div {
-            padding:10px;
+
+        .list-enter-active,
+        .list-leave-active {
+            transition: all 1s;
         }
-        
+
+        .list-enter,
+        .list-leave-to
+
+        /* .list-leave-active below version 2.1.8 */
+            {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+
+
+        .todo_row div {
+            padding: 10px;
+        }
+
+        .header_row div {
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .header_row div i {
+            margin-left: 20px;
+        }
     </style>
 </head>
+
 <body>
     <div id="app" class="container">
         <div class="row">
             <h1>Todo List</h1>
         </div>
+
+        <!-- Create Todo Form -->
         <div class="row input_row">
             <div class="col-8">
-                <input type="text" class="form-control" placeholder="Enter a Todo" v-model="input_todo_text"/>
+                <input type="text" class="form-control" placeholder="Enter a Todo" v-model="input_todo_text" />
             </div>
             <div class="col-2">
                 <select class="form-control" v-model="input_priority_id">
@@ -80,46 +125,216 @@
             </div>
         </div>
         <div class="row">
-            <a class="btn btn-warning" v-on:click="shuffle">Shuffle</a>
+            <!-- <a class="btn btn-warning" v-on:click="shuffle">Shuffle</a> -->
             <a class="btn btn-primary" v-on:click="clearCompleted">Clear Completed</a>
         </div>
+
+
+
+        <!-- Todo Table -->
         <div class="row">
             <div class="container">
-                <div class="row">
-                    <div class="col-4">Todo</div>
-                    <div class="col-2">Priority</div>
-                    <div class="col-2">Created</div>
-                    <div class="col-2">Completed</div>
-                    <div class="col-2">-</div>
+                <div class="row header_row">
+                    <div v-for="heading in headings" :class="heading.col_class" @click="sortColumn(heading.field)">
+                        <span>[[heading.title]]</span>
+                        <span v-if="sort_field == heading.field">
+                            <i v-if="sort_direction" class="fas fa-chevron-up"></i>
+                            <i v-else class="fas fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="col-2"></div>
                 </div>
-                <hr/>
+                <hr />
                 <transition-group name="list" tag="span">
-                    <div class="row todo_row" v-for="todo in todos" v-bind:key="todo.id" v-bind:class="{completed: todo.date_completed}">
+                    <div class="row todo_row" v-for="todo in sorted_todos" v-bind:key="todo.id"
+                        v-bind:class="{completed: todo.date_completed}">
                         <div class="col-4">[[ todo.text ]]</div>
-                        <div class="col-2" v-bind:class="!todo.date_completed? todo.priority: ''">[[ todo.priority | capitalize ]]</div>
+                        <div class="col-2" v-bind:class="!todo.date_completed? todo.priority.name: ''">[[ todo.priority.name |
+                            capitalize ]]</div>
                         <div class="col-2">[[ todo.date_created ]]</div>
                         <div class="col-2">[[ todo.date_completed? todo.date_completed: '-' ]]</div>
                         <div class="col-2">
-                            <a v-if="!todo.date_completed" class="btn btn-success" v-on:click="completeTodo(todo.id)">complete</a>
+                            <button type="button" v-if="!todo.date_completed" class="btn btn-primary"
+                                data-toggle="modal" data-target="#exampleModal" @click="editTodo(todo)">edit</button>
+                            <a v-if="!todo.date_completed" class="btn btn-success"
+                                v-on:click="completeTodo(todo.id)">complete</a>
                             <a v-else class="btn btn-danger" v-on:click="deleteTodo(todo.id)">delete</a>
                         </div>
                     </div>
                 </transition-group>
             </div>
         </div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Todo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="input_edit_todo">Todo</label>
+                            <input type="text" class="form-control" id="input_edit_todo" v-model="edit_todo.text">
+                        </div>
+                        <div class="form-group">
+                            <label for="input_edit_priority">Priority</label>
+                            <select id="input_edit_priority" class="form-control" v-model="edit_todo.priority">
+                                <option v-for="priority in priorities" v-bind:value="priority">[[priority.name]]</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Created Date</label>
+                            <input type="text" class="form-control" disabled :value="edit_todo.date_created">
+                        </div>
+                        <div class="form-group">
+                            <label>Completed Date</label>
+                            <input type="text" class="form-control" disabled :value="edit_todo.date_completed? edit_todo.date_completed: '-'">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" @click="saveEditedTodo">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
+
+
+        // let people = [{
+        //     name: 'joe',
+        //     age: 34
+        // },{
+        //     name: 'jane',
+        //     age: 23
+        // },{
+        //     name: 'jill',
+        //     age: 12
+        // },{
+        //     name: 'ezekiel',
+        //     age: 566
+        // }]
+        // people.sort(function(a, b) {
+
+        //     if (a.age < b.age) {
+        //         return -1
+        //     } else if (a.age > b.age) {
+        //         return 1
+        //     } else {
+        //         return 0
+        //     }
+        // })
+        // console.log(people)
+
+
+        // let nums = [5, 2, 8, 9, 1, 9]
+        // nums.sort(function(a, b) {
+        //     console.log(a, b)
+        //     if (a < b) {
+        //         return -1
+        //     } else if (a > b) {
+        //         return 1
+        //     } else {
+        //         return 0
+        //     }
+        // })
+        // console.log(nums)
+
+        // function shallowCopy(arr) {
+        //     let r = []
+        //     for (let i=0; i<arr.length; ++i) {
+        //         r.push(arr[i])
+        //     }
+        //     return r
+        // }
+
+        // let nums = [1, 2, 3, 4]
+        // let nums2 = [...nums]
+        // let nums2 = shallowCopy(nums)
+        // nums2[0] = 100
+        // console.log(nums)
+        // console.log(nums2)
+
+        // let people = [{
+        //     name: 'joe',
+        //     age: 34
+        // },{
+        //     name: 'jane',
+        //     age: 23
+        // },{
+        //     name: 'jill',
+        //     age: 12
+        // },{
+        //     name: 'ezekiel',
+        //     age: 566
+        // }]
+        // let people2 = shallowCopy(people)
+        // people2[0] = {name: 'jack', age: 1}
+        // people2[0].name += 'bob'
+        // people2[0].age += 1
+        // console.log(people)
+        // console.log(people2)
+
+        // let x = {age: 20}
+        // let y = JSON.parse(JSON.stringify(x))
+        // y.age += 1
+        // console.log(x)
+        // console.log(y)
+
+        // let x = 20
+        // let y = x
+        // y += 1
+        // console.log(x)
+        // console.log(y)
+        
+
+
+
+
         let app = new Vue({
             el: '#app',
             delimiters: ['[[', ']]'],
             data: {
                 input_todo_text: '',
                 input_priority_id: '',
+                edit_todo: {
+                    text: '',
+                    priority: {},
+                    date_created: '',
+                    date_completed: ''
+                },
                 todos: [],
-                priorities: []
+                priorities: [],
+                sort_field: null,
+                sort_direction: null,
+                headings: [{
+                    title: 'Todo',
+                    field: 'text',
+                    col_class: 'col-4'
+                }, {
+                    title: 'Priority',
+                    field: 'priority',
+                    col_class: 'col-2'
+                }, {
+                    title: 'Created',
+                    field: 'date_created',
+                    col_class: 'col-2'
+                }, {
+                    title: 'Completed',
+                    field: 'date_completed',
+                    col_class: 'col-2'
+                }]
             },
             methods: {
-                addTodo: function() {
+                addTodo: function () {
                     axios({
                         url: '{% url "main:add_todo" %}',
                         method: 'post',
@@ -141,7 +356,7 @@
                         this.getTodos()
                     })
                 },
-                getTodos: function() {
+                getTodos: function () {
                     axios({
                         url: '{% url "main:todos" %}',
                         method: 'get'
@@ -150,7 +365,7 @@
                         this.todos = response.data.todos
                     })
                 },
-                completeTodo: function(todo_item_id) {
+                completeTodo: function (todo_item_id) {
                     axios({
                         url: '{% url "main:complete_todo" %}',
                         method: 'get',
@@ -162,7 +377,7 @@
                         this.getTodos()
                     })
                 },
-                deleteTodo: function(todo_item_id) {
+                deleteTodo: function (todo_item_id) {
                     axios({
                         url: '{% url "main:delete_todo" %}',
                         method: 'get',
@@ -174,10 +389,10 @@
                         this.getTodos()
                     })
                 },
-                shuffle: function() {
+                shuffle: function () {
                     this.todos = _.shuffle(this.todos)
                 },
-                clearCompleted: function() {
+                clearCompleted: function () {
                     axios({
                         url: '{% url "main:clear_completed" %}',
                         method: 'get'
@@ -185,6 +400,67 @@
                         console.log(response.data)
                         this.getTodos()
                     })
+                },
+                sortColumn: function (field) {
+                    if (this.sort_field == field) {
+                        this.sort_direction = !this.sort_direction
+                    } else {
+                        this.sort_field = field
+                        this.sort_direction = true
+                    }
+                },
+                editTodo: function(todo) {
+                    // this.edit_todo = JSON.parse(JSON.stringify(todo))
+                    this.edit_todo = {...todo}
+
+                    // do not do this because in the modal you'll edit the original todo in the table
+                    // this.edit_todo = todo
+                },
+                saveEditedTodo: function() {
+                    axios({
+                        url: '{% url "main:save_edited_todo" %}',
+                        method: 'post',
+                        data: this.edit_todo,
+                        headers: {
+                            'X-CSRFToken': '{{ csrf_token }}'
+                        }
+                    }).then(response => {
+                        this.getTodos()
+                        $('#exampleModal').modal('hide')
+
+                        // for (let i=0; i<this.todos.length; ++i) {
+                        //     if (this.todos[i].id == this.edit_todo.id) {
+                        //         this.todos[i] = this.edit_todo
+                        //         break
+                        //     }
+                        // }
+
+                    })
+                }
+            },
+            computed: {
+                sorted_todos: function () {
+                    let r = this.todos.slice()
+                    if (this.sort_field == 'priority') {
+                        r.sort((a, b) => {
+                            if (this.sort_direction) {
+                                return a.priority.order - b.priority.order
+                            } else {
+                                return b.priority.order - a.priority.order
+                            }
+                        })
+                    } else {
+                        r.sort((a, b) => {
+                            if (a[this.sort_field] < b[this.sort_field]) {
+                                return (this.sort_direction) ? -1 : 1
+                            } else if (a[this.sort_field] > b[this.sort_field]) {
+                                return (this.sort_direction) ? 1 : -1
+                            } else {
+                                return 0
+                            }
+                        })
+                    }
+                    return r
                 }
             },
             filters: {
