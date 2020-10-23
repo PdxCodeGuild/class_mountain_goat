@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register</title>
+    </head>
+    <body>
+        <h1>Register</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="username" value="{{username}}"/>
+            <input type="email" name="email" placeholder="email" value="nunyabusinesssha132@gmail.com"/>
+            <input type="password" name="password" placeholder="password" value="abc123llama"/>
+            <button type="submit">register</button>
+        </form>
+    </body>
+</html>
